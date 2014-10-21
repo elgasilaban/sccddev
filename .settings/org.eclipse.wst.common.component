@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="sccddev">
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/properties"/>
+        <wb-resource deploy-path="/" source-path="/www"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/heli"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/framework"/>
+        <property name="context-root" value="/sccddev"/>
+        <property name="java-output-path" value="/sccddev/WebRoot/WEB-INF/classes"/>
+    </wb-module>
+</project-modules>
