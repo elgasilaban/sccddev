@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.1
+Created-By: jvmwi3260sr10-20111207_96808 (IBM Corporation)
+Class-Path: businessobjects.jar mboejbclient.jar commonweb.jar propert
+ ies.jar lib/k2client.jar lib/lowagie.jar lib/soap.jar mboejb.jar lib/
+ icu4j.jar lib/bcel-5.2.jar lib/bayeux-api-2.4.0.jar lib/cometd-java-a
+ nnotations-2.4.0.jar lib/cometd-java-oort-2.4.0.jar lib/cometd-websoc
+ ket-jetty-2.4.0.jar lib/cometd-java-common-2.4.0.jar lib/cometd-java-
+ server-2.4.0.jar lib/cometd-java-client-2.4.0.jar lib/javax.inject-1.
+ jar lib/jetty-client-7.6.0.v20120127.jar lib/jetty-continuation-7.6.0
+ .v20120127.jar lib/jetty-servlets-7.6.0.v20120127.jar lib/jetty-http-
+ 7.6.0.v20120127.jar lib/jetty-io-7.6.0.v20120127.jar lib/jetty-websoc
+ ket-7.6.0.v20120127.jar lib/jetty-util-7.6.0.v20120127.jar lib/slf4j-
+ simple-1.6.4.jar
+
