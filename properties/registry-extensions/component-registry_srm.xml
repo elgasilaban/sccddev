@@ -1,0 +1,154 @@
+<component-registry basedir="webclient\components" package="psdi.webclient.system">
+
+ <component-descriptor name="dojorichtext" instance-class="${package}.controller.BoundComponentInstance">
+     <property-list>
+        <property name="jsp-filename">
+             <default-value>dojorichtext</default-value>
+         </property>
+         <property name="id">
+             <flag name="final"/>
+         </property>
+         <property name="alwaysinclude">
+             <default-value>false</default-value>
+         </property>
+         <property name="visible">
+             <default-value>true</default-value>
+         </property>
+         <property name="dataattribute"/>
+         <property name="remarks"/>
+         <property name="usereditable">
+             <default-value>true</default-value>
+         </property>
+         <property name="title"/>
+         <property name="prepend"/>
+         <property name="width"/>
+         <property name="length"/>
+         <property name="numericonly"/>
+         <property name="scale"/>
+         <property name="isnumeric"/>
+         <property name="haslongdescription"/>
+         <property name="size"/>
+         <property name="inttype"/>
+         <property name="hidewhen"/>
+         <property name="ispersistent"/>
+         <property name="entityname"/>
+         <property name="objectname"/>
+         <property name="attributename"/>
+         <property name="columnname"/>
+         <property name="cssclass"/>
+         <property name="tablereadonly"/>
+         <property name="onfilterrow"/>
+         <property name="inputmode"/>
+         <property name="value"/>
+         <property name="valuepart"/>
+         <property name="instance-class"/>
+         <property name="defaultbutton"/>
+         <property name="lookup"/>
+         <property name="menutype"/>
+         <property name="longdesc"/>
+         <property name="rownum">
+             <flag name="system"/>
+         </property>
+         <property name="input">
+             <default-value>true</default-value>
+             <flag name="final"/>
+         </property>
+         <property name="borderalways">
+             <default-value>false</default-value>
+             <flag name="final"/>
+         </property>
+         <property name="isunbound">
+             <default-value>false</default-value>
+             <flag name="final"/>
+         </property>
+         <property name="takesfocus">
+             <default-value>true</default-value>
+         </property>
+         <property name="selected"/>
+         <property name="forceclear"/>
+         <property name="defaultrender">
+             <default-value>false</default-value>
+         </property>
+         <property name="usefieldsizegroup"/>
+         <property name="textcss"/>
+         <property name="specattr"/>
+         <property name="height"/>
+     </property-list>
+ </component-descriptor>
+    
+    <component-descriptor name="rttextarea" instance-class="psdi.webclient.components.TextArea">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>rttextarea</default-value>
+			</property>
+			<property name="attributename" />
+			<property name="borderalways">
+				<default-value>false</default-value>
+				<flag name="final" />
+			</property>
+			<property name="columnname" />
+			<property name="columns" />
+			<property name="columnscale">
+				<default-value>10</default-value>
+			</property>
+			<property name="cssclass" />
+			<property name="dataattribute" />
+			<property name="defaultrender">
+				<default-value>true</default-value>
+			</property>
+			<property name="entityname" />
+			<property name="focuslocation">
+				<default-value>end</default-value>
+			</property>
+			<property name="haslongdescription" />
+			<property name="hidetooltip">
+				<default-value>false</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="input">
+				<default-value>true</default-value>
+				<flag name="final" />
+			</property>
+			<property name="inputmode" />
+			<property name="instance-class" />
+			<property name="inttype" />
+			<property name="isnumeric" />
+			<property name="ispersistent" />
+			<property name="isunbound">
+				<default-value>false</default-value>
+				<flag name="final" />
+			</property>
+			<property name="length" />
+			<property name="objectname" />
+			<property name="remarks" />
+			<property name="resizeable">
+				<default-value>false</default-value>
+			</property>
+			<property name="rows" />
+			<property name="rowscale">
+				<default-value>20</default-value>
+			</property>
+			<property name="scale" />
+			<property name="selectonfocus" />
+			<property name="size" />
+			<property name="takesfocus">
+				<default-value>true</default-value>
+			</property>
+			<property name="title" />
+			<property name="value" />
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			<!--   <property name="width" /> -->
+			<property name="height" />
+			<property name="textcss" />
+			<property name="accepthtmltags">
+				<default-value>false</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+	
+	 
+</component-registry>

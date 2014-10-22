@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+    <name>Quick Configuration for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+		<modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410</build>
+    </version>
+	<depends>common_pmp</depends>		
+    <dbmaxvarname>DBQUICKCFG</dbmaxvarname>
+    <dbscripts>quickcfg</dbscripts>
+	<dbversion>V7501-03</dbversion>
+	<lastdbversion>V7211-00*V7211-11*V7500-04*V7510-01</lastdbversion>    
+    <extensions>
+        <mbo objectname='SDACONFIG' extends='psdi.mbo.Mbo'>com.ibm.ism.srmapp.app.srm.config.SDAConfig</mbo>
+        <class extends='psdi.mbo.MboRemote'>com.ibm.ism.srmapp.app.srm.config.SDAConfigRemote</class>
+		<mboset objectname='SDACONFIG' extends='psdi.mbo.MboSet'>com.ibm.ism.srmapp.app.srm.config.SDAConfigSet</mboset>
+		<class extends='psdi.mbo.MboSetRemote'>com.ibm.ism.srmapp.app.srm.config.SDAConfigSetRemote</class>
+        
+        <mbo objectname='SDADNSPROP' extends='psdi.mbo.NonPersistentMbo'>com.ibm.ism.srmapp.app.srm.config.SDAConfigDNS</mbo>
+        <mboset objectname='SDADNSPROP' extends='psdi.mbo.NonPersistentMboSet'>com.ibm.ism.srmapp.app.srm.config.SDAConfigDNSSet</mboset>
+
+		<mbo objectname='SDASCPROP' extends='psdi.mbo.NonPersistentMbo'>com.ibm.ism.srmapp.app.srm.config.SDAConfigSC</mbo>
+        <mboset objectname='SDASCPROP' extends='psdi.mbo.NonPersistentMboSet'>com.ibm.ism.srmapp.app.srm.config.SDAConfigSCSet</mboset>
+        
+		<mbo objectname='SDACONFIGLOG' extends='psdi.mbo.Mbo'>com.ibm.ism.srmapp.app.srm.config.SDAConfigLog</mbo>
+		<class extends='psdi.mbo.MboRemote'>com.ibm.ism.srmapp.app.srm.config.SDAConfigLogRemote</class>
+		<mboset objectname='SDACONFIGLOG' extends='psdi.mbo.MboSet'>com.ibm.ism.srmapp.app.srm.config.SDAConfigLogSet</mboset>
+		<class extends='psdi.mbo.MboSetRemote'>com.ibm.ism.srmapp.app.srm.config.SDAConfigLogSetRemote</class>
+
+		<mbo objectname='SDAMSADROP' extends='psdi.mbo.NonPersistentMbo'>com.ibm.ism.srmapp.app.srm.config.virtual.SDAMsadProp</mbo>
+		<class extends='psdi.mbo.NonPersistentMboRemote'>com.ibm.ism.srmapp.app.srm.config.virtual.SDAMsadPropRemote</class>
+		<mboset objectname='SDAMSADROP' extends='psdi.mbo.NonPersistentMboSet'>com.ibm.ism.srmapp.app.srm.config.virtual.SDAMsadPropSet</mboset>
+		<class extends='psdi.mbo.NonPersistentMboSetRemote'>com.ibm.ism.srmapp.app.srm.config.virtual.SDAMsadPropSetRemote</class>
+		<field objectname='SDAMSADPROP' attributename='SDA_LDAP_BASEDOMAIN_PROPVALUE' extends='psdi.mbo.MAXTableDomain'>com.ibm.ism.srmapp.app.srm.config.virtual.FldBaseDomain</field>
+		<field objectname='SDAMSADPROP' attributename='SDA_LDAP_DOMAIN_PROPVALUE' extends='psdi.mbo.MAXTableDomain'>com.ibm.ism.srmapp.app.srm.config.virtual.FldLDAPDomain</field> 
+		<field objectname='SDAMSADPROP' attributename='SDA_LDAP_HOST_PROPVALUE' extends='psdi.mbo.MAXTableDomain'>com.ibm.ism.srmapp.app.srm.config.virtual.FldLDAPHost</field> 
+		<field objectname='SDAMSADPROP' attributename='SDA_LDAP_ORGUNIT_PROPVALUE' extends='psdi.mbo.MAXTableDomain'>com.ibm.ism.srmapp.app.srm.config.virtual.FldLDAPOrgUnit</field> 
+		<field objectname='SDAMSADPROP' attributename='SDA_LDAP_PASSWORD_PROPVALUE' extends='psdi.mbo.MAXTableDomain'>com.ibm.ism.srmapp.app.srm.config.virtual.FldLDAPPassword</field> 
+		<field objectname='SDAMSADPROP' attributename='SDA_LDAP_PORT_PROPVALUE' extends='psdi.mbo.MAXTableDomain'>com.ibm.ism.srmapp.app.srm.config.virtual.FldLDAPPort</field> 
+		<field objectname='SDAMSADPROP' attributename='SDA_LDAP_USERNAME_PROPVALUE' extends='psdi.mbo.MAXTableDomain'>com.ibm.ism.srmapp.app.srm.config.virtual.FldLDAPUserName</field> 
+
+		<mbo objectname='SDAORGPROP' extends='psdi.mbo.NonPersistentMbo'>com.ibm.ism.srmapp.app.srm.config.virtual.SDAOrgProp</mbo>
+		<class extends='psdi.mbo.NonPersistentMboRemote'>com.ibm.ism.srmapp.app.srm.config.virtual.SDAOrgPropRemote</class>
+		<mboset objectname='SDAORGPROP' extends='psdi.mbo.NonPersistentMboSet'>com.ibm.ism.srmapp.app.srm.config.virtual.SDAOrgPropSet</mboset>
+		<class extends='psdi.mbo.NonPersistentMboSetRemote'>com.ibm.ism.srmapp.app.srm.config.virtual.SDAOrgPropSetRemote</class>
+		<field objectname='SDAORGPROP' attributename='SDA_ORG_BASECURRENCY_PROPVALUE' extends='psdi.app.currency.FldCurrencyCode'>com.ibm.ism.srmapp.app.srm.config.virtual.FldCurrencyCode</field> 
+		<field objectname='SDAORGPROP' attributename='SDA_ORG_CLEARINGACCT_PROPVALUE' extends='psdi.mbo.MAXTableDomain'>com.ibm.ism.srmapp.app.srm.config.virtual.FldGLAccount</field> 
+		<field objectname='SDAORGPROP' attributename='SDA_ORG_ORGID_PROPVALUE' extends='psdi.mbo.MAXTableDomain'>com.ibm.ism.srmapp.app.srm.config.virtual.FldOrgId</field> 
+ 		<field objectname='SDAORGPROP' attributename='SDA_ORG_COMPSETID_PROPVALUE' extends='psdi.mbo.MAXTableDomain'>com.ibm.ism.srmapp.app.srm.config.virtual.FldSetId</field> 
+ 		<field objectname='SDAORGPROP' attributename='SDA_ORG_SETID_PROPVALUE' extends='psdi.mbo.MAXTableDomain'>com.ibm.ism.srmapp.app.srm.config.virtual.FldSetId</field>     
+		<field objectname='SDAORGPROP' attributename='SDA_ORG_SITEID_PROPVALUE' extends='psdi.mbo.MAXTableDomain'>com.ibm.ism.srmapp.app.srm.config.virtual.FldSiteId</field> 
+
+		
+
+		<mbo objectname='SDAREPLACESTR' extends='psdi.mbo.NonPersistentMbo'>com.ibm.ism.srmapp.app.srm.util.ReplaceStr</mbo>
+		<mboset objectname='SDAREPLACESTR' extends='psdi.mbo.NonPersistentMboSet'>com.ibm.ism.srmapp.app.srm.util.ReplaceStrSet</mboset>
+
+		<class extends='psdi.server.AppService'>com.ibm.ism.srmapp.app.srm.SDAService</class>
+		<class extends='psdi.server.AppServiceRemote'>com.ibm.ism.srmapp.app.srm.SDAServiceRemote</class>
+
+		
+		
+		<bean presentation='sdaconfig' controlid='configdb_struct' extends='psdi.webclient.beans.configur.RunConfigDBBean'>com.ibm.ism.srmapp.webclient.beans.srm.RunConfigDBBean</bean>
+		
+		
+		<bean presentation='sdaconfig' controlid='sdaconfig' extends='psdi.webclient.system.beans.AppBean'>com.ibm.ism.srmapp.webclient.beans.srm.SDAConfigAppBean</bean>
+
+<!-- ADDED PL for SaaS (CI Import)-->
+        <mboset objectname='MAXEXTIFACEIN' extends='psdi.iface.app.extsystem.MaxExtIfaceInSet'>psdi.iface.app.extsystem.SimpleFormatDataImportSet</mboset>
+        <bean presentation='CI' controlid='ci' extends='psdi.webclient.beans.ci.CIAppBean'>com.ibm.ism.cci.webclient.beans.ci.SCIAppBean</bean>
+    </extensions>
+</product>

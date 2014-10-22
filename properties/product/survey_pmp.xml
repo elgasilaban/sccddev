@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+	<name>Survey Management for IBM SmartCloud Control Desk</name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+		<modlevel>1</modlevel>
+		<patch>0</patch>
+		<build>201301301410M</build>
+	</version>
+	<dbmaxvarname>DBSURVEY_PMP</dbmaxvarname>
+	<dbscripts>survey_pmp</dbscripts>
+	<dbversion>V7510-03</dbversion>
+	<lastdbversion>V710-07*V7101-02*V7103-03*V7120-18*V7201-01*V7210-04*V7211-04*V7500-10</lastdbversion>
+</product>

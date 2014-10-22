@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  31579    sayang     2/11/11    Add extension for downtimereport
+  41081.1  nedimyer   7/6/211    Fix Ticket Audition Typos
+  42418    jguajard   08/27/08   performance fixes
+  41844    scottsd    09/12/11   Unified Service Center product xmls
+  42949    scottsd    09/13/11   IC: Warnings from solutions apps
+  43040    cdoan      09/16/11   Add Functionality Gap SD->SC Integration
+  42975    scottsd    09/19/11   Entry Edition Ticket Select Action can create Process Request
+  44040    fbaldiga   11/02/11   SSCenter default classification maxvars
+  44281    kabirahmed 11/12/11   Added tempalte usage radio button.
+  44263    jguajard   12/13/11   IC error on table attribute mismatch
+  45966    scottsd    02/07/12  Product rename to IBM SmartCloud Control Desk
+  45914    mhartel    02/09/12  Name Change PCR: modify messages containing old product names
+  46250    scottsd    02/20/12  BETA: cannot MSM asset spec value on Change record
+  24465    suew       12/05/12  Ticket Template Application - Self Service Access checkbox clickable when read only
+-->
+
+<product>
+    <name>Service Desk for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+	 <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410M</build>
+    </version>
+    <dbmaxvarname>DBTSDCOM_PMP</dbmaxvarname>
+    <dbscripts>tsd_common</dbscripts>
+    <dbversion>V7510-35</dbversion>
+    <lastdbversion>V710-71*V7101-06*V7102-02*V7103-03*V7104-03*V7120-12*V7200-31*V7201-04*V7210-24*V7500-35</lastdbversion>
+    <depends>common_pmp,search_pmp</depends>
+    <extensions>
+        <mbo objectname="ASSET" extends='psdi.app.asset.Asset'>com.ibm.tsd.app.asset.PmAsset</mbo>
+        <class extends="psdi.app.asset.AssetRemote">com.ibm.tsd.app.asset.PmAssetRemote</class>
+        <mboset objectname="ASSET" extends='psdi.app.asset.AssetSet'>com.ibm.tsd.app.asset.PmAssetSet</mboset>
+        <class extends="psdi.app.asset.AssetSetRemote">com.ibm.tsd.app.asset.PmAssetSetRemote</class>
+        <mbo objectname="DOWNTIMEREPORT" extends="psdi.app.asset.virtual.DowntimeReport">com.ibm.tsd.app.asset.virtual.PmDowntimeReport</mbo>
+        <mboset objectname="DOWNTIMEREPORT" extends="psdi.app.asset.virtual.DowntimeReportSet">com.ibm.tsd.app.asset.virtual.PmDowntimeReportSet</mboset>
+        <field attributename="ISDOWNTIMEREPORT" objectname="DOWNTIMEREPORT">com.ibm.tsd.app.asset.virtual.PmFldDowntimeReportIsDownTimeReport</field>
+        <field attributename="STATUSCHANGEDATE" objectname="DOWNTIMEREPORT">com.ibm.tsd.app.asset.virtual.PmFldAssetStatusChangeDate</field>
+        <field attributename="ENDDATE" objectname="DOWNTIMEREPORT">com.ibm.tsd.app.asset.virtual.PmFldDowntimeReportDate</field>
+        <field attributename="STARTDATE" objectname="DOWNTIMEREPORT">com.ibm.tsd.app.asset.virtual.PmFldDowntimeReportDate</field>
+        <field attributename="STARTDATESOURCE" objectname="DOWNTIMEREPORT">com.ibm.tsd.app.asset.virtual.PmFldDowntimeReportStartDateSource</field>
+        <field attributename="ACTUALFINISH" objectname="SR">com.ibm.tsd.app.ticket.PmFldTkOutage</field>
+        <field attributename="ACTUALFINISH" objectname="INCIDENT">com.ibm.tsd.app.ticket.PmFldTkOutage</field>
+        <field attributename="ACTUALFINISH" objectname="PROBLEM">com.ibm.tsd.app.ticket.PmFldTkOutage</field>
+        <field attributename="AFFECTEDEMAIL" objectname="SR">com.ibm.tsd.pmcom.app.ticket.PmFldTkAffectedEmail</field>
+        <field attributename="AFFECTEDEMAIL" objectname="INCIDENT">com.ibm.tsd.pmcom.app.ticket.PmFldTkAffectedEmail</field>
+        <field attributename="AFFECTEDEMAIL" objectname="PROBLEM">com.ibm.tsd.pmcom.app.ticket.PmFldTkAffectedEmail</field>
+        <field attributename="AFFECTEDEMAIL" objectname="TICKET">com.ibm.tsd.pmcom.app.ticket.PmFldTkAffectedEmail</field>
+        <field attributename="AFFECTEDPHONE" objectname="SR">com.ibm.tsd.pmcom.app.ticket.PmFldTkAffectedPhone</field>
+        <field attributename="AFFECTEDPHONE" objectname="INCIDENT">com.ibm.tsd.pmcom.app.ticket.PmFldTkAffectedPhone</field>
+        <field attributename="AFFECTEDPHONE" objectname="PROBLEM">com.ibm.tsd.pmcom.app.ticket.PmFldTkAffectedPhone</field>
+        <field attributename="AFFECTEDPHONE" objectname="TICKET">com.ibm.tsd.pmcom.app.ticket.PmFldTkAffectedPhone</field>
+        <field attributename="IMPACT" objectname="SR">com.ibm.tsd.pmcom.app.ticket.PmFldTkImpactUrgency</field>
+        <field attributename="IMPACT" objectname="INCIDENT">com.ibm.tsd.pmcom.app.ticket.PmFldTkImpactUrgency</field>
+        <field attributename="IMPACT" objectname="PROBLEM">com.ibm.tsd.pmcom.app.ticket.PmFldTkImpactUrgency</field>
+        <field attributename="URGENCY" objectname="SR">com.ibm.tsd.pmcom.app.ticket.PmFldTkImpactUrgency</field>
+        <field attributename="URGENCY" objectname="INCIDENT">com.ibm.tsd.pmcom.app.ticket.PmFldTkImpactUrgency</field>
+        <field attributename="URGENCY" objectname="PROBLEM">com.ibm.tsd.pmcom.app.ticket.PmFldTkImpactUrgency</field>
+        <field attributename="REPORTEDEMAIL" objectname="SR">com.ibm.tsd.pmcom.app.ticket.PmFldTkReportedEmail</field>
+        <field attributename="REPORTEDEMAIL" objectname="INCIDENT">com.ibm.tsd.pmcom.app.ticket.PmFldTkReportedEmail</field>
+        <field attributename="REPORTEDEMAIL" objectname="PROBLEM">com.ibm.tsd.pmcom.app.ticket.PmFldTkReportedEmail</field>
+        <field attributename="REPORTEDEMAIL" objectname="TICKET">com.ibm.tsd.pmcom.app.ticket.PmFldTkReportedEmail</field>
+        <field attributename="REPORTEDPHONE" objectname="SR">com.ibm.tsd.pmcom.app.ticket.PmFldTkReportedPhone</field>
+        <field attributename="REPORTEDPHONE" objectname="INCIDENT">com.ibm.tsd.pmcom.app.ticket.PmFldTkReportedPhone</field>
+        <field attributename="REPORTEDPHONE" objectname="PROBLEM">com.ibm.tsd.pmcom.app.ticket.PmFldTkReportedPhone</field>
+        <field attributename="REPORTEDPHONE" objectname="TICKET">com.ibm.tsd.pmcom.app.ticket.PmFldTkReportedPhone</field>
+        <field attributename="SITEID" objectname="SR">com.ibm.tsd.app.ticket.PmFldTkSiteId</field>
+        <field attributename="SITEID" objectname="INCIDENT">com.ibm.tsd.app.ticket.PmFldTkSiteId</field>
+        <field attributename="SITEID" objectname="PROBLEM">com.ibm.tsd.app.ticket.PmFldTkSiteId</field>
+        <mbo objectname="TKOWNERHISTORY">com.ibm.tsd.app.ticket.PmOwnerHistory</mbo>
+        <class extends="psdi.app.ticket.OwnerHistoryRemote">com.ibm.tsd.app.ticket.PmOwnerHistoryRemote</class>
+        <mboset objectname="TKOWNERHISTORY">com.ibm.tsd.app.ticket.PmOwnerHistorySet</mboset>
+        <class extends="psdi.app.ticket.OwnerHistorySetRemote">com.ibm.tsd.app.ticket.PmOwnerHistorySetRemote</class>
+        <mbo objectname="TKSTATUS">com.ibm.tsd.app.ticket.PmTKStatus</mbo>
+        <class extends="psdi.app.ticket.TKStatusRemote">com.ibm.tsd.app.ticket.PmTKStatusRemote</class>
+        <mboset objectname="TKSTATUS">com.ibm.tsd.app.ticket.PmTKStatusSet</mboset>
+        <class extends="psdi.app.ticket.TKStatusSetRemote">com.ibm.tsd.app.ticket.PmTKStatusSetRemote</class>
+        <mbo objectname="PMMODDOWNTIMEHIST">com.ibm.tsd.pmcom.app.asset.virtual.PmModDowntimeHist</mbo>
+        <class extends="psdi.app.asset.virtual.ModDowntimeHistRemote">com.ibm.tsd.pmcom.app.asset.virtual.PmModDowntimeHistRemote</class>
+        <mboset objectname="PMMODDOWNTIMEHIST">com.ibm.tsd.pmcom.app.asset.virtual.PmModDowntimeHistSet</mboset>
+        <class extends="psdi.app.asset.virtual.ModDowntimeHistSetRemote">com.ibm.tsd.pmcom.app.asset.virtual.PmModDowntimeHistSetRemote</class>
+        <!--NOTUSED: Remove file com.ibm.tsd.pmcom.app.ticket.PmFldRelatedRecKey.java from CMVC
+            (SQL returned no results select objectname, attributename from maxattribute where classname = 'com.ibm.tsd.pmcom.app.ticket.PmFldRelatedRecKey'-->
+        <field attributename="ISKNOWNERROR" objectname="PROBLEM">com.ibm.tsd.pmcom.app.ticket.PmFldTkIsKnowError</field>
+		
+        <mbo objectname='BULLETINBOARD' extends='psdi.app.bulletinboard.BB'>com.ibm.tsd.app.bulletinboard.PmtcoBB</mbo>
+        <class extends='psdi.app.bulletinboard.BBRemote'>com.ibm.tsd.app.bulletinboard.PmtcoBBRemote</class>
+        <mboset objectname='BULLETINBOARD' extends='psdi.app.bulletinboard.BBSet'>com.ibm.tsd.app.bulletinboard.PmtcoBBSet</mboset>
+        <class extends='psdi.app.bulletinboard.BBSetRemote'>com.ibm.tsd.app.bulletinboard.PmtcoBBSetRemote</class>
+
+        <field objectname='INCIDENT' attributename='ASSETNUM' extends='psdi.app.ticket.FldTKAssetnum'>com.ibm.tsd.app.ticket.PmtcoFldTKAssetnum</field>
+        <field objectname='INCIDENT' attributename='CINUM' extends='psdi.app.ticket.FldTKCINum'>com.ibm.tsd.app.ticket.PmtcoFldTKCINum</field>
+        <field objectname='INCIDENT' attributename='LOCATION' extends='psdi.app.ticket.FldTKLoc'>com.ibm.tsd.app.ticket.PmtcoFldTicketLocation</field>
+        <field objectname='INCIDENT' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldCommonClassStructureid'>com.ibm.tsd.app.ticket.PmtcoFldTKCommonClassStructureid</field>
+
+        <field objectname='SR' attributename='ASSETNUM' extends='psdi.app.ticket.FldTKAssetnum'>com.ibm.tsd.app.ticket.PmtcoFldTKAssetnum</field>
+        <field objectname='SR' attributename='CINUM' extends='psdi.app.ticket.FldTKCINum'>com.ibm.tsd.app.ticket.PmtcoFldTKCINum</field>
+        <field objectname='SR' attributename='LOCATION' extends='psdi.app.ticket.FldTKLoc'>com.ibm.tsd.app.ticket.PmtcoFldTicketLocation</field>
+        <field objectname='SR' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldCommonClassStructureid'>com.ibm.tsd.app.ticket.PmtcoFldTKCommonClassStructureid</field>
+
+        <field objectname='MULTIASSETLOCCI' attributename='ASSETNUM' extends='psdi.app.workorder.FldMultiAssetNum'>com.ibm.tsd.app.ticket.PmtcoFldMultiAssetNum</field>
+        <field objectname='MULTIASSETLOCCI' attributename='CINUM' extends='psdi.app.workorder.FldMultiCINum'>com.ibm.tsd.app.ticket.PmtcoFldMultiCINum</field>
+        <field objectname='MULTIASSETLOCCI' attributename='LOCATION' extends='psdi.app.workorder.FldMultiLocation'>com.ibm.tsd.app.ticket.PmtcoFldMultiLocation</field>
+
+        <field objectname='COMMLOG' attributename='TEMPLATEID' extends='psdi.common.commlog.FldCommLogTmpltId'>psdi.common.commlog.PmtcoFldCommLogTmpltId</field>
+		<field attributename="SELFSERVACCESS" objectname="TKTEMPLATE">com.ibm.tsd.app.ticket.PmFldTkTemplateSelfServAccess</field>
+    </extensions>
+</product>

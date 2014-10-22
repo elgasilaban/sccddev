@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+    <name>Solution for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+	<modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410M</build>
+    </version>
+    <dbmaxvarname>DBSOLUTION_PMP</dbmaxvarname>
+    <dbscripts>solution_pmp</dbscripts>
+    <dbversion>V7510-09</dbversion>
+    <lastdbversion>V710-20*V7102-02*V7120-27*V7201-01*V7210-07*V7500-17</lastdbversion>
+    <depends>serviceprovider</depends>
+    <extensions>
+        <mbo objectname="SOLUTION">com.ibm.tsd.pmsol.app.PmSolution</mbo>
+        <class extends="psdi.app.solution.SolutionRemote">com.ibm.tsd.pmsol.app.PmSolutionRemote</class>
+        <!--NOTUSED: Remove file com.ibm.tsd.pmsol.app.PmSolutionService.java and com.ibm.tsd.pmsol.app.PmSolutionServiceRemote.java from CMVC-->
+        <mboset objectname="SOLUTION">com.ibm.tsd.pmsol.app.PmSolutionSet</mboset>
+        <class extends="psdi.app.solution.SolutionSetRemote">com.ibm.tsd.pmsol.app.PmSolutionSetRemote</class>
+
+     	<bean presentation='solution' controlid='searchmore' extends= 'psdi.plusp.webclient.beans.pluspsolut.PlusPSearchSolutBean'>com.ibm.tsd.pmsol.webclient.beans.SRMSearchSolutionQbeBean</bean>
+     	<bean presentation='searchsol' controlid='searchmore' extends= 'psdi.plusp.webclient.beans.pluspsolut.PlusPSearchSolutBean'>com.ibm.tsd.pmsol.webclient.beans.SRMSearchSolutionQbeBean</bean>
+
+    </extensions>
+</product>

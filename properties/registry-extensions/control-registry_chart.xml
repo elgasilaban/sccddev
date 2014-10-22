@@ -1,0 +1,12 @@
+<control-registry basedir="webclient\controls" package="psdi.webclient.controls">
+    <control-descriptor name="chart"
+descriptor-class="psdi.webclient.system.runtime.DatasrcDescriptor"
+instance-class="psdi.webclient.system.controller.DatasrcInstance">
+        <component-list>
+            <chart id="${name}_chart"/>
+        </component-list>
+        <containers>
+            <container name="section" />
+        </containers>
+    </control-descriptor>
+</control-registry>

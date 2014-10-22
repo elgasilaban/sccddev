@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+    <name>Incident Management for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+		<modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410M</build>
+    </version>
+    <dbmaxvarname>DBINCIDENT_PMP</dbmaxvarname>
+    <dbscripts>incident_pmp</dbscripts>
+    <dbversion>V7510-07</dbversion>
+    <lastdbversion>V710-59*V7102-01*V7104-02*V7120-07*V7201-01*V7210-06*V7500-16</lastdbversion>
+    <depends>tsd_common,srvreq_pmp</depends>
+    <extensions>
+        <mbo objectname="INCIDENT" extends="psdi.plusp.app.ticket.PlusPIncident">com.ibm.tsd.pminc.app.PmIncident</mbo>
+        <class extends="psdi.app.ticket.IncidentRemote">com.ibm.tsd.pminc.app.PmIncidentRemote</class>
+        <!--NOTUSED: Remove file com.ibm.tsd.pminc.app.PmIncidentService.java and com.ibm.tsd.pminc.app.PmIncidentServiceRemote.java from CMVC-->
+        <mboset objectname="INCIDENT" extend="psdi.plusp.app.ticket.PlusPIncidentSet">com.ibm.tsd.pminc.app.PmIncidentSet</mboset>
+        <class extends="psdi.app.ticket.IncidentSetRemote">com.ibm.tsd.pminc.app.PmIncidentSetRemote</class>
+     	<bean presentation='incident' controlid='incident' extends= 'psdi.plusp.webclient.beans.common.PlusPTicketAppBean'>com.ibm.tsd.pminc.webclient.beans.PmIncidentAppBean</bean>
+		
+        <field attributename="solution" objectname="incident" extends='com.ibm.tsd.app.ticket.PmtcoFldTkSolution'>com.ibm.tsd.pminc.app.PmIncFldTkSolution</field>
+        <field attributename="pmcosolstatus" objectname="incident" extends='com.ibm.tsd.app.ticket.PmtcoFldTKSolStatus'>com.ibm.tsd.pminc.app.PmIncFldTkSolStatus</field>
+    </extensions>
+</product>

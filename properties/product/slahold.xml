@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+    <name>SLA Hold for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+	<modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410M</build>
+    </version>
+    <dbmaxvarname>SLAHOLD</dbmaxvarname>
+    <dbscripts>slahold</dbscripts>
+    <dbversion>V7510-03</dbversion>
+    <lastdbversion>V710-06*V7106-03*V7200-04*V7201-03*V7210-03*V7500-02*V7500-05</lastdbversion>
+    <depends>tsd_common</depends>
+
+<extensions>
+		<mboset objectname="SLA" extends="psdi.plusp.app.sla.PlusPSLASet">com.ibm.tsd.app.sla.PmSlaSLASet</mboset>
+	   	<mbo objectname="SLA" extends="psdi.plusp.app.sla.PlusPSLA">com.ibm.tsd.app.sla.PmSlaSLA</mbo>
+        <mbo objectname="TKSTATUS">com.ibm.tsd.app.ticket.PmTKSLAHoldStatus</mbo>
+        <class extends="psdi.app.ticket.TKStatusRemote">com.ibm.tsd.app.ticket.PmTKSLAHoldStatusRemote</class>
+        <mboset objectname="TKSTATUS">com.ibm.tsd.app.ticket.PmTKSLAHoldStatusSet</mboset>
+        <class extends="psdi.app.ticket.TKStatusSetRemote">com.ibm.tsd.app.ticket.PmTKSLAHoldStatusSetRemote</class>
+
+        <mbo objectname="SLARECORDS">com.ibm.tsd.app.sla.SLAHoldRecords</mbo>
+        <class extends="psdi.app.sla.SLARecordsRemote">com.ibm.tsd.app.sla.SLAHoldRecordsRemote</class>
+        <mboset objectname="SLARECORDS">com.ibm.tsd.app.sla.SLAHoldRecordsSet</mboset>
+        <class extends="psdi.app.sla.SLARecordsSetRemote">com.ibm.tsd.app.sla.SLAHoldRecordsSetRemote</class>
+
+        <field attributename="STATUS" objectname="TKCHANGESTATUS">com.ibm.tsd.app.ticket.PmFldChangeStatus</field>
+
+</extensions>
+
+</product>

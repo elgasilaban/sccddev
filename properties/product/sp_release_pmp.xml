@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+
+  Licensed Materials - Property of IBM
+
+  Restricted Materials of IBM
+
+  5724-M18
+
+  (C) COPYRIGHT IBM CORP. 2008,2010  All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  250007   chena      03/31/10  SP work for release pmp
+  252395   mhartel    5/14/10   Maxadmin has task scheduler access in SP environments
+  260656   scottsd    09/08/10  Need to rebaseline all of the PMP files and product.xml
+  262002   hec        10/14/10  RTC Story 11615: component rename
+  262152   hec        10/15/10  Remove IBM Tivoli from component name
+ End Change History
+-->
+
+<product>
+    <name>Release management for IBM SmartCloud Control Desk for Service Providers</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410</build>
+    </version>
+    <dbmaxvarname>DBRELEASE_PMP_SP</dbmaxvarname>
+    <dbscripts>release_pmp_sp</dbscripts>
+    <dbversion>V7510-02</dbversion>
+    <lastdbversion>V7210-04*V7500-01</lastdbversion>
+        <depends>release_pmp,serviceprovider,sp_common_pmp</depends>
+
+</product>
+

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * IBM Confidential
+ *
+ * OCO Source Materials
+ *
+ * 5724-U18
+ *
+ * (C) COPYRIGHT IBM CORP. 2011
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *
+-->
+<control-registry basedir="webclient\controls" package="psdi.webclient.controls"
+		xsi:noNamespaceSchemaLocation='../control-registry.xsd'
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<control-descriptor name="mapcontrol"
+		descriptor-class="psdi.webclient.system.runtime.DatasrcDescriptor"		
+		instance-class="com.ibm.tivoli.maximo.map.MapControl">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="nonconditional" />
+				<flag name="global" />
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="beanclass">
+				<flag name="nonconditional" />
+			</property>			
+			<property name="hidelabel" type="xsd:boolean">
+				<default-value>false</default-value>
+			</property>			
+			<property name="synchronous" type="xsd:boolean">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="inputmode">
+				<flag name="global" />
+			</property>
+			<property name="label">
+				<flag name="translatable" />
+				<default-value>Map</default-value>
+			</property>
+			<property name="zoomlevel">				
+			</property>
+			<property name="initialx">				
+			</property>
+			<property name="initialy">				
+			</property>
+			<property name="mapviewonly">
+				<default-value>1</default-value>	
+			</property>			
+			<property name="contextpersistent">
+				<default-value>1</default-value>	
+			</property>
+			<property name="width">
+				<default-value>100%</default-value>
+			</property>
+			<property name="height">
+				<default-value>100%</default-value>
+			</property>
+			<property name="mapoptions">
+				<default-value>{bingmaps:{},gmaps:{},spatial:{}}</default-value>
+			</property>
+			<property name="licensekey">
+				<flag name="final" />
+				<default-value>MAPCONTROL</default-value>
+			</property>
+			<property name="toolbarenabled">
+				<default-value>1</default-value>
+			</property>
+			<property name="fullscreenmode">
+				<default-value>0</default-value>
+			</property>
+			<property name="zoomtodatainput">
+				<default-value>1</default-value>
+			</property>
+			<property name="refreshmapinterval"/>
+			<property name="defaultsymbology" />
+			<property name="toolitems"/>
+			<property name="markerimgurl"/>
+			<property name="routecolor" >
+			<default-value>#0000FF</default-value>			
+		</property>
+		
+		<property name="startwithcurrentlocation" >		
+		</property>
+		<property name="showdirectionsonload" >			
+		</property>
+		<property name="routestartx" >			
+		</property>
+		<property name="routestarty" >		
+		</property>
+		<property name="routeendx" >		
+		</property>
+		<property name="routeendy" >		
+		</property>
+		<property name="optimizeroute" >			
+		</property>
+		<property name="routedatasrc">
+				<flag name="nonconditional" />
+				<flag name="global" />
+			</property>
+		<property name="datasrcdynamic" type="xsd:boolean">
+				<default-value>false</default-value>
+		</property>
+		<property name="routedatasrcdynamic" type="xsd:boolean">
+				<default-value>false</default-value>
+		</property>	
+		</property-list>
+		<component-list>
+			<components id="${name}_components_h" layout="horizontal" designonly="true">
+				<label id="${name}_label" labelcss="@{labelcss}" title="@{label}" designonly="true" hidelabel="@{hidelabel}" textcss="@{textcss}" />
+			</components>
+			<components id="${name}_components_h1" layout="horizontal" width="100%">
+				<mxmap id="${name}" synchronous="@{synchronous}" inputmode="@{inputmode}" dataattribute="@{dataattribute}">
+					<mxroute id="${name}_router" />										
+				</mxmap>
+				
+				<children id="${name}_children" cellspacing="0" width="100%" />				
+			</components>
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+		
+	</control-descriptor>
+	
+	<control-descriptor name="mxmapgeocodesection">
+      <property-list>
+        <property name="datasrc">
+		   <flag name="nonconditional" />
+		   <flag name="global" />
+	    </property>
+	    <property name="dataattribute">
+		   <flag name="final" />
+		</property>
+		<property name="id">
+		   <flag name="final" />
+		</property>
+		<property name="defaultbutton">
+				<flag name="global" />
+			</property>
+		<property name="mapControlId">
+			<default-value>mxmap_div</default-value>
+		</property>
+		<property name="labelcss" />
+		<property name="cssclass" >
+			<default-value></default-value>
+		</property>
+		<property name="label" >
+			<flag name="translatable" />
+		</property>
+		<property name="buttonlabel" >		
+			<flag name="translatable" />
+		</property>
+		<property name="textcss">
+				<flag name="global" />
+				<flag name="final" />
+				<default-value>text</default-value>
+		</property>		
+		<property name="mxejsgeocodeaction" />
+		<property name="synchronous" type="xsd:boolean">
+			<default-value>false</default-value>
+		</property>
+      </property-list>    
+      <component-list>
+      
+			<components id="${name}_components_v" layout="vertical">
+				<components id="${name}_components_h" layout="horizontal" valign="middle" makevertical="true">
+				<label id="${name}_label" labelcss="@{labelcss}" dataattribute="@{dataattribute}" inputmode="@{inputmode}" title="@{label}" align="right" hidelabel="@{hidelabel}" ignoredatachange="true" ignorereadonlychange="false" ignorerequiredchange="false" textcss="@{textcss}" oninput="true" labelfor="${name}_textbox_geocode"/>				
+				<group id="${name}_group1">					
+					<required-indicator id="${name}_required_indicator" dataattribute="@{dataattribute}" inputmode="@{inputmode}" hideontable="true" ignoredatachange="true" ignorereadonlychange="true" />
+					<textbox id="${name}_textbox_geocode" dataattribute="@{dataattribute}" usereditable="@{usereditable}" lookup="@{lookup}" menutype="@{menutype}" inputmode="@{inputmode}" defaultbutton="${name}_geopushbtn" tablereadonly="@{tablereadonly}" onfilterrow="@{onfilterrow}" cssclass="@{cssclass}" forceclear="@{forceclear}" prepend="@{prepend}" width="@{width}" title="@{label}" usefieldsizegroup="@{usefieldsizegroup}" textcss="@{textcss}" hidetooltip="@{hidetooltip}" notifyportlets="@{notifyportlets}" synchronous="@{synchronous}" />
+					<geocoderbutton id="${name}_geocodersection" label="@{buttonlabel}" addresstxtfld="${name}_textbox_geocode" mapControlId="@{mapControlId}" mxeventjshandler="mxbtnaction.${name}"/>
+					<pushbutton id="${name}_geopushbtn" default="true" doclinkuploadbutton="false" menutype="NONE" label="@{buttonlabel}" mxeventjshandler="mxbtnaction.${name}.geocode" image="@{image}" cssclass="@{cssclass}" textcss="@{textcss}" />									
+				</group>
+				
+				</components>
+			</components>
+      </component-list>
+	  <containers>
+		<container name="tab" />
+		<container name="section" />
+		<container name="sectioncol" />
+		<container name="dialog" />
+		<container name="clientarea" />
+		<container name="page" />
+	  </containers>
+   </control-descriptor>
+   	
+   <control-descriptor name="mxdispatcherctrl" instance-class="com.ibm.tivoli.maximo.map.dispatcher.MapDispatcherControl">
+	<property-list>
+		<property name="datasrc">
+		   <flag name="nonconditional" />
+		   <flag name="global" />
+	    </property>
+	    <property name="codebase"/>
+	    <property name="classid"/>
+			<property name="code"/>
+	    <property name="id">
+		   <flag name="final" />
+		</property>
+		<property name="licensekey">
+			<flag name="final" />
+			<default-value>SCHEDULER_FW</default-value>
+		</property>
+		<property name="mapControlId">
+			<default-value>mxmap_div</default-value>
+		</property>
+		<property name="height">
+			<default-value>400px</default-value>
+		</property>
+		</property-list>
+		<component-list>     		
+     		<components id="${name}_components_h" layout="horizontal" >	
+			<mxdispatcher  id="${name}" mapControlId="@{mapControlId}"  datasrc="@{datasrc}"></mxdispatcher>
+			</components>			
+      </component-list>
+	  <containers>
+		<container name="tab" />
+		<container name="section" />
+		<container name="sectioncol" />
+		<container name="dialog" />
+		<container name="clientarea" />
+		<container name="page" />
+	  </containers>
+	</control-descriptor>
+	
+	<control-descriptor name="lbsdatacollection" instance-class="com.ibm.tivoli.maximo.map.data.GpsDataCollectorControl">
+	<property-list>
+		
+	    <property name="id">
+		   <flag name="final" />
+		</property>
+		
+		<property name="licensekey">
+			<flag name="final" />
+			<default-value>MAPCONTROL</default-value>
+		</property>
+		</property-list>
+		<component-list>     		
+     		<components id="${name}_components_h" layout="horizontal" >	
+				<lbsdatacollection  id="${name}" />
+			</components>			
+      </component-list>
+	  <containers>
+		<container name="tab" />
+		<container name="tabgroup" />
+		<container name="section" />
+		<container name="sectioncol" />
+		<container name="dialog" />
+		<container name="clientarea" />
+		<container name="page" />
+	  </containers>
+	</control-descriptor>
+	
+   
+</control-registry>

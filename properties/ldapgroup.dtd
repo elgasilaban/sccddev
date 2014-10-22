@@ -1,0 +1,197 @@
+<!--
+This is the XML DTD for the LDAP Synchronization properties. 
+The ldapsync.xml file must include a DOCTYPE of the following
+form:
+
+	<!DOCTYPE ldapsync SYSTEM "ldapgroup.dtd">
+
+-->
+
+<!--
+The following conventions apply to all elements unless indicated otherwise.
+
+- In elements that contain PCDATA, the leading and trailing 
+  whitespace in the data will be ignored.
+
+- In attributes that contain CDATA, the leading and trailing 
+  whitespace in the data will be ignored.
+
+- In elements or attributes whose value is an "enumerated type", 
+  the value is case sensitive.
+
+-->
+
+
+<!-- The ldapsync element is the root of the LDAP Synchronization
+properties. -->
+
+<!ELEMENT ldapsync (group)>
+
+
+<!-- The group element contains all the details for obtaining
+the list of groups that need to be used by MAXIMO application and 
+how the data associated with each group should be mapped to MAXIMO
+database tables. -->
+
+<!ELEMENT group (basedn, filter, scope, attributes?, datamap, memberdatamap)>
+<!-- The basedn element contains the base Distinguished Name (DN) of the 
+tree in the LDAP directory that contains users or groups. -->
+
+<!ELEMENT basedn (#PCDATA)>
+
+<!-- The filter element contains an LDAP search filter for finding all 
+users or groups beneath the base Distinguished Name(DN). -->
+
+<!ELEMENT filter (#PCDATA)>
+
+<!-- The scope element contains an LDAP search scope that indicates
+how deep in the directory tree to search for users or groups.
+Valid values are subtree or onelevel. -->
+
+<!ELEMENT scope (#PCDATA)>
+
+<!-- The attributes element contains list of LDAP attribute names of
+user or group object for which the data need to be obtained. -->
+
+<!ELEMENT attributes (attribute*)>
+
+
+<!-- The attribute element contains LDAP attribute name of
+user or group object for which the data need to be obtained. -->
+
+<!ELEMENT attribute (#PCDATA)>
+
+<!-- The datamap element contains the list of tables into which
+the LDAP attribute data obtained from the LDAP Server need to be 
+mapped. -->
+
+<!ELEMENT datamap (table+)>
+
+<!-- The table element contains a list of columns that should 
+be mapped to the appropriate LDAP attribute data. -->
+
+<!ELEMENT table (keycolumn+, column*)>
+
+<!-- The keycolumn element contains the LDAP attribute name
+whose value should be used to store in this column for the 
+appropriate table in database. -->
+
+<!ELEMENT keycolumn (#PCDATA)>
+
+<!-- The column element contains the LDAP attribute name
+whose value should be used to store in this column for the 
+appropriate table in database. Since some of the data for the
+MAXIMO required columns cannot be mapped to LDAP attributes, 
+this element can contain a special substitute or literal value. 
+that is enclosed in {}, which is used as the value of the column.
+The supported special substitute values are :uniqueid and :sysdate.
+If the element contains {:uniqueid}, then the default synchronizer 
+adapter class generates a unique identifier for the column value. 
+If the element contains {:sysdate}, then the default synchronizer
+adapter class uses the current date for the column value.
+-->
+
+<!ELEMENT column (#PCDATA)>
+
+<!-- The memberdatamap element contains member table into which
+the LDAP attribute data obtained from the LDAP Server related to 
+group membership need to be mapped. -->
+
+<!ELEMENT memberdatamap (membertable)>
+
+<!-- The membertable element contains a list of columns that should 
+be mapped to the appropriate LDAP attribute data related to 
+group membership. -->
+
+<!ELEMENT membertable (keycolumn+, membercolumn, column*)>
+
+
+<!-- The table element contains a list of columns that should 
+be mapped to the appropriate LDAP attribute data. -->
+
+<!ELEMENT membercolumn (member, memberuser, membergroup)>
+
+<!-- The member element contains attribute of an LDAP group object 
+that specifies the Distinguished Names (DNs) of the members in 
+the group. -->
+
+<!ELEMENT member (#PCDATA)>
+
+<!-- The memberuser element contains attribute of an LDAP user object
+that specifies the user identification. Note that this must be the same 
+attribute as the one used to map the identify the user to the MAXIMO user
+related database tables. -->
+
+<!ELEMENT memberuser (#PCDATA)>
+
+<!-- The membergroup element contains attribute of an LDAP group object
+that specifies the group identification. Note that this must be the same 
+attribute as the one used to map the identify the group to the MAXIMO group
+related database tables. -->
+
+<!ELEMENT membergroup (#PCDATA)>
+
+
+
+
+
+
+<!-- List of attribute names used by elements. -->
+
+<!-- The name attribute of the table element contains the name of the 
+database table. -->
+
+<!ATTLIST table name CDATA #REQUIRED>
+
+<!-- The allowdelete attribute of the table element contains true or false
+to indicate whether a row in the table should be deleted or not, if any of
+the required column's LDAP attribute value is null. For example, if a phone
+number is erased from LDAP server, then we want the record entry to be
+removed from the MAXIMO database table. -->
+
+<!ATTLIST table allowdelete (true|false) #IMPLIED>
+
+<!-- The name attribute of the keycolumn element contains the name of the 
+database column. -->
+
+
+<!ATTLIST keycolumn name CDATA #REQUIRED>
+
+<!-- The type attribute of the keycolumn element contains the data type of the 
+value. Only character data types are supported. -->
+
+<!ATTLIST keycolumn type (ALN|UPPER|LOWER|INTEGER|YORN|CRYPTO) #IMPLIED>
+
+
+<!-- The name attribute of the column element contains the name of the 
+database column. -->
+
+<!ATTLIST column name CDATA #REQUIRED>
+
+<!-- The type attribute of the column element contains the data type of the 
+value. Only character data types are supported. -->
+
+<!ATTLIST column type (ALN|UPPER|LOWER|INTEGER|YORN|CRYPTO) #IMPLIED>
+
+<!-- The required attribute of the column element contains true or false
+to indicate whether the column value obtained from LDAP attribute is required
+to contain a value or not. The allowdelete attribute of the appropriate
+table element uses this information to delete a row from the table. -->
+
+<!ATTLIST column required (true|false) #IMPLIED>
+
+<!-- The name attribute of the membertable element contains the name of the 
+database table. -->
+
+<!ATTLIST membertable name CDATA #REQUIRED>
+
+<!-- The name attribute of the membercolumn element contains the name of the 
+database table column. -->
+
+<!ATTLIST membercolumn name CDATA #REQUIRED>
+
+<!-- The type attribute of the membercolumn element contains the data type of the 
+value. Only character data types are supported. -->
+
+<!ATTLIST membercolumn type (ALN|UPPER|LOWER|INTEGER|YORN|CRYPTO) #IMPLIED>
+

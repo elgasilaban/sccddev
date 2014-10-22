@@ -1,0 +1,41 @@
+<component-registry basedir="webclient\components" package="psdi.webclient.system">
+
+	<!--
+	***************************************************************************************************************************
+	Note by Fabio Carvalho on 06/11/2008
+	
+	This component is based on iframe component (from base team)
+	It does not mean that this component must keep up all changes made on iframe component from base version of this file
+	Anyway, it is a good practice to always verify what are the new changes for iframe component, (the component descriptor and its JSP file) because it	can
+	give us all clues we need when some important change happens for Maximo way to handle session ids and other aspects related to controller and presentation tier
+	***************************************************************************************************************************
+	-->
+	<component-descriptor name="general_iframe">
+		<property-list>
+		    <property name="jsp-filename">
+		   		<default-value>general_iframe</default-value>
+	      		</property>
+			<property name="cssclass"/>
+		    <property name="defaultrender">
+				<default-value>true</default-value>
+		    </property>
+			<property name="width"/>
+			<property name="height"/>
+			<property name="id">
+		  		<flag name="final"/>
+		  	</property>
+			<property name="scroll"/>
+			<property name="src"/>
+			<property name="style">
+				<default-value>border:0px;</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			<property name="takesfocus">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+
+</component-registry>

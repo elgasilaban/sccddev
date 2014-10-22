@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+
+  Licensed Materials - Property of IBM
+
+  Restricted Materials of IBM
+
+  5724-M19
+
+  (C) COPYRIGHT IBM CORP. 2007 - 2010.  All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  230430   chowdhu    03/09/09  New Package for UI Widgest
+  234592   rsemonis   06/17/09  Update version to 7.2.0
+  242742   scottsd    10/23/09  Delete and duplicate do not carry over PMCOMFLOWSEQ objects
+  247010   mhartel    12/0/08   <Story 5087> UI widget PMP file system reorganization
+  247406   mhartel    12/21/09  <Story 1526> Drop RAV prototype code into UI Widgets PMP package
+  247596   scottsd    01/14/10  Missing business service icon and mapping for out of box
+  248821.1 scottsd    03/01/10  Topology: Incorrect icon for CI.SUNCOMPUTERSYSTEM
+  249264   scottsd    04/12/10  Missing class extends entries in the product xmls across our pr
+  252683   scottsd    06/21/10  Popup dialog to build process flow sequence doesn't search
+  256054   scottsd    06/23/10  GVT: progress map isn't mocking in certain cases
+  260656   scottsd    09/08/10  Need to rebaseline all of the PMP files and product.xml
+  260698   chena      09/08/10  BigInt sequence revision
+  260710   jguajard   09/14/10  <Story 10656> make resource constraints pluggable
+  260753   mhartel    09/10/10  <Story 11073> Initial code drop
+  260979   hec        09/16/10  <story 4792> change 'MAXADMIN' to property to handle non-default user install
+  262002   hec        10/14/10  RTC Story 11615: component rename
+  262966   chena      11/02/10  Add PmUiwidgetsLogHelper to be children of ccmdb root logger
+  263173   jguajard   11/04/10  make plugins more fault tolerant
+  264077   chena      12/06/10  Change pmgui.applet.loadmsg.timeout variable default value to zero
+  264923   hec        01/25/10  Invalid groupname in UIWidgets and tpmim should be MAXEVERYONE
+  40629    jguajard   05/23/11  PMCOMFLOWSEQ title is too long
+  43422	   ppadovan   10/11/11  Fix applet init and set applet timeout to 0
+  44103    sjoaquim   11/04/11  UIWidgets updatedb failed V7500_14
+  45167    ppadovan   01/11/12  Minor fix to default topo image settings
+  18507    ppadovan   03/21/12  OOM can occurr with large # cis for topo cron
+  21513    suew       08/21/12  Untranslated text in relationship PMCOMALLTASKS
+  12054    scottsd    10/19/12  Topology Viewer: Support the ability to add custom icons for CI types..
+  End Change History
+-->
+
+<product>
+    <name>User interface widgets for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410</build>
+    </version>
+    <dbmaxvarname>DBUIWIDGETS_PMP</dbmaxvarname>
+    <dbscripts>uiwidgets_pmp</dbscripts>
+    <dbversion>V7510-05</dbversion>
+    <lastdbversion>V7200-05*V7201-02*V7210-06*V7500-16</lastdbversion>
+    <depends>common_pmp,scheduler</depends>
+    <extensions>
+    <mbo objectname='CLASSSTRUCTURE' extends='psdi.app.assetcatalog.ClassStructure'>com.ibm.ism.pmgui.app.PmComClassStructure</mbo>
+    <class extends='psdi.app.assetcatalog.ClassStructureRemote'>com.ibm.ism.pmgui.app.PmComClassStructureRemote</class>
+    <mboset objectname='CLASSSTRUCTURE' extends='psdi.app.assetcatalog.ClassStructureSet'>com.ibm.ism.pmgui.app.PmComClassStructureSet</mboset>
+    <class extends='psdi.app.assetcatalog.ClassStructureSetRemote'>com.ibm.ism.pmgui.app.PmComClassStructureSetRemote</class>
+    <mbo objectname='JOBPLAN' extends='psdi.app.jobplan.JobPlan'>com.ibm.ism.pmgui.app.jobplan.PmGuiJobPlan</mbo>
+    <class extends='psdi.app.jobplan.JobPlanRemote'>com.ibm.ism.pmgui.app.jobplan.PmGuiJobPlanRemote</class>
+    <mboset objectname='JOBPLAN' extends='psdi.app.jobplan.JobPlanSet'>com.ibm.ism.pmgui.app.jobplan.PmGuiJobPlanSet</mboset>
+    <class extends='psdi.app.jobplan.JobPlanSetRemote'>com.ibm.ism.pmgui.app.jobplan.PmGuiJobPlanSetRemote</class>
+    <mbo objectname='CDMCITYPES' extends='psdi.app.citype.CdmCiType'>com.ibm.ism.pmgui.app.PmComCdmCiType</mbo>
+    <class extends='psdi.app.citype.CdmCiTypeRemote'>com.ibm.ism.pmgui.app.PmComCdmCiTypeRemote</class>
+    <mboset objectname='CDMCITYPES' extends='psdi.app.citype.CdmCiTypeSet'>com.ibm.ism.pmgui.app.PmComCdmCiTypeSet</mboset>
+    <class extends='psdi.app.citype.CdmCiTypeSetRemote'>com.ibm.ism.pmgui.app.PmComCdmCiTypeSetRemote</class>
+    </extensions>
+</product>

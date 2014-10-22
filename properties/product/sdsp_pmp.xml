@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+     <name>Service Desk for IBM SmartCloud Control Desk for Service Providers</name>
+     <version>
+          <major>7</major>
+          <minor>5</minor>
+          <modlevel>1</modlevel>
+          <patch>0</patch>
+          <build>201301301410M</build>
+     </version>
+     <dbmaxvarname>DBSDSP</dbmaxvarname>
+     <dbscripts>sdsp_pmp</dbscripts>
+     <dbversion>V7510-03</dbversion>
+     <lastdbversion>V700-60*V7120-03*V7500-02</lastdbversion> 
+     <depends>serviceprovider,sp_common_pmp,srvreq_pmp,incident_pmp,problem_pmp,solution_pmp</depends>
+
+    <extensions>
+		<field objectname='INCIDENT' attributename='PLUSPCUSTOMER' extends='psdi.plusp.app.pluspcust.PlusPFldCustomerClassAgree'>com.ibm.sdsp.app.ticket.SdspFldTKCustomerClassAgree</field>
+		<field objectname='SR' attributename='PLUSPCUSTOMER' extends='psdi.plusp.app.pluspcust.PlusPFldCustomerClassAgree'>com.ibm.sdsp.app.ticket.SdspFldTKCustomerClassAgree</field>
+    </extensions>
+
+</product>
+

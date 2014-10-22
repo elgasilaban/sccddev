@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDMMapping:Mapping
+SchemaVersion="7.5.1"
+xmlns:CDMMapping="http://www.ibm.com/namespaces/com/ibm/tivoli/sccd/CDMMapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.ibm.com/namespaces/com/ibm/tivoli/sccd/CDMMapping C:\tamitdev-75\applications\maximo\properties\sccd\CDMMapping.xsd">
+
+    <CDMClass class="ComputerSystem">
+
+    <MBOObject object="ASSET">
+      <MBOClassification id="43210500" allUnder="true"/>
+      <MBOClassification id="COMPUTER SYSTEM"/>
+      <MBOClassification id="DESKTOP COMPUTER"/>
+      <MBOClassification id="LAPTOP COMPUTER"/>
+      <MBOClassification id="DISTRIBUTED SERVER"/>
+      <MBOClassification id="MAINFRAME COMPUTER"/>
+      <MBOClassification id="POINT OF SALE COMPUTER"/>
+      <MBOClassification id="WINDOWS SERVER"/>
+      <MBOClassification id="UNIX SERVER"/>
+      <MBOClassification id="AIX SERVER"/>
+      <MBOClassification id="LINUX SERVER"/>
+      <MBOClassification id="SUN SERVER"/>
+    </MBOObject>
+
+    <MBOObject object="CI">
+      <MBOClassification id="CI.COMPUTERSYSTEM"/>
+      <MBOClassification id="CI.AIXCOMPUTERSYSTEM"/>
+      <MBOClassification id="CI.HPUXCOMPUTERSYSTEM"/>
+      <MBOClassification id="CI.LINUXCOMPUTERSYSTEM"/>
+      <MBOClassification id="CI.SUNCOMPUTERSYSTEM"/>
+      <MBOClassification id="CI.SYSTEMPCOMPUTERSYSTEM"/>
+      <MBOClassification id="CI.UNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="CI.VIRTUALCOMPUTERSYSTEM"/>
+      <MBOClassification id="CI.VMWARECOMPUTERSYSTEM"/>
+      <MBOClassification id="CI.WINDOWSCOMPUTERSYSTEM"/>
+      <MBOClassification id="CI.ZSERIESCOMPUTERSYSTEM"/>
+      <MBOClassification id="CI.ZOS.LPAR"/>
+    </MBOObject>
+
+    <MBOObject object="ACTCI">
+      <MBOClassification id="SYS.COMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.CISCO.CISCOPIXCOMPUTERSYSTEM"/>
+      <MBOClassification id="STORAGE.FCSWITCH"/>  
+      <MBOClassification id="STORAGE.TAPELIBRARY"/>  
+      <MBOClassification id="STORAGE.TAPEMEDIACHANGER"/>  
+      <MBOClassification id="STORAGE.STORAGESUBSYSTEM"/>  
+      <MBOClassification id="SYS.GENERICCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.GENERICFIREWALL"/>
+      <MBOClassification id="SYS.GENERICLOADBALANCER"/>
+      <MBOClassification id="SYS.GENERICROUTER"/>
+      <MBOClassification id="SYS.GENERICSWITCH"/>
+      <MBOClassification id="SYS.SUN.SUNFIRECOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.SUN.DYNAMICSYSTEMDOMAIN"/>
+      <MBOClassification id="SYS.SUN.SUNSPARCVIRTUALCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.SYSTEMPCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.UNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.AIX.AIXUNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.DARWIN.DARWINUNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.DOS.DOSUNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.FREEBSD.FREEBSDUNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.HPUX.HPUXUNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.IPSO.IPSOUNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.LINUX.LINUXUNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.NETWARE.NETWAREUNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.OPENVMS.OPENVMSUNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.SUN.SUNSPARCUNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.VMWARE.VMWAREUNITARYCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.WINDOWS.WINDOWSCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.ZOS.ZSERIESCOMPUTERSYSTEM"/>
+      <MBOClassification id="SYS.ZOS.LPAR"/>  
+      <MBOClassification id="SYS.ZOS.ZVMGUEST"/>  
+    </MBOObject>
+
+    <MBOObject object="DEPLOYEDASSET">
+      <MBOClassification id="-ALL-"/>
+    </MBOObject>
+
+    <CDMAttribute attribute="SerialNumber">
+      <MBOAttribute object="ASSET" table="ASSET" attribute="SERIALNUM" />
+      <MBOAttribute object="CI" table="CISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_SERIALNUMBER"/>
+      <MBOAttribute object="ACTCI" table="ACTCISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_SERIALNUMBER"/>
+      <MBOAttribute object="DEPLOYEDASSET" table="DEPLOYEDASSET" attribute="TLOAMNRSSERIALNUMBER" />
+    </CDMAttribute>
+
+    <CDMAttribute attribute="Manufacturer">
+      <MBOAttribute object="ASSET" table="ASSET" attribute="MANUFACTURER" />
+      <MBOAttribute object="CI" table="CISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_MANUFACTURER"/>
+      <MBOAttribute object="ACTCI" table="ACTCISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_MANUFACTURER"/>
+      <MBOAttribute object="DEPLOYEDASSET" table="DEPLOYEDASSET" attribute="TLOAMNRSMANUFACTURER" />
+    </CDMAttribute>
+
+    <CDMAttribute attribute="Model">
+      <MBOAttribute object="ASSET" table="ASSETSPEC" attribute="ALNVALUE" assetattrid="CSMODEL"/>
+      <MBOAttribute object="CI" table="CISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_MODEL"/>
+      <MBOAttribute object="ACTCI" table="ACTCISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_MODEL"/>
+      <MBOAttribute object="DEPLOYEDASSET" table="DEPLOYEDASSET" attribute="TLOAMNRSMODEL" />
+    </CDMAttribute>
+
+    <CDMAttribute attribute="Signature">
+      <MBOAttribute object="CI" table="CISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_SIGNATURE"/>
+      <MBOAttribute object="ACTCI" table="ACTCISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_SIGNATURE"/>
+      <MBOAttribute object="DEPLOYEDASSET" table="DEPLOYEDASSET" attribute="TLOAMNRSSIGNATURE" />
+    </CDMAttribute>
+
+    <CDMAttribute attribute="VMID">
+      <MBOAttribute object="CI" table="CISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_VMID"/>
+      <MBOAttribute object="ACTCI" table="ACTCISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_VMID"/>
+      <MBOAttribute object="DEPLOYEDASSET" table="DEPLOYEDASSET" attribute="TLOAMNRSVMID" />
+    </CDMAttribute>
+
+    <CDMAttribute attribute="SystemBoardUUID">
+      <MBOAttribute object="CI" table="CISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_SYSTEMBOARDUUID"/>
+      <MBOAttribute object="ACTCI" table="ACTCISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_SYSTEMBOARDUUID"/>
+      <MBOAttribute object="DEPLOYEDASSET" table="DEPLOYEDASSET" attribute="TLOAMNRSSYSTEMBOARDUUID" />
+    </CDMAttribute>
+
+    <CDMAttribute attribute="UUID">
+      <MBOAttribute object="CI" table="CISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_UUID"/>
+      <MBOAttribute object="ACTCI" table="ACTCISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_UUID"/>
+      <MBOAttribute object="DEPLOYEDASSET" table="DEPLOYEDASSET" attribute="TLOAMNRSUUID" />
+    </CDMAttribute>
+
+    <CDMAttribute attribute="PrimaryMACAddress">
+      <MBOAttribute object="CI" table="CISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_PRIMARYMACADDRESS"/>
+      <MBOAttribute object="ACTCI" table="ACTCISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_PRIMARYMACADDRESS"/>
+      <MBOAttribute object="DEPLOYEDASSET" table="DEPLOYEDASSET" attribute="TLOAMNRSPRIMARYMACADDRESS" />
+    </CDMAttribute>
+
+    <CDMAttribute attribute="ManagedSystemName">
+      <MBOAttribute object="CI" table="CISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_MANAGEDSYSTEMNAME"/>
+      <MBOAttribute object="ACTCI" table="ACTCISPEC" attribute="ALNVALUE" assetattrid="COMPUTERSYSTEM_MANAGEDSYSTEMNAME"/>
+      <MBOAttribute object="DEPLOYEDASSET" table="DEPLOYEDASSET" attribute="TLOAMNRSMANAGEDSYSTEMNAME" />
+    </CDMAttribute>
+
+  </CDMClass>
+</CDMMapping:Mapping>
+
+

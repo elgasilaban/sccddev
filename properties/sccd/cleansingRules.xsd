@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+    xmlns:cleansingrules="http://www.ibm.com/namespaces/com/ibm/tivoli/sccd/CleansingRules" 
+    attributeFormDefault="unqualified" 
+    elementFormDefault="unqualified" 
+    targetNamespace="http://www.ibm.com/namespaces/com/ibm/tivoli/sccd/CleansingRules" version="1.3.0.0">
+
+    <!-- The Highest level element - Rules - Just groups a set of Rule elements with an optional schema version -->
+    <element name="Rules" type="cleansingrules:RulesType"/>
+    <complexType name="RulesType">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="1" name="Rule" type="cleansingrules:RuleType"/>
+        </sequence>
+        <attribute name="SchemaVersion" type="cleansingrules:CleansingRulesVersionString" use="optional"/>
+    </complexType>
+
+
+    <!-- RuleType models a single Rule -->
+    <complexType name="RuleType">
+        <sequence>
+            <!-- Verify with John that is valid to have 0 RegEx elements in a Rule -->
+            <element maxOccurs="unbounded" minOccurs="0" name="Regex" type="cleansingrules:RegExType"/>
+            <element maxOccurs="1" minOccurs="0" name="Trim"/>
+            <element maxOccurs="1" minOccurs="0" name="Variant" type="cleansingrules:VariantType"/>
+            <!-- Verify with John that UpperCase and LowerCase are mutually exclusive -->
+            <choice minOccurs="0" maxOccurs="1">
+                <element maxOccurs="1" minOccurs="0" name="UpperCase"/>
+                <element maxOccurs="1" minOccurs="0" name="LowerCase"/>
+            </choice>
+        </sequence>
+        <attribute name="major" type="cleansingrules:MajorType" use="required"/>
+        <attribute name="minor" type="cleansingrules:MinorType" use="required"/>
+    </complexType>
+
+
+    <!-- Type for a Regular Expression Element -->
+    <complexType name="RegExType">
+        <attribute name="pattern" type="normalizedString" use="required"/>
+        <attribute name="format" type="normalizedString" use="required"/>
+    </complexType>
+
+
+    <!-- Type for a Variant Rule -->
+    <complexType name="VariantType">
+        <attribute name="table" type="normalizedString" use="required"/>
+        <attribute name="name" type="normalizedString" use="required"/>
+        <attribute name="variant" type="normalizedString" use="required"/>
+    </complexType>
+
+    <!-- Verify with John if this should be an enunmerated type -->
+    <simpleType name="MajorType">
+        <restriction base="normalizedString">
+            <minLength value="1"/>
+            <whiteSpace value="collapse"/>
+        </restriction>
+    </simpleType>
+
+    <!-- Verify with John if this should be an enunmerated type -->
+    <simpleType name="MinorType">
+        <restriction base="normalizedString">
+            <minLength value="1"/>
+            <whiteSpace value="collapse"/>
+        </restriction>
+    </simpleType>
+
+    <!-- This type defines the allowable choices for  Schema Version -->
+    <simpleType name="CleansingRulesVersionString">
+        <restriction base="string">
+            <enumeration value="7.5"/>
+            <enumeration value="7.5.1"/>
+        </restriction>
+    </simpleType>
+
+</schema>

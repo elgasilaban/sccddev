@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+    <name>IBM Tivoli Integration Composer</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>0</modlevel>
+        <patch>2</patch>
+        <build>20130129-2023</build>
+    </version>
+	<checklicense>0</checklicense>
+    <dbmaxvarname>ITIC</dbmaxvarname>
+    <dbscripts>itic</dbscripts>
+    <dbversion>V7502-02</dbversion>
+    <lastdbversion>V7110-01*V7200-016*V7210-02*V7500-03</lastdbversion>
+    <extensions>
+    </extensions>
+</product>

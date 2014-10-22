@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<product>
+    <name>Service Desk Integration MEA for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410M</build>
+    </version>
+    <dbmaxvarname>DBSDIMEA</dbmaxvarname>
+    <dbscripts>sdimea</dbscripts>
+    <dbversion>V7510-01</dbversion>
+    <lastdbversion>V710-14*V7200-03*V7500-01</lastdbversion>
+</product>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<product>	
+	<name>IBM Maximo Calibration</name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+		<modlevel>0</modlevel> 
+		<patch>0</patch>
+		<build>20130129-2023</build>
+	</version>
+	<dbmaxvarname>DBCALIBRATION</dbmaxvarname>
+	<dbscripts>calibration</dbscripts>	
+	<dbversion>V7501-01</dbversion>
+	<checklicense>1</checklicense>	
+	<lastdbversion>V7110-97*V7120-04*V7130-13*V7500-13</lastdbversion>
+	
+</product>

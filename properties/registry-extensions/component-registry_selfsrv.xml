@@ -1,0 +1,239 @@
+<component-registry basedir="webclient\components" package="psdi.webclient.system">
+	 
+	<component-descriptor name="srmnavigator" >
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>srmnavigatorctrl</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="alwaysinclude">
+				<default-value>false</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			<property name="dataattribute" />
+			<property name="remarks" />
+			<property name="beanclass" />
+			<property name="usereditable">
+				<default-value>true</default-value>
+			</property>
+			<property name="title" />
+			<property name="prepend" />
+			<property name="width" />
+			<property name="length" />
+			<property name="numericonly" />
+			<property name="scale" />
+			<property name="isnumeric" />
+			<property name="haslongdescription" />
+			<property name="size" />
+			<property name="inttype" />
+			<property name="hidewhen" />
+			<property name="ispersistent" />
+			<property name="entityname" />
+			<property name="objectname" />
+			<property name="attributename" />
+			<property name="columnname" />
+			<property name="cssclass" />
+			<property name="tablereadonly" />
+			<property name="onfilterrow" />
+			<property name="inputmode" />
+			<property name="value" />
+			<property name="valuepart" />
+			<property name="instance-class" />
+			<property name="defaultbutton" />
+			<property name="lookup" />
+			<property name="menutype" />
+			<property name="longdesc" />
+			<property name="longdescreadonly" />
+			<property name="rownum">
+				<flag name="system" />
+			</property>
+			<property name="hidetooltip">
+				<default-value>false</default-value>
+			</property>
+			<property name="input">
+				<default-value>true</default-value>
+				<flag name="final" />
+			</property>
+			<property name="borderalways">
+				<default-value>false</default-value>
+				<flag name="final" />
+			</property>
+			<property name="isunbound">
+				<default-value>false</default-value>
+				<flag name="final" />
+			</property>
+			<property name="takesfocus">
+				<default-value>true</default-value>
+			</property>
+			<property name="selected" />
+			<property name="forceclear" />
+			<property name="defaultrender">
+				<default-value>false</default-value>
+			</property>
+			<property name="usefieldsizegroup" />
+			<property name="textcss" />
+			<property name="tabindex" />
+			<property name="numericalignment">
+				<default-value>true</default-value>
+			</property>
+			<property name="tooltip" >
+				<default-value>true</default-value>
+			</property>
+			<property name="hidecarticon" >
+				<default-value>false</default-value>
+			</property>
+			<property name="hidecreatesricon" >
+				<default-value>false</default-value>
+			</property>
+			
+			<!--  Offering filtering domain,  SC_OFFERING OS -->
+		    <property name="offering_fd" />			
+		</property-list>
+	</component-descriptor>
+	
+<!-- Venky My Request Pod Starting -->
+
+<component-descriptor name="requestspod">
+  <property-list>
+   <property name="jsp-filename">
+    <default-value>requestspod</default-value>
+   </property>
+   <property name="cssclass" />
+   <property name="expandonlyone" />
+   <property name="layoutid" />
+   <property name="id">
+    <flag name="final" />
+   </property>
+   <property name="refreshinterval" />
+   <property name="visible">
+    <default-value>true</default-value>
+   </property>
+   <property name="textcss" />
+   <property name="width" />
+   <property name="columns" />
+   <property name="osname">
+      <default-value>SRM_SR</default-value>
+   </property>
+    <property name="filterdomain">       
+   </property>
+   <property name="ticket_object">
+      <default-value>SR</default-value>
+   </property>
+   <property name="viewdialog">
+      <default-value>srmssviewsr</default-value>
+   </property>
+   
+  </property-list>
+ </component-descriptor>
+
+<!-- Venky My Request Pod Ending -->
+
+<component-descriptor name="bboardpod">
+  <property-list>
+   <property name="jsp-filename">
+    <default-value>bboardpod</default-value>
+   </property>
+   <property name="cssclass" />
+   <property name="expandonlyone" />
+   <property name="layoutid" />
+   <property name="id">
+    <flag name="final" />
+   </property>
+   <property name="refreshinterval" />
+   <property name="visible">
+    <default-value>true</default-value>
+   </property>
+   <property name="textcss" />
+   <property name="width" />
+  </property-list>
+ </component-descriptor>
+ 
+ <component-descriptor name="livechatpod">
+  <property-list>
+   <property name="jsp-filename">
+    <default-value>livechatpod</default-value>
+   </property>
+   <property name="cssclass" />
+   <property name="expandonlyone" />
+   	<property name="title" />
+	<property name="buttontitle" />
+	<property name="dialog">
+      <default-value>pmtcochatqueue</default-value>
+   </property>
+   <property name="iconimage" />
+   <property name="layoutid" />
+   <property name="id">
+    <flag name="final" />
+   </property>
+   <property name="refreshinterval" />
+   <property name="visible">
+    <default-value>true</default-value>
+   </property>
+   <property name="textcss" />
+   <property name="width" />
+  </property-list>
+ </component-descriptor>
+ 
+	<component-descriptor name="srmpageinit" >
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>srmPageInit</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="runInMaximo">
+				<default-value>true</default-value>
+			</property>			 
+		</property-list>
+	</component-descriptor>
+
+	<component-descriptor name="srmpageend" >
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>srmPageEnd</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+		</property-list>
+	</component-descriptor>
+
+<!-- Assets pod -->
+<component-descriptor name="assetspod">
+  <property-list>
+   <property name="jsp-filename">
+    <default-value>assetspod</default-value>
+   </property>
+   <property name="cssclass" />
+   <property name="expandonlyone" />
+   <property name="layoutid" />
+   <property name="id">
+    <flag name="final" />
+   </property>
+   <property name="refreshinterval" />
+   <property name="visible">
+    <default-value>true</default-value>
+   </property>
+   <property name="textcss" />
+   <property name="width" />
+   <property name="columns" />
+   <property name="osname">
+      <default-value>SRM_ASSET</default-value>
+   </property>
+    <property name="filterdomain"/>
+   <property name="ticket_object">
+      <default-value>ASSET</default-value>
+   </property>
+   <property name="viewdialog">
+      <default-value>srmssviewasset</default-value>
+   </property>
+   
+  </property-list>
+ </component-descriptor>
+	
+</component-registry>

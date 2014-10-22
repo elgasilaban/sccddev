@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+  
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+  
+  Licensed Materials - Property of IBM
+  
+  Restricted Materials of IBM
+  
+  5724-M19
+  
+  (C) COPYRIGHT IBM CORP. 2007, 2008, 2009.  All Rights Reserved.
+  
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+  
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  244807   ksumlin    11182009  Remove tpae.xml file & replace w/tpae.xml.orig
+  End Change History
+-->
+
+<product>
+	<name>TPAE</name>
+	<version>
+		<major>7</major>
+		<minor>1</minor>
+                <modlevel>1</modlevel>
+		<patch>5</patch>
+		<build>20090911D2</build>
+	</version>
+	<dbmaxvarname>TPAE</dbmaxvarname>
+	<dbscripts>tpae</dbscripts>
+	<dbversion>V7115-01</dbversion>
+	<lastdbversion>V7115-00</lastdbversion>
+</product>

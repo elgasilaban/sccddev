@@ -1,0 +1,87 @@
+<control-registry basedir="webclient\controls" package="psdi.webclient.controls">
+ 
+<control-descriptor name="srmpushbutton" instance-class="com.ibm.ism.pmsc.webclient.controls.SRMPushbutton">
+    <property-list>
+        <property name="advancedlongop" />
+        <property name="align">
+            <default-value>right</default-value>
+        </property>
+        <property name="buttonsenabled">
+            <flag name="global" />
+            <default-value>true</default-value>
+        </property>
+        <property name="clickmessage" />
+        <property name="datasrc">
+            <flag name="nonconditional" />
+            <flag name="global" />
+        </property>
+        <property name="default">
+            <default-value>false</default-value>
+        </property>
+        <property name="dictionarysupport">
+            <default-value>true</default-value>
+        </property>
+        <property name="disabled" />
+        <property name="display">
+            <default-value>true</default-value>
+            <flag name="global" />
+        </property>
+        <property name="id">
+            <flag name="final" />
+        </property>
+        <property name="image" />
+         <property name="innerimage" />
+        <property name="label">
+            <flag name="translatable" />
+        </property>
+        <property name="labelcss" />
+        <property name="launchexternal" />
+        <property name="licensekey">
+            <flag name="final" />
+        </property>
+        <property name="linkedfocusid">
+            <flag name="global" />
+        </property>
+        <property name="longopmessage" />
+        <property name="menutype">
+            <default-value>NONE</default-value>
+        </property>
+        <property name="mxevent" />
+        <property name="rownum">
+            <flag name="system" />
+            <flag name="global" />
+        </property>
+        <property name="sigoption">
+            <flag name="nonconditional" />
+            <flag name="final" />
+        </property>
+        <property name="sigoptiondatasrc">
+            <flag name="nonconditional" />
+            <flag name="final" />
+        </property>
+        <property name="targetid" />
+        <property name="textcss">
+            <flag name="global" />
+            <flag name="final" />
+            <default-value>text</default-value>
+        </property>
+        <property name="value" />
+        <property name="width" />
+        <property name="srmhideappid" />
+        <property name="srmhidewhendialoginstack" />
+        <property name="srmhidewhendialognotinstack" />
+       	<property name="mxeventjshandler"/>
+
+    </property-list>
+    <template>
+			<srmpushbutton id="ctrl_srmpushbutton"/>
+	 </template>
+    <component-list>
+        <pushbutton id="${name}_pushbutton" linkedfocusid="@{linkedfocusid}" default="@{default}" disabled="@{disabled}" hidewhen="@{dictionarysupport}==false" menutype="@{menutype}" label="@{label}" mxevent="@{mxevent}" image="@{image}" cssclass="@{cssclass}" href="@{href}" targetid="@{targetid}" eventvalue="@{value}" width="@{width}" advancedlongop="@{advancedlongop}" longopmessage="@{longopmessage}" textcss="@{textcss}" mxeventjshandler="@{mxeventjshandler}" innerimage="@{innerimage}" />
+    </component-list>
+    <containers>
+        <container name="buttongroup" />
+    </containers>
+</control-descriptor>
+
+</control-registry>

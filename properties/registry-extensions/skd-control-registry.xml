@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * IBM Confidential
+ *
+ * OCO Source Materials
+ *
+ * @CODETOBEDEFINED
+ *
+ * (C) COPYRIGHT IBM CORP. 2012
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *
+-->
+<control-registry basedir="webclient/controls" package="psdi.webclient.controls" 
+		xsi:noNamespaceSchemaLocation='../control-registry.xsd'
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		
+	<control-descriptor name="asnviewer" descriptor-class="psdi.webclient.system.runtime.DatasrcDescriptor" instance-class="com.ibm.tivoli.maximo.skd.control.ASNViewerControl">
+		<property-list>
+			<property name="actiondatasrc"/>
+			<property name="archive"/>
+			<property name="classid"/>
+			<property name="code"/>
+			<property name="codebase"/>
+			<property name="dataattribute">
+				<flag name="final"/>
+			</property>
+			<property name="datasrc">
+				<flag name="nonconditional"/>
+				<flag name="global"/>
+			</property>
+			<property name="display" type="xsd:boolean">
+				<flag name="global"/>
+				<default-value>true</default-value>
+			</property>
+			<property name="height"/>
+			<property name="id">
+				<flag name="final"/>
+			</property>
+			<property name="label">
+				<flag name="translatable"/>
+			</property>
+			<property name="labelcss"/>
+			<property name="licensekey">
+				<flag name="final"/>
+			</property>
+			<property name="nodedatasrc"/>
+			<property name="width"/>
+		</property-list>
+		<component-list>
+			<components id="${name}_components_v" layout="horizontal">
+				<asnviewer id="${name}_asnviewer" classid="@{classid}"/>
+			</components>
+		</component-list>
+		<containers>
+			<container name="clientarea"/>
+			<container name="section"/>
+		</containers>
+	</control-descriptor>
+	<control-descriptor name="skdviewer" descriptor-class="psdi.webclient.system.runtime.DatasrcDescriptor" instance-class="com.ibm.tivoli.maximo.skd.control.SKDViewerControl">
+		<property-list>
+			<property name="actiondatasrc"/>
+			<property name="archive"/>
+			<property name="classid"/>
+			<property name="code"/>
+			<property name="codebase"/>
+			<property name="dataattribute">
+				<flag name="final"/>
+			</property>
+			<property name="datasrc">
+				<flag name="nonconditional"/>
+				<flag name="global"/>
+			</property>
+			<property name="display" type="xsd:boolean">
+				<flag name="global"/>
+				<default-value>true</default-value>
+			</property>
+			<property name="height"/>
+			<property name="id">
+				<flag name="final"/>
+			</property>
+			<property name="label">
+				<flag name="translatable"/>
+			</property>
+			<property name="labelcss"/>
+			<property name="licensekey">
+				<flag name="final"/>
+			</property>
+			<property name="nodedatasrc"/>
+			<property name="width"/>
+		</property-list>
+		<component-list>
+			<components id="${name}_components_v" layout="horizontal">
+				<skdviewer id="${name}_skdviewer" classid="@{classid}"/>
+			</components>
+		</component-list>
+		<containers>
+			<container name="clientarea"/>
+			<container name="section"/>
+		</containers>
+	</control-descriptor>
+
+</control-registry>

@@ -1,0 +1,236 @@
+<chartproperties>
+	<skin id="classic">	
+		<kpichart>
+			<color-palette>
+				<color type="warning">f0d019</color>
+				<color type="alert">b00821</color>
+				<color type="good">179819</color>
+				<color type="innerdial">e5e2e2</color>
+				<color type="kpivaluehand">ffa500</color>
+				<color type="targethand">575657</color>
+				<color type="tooltipbox">xe3e3e3</color>
+			</color-palette>
+		</kpichart>
+		
+		<!-- Colors are loaded in order of appearance -->
+		<kpitrendchart>
+			<color-palette>	
+				<color>f4cb4d</color>
+				<color>9faac5</color>
+				<color>515b73</color>
+				<color>76304c</color>
+				<color>b4b3b3</color>
+				<color>c9a5a5</color>
+				<color>d2caaa</color>
+				<color>658661</color>
+				<color>6f3f10</color>
+				<color>e11b77</color>
+			</color-palette>	
+		</kpitrendchart>	
+		
+		<!-- Colors are loaded in order of appearance -->
+		<resultsetchart>
+			<color-palette>	
+				<color>f4cb4d</color>
+				<color>9faac5</color>
+				<color>515b73</color>
+				<color>76304c</color>
+				<color>b4b3b3</color>
+				<color>c9a5a5</color>
+				<color>d2caaa</color>
+				<color>658661</color>				
+				<color>6f3f10</color>
+				<color>e11b77</color>				
+				<color>ff6666</color>
+				<color>ccff33</color>				
+				<color>9999ff</color>
+				<color>999966</color>				
+				<color>669999</color>
+				<color>cc6699</color>				
+				<color>ffffcc</color>
+				<color>ff9900</color>
+				<color>c0c0c0</color>				
+				<color>66ffcc</color>				
+			</color-palette>
+		</resultsetchart>
+	</skin>
+
+	<skin id="tivoli09">
+		<kpichart>
+			<color-palette>	
+				<color type="warning">fff34c</color>
+				<color type="alert">a63b3a</color>
+				<color type="good">90d500</color>
+				<color type="innerdial">e5e2e2</color>
+				<color type="kpivaluehand">ffa500</color>
+				<color type="targethand">575657</color>
+				<color type="tooltipbox">xe3e3e3</color>
+			</color-palette>	
+		</kpichart>
+		
+		<!-- Colors are loaded in order of appearance -->
+		<kpitrendchart>
+			<color-palette>
+			    <color>7f6699</color>
+				<color>e28d00</color>
+				<color>8bade7</color>
+				<color>4ccc33</color>
+				<color>00005d</color>
+				<color>ccb2e5</color>
+				<color>d0a048</color>
+				<color>0758c4</color>				
+				<color>c3c300</color>
+				<color>66667f</color>				
+			</color-palette>	
+		</kpitrendchart>	
+
+		<!-- Colors are loaded in order of appearance -->
+		<resultsetchart>
+			<color-palette>	
+				<color>7f6699</color>
+				<color>e28d00</color>
+				<color>8bade7</color>
+				<color>4ccc33</color>
+				<color>00005d</color>
+				<color>ccb2e5</color>
+				<color>d0a048</color>
+				<color>0758c4</color>				
+				<color>c3c300</color>
+				<color>66667f</color>				
+				<color>270e96</color>
+				<color>bcd2e8</color>				
+				<color>986030</color>
+				<color>ffaa1c</color>				
+				<color>205870</color>
+				<color>7faddc</color>				
+				<color>99991d</color>
+				<color>997fb2</color>
+				<color>f8d080</color>				
+				<color>153c05</color>	
+			</color-palette>	
+		</resultsetchart>
+	</skin>
+
+	<skin id="mobile">
+        <kpichart>
+            <color-palette> 
+                <color type="warning">fff34c</color>
+                <color type="alert">a63b3a</color>
+                <color type="good">90d500</color>
+                <color type="innerdial">e5e2e2</color>
+                <color type="kpivaluehand">ffa500</color>
+                <color type="targethand">575657</color>
+                <color type="tooltipbox">xe3e3e3</color>
+            </color-palette>    
+        </kpichart>
+        
+        <!-- Colors are loaded in order of appearance -->
+        <kpitrendchart>
+            <color-palette>
+                <color>7f6699</color>
+                <color>e28d00</color>
+				<color>8bade7</color>
+				<color>4ccc33</color>
+				<color>00005d</color>
+				<color>ccb2e5</color>
+				<color>d0a048</color>
+				<color>0758c4</color>				
+				<color>c3c300</color>
+				<color>66667f</color>					
+            </color-palette>    
+        </kpitrendchart>    
+
+        <!-- Colors are loaded in order of appearance -->
+        <resultsetchart>
+            <color-palette> 
+                <color>7f6699</color>
+				<color>e28d00</color>
+				<color>8bade7</color>
+				<color>4ccc33</color>
+				<color>00005d</color>
+				<color>ccb2e5</color>
+				<color>d0a048</color>
+				<color>0758c4</color>				
+				<color>c3c300</color>
+				<color>66667f</color>				
+				<color>270e96</color>
+				<color>bcd2e8</color>				
+				<color>986030</color>
+				<color>ffaa1c</color>				
+				<color>205870</color>
+				<color>7faddc</color>				
+				<color>99991d</color>
+				<color>997fb2</color>
+				<color>f8d080</color>				
+				<color>153c05</color>	
+            </color-palette>    
+        </resultsetchart>   
+    </skin>
+	<skin id="tivoli13">
+		<kpichart>
+			<color-palette>	
+				<color type="warning">f8dc57</color>
+				<color type="alert">a63b3a</color>
+				<color type="good">86a643</color>
+				<color type="innerdial">e3e2e2</color>
+				<color type="kpivaluehand">dc7b22</color>
+				<color type="targethand">666666</color>
+				<color type="tooltipbox">xe3e3e3</color>
+			</color-palette>	
+		</kpichart>
+		
+		<!-- Colors are loaded in order of appearance -->
+		<kpitrendchart>
+			<color-palette>
+			    <color>497c91</color>
+				<color>ada9d6</color>
+				<color>768b4e</color>
+				<color>eeea99</color>
+				<color>b39c53</color>
+				<color>c28b69</color>
+				<color>815454</color>
+				<color>bebebe</color>				
+				<color>59a0bd</color>
+				<color>c9c6e4</color>				
+			</color-palette>	
+		</kpitrendchart>	
+
+		<!-- Colors are loaded in order of appearance -->
+		<resultsetchart>
+			<color-palette>	
+				<color>497c91</color>
+				<color>ada9d6</color>
+				<color>768b4e</color>
+				<color>eeea99</color>
+				<color>b39c53</color>
+				<color>c28b69</color>
+				<color>815454</color>
+				<color>bebebe</color>				
+				<color>59a0bd</color>
+				<color>c9c6e4</color>				
+				<color>677e13</color>
+				<color>f0eebb</color>				
+				<color>e9c756</color>
+				<color>cfb09b</color>				
+				<color>a05a5a</color>
+				<color>d8d8d8</color>				
+				<color>9dc7d9</color>
+				<color>7b78a4</color>
+				<color>a8c179</color>				
+				<color>b7b35c</color>
+				<color>ebcf81</color>
+				<color>956649</color>
+				<color>c99999</color>
+				<color>868686</color>
+				<color>c7e0e9</color>
+				<color>8d88c7</color>
+				<color>c0d0a0</color>
+				<color>e8e667</color>
+				<color>efdeb0</color>
+				<color>b17044</color>
+				<color>ddc0c0</color>
+				<color>a5a5a5</color>	
+			</color-palette>	
+		</resultsetchart>
+	</skin>
+</chartproperties>

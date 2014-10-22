@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+	<name>IBM Maximo Linear Management</name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+		<modlevel>0</modlevel>
+		<patch>0</patch>
+		<build>20130129-2023</build>
+	</version>
+	<dbmaxvarname>LINEAR</dbmaxvarname>
+	<dbscripts>linear</dbscripts>	
+	<dbversion>V7500-01</dbversion>	
+	<checklicense>1</checklicense>
+	<lastdbversion>V7500-00</lastdbversion>
+</product>

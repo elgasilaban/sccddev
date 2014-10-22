@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cleansingrules:Rules
+SchemaVersion="7.5.1"
+xmlns:cleansingrules="http://www.ibm.com/namespaces/com/ibm/tivoli/sccd/CleansingRules"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.ibm.com/namespaces/com/ibm/tivoli/sccd/CleansingRules C:\temp\cleansingRules.xsd">
+
+	<Rule major="ComputerSystem" minor="Manufacturer">
+ 		<Regex pattern="&quot;" format="" />
+ 		<Trim />
+                <Variant table="dpammanuvariant" name="manufacturername" variant="manufacturervar" />
+	</Rule>
+	<Rule major="ComputerSystem" minor="Model">
+	    <Regex pattern="&quot;" format="" />
+		<Regex pattern=".*\[([^\]]+)\].*" format = "$1" />
+		<Regex pattern=".*,(.*)" format = "$1" />
+		<Trim />
+		<UpperCase />
+	</Rule>
+	<Rule major="ComputerSystem" minor="SerialNumber">
+	    <Regex pattern="&quot;" format="" />
+		<Regex pattern="_" format=" " />
+		<Regex pattern="^VMware-" format="" />
+		<Trim />
+		<UpperCase />
+	</Rule>
+	<Rule major="ComputerSystem" minor="SystemBoardUUID">
+		<Regex pattern=" " format="" />
+		<Regex pattern="-" format="" />
+		<Regex pattern="([\da-fA-F]{8})([\da-fA-F]{4})([\da-fA-F]{4})([\da-fA-F]{4})([\da-fA-F]{12})" format="$1-$2-$3-$4-$5" />
+	</Rule>
+	<Rule major="ComputerSystem" minor="UUID">
+		<Regex pattern="^VMware-" format="" />
+		<Regex pattern=" " format="" />
+		<Regex pattern="-" format="" />
+		<Regex pattern="_" format="" />
+		<Regex pattern="([\da-fA-F]{8})([\da-fA-F]{4})([\da-fA-F]{4})([\da-fA-F]{4})([\da-fA-F]{12})" format="$1-$2-$3-$4-$5" />
+		<UpperCase />
+	</Rule>
+
+</cleansingrules:Rules>

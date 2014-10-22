@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+    <name>Asset Management for IBM SmartCloud Control Desk for Service Providers</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301525</build>
+    </version>
+    <dbmaxvarname>TLOAM_SPUPG</dbmaxvarname>
+    <dbscripts>tloam_sp</dbscripts>
+    <dbversion>V7510-02</dbversion>
+    <lastdbversion>V7210-11*V7500-04</lastdbversion>
+    <depends>tloam_pmp,serviceprovider</depends>
+</product>

@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<product xmlns="http://www.ibm.com/maximo/product.xml">
+	<name>IBM Maximo for Service Providers</name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+		<modlevel>1</modlevel>
+		<patch>1</patch>
+		<build>20120702-1801</build>
+		<hotfixlevel>20130122-1437</hotfixlevel>
+	</version>
+	<dbmaxvarname>DBSERVICEPROVIDER</dbmaxvarname>
+	<dbscripts>serviceprovider</dbscripts>
+	<dbversion>V7511-18</dbversion>
+	<lastdbversion>V7110-234*V7111-03*V7120-08*V7121-03*V7122-06*V7130-17*V7500-16*V7510-06</lastdbversion>
+	<hfdbmaxvarname>HFDBSP</hfdbmaxvarname>
+	<hfdbversion>HF7511-03</hfdbversion>
+	<depends>scheduler</depends>
+	<extensions>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.asset -->
+		<mbo objectname='ASSET' extends='psdi.app.asset.Asset'>psdi.plusp.app.asset.PlusPAsset</mbo>
+		<class extends='psdi.app.asset.AssetRemote'>psdi.plusp.app.asset.PlusPAssetRemote</class>
+		<mboset objectname='ASSET' extends='psdi.app.asset.AssetSet'>psdi.plusp.app.asset.PlusPAssetSet</mboset>
+		<class extends='psdi.app.asset.AssetSetRemote'>psdi.plusp.app.asset.PlusPAssetSetRemote</class>
+		<field objectname='ASSET' attributename='ITEMNUM' extends='psdi.app.asset.FldAssetItemnum'>psdi.plusp.app.asset.PlusPFldAssetItemnum</field>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.assetcatalog -->
+		<service servicename='ASSETCATALOG' extends='psdi.app.assetcatalog.AssetCatalogService'>psdi.plusp.app.assetcatalog.PlusPAssetCatalogService</service>
+		<class extends='psdi.app.assetcatalog.AssetCatalogServiceRemote'>psdi.plusp.app.assetcatalog.PlusPAssetCatalogServiceRemote</class>
+		<mbo objectname='CLASSSPEC' extends='psdi.app.assetcatalog.ClassSpec'>psdi.plusp.app.assetcatalog.PlusPClassSpec</mbo>
+		<class extends='psdi.app.assetcatalog.ClassSpecRemote'>psdi.plusp.app.assetcatalog.PlusPClassSpecRemote</class>
+		<mboset objectname='CLASSSPEC' extends='psdi.app.assetcatalog.ClassSpecSet'>psdi.plusp.app.assetcatalog.PlusPClassSpecSet</mboset>
+		<class extends='psdi.app.assetcatalog.ClassSpecSetRemote'>psdi.plusp.app.assetcatalog.PlusPClassSpecSetRemote</class>
+		<mbo objectname='CLASSSTRUCTURE' extends='psdi.app.assetcatalog.ClassStructure'>psdi.plusp.app.assetcatalog.PlusPClassStructure</mbo>
+		<mboset objectname='CLASSSTRUCTURE' extends='psdi.app.assetcatalog.ClassStructureSet'>psdi.plusp.app.assetcatalog.PlusPClassStructureSet</mboset>
+		<class extends='psdi.app.assetcatalog.ClassStructureSetRemote'>psdi.plusp.app.assetcatalog.PlusPClassStructureSetRemote</class>
+		<field objectname='CLASSSTRUCTURE' attributename='PARENT' extends='psdi.app.assetcatalog.FldClassStructureParent'>psdi.plusp.app.assetcatalog.PlusPFldClassStructureParent</field>
+		<field objectname='CLASSSTRUCTURE' attributename='DESCRIPTION_CLASS' extends='psdi.app.assetcatalog.FldClassificationDesc'>psdi.plusp.app.assetcatalog.PlusPFldClassificationDesc</field>
+		<field objectname='INCIDENT' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldCommonClassStructureid'>psdi.plusp.app.assetcatalog.PlusPFldCommonClassStructureid</field>
+		<field objectname='PROBLEM' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldCommonClassStructureid'>psdi.plusp.app.assetcatalog.PlusPFldCommonClassStructureid</field>
+		<field objectname='SR' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldCommonClassStructureid'>psdi.plusp.app.assetcatalog.PlusPFldCommonClassStructureid</field>
+		<field objectname='TICKET' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldCommonClassStructureid'>psdi.plusp.app.assetcatalog.PlusPFldCommonClassStructureid</field>
+		<field objectname='WOACTIVITY' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldCommonClassStructureid'>psdi.plusp.app.assetcatalog.PlusPFldCommonClassStructureid</field>
+		<field objectname='WOCHANGE' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldCommonClassStructureid'>psdi.plusp.app.assetcatalog.PlusPFldCommonClassStructureid</field>
+		<field objectname='WORELEASE' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldCommonClassStructureid'>psdi.plusp.app.assetcatalog.PlusPFldCommonClassStructureid</field>
+		<field objectname='WORKORDER' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldCommonClassStructureid'>psdi.plusp.app.assetcatalog.PlusPFldCommonClassStructureid</field>
+		<field objectname='ACTCISPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='ASSETFEATURESPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='ASSETSPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='CISPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='FEATURESPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='ITEMSPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='JOBPLANSPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='JOBTASKSPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='LOCATIONSPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='SOLUTIONSPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='TICKETSPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='TKTEMPLATESPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='TKTEMPLTACTYSPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+		<field objectname='WORKORDERSPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.plusp.app.assetcatalog.PlusPFldCommonSpecAssetAttrid</field>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.bulletinboard -->
+		<class extends='psdi.app.bulletinboard.BB'>psdi.plusp.app.bulletinboard.PlusPBB</class>
+		<class extends='psdi.app.bulletinboard.BBAudOrgRole'>psdi.plusp.app.bulletinboard.PlusPBBAudOrgRole</class>
+		<class extends='psdi.app.bulletinboard.BBAudPersonGroupRole'>psdi.plusp.app.bulletinboard.PlusPBBAudPersonGroupRole</class>
+		<class extends='psdi.app.bulletinboard.BBAudSiteRole'>psdi.plusp.app.bulletinboard.PlusPBBAudSiteRole</class>
+		<mboset objectname='BULLETINBOARD' extends='psdi.app.bulletinboard.BBSet'>psdi.plusp.app.bulletinboard.PlusPBBSet</mboset>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.calendar -->
+		<mbo objectname='CALENDAR' extends='psdi.app.calendar.Calendar'>psdi.plusp.app.calendar.PlusPCalendar</mbo>
+		<mboset objectname='CALENDAR' extends='psdi.app.calendar.CalendarSet'>psdi.plusp.app.calendar.PlusPCalendarSet</mboset>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.ci -->
+		<mbo objectname='CI' extends='psdi.app.ci.CI'>psdi.plusp.app.ci.PlusPCI</mbo>
+		<class extends='psdi.app.ci.CIRemote'>psdi.plusp.app.ci.PlusPCIRemote</class>
+		<mboset objectname='CI' extends='psdi.app.ci.CISet'>psdi.plusp.app.ci.PlusPCISet</mboset>
+		<class extends='psdi.app.ci.CISetRemote'>psdi.plusp.app.ci.PlusPCISetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.common -->
+		<field objectname='SLA' attributename='INTPRIORITYVALUE'>psdi.plusp.app.common.PlusPFldInternalPriority</field>
+		<field objectname='SLA' attributename='SANUM'>psdi.plusp.app.common.PlusPFldSANum</field>
+		<field objectname='SLA' attributename='SLANUM'>psdi.plusp.app.common.PlusPFldSLANum</field>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.escalation -->
+		<mbo objectname='ESCALATION' extends='psdi.app.escalation.Escalation'>psdi.plusp.app.escalation.PlusPEscalation</mbo>
+		<mbo objectname='ESCNOTIFICATION' extends='psdi.app.escalation.EscalationNotification'>psdi.plusp.app.escalation.PlusPEscalationNotification</mbo>
+		<mboset objectname='ESCNOTIFICATION' extends='psdi.app.escalation.EscalationNotificationSet'>psdi.plusp.app.escalation.PlusPEscalationNotificationSet</mboset>
+		<class extends='psdi.app.escalation.EscalationRemote'>psdi.plusp.app.escalation.PlusPEscalationRemote</class>
+		<mboset objectname='ESCALATION' extends='psdi.app.escalation.EscalationSet'>psdi.plusp.app.escalation.PlusPEscalationSet</mboset>
+		<class extends='psdi.app.escalation.EscalationSetRemote'>psdi.plusp.app.escalation.PlusPEscalationSetRemote</class>
+		<field objectname='ESCREFPOINT' attributename='EVENTATTRIBUTE' extends='psdi.app.escalation.FldEscalationEventAttr'>psdi.plusp.app.escalation.PlusPFldEscalationEventAttr</field>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.escalation.engine -->
+		<class extends='psdi.app.escalation.engine.EscalationTask'>psdi.plusp.app.escalation.engine.PlusPEscalationTask</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.inventory -->
+		<field objectname='MATUSETRANS' attributename='ITEMNUM' extends='psdi.app.inventory.FldMatUseTransItemNum'>psdi.plusp.app.inventory.PlusPFldMatUseTransItemNum</field>
+		<field objectname='MATUSETRANS' attributename='LINECOST' extends='psdi.app.inventory.FldMatUseTransLineCost'>psdi.plusp.app.inventory.PlusPFldMatUseTransLineCost</field>
+		<mbo objectname='MATRECTRANS' extends='psdi.app.inventory.MatRecTrans'>psdi.plusp.app.inventory.PlusPMatRecTrans</mbo>
+		<mboset objectname='MATRECTRANS' extends='psdi.app.inventory.MatRecTransSet'>psdi.plusp.app.inventory.PlusPMatRecTransSet</mboset>
+		<mbo objectname='MATUSETRANS' extends='psdi.app.inventory.MatUseTrans'>psdi.plusp.app.inventory.PlusPMatUseTrans</mbo>
+		<class extends='psdi.app.inventory.MatUseTransRemote'>psdi.plusp.app.inventory.PlusPMatUseTransRemote</class>
+		<mboset objectname='MATUSETRANS' extends='psdi.app.inventory.MatUseTransSet'>psdi.plusp.app.inventory.PlusPMatUseTransSet</mboset>
+		<class extends='psdi.app.inventory.MatUseTransSetRemote'>psdi.plusp.app.inventory.PlusPMatUseTransSetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.item -->
+		<field objectname='ITEM' attributename='COMMODITY'>psdi.plusp.app.item.PlusPFldCommodityCode</field>
+		<field objectname='ITEM' attributename='COMMODITYGROUP' extends='psdi.app.item.FldItemCommodityGrp'>psdi.plusp.app.item.PlusPFldCommodityGrp</field>
+		<mbo objectname='ITEM' extends='psdi.app.item.Item'>psdi.plusp.app.item.PlusPItem</mbo>
+		<class extends='psdi.app.item.ItemRemote'>psdi.plusp.app.item.PlusPItemRemote</class>
+		<mboset objectname='ITEM' extends='psdi.app.item.ItemSet'>psdi.plusp.app.item.PlusPItemSet</mboset>
+		<class extends='psdi.app.item.ItemSetRemote'>psdi.plusp.app.item.PlusPItemSetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.labor -->
+		<field objectname='LABTRANS' attributename='ACTIVITY' extends='psdi.app.labor.FldLabTransActivity'>psdi.plusp.app.labor.PlusPFldLabTransActivity</field>
+		<field objectname='LABTRANS' attributename='LINECOST' extends='psdi.app.labor.FldLabTransLineCost'>psdi.plusp.app.labor.PlusPFldLabTransLineCost</field>
+		<field objectname='LABTRANS' attributename='VENDOR' extends='psdi.app.labor.FldLabTransVendor'>psdi.plusp.app.labor.PlusPFldLabTransVendor</field>
+		<field objectname='SERVRECTRANS' attributename='ITEMNUM'>psdi.plusp.app.labor.PlusPFldServRecTransItemNum</field>
+		<field objectname='SERVRECTRANS' attributename='LINETYPE'>psdi.plusp.app.labor.PlusPFldServRecTransLineType</field>
+		<mbo objectname='LABTRANS' extends='psdi.app.labor.LabTrans'>psdi.plusp.app.labor.PlusPLabTrans</mbo>
+		<class extends='psdi.app.labor.LabTransRemote'>psdi.plusp.app.labor.PlusPLabTransRemote</class>
+		<mboset objectname='LABTRANS' extends='psdi.app.labor.LabTransSet'>psdi.plusp.app.labor.PlusPLabTransSet</mboset>
+		<class extends='psdi.app.labor.LabTransSetRemote'>psdi.plusp.app.labor.PlusPLabTransSetRemote</class>
+		<mbo objectname='SERVRECTRANS' extends='psdi.app.labor.ServRecTrans'>psdi.plusp.app.labor.PlusPServRecTrans</mbo>
+		<class extends='psdi.app.labor.ServRecTransRemote'>psdi.plusp.app.labor.PlusPServRecTransRemote</class>
+		<mboset objectname='SERVRECTRANS' extends='psdi.app.labor.ServRecTransSet'>psdi.plusp.app.labor.PlusPServRecTransSet</mboset>
+		<class extends='psdi.app.labor.ServRecTransSetRemote'>psdi.plusp.app.labor.PlusPServRecTransSetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.location -->
+		<field objectname='LOCOPER' attributename='ITEMNUM' extends='psdi.app.location.FldLocOperItemNum'>psdi.plusp.app.location.PlusPFldLocOperItemNum</field>
+		<field objectname='LOCATIONS' attributename='ITEMNUM' extends='psdi.app.location.FldLocationItemNum'>psdi.plusp.app.location.PlusPFldLocationItemNum</field>
+		<field objectname='LOCATIONS' attributename='SERVICEADDRESSCODE' extends='psdi.app.location.FldLocationServiceAddressCode'>psdi.plusp.app.location.PlusPFldLocationServiceAddressCode</field>
+		<mbo objectname='LOCSYSTEM' extends='psdi.app.location.LocSystem'>psdi.plusp.app.location.PlusPLocSystem</mbo>
+		<class extends='psdi.app.location.LocSystemRemote'>psdi.plusp.app.location.PlusPLocSystemRemote</class>
+		<mboset objectname='LOCSYSTEM' extends='psdi.app.location.LocSystemSet'>psdi.plusp.app.location.PlusPLocSystemSet</mboset>
+		<class extends='psdi.app.location.LocSystemSetRemote'>psdi.plusp.app.location.PlusPLocSystemSetRemote</class>
+		<mbo objectname='LOCATIONS' extends='psdi.app.location.Location'>psdi.plusp.app.location.PlusPLocation</mbo>
+		<class extends='psdi.app.location.LocationRemote'>psdi.plusp.app.location.PlusPLocationRemote</class>
+		<mboset objectname='LOCATIONS' extends='psdi.app.location.LocationSet'>psdi.plusp.app.location.PlusPLocationSet</mboset>
+		<class extends='psdi.app.location.LocationSetRemote'>psdi.plusp.app.location.PlusPLocationSetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.person -->
+		<mbo objectname='EMAIL' extends='psdi.app.person.Email'>psdi.plusp.app.person.PlusPEmail</mbo>
+		<class extends='psdi.app.person.EmailRemote'>psdi.plusp.app.person.PlusPEmailRemote</class>
+		<mboset objectname='EMAIL' extends='psdi.app.person.EmailSet'>psdi.plusp.app.person.PlusPEmailSet</mboset>
+		<class extends='psdi.app.person.EmailSetRemote'>psdi.plusp.app.person.PlusPEmailSetRemote</class>
+		<field objectname='EMAIL' attributename='PERSONID'>psdi.plusp.app.person.PlusPFldEmailAddress</field>
+		<mbo objectname='PERSON' extends='psdi.app.person.Person'>psdi.plusp.app.person.PlusPPerson</mbo>
+		<class extends='psdi.app.person.PersonSetRemote'>psdi.plusp.app.person.PlusPPersonCustSetRemote</class>
+		<class extends='psdi.app.person.PersonRemote'>psdi.plusp.app.person.PlusPPersonRemote</class>
+		<mboset objectname='PERSON' extends='psdi.app.person.PersonSet'>psdi.plusp.app.person.PlusPPersonSet</mboset>
+		<class extends='psdi.app.person.PersonSetRemote'>psdi.plusp.app.person.PlusPPersonSetRemote</class>
+		<mbo objectname='PHONE' extends='psdi.app.person.Phone'>psdi.plusp.app.person.PlusPPhone</mbo>
+		<class extends='psdi.app.person.PhoneRemote'>psdi.plusp.app.person.PlusPPhoneRemote</class>
+		<mboset objectname='PHONE' extends='psdi.app.person.PhoneSet'>psdi.plusp.app.person.PlusPPhoneSet</mboset>
+		<class extends='psdi.app.person.PhoneSetRemote'>psdi.plusp.app.person.PlusPPhoneSetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.persongroup -->
+		<field objectname='PERSONGROUP' attributename='PERSONGROUP'>psdi.plusp.app.persongroup.PlusPFldPersonGroup</field>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.pluspcustagree -->
+		<field objectname='SLA' attributename='BILLAPPROVEDWORK'>psdi.plusp.app.pluspcustagree.PlusPFldPSBillApprWork</field>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.plusprespplan -->
+		<field objectname='SLA' attributename='ASSIGNOWNER'>psdi.plusp.app.plusprespplan.PlusPFldAssignOwner</field>
+		<field objectname='SLA' attributename='ASSIGNOWNERGROUP'>psdi.plusp.app.plusprespplan.PlusPFldAssignOwnerGroup</field>
+		<field objectname='SLA' attributename='ASSIGNVENDOR'>psdi.plusp.app.plusprespplan.PlusPFldAssignVendor</field>
+		<field objectname='ESCREFPOINT' attributename='ACTION' extends='psdi.app.escalation.FldEscalationAction'>psdi.plusp.app.plusprespplan.PlusPFldEscalationAction</field>
+		<field objectname='SLA' attributename='APPLYJOBPLAN' extends='psdi.app.jobplan.FldJpnum'>psdi.plusp.app.plusprespplan.PlusPFldJobPlan</field>
+		<field objectname='SLA' attributename='APPLYSOLUTION'>psdi.plusp.app.plusprespplan.PlusPFldRespPlanSolution</field>
+		<field objectname='SLA' attributename='APPLYTKTEMPLATE'>psdi.plusp.app.plusprespplan.PlusPFldTkTemplate</field>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.pluspsecgr -->
+		<mbo objectname='CONDITION' extends='psdi.app.system.Condition'>psdi.plusp.app.pluspsecgr.PlusPCondition</mbo>
+		<class extends='psdi.app.system.ConditionRemote'>psdi.plusp.app.pluspsecgr.PlusPConditionRemote</class>
+		<mboset objectname='CONDITION' extends='psdi.app.system.ConditionSet'>psdi.plusp.app.pluspsecgr.PlusPConditionSet</mboset>
+		<class extends='psdi.app.system.ConditionSetRemote'>psdi.plusp.app.pluspsecgr.PlusPConditionSetRemote</class>
+		<mbo objectname='MAXGROUP' extends='psdi.app.signature.MaxGroup'>psdi.plusp.app.pluspsecgr.PlusPMaxGroup</mbo>
+		<class extends='psdi.app.signature.MaxGroupRemote'>psdi.plusp.app.pluspsecgr.PlusPMaxGroupRemote</class>
+		<mboset objectname='MAXGROUP' extends='psdi.app.signature.MaxGroupSet'>psdi.plusp.app.pluspsecgr.PlusPMaxGroupSet</mboset>
+		<class extends='psdi.app.signature.MaxGroupSetRemote'>psdi.plusp.app.pluspsecgr.PlusPMaxGroupSetRemote</class>
+		<mbo objectname='SECURITYRESTRICT' extends='psdi.app.signature.SecurityRestrict'>psdi.plusp.app.pluspsecgr.PlusPSecurityRestrict</mbo>
+		<mboset objectname='SECURITYRESTRICT' extends='psdi.app.signature.SecurityRestrictSet'>psdi.plusp.app.pluspsecgr.PlusPSecurityRestrictSet</mboset>
+		<class extends='psdi.app.signature.SecurityRestrictSetRemote'>psdi.plusp.app.pluspsecgr.PlusPSecurityRestrictSetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.pluspserviceagree -->
+		<field objectname='ACTIONGROUP' attributename='MEMBER'>psdi.plusp.app.pluspserviceagree.PlusPFldActionGroupMember</field>
+		<field objectname='SLA' attributename='CALENDAR' extends='psdi.app.calendar.FldCalNum'>psdi.plusp.app.pluspserviceagree.PlusPFldCalendar</field>
+		<field objectname='CLASSSTRUCTURE' attributename='HIERARCHYPATH' extends='psdi.app.assetcatalog.FldClassStructureHierarchyPath'>psdi.plusp.app.pluspserviceagree.PlusPFldClassStructureHierarchyPath</field>
+		<field objectname='SLA' attributename='ENDDATE' extends='psdi.app.sla.FldDatePair'>psdi.plusp.app.pluspserviceagree.PlusPFldEndDate</field>
+		<field objectname='ESCNOTIFICATION' attributename='TEMPLATEID' extends='psdi.app.escalation.FldEscNotificatTemplId'>psdi.plusp.app.pluspserviceagree.PlusPFldEscNotificatTemplId</field>
+		<field objectname='ESCNOTIFICATION' attributename='ROLE' extends='psdi.app.escalation.FldEscNotificatRole'>psdi.plusp.app.pluspserviceagree.PlusPFldEscNotificationRole</field>
+		<field objectname='SLA' attributename='OBJECTNAME'>psdi.plusp.app.pluspserviceagree.PlusPFldObjectName</field>
+		<field objectname='SLA' attributename='RANKING'>psdi.plusp.app.pluspserviceagree.PlusPFldRanking</field>
+		<field objectname='SLA' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldClassStructureId'>psdi.plusp.app.pluspserviceagree.PlusPFldServiceAgreementClassStructureId</field>
+		<!-- UNDEFINED:         public class PlusPFldServiceAgreementIntPriorityValue extends NumericDomain { -->
+		<field objectname='SLA' attributename='SHIFT'>psdi.plusp.app.pluspserviceagree.PlusPFldShift</field>
+		<field objectname='SLA' attributename='STARTDATE' extends='psdi.app.sla.FldDatePair'>psdi.plusp.app.pluspserviceagree.PlusPFldStartDate</field>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.po.virtual -->
+		<mbo objectname='RECEIPTINPUT' extends='psdi.app.po.virtual.ReceiptInput'>psdi.plusp.app.po.virtual.PlusPReceiptInput</mbo>
+		<mboset objectname='RECEIPTINPUT' extends='psdi.app.po.virtual.ReceiptInputSet'>psdi.plusp.app.po.virtual.PlusPReceiptInputSet</mboset>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.rcncmprule -->
+		<mbo objectname='RECONCOMPRULE' extends='psdi.app.rcncmprule.ReconCompRule'>psdi.plusp.app.rcncmprule.PlusPReconCompRule</mbo>
+		<mboset objectname='RECONCOMPRULE' extends='psdi.app.rcncmprule.ReconCompRuleSet'>psdi.plusp.app.rcncmprule.PlusPReconCompRuleSet</mboset>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.rcnlnkrule -->
+		<mbo objectname='RECONLINKRULE' extends='psdi.app.rcnlnkrule.ReconLinkRule'>psdi.plusp.app.rcnlnkrule.PlusPReconLinkRule</mbo>
+		<mboset objectname='RECONLINKRULE' extends='psdi.app.rcnlnkrule.ReconLinkRuleSet'>psdi.plusp.app.rcnlnkrule.PlusPReconLinkRuleSet</mboset>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.rcntskfltr -->
+		<mbo objectname='RECONTASKFILTER' extends='psdi.app.rcntskfltr.ReconTaskFilter'>psdi.plusp.app.rcntskfltr.PlusPReconTaskFilter</mbo>
+		<mboset objectname='RECONTASKFILTER' extends='psdi.app.rcntskfltr.ReconTaskFilterSet'>psdi.plusp.app.rcntskfltr.PlusPReconTaskFilterSet</mboset>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.recontask -->
+		<field objectname='RECONTASKCOMP' attributename='COMPRULENAME' extends='psdi.app.recontask.FldReconTaskCompRuleName'>psdi.plusp.app.recontask.PlusPFldReconTaskCompRuleName</field>
+		<field objectname='RECONTASK' attributename='FILTERNAME' extends='psdi.app.recontask.FldReconTaskFilterName'>psdi.plusp.app.recontask.PlusPFldReconTaskFilterName</field>
+		<field objectname='RECONTASKLINK' attributename='LINKRULENAME' extends='psdi.app.recontask.FldReconTaskLinkRuleName'>psdi.plusp.app.recontask.PlusPFldReconTaskLinkRuleName</field>
+		<mbo objectname='RECONTASK' extends='psdi.app.recontask.ReconTask'>psdi.plusp.app.recontask.PlusPReconTask</mbo>
+		<mbo objectname='RECONTASKCOMP' extends='psdi.app.recontask.ReconTaskComp'>psdi.plusp.app.recontask.PlusPReconTaskComp</mbo>
+		<mboset objectname='RECONTASKCOMP' extends='psdi.app.recontask.ReconTaskCompSet'>psdi.plusp.app.recontask.PlusPReconTaskCompSet</mboset>
+		<mbo objectname='RECONTASKLINK' extends='psdi.app.recontask.ReconTaskLink'>psdi.plusp.app.recontask.PlusPReconTaskLink</mbo>
+		<mboset objectname='RECONTASKLINK' extends='psdi.app.recontask.ReconTaskLinkSet'>psdi.plusp.app.recontask.PlusPReconTaskLinkSet</mboset>
+		<mboset objectname='RECONTASK' extends='psdi.app.recontask.ReconTaskSet'>psdi.plusp.app.recontask.PlusPReconTaskSet</mboset>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.recontask.engine.dataset -->
+		<class extends='psdi.app.recontask.engine.dataset.AssetDataSet'>psdi.plusp.app.recontask.engine.dataset.PlusPAssetDataSet</class>
+		<class extends='psdi.app.recontask.engine.dataset.CIDataSet'>psdi.plusp.app.recontask.engine.dataset.PlusPCIDataSet</class>
+		<class extends='psdi.app.recontask.engine.dataset.DPADataSet'>psdi.plusp.app.recontask.engine.dataset.PlusPDPADataSet</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.serviceitem -->
+		<mbo objectname='SERVICEITEMS' extends='psdi.app.serviceitem.ServiceItem'>psdi.plusp.app.serviceitem.PlusPServiceItem</mbo>
+		<class extends='psdi.app.serviceitem.ServiceItemRemote'>psdi.plusp.app.serviceitem.PlusPServiceItemRemote</class>
+		<mboset objectname='SERVICEITEMS' extends='psdi.app.serviceitem.ServiceItemSet'>psdi.plusp.app.serviceitem.PlusPServiceItemSet</mboset>
+		<class extends='psdi.app.serviceitem.ServiceItemSetRemote'>psdi.plusp.app.serviceitem.PlusPServiceItemSetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.sla -->
+		<field objectname='SLA' attributename='CALCCALENDAR'>psdi.plusp.app.sla.PlusPFldCalcCalendar</field>
+		<field objectname='SLA' attributename='CALCORGID' extends='psdi.app.site.FldOrganizationID'>psdi.plusp.app.sla.PlusPFldCalcOrgId</field>
+		<field objectname='SLA' attributename='CALCSHIFT'>psdi.plusp.app.sla.PlusPFldCalcShift</field>
+		<field objectname='SLACOMMITMENTS' attributename='TYPE' extends='psdi.app.sla.FldSLACommitmentsType'>psdi.plusp.app.sla.PlusPFldSLACommitmentsType</field>
+		<field objectname='SLACONTRACT' attributename='SLANUM' extends='psdi.app.sla.FldSLAContractSLANum'>psdi.plusp.app.sla.PlusPFldSLAContractSLANum</field>
+		<field objectname='SLA' attributename='SLAHOLD'>psdi.plusp.app.sla.PlusPFldSLAHold</field>
+		<field objectname='SLARECORDS' attributename='SLANUM' extends='psdi.app.sla.FldSLARecordsSlanum'>psdi.plusp.app.sla.PlusPFldSLARecordsSlanum</field>
+		<field objectname='SLA' attributename='TICKETORGID' extends='psdi.app.site.FldOrganizationID'>psdi.plusp.app.sla.PlusPFldSLATicketOrgId</field>
+		<field objectname='SLA' attributename='TICKETSITEID' extends='psdi.app.site.FldSiteID'>psdi.plusp.app.sla.PlusPFldSLATicketSiteId</field>
+		<mbo objectname='RELATEDSLA' extends='psdi.app.sla.RelatedSLA'>psdi.plusp.app.sla.PlusPRelatedSLA</mbo>
+		<class extends='psdi.app.sla.RelatedSLARemote'>psdi.plusp.app.sla.PlusPRelatedSLARemote</class>
+		<mboset objectname='RELATEDSLA' extends='psdi.app.sla.RelatedSLASet'>psdi.plusp.app.sla.PlusPRelatedSLASet</mboset>
+		<class extends='psdi.app.sla.RelatedSLASetRemote'>psdi.plusp.app.sla.PlusPRelatedSLASetRemote</class>
+		<mbo objectname='SLA' extends='psdi.app.sla.SLA'>psdi.plusp.app.sla.PlusPSLA</mbo>
+		<mbo objectname='SLAASSETLOC' extends='psdi.app.sla.SLAAssetLoc'>psdi.plusp.app.sla.PlusPSLAAssetLoc</mbo>
+		<mboset objectname='SLAASSETLOC' extends='psdi.app.sla.SLAAssetLocSet'>psdi.plusp.app.sla.PlusPSLAAssetLocSet</mboset>
+		<mbo objectname='SLACOMMITMENTS' extends='psdi.app.sla.SLACommitments'>psdi.plusp.app.sla.PlusPSLACommitments</mbo>
+		<mboset objectname='SLACOMMITMENTS' extends='psdi.app.sla.SLACommitmentsSet'>psdi.plusp.app.sla.PlusPSLACommitmentsSet</mboset>
+		<mbo objectname='SLACONTRACT' extends='psdi.app.sla.SLAContract'>psdi.plusp.app.sla.PlusPSLAContract</mbo>
+		<mboset objectname='SLACONTRACT' extends='psdi.app.sla.SLAContractSet'>psdi.plusp.app.sla.PlusPSLAContractSet</mboset>
+		<mbo objectname='SLAKPI' extends='psdi.app.sla.SLAKPI'>psdi.plusp.app.sla.PlusPSLAKPI</mbo>
+		<mboset objectname='SLAKPI' extends='psdi.app.sla.SLAKPISet'>psdi.plusp.app.sla.PlusPSLAKPISet</mboset>
+		<mbo objectname='SLARECORDS' extends='psdi.app.sla.SLARecords'>psdi.plusp.app.sla.PlusPSLARecords</mbo>
+		<class extends='psdi.app.sla.SLARecordsRemote'>psdi.plusp.app.sla.PlusPSLARecordsRemote</class>
+		<mboset objectname='SLARECORDS' extends='psdi.app.sla.SLARecordsSet'>psdi.plusp.app.sla.PlusPSLARecordsSet</mboset>
+		<class extends='psdi.app.sla.SLARemote'>psdi.plusp.app.sla.PlusPSLARemote</class>
+		<mboset objectname='SLA' extends='psdi.app.sla.SLASet'>psdi.plusp.app.sla.PlusPSLASet</mboset>
+		<class extends='psdi.app.sla.SLASetRemote'>psdi.plusp.app.sla.PlusPSLASetRemote</class>
+		<class extends='psdi.app.sla.SLAStatusHandler'>psdi.plusp.app.sla.PlusPSLAStatusHandler</class>
+		<class extends='psdi.app.sla.SLAUtil'>psdi.plusp.app.sla.PlusPSLAUtil</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.sla.virtual -->
+		<mboset objectname='SLACHANGESTATUS' extends='psdi.app.sla.virtual.SLAChangeStatusSet'>psdi.plusp.app.sla.virtual.PlusPSLAChangeStatusSet</mboset>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.solution -->
+		<mbo objectname='SOLUTION' extends='psdi.app.solution.Solution'>psdi.plusp.app.solution.PlusPSolution</mbo>
+		<class extends='psdi.app.solution.SolutionRemote'>psdi.plusp.app.solution.PlusPSolutionRemote</class>
+		<mboset objectname='SOLUTION' extends='psdi.app.solution.SolutionSet'>psdi.plusp.app.solution.PlusPSolutionSet</mboset>
+		<class extends='psdi.app.solution.SolutionSetRemote'>psdi.plusp.app.solution.PlusPSolutionSetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.solution.virtual -->
+		<field objectname='SOLUTION' attributename='CLASSIFICATION'>psdi.plusp.app.solution.virtual.PlusPFldClassification</field>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.system -->
+		<mbo objectname='ALNDOMAIN' extends='psdi.app.system.ALNValue'>psdi.plusp.app.system.PlusPALNValue</mbo>
+		<class extends='psdi.app.system.ALNValueRemote'>psdi.plusp.app.system.PlusPALNValueRemote</class>
+		<mboset objectname='ALNDOMAIN' extends='psdi.app.system.ALNValueSet'>psdi.plusp.app.system.PlusPALNValueSet</mboset>
+		<class extends='psdi.app.system.ALNValueSetRemote'>psdi.plusp.app.system.PlusPALNValueSetRemote</class>
+		<field objectname='SYNONYMDOMAIN' attributename='ORGID' extends='psdi.app.system.FldDomainOrgId'>psdi.plusp.app.system.PlusPFldDomainOrgId</field>
+		<field objectname='SYNONYMDOMAIN' attributename='SITEID' extends='psdi.app.system.FldDomainSiteId'>psdi.plusp.app.system.PlusPFldDomainSiteId</field>
+		<field objectname='SYNONYMDOMAIN' attributename='DEFAULTS' extends='psdi.app.system.FldMXValueDefaults'>psdi.plusp.app.system.PlusPFldMxValueDefaults</field>
+		<mbo objectname='SYNONYMDOMAIN' extends='psdi.app.system.MXValue'>psdi.plusp.app.system.PlusPMXValue</mbo>
+		<class extends='psdi.app.system.MXValueRemote'>psdi.plusp.app.system.PlusPMXValueRemote</class>
+		<mboset objectname='SYNONYMDOMAIN' extends='psdi.app.system.MXValueSet'>psdi.plusp.app.system.PlusPMXValueSet</mboset>
+		<class extends='psdi.app.system.MXValueSetRemote'>psdi.plusp.app.system.PlusPMXValueSetRemote</class>
+		<mbo objectname='NUMERICDOMAIN' extends='psdi.app.system.NUMValue'>psdi.plusp.app.system.PlusPNUMValue</mbo>
+		<class extends='psdi.app.system.NUMValueRemote'>psdi.plusp.app.system.PlusPNUMValueRemote</class>
+		<mboset objectname='NUMERICDOMAIN' extends='psdi.app.system.NUMValueSet'>psdi.plusp.app.system.PlusPNUMValueSet</mboset>
+		<class extends='psdi.app.system.NUMValueSetRemote'>psdi.plusp.app.system.PlusPNUMValueSetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.system.virtual -->
+		<field objectname='MAXVARINPUT' attributename='USESLARANKING' extends='psdi.app.system.virtual.FldUseSlaRanking'>psdi.plusp.app.system.virtual.PlusPFldUseSlaRanking</field>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.ticket -->
+		<field objectname='INCIDENT' attributename='ASSETNUM' extends='psdi.app.ticket.FldTKAssetnum'>psdi.plusp.app.ticket.PlusPFldTKAssetnum</field>
+		<field objectname='PROBLEM' attributename='ASSETNUM' extends='psdi.app.ticket.FldTKAssetnum'>psdi.plusp.app.ticket.PlusPFldTKAssetnum</field>
+		<field objectname='SR' attributename='ASSETNUM' extends='psdi.app.ticket.FldTKAssetnum'>psdi.plusp.app.ticket.PlusPFldTKAssetnum</field>
+		<field objectname='TICKET' attributename='ASSETNUM' extends='psdi.app.ticket.FldTKAssetnum'>psdi.plusp.app.ticket.PlusPFldTKAssetnum</field>
+		<field objectname='INCIDENT' attributename='CINUM' extends='psdi.app.ticket.FldTKCINum'>psdi.plusp.app.ticket.PlusPFldTKCINum</field>
+		<field objectname='PROBLEM' attributename='CINUM' extends='psdi.app.ticket.FldTKCINum'>psdi.plusp.app.ticket.PlusPFldTKCINum</field>
+		<field objectname='SR' attributename='CINUM' extends='psdi.app.ticket.FldTKCINum'>psdi.plusp.app.ticket.PlusPFldTKCINum</field>
+		<field objectname='TICKET' attributename='CINUM' extends='psdi.app.ticket.FldTKCINum'>psdi.plusp.app.ticket.PlusPFldTKCINum</field>
+		<field objectname='INCIDENT' attributename='LOCATION' extends='psdi.app.ticket.FldTKLoc'>psdi.plusp.app.ticket.PlusPFldTicketLocation</field>
+		<field objectname='PROBLEM' attributename='LOCATION' extends='psdi.app.ticket.FldTKLoc'>psdi.plusp.app.ticket.PlusPFldTicketLocation</field>
+		<field objectname='SR' attributename='LOCATION' extends='psdi.app.ticket.FldTKLoc'>psdi.plusp.app.ticket.PlusPFldTicketLocation</field>
+		<field objectname='TICKET' attributename='LOCATION' extends='psdi.app.ticket.FldTKLoc'>psdi.plusp.app.ticket.PlusPFldTicketLocation</field>
+		<field objectname='INCIDENT' attributename='SITEID' extends='psdi.app.ticket.FldTkSiteId'>psdi.plusp.app.ticket.PlusPFldTicketSiteId</field>
+		<field objectname='PROBLEM' attributename='SITEID' extends='psdi.app.ticket.FldTkSiteId'>psdi.plusp.app.ticket.PlusPFldTicketSiteId</field>
+		<field objectname='SR' attributename='SITEID' extends='psdi.app.ticket.FldTkSiteId'>psdi.plusp.app.ticket.PlusPFldTicketSiteId</field>
+		<field objectname='TICKET' attributename='SITEID' extends='psdi.app.ticket.FldTkSiteId'>psdi.plusp.app.ticket.PlusPFldTicketSiteId</field>
+		<mbo objectname='INCIDENT' extends='psdi.app.ticket.Incident'>psdi.plusp.app.ticket.PlusPIncident</mbo>
+		<mboset objectname='INCIDENT' extends='psdi.app.ticket.IncidentSet'>psdi.plusp.app.ticket.PlusPIncidentSet</mboset>
+		<mbo objectname='PROBLEM' extends='psdi.app.ticket.Problem'>psdi.plusp.app.ticket.PlusPProblem</mbo>
+		<mboset objectname='PROBLEM' extends='psdi.app.ticket.ProblemSet'>psdi.plusp.app.ticket.PlusPProblemSet</mboset>
+		<mbo objectname='SR' extends='psdi.app.ticket.SR'>psdi.plusp.app.ticket.PlusPSR</mbo>
+		<mboset objectname='SR' extends='psdi.app.ticket.SRSet'>psdi.plusp.app.ticket.PlusPSRSet</mboset>
+		<class extends='psdi.app.ticket.TicketRemote'>psdi.plusp.app.ticket.PlusPTicketRemote</class>
+		<class extends='psdi.app.ticket.TicketSetRemote'>psdi.plusp.app.ticket.PlusPTicketSetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.tool -->
+		<field objectname='TOOLTRANS' attributename='ITEMNUM' extends='psdi.app.tool.FldToolTransItemnum'>psdi.plusp.app.tool.PlusPFldToolTransItemnum</field>
+		<field objectname='TOOLTRANS' attributename='LINECOST' extends='psdi.app.tool.FldToolTransLineCost'>psdi.plusp.app.tool.PlusPFldToolTransLineCost</field>
+		<mboset objectname='TOOLITEM' extends='psdi.app.item.ToolItemSet'>psdi.plusp.app.tool.PlusPToolItemSet</mboset>
+		<mbo objectname='TOOLTRANS' extends='psdi.app.tool.ToolTrans'>psdi.plusp.app.tool.PlusPToolTrans</mbo>
+		<class extends='psdi.app.tool.ToolTransRemote'>psdi.plusp.app.tool.PlusPToolTransRemote</class>
+		<mboset objectname='TOOLTRANS' extends='psdi.app.tool.ToolTransSet'>psdi.plusp.app.tool.PlusPToolTransSet</mboset>
+		<class extends='psdi.app.tool.ToolTransSetRemote'>psdi.plusp.app.tool.PlusPToolTransSetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.workorder -->
+		<field objectname='MATUSETRANS' attributename='LINETYPE' extends='psdi.app.inventory.FldMatUseTransLineType'>psdi.plusp.app.workorder.PlusPFldMatUseTransLineType</field>
+		<field objectname='WORKORDER' attributename='ASSETNUM' extends='psdi.app.workorder.FldWOAssetnum'>psdi.plusp.app.workorder.PlusPFldWOAssetnum</field>
+		<field objectname='WOACTIVITY' attributename='CINUM' extends='psdi.app.workorder.FldWOCINum'>psdi.plusp.app.workorder.PlusPFldWOCINum</field>
+		<field objectname='WOCHANGE' attributename='CINUM' extends='psdi.app.workorder.FldWOCINum'>psdi.plusp.app.workorder.PlusPFldWOCINum</field>
+		<field objectname='WORELEASE' attributename='CINUM' extends='psdi.app.workorder.FldWOCINum'>psdi.plusp.app.workorder.PlusPFldWOCINum</field>
+		<field objectname='WORKORDER' attributename='CINUM' extends='psdi.app.workorder.FldWOCINum'>psdi.plusp.app.workorder.PlusPFldWOCINum</field>
+		<field objectname='WORKORDER' attributename='LOCATION' extends='psdi.app.workorder.FldWOLoc'>psdi.plusp.app.workorder.PlusPFldWOLoc</field>
+		<field objectname='WORKORDER' attributename='PARENT' extends='psdi.app.workorder.FldWOParent'>psdi.plusp.app.workorder.PlusPFldWOParent</field>
+		<field objectname='WOACTIVITY' attributename='ASSETNUM' extends='psdi.app.workorder.FldWOUserCustAssetnum'>psdi.plusp.app.workorder.PlusPFldWOUserCustAssetnum</field>
+		<field objectname='WOCHANGE' attributename='ASSETNUM' extends='psdi.app.workorder.FldWOUserCustAssetnum'>psdi.plusp.app.workorder.PlusPFldWOUserCustAssetnum</field>
+		<field objectname='WORELEASE' attributename='ASSETNUM' extends='psdi.app.workorder.FldWOUserCustAssetnum'>psdi.plusp.app.workorder.PlusPFldWOUserCustAssetnum</field>
+		<field objectname='WOACTIVITY' attributename='LOCATION' extends='psdi.app.workorder.FldWOUserCustLoc'>psdi.plusp.app.workorder.PlusPFldWOUserCustLoc</field>
+		<field objectname='WOCHANGE' attributename='LOCATION' extends='psdi.app.workorder.FldWOUserCustLoc'>psdi.plusp.app.workorder.PlusPFldWOUserCustLoc</field>
+		<field objectname='WORELEASE' attributename='LOCATION' extends='psdi.app.workorder.FldWOUserCustLoc'>psdi.plusp.app.workorder.PlusPFldWOUserCustLoc</field>
+		<field objectname='WPLABOR' attributename='CONTRACTNUM' extends='psdi.app.workorder.FldWPLaborContract'>psdi.plusp.app.workorder.PlusPFldWPLaborContract</field>
+		<field objectname='WPLABOR' attributename='CRAFT' extends='psdi.app.workorder.FldWPLaborCraft'>psdi.plusp.app.workorder.PlusPFldWPLaborCraft</field>
+		<field objectname='WPLABOR' attributename='DISPLAYRATE' extends='psdi.app.workorder.FldWpLaborDisplayRate'>psdi.plusp.app.workorder.PlusPFldWPLaborDisplayRate</field>
+		<field objectname='WPLABOR' attributename='LINECOST' extends='psdi.app.workorder.FldWpLaborLineCost'>psdi.plusp.app.workorder.PlusPFldWPLaborLineCost</field>
+		<field objectname='WPLABOR' attributename='SKILLLEVEL' extends='psdi.app.workorder.FldWPLaborSkillLevel'>psdi.plusp.app.workorder.PlusPFldWPLaborSkillLevel</field>
+		<field objectname='WPLABOR' attributename='VENDOR' extends='psdi.app.workorder.FldWpLaborVendor'>psdi.plusp.app.workorder.PlusPFldWPLaborVendor</field>
+		<field objectname='WPMATERIAL' attributename='LINECOST' extends='psdi.app.workorder.FldWpMatLineCost'>psdi.plusp.app.workorder.PlusPFldWPMaterialLineCost</field>
+		<field objectname='WPSERVICE' attributename='LINECOST' extends='psdi.app.workorder.FldWpSerLineCost'>psdi.plusp.app.workorder.PlusPFldWPServiceLineCost</field>
+		<field objectname='WPTOOL' attributename='LINECOST' extends='psdi.app.workorder.FldWpToolLineCost'>psdi.plusp.app.workorder.PlusPFldWPToolLineCost</field>
+		<field objectname='WPMATERIAL' attributename='ITEMNUM' extends='psdi.app.workorder.FldWpMatItemNum'>psdi.plusp.app.workorder.PlusPFldWpMatItemNum</field>
+		<field objectname='WPMATERIAL' attributename='LOCATION' extends='psdi.app.workorder.FldWpMatLocation'>psdi.plusp.app.workorder.PlusPFldWpMatLocation</field>
+		<field objectname='WPSERVICE' attributename='ITEMNUM' extends='psdi.app.workorder.FldWpSerItemNum'>psdi.plusp.app.workorder.PlusPFldWpSerItemNum</field>
+		<field objectname='WPSERVICE' attributename='ITEMQTY' extends='psdi.app.workorder.FldWpSerQty'>psdi.plusp.app.workorder.PlusPFldWpSerQty</field>
+		<field objectname='WPTOOL' attributename='ITEMNUM' extends='psdi.app.workorder.FldWpToolNum'>psdi.plusp.app.workorder.PlusPFldWpToolItemNum</field>
+		<mbo objectname='WORKORDER' extends='psdi.app.workorder.WO'>psdi.plusp.app.workorder.PlusPWO</mbo>
+		<mbo objectname='WOACTIVITY' extends='psdi.app.workorder.WOActivity'>psdi.plusp.app.workorder.PlusPWOActivity</mbo>
+		<mboset objectname='WOACTIVITY' extends='psdi.app.workorder.WOActivitySet'>psdi.plusp.app.workorder.PlusPWOActivitySet</mboset>
+		<mbo objectname='WOCHANGE' extends='psdi.app.workorder.WOChange'>psdi.plusp.app.workorder.PlusPWOChange</mbo>
+		<mboset objectname='WOCHANGE' extends='psdi.app.workorder.WOChangeSet'>psdi.plusp.app.workorder.PlusPWOChangeSet</mboset>
+		<mbo objectname='WORELEASE' extends='psdi.app.workorder.WORelease'>psdi.plusp.app.workorder.PlusPWORelease</mbo>
+		<mboset objectname='WORELEASE' extends='psdi.app.workorder.WOReleaseSet'>psdi.plusp.app.workorder.PlusPWOReleaseSet</mboset>
+		<class extends='psdi.app.workorder.WORemote'>psdi.plusp.app.workorder.PlusPWORemote</class>
+		<mboset objectname='WORKORDER' extends='psdi.app.workorder.WOSet'>psdi.plusp.app.workorder.PlusPWOSet</mboset>
+		<class extends='psdi.app.workorder.WOSetRemote'>psdi.plusp.app.workorder.PlusPWOSetRemote</class>
+		<mbo objectname='WPLABOR' extends='psdi.app.workorder.WPLabor'>psdi.plusp.app.workorder.PlusPWPLabor</mbo>
+		<class extends='psdi.app.workorder.WPLaborRemote'>psdi.plusp.app.workorder.PlusPWPLaborRemote</class>
+		<mboset objectname='WPLABOR' extends='psdi.app.workorder.WPLaborSet'>psdi.plusp.app.workorder.PlusPWPLaborSet</mboset>
+		<class extends='psdi.app.workorder.WPLaborSetRemote'>psdi.plusp.app.workorder.PlusPWPLaborSetRemote</class>
+		<mbo objectname='WPMATERIAL' extends='psdi.app.workorder.WPMaterial'>psdi.plusp.app.workorder.PlusPWPMaterial</mbo>
+		<class extends='psdi.app.workorder.WPMaterialRemote'>psdi.plusp.app.workorder.PlusPWPMaterialRemote</class>
+		<mboset objectname='WPMATERIAL' extends='psdi.app.workorder.WPMaterialSet'>psdi.plusp.app.workorder.PlusPWPMaterialSet</mboset>
+		<class extends='psdi.app.workorder.WPMaterialSetRemote'>psdi.plusp.app.workorder.PlusPWPMaterialSetRemote</class>
+		<mbo objectname='WPSERVICE' extends='psdi.app.workorder.WPService'>psdi.plusp.app.workorder.PlusPWPService</mbo>
+		<class extends='psdi.app.workorder.WPServiceRemote'>psdi.plusp.app.workorder.PlusPWPServiceRemote</class>
+		<mboset objectname='WPSERVICE' extends='psdi.app.workorder.WPServiceSet'>psdi.plusp.app.workorder.PlusPWPServiceSet</mboset>
+		<class extends='psdi.app.workorder.WPServiceSetRemote'>psdi.plusp.app.workorder.PlusPWPServiceSetRemote</class>
+		<mbo objectname='WPTOOL' extends='psdi.app.workorder.WPTool'>psdi.plusp.app.workorder.PlusPWPTool</mbo>
+		<class extends='psdi.app.workorder.WPToolRemote'>psdi.plusp.app.workorder.PlusPWPToolRemote</class>
+		<mboset objectname='WPTOOL' extends='psdi.app.workorder.WPToolSet'>psdi.plusp.app.workorder.PlusPWPToolSet</mboset>
+		<class extends='psdi.app.workorder.WPToolSetRemote'>psdi.plusp.app.workorder.PlusPWPToolSetRemote</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.app.workorder.virtual -->
+		<class extends='psdi.app.workorder.virtual.ShowActualMboSet'>psdi.plusp.app.workorder.virtual.PlusPShowActualFeeChargeSet</class>
+		<class extends='psdi.app.workorder.virtual.ShowAllPlanMboSet'>psdi.plusp.app.workorder.virtual.PlusPShowAllPlanFeeChargeSet</class>
+		<class extends='psdi.app.workorder.virtual.ShowPlanMboSet'>psdi.plusp.app.workorder.virtual.PlusPShowPlanFeeChargeSet</class>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.common.action -->
+		<mbo objectname='ACTION' extends='psdi.common.action.Action'>psdi.plusp.common.action.PlusPAction</mbo>
+		<mbo objectname='ACTIONGROUP' extends='psdi.common.action.ActionGroup'>psdi.plusp.common.action.PlusPActionGroup</mbo>
+		<mboset objectname='ACTIONGROUP' extends='psdi.common.action.ActionGroupSet'>psdi.plusp.common.action.PlusPActionGroupSet</mboset>
+		<mboset objectname='ACTION' extends='psdi.common.action.ActionSet'>psdi.plusp.common.action.PlusPActionSet</mboset>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.common.commlog -->
+		<mbo objectname='COMMLOG' extends='psdi.common.commlog.CommLog'>psdi.plusp.common.commlog.PlusPCommLog</mbo>
+		<mboset objectname='COMMLOG' extends='psdi.common.commlog.CommLogSet'>psdi.plusp.common.commlog.PlusPCommLogSet</mboset>
+		<field objectname='COMMLOG' attributename='SENDTO'>psdi.plusp.common.commlog.PlusPFldCommLogSendTo</field>
+
+		<!-- Package .applications.maximo.businessobjects.src.psdi.plusp.common.role -->
+		<field objectname='MAXROLE' attributename='MAXROLE'>psdi.plusp.common.role.PlusPFldMaxRole</field>
+		<bean presentation='incident' controlid='incident' extends= 'psdi.webclient.beans.servicedesk.TicketAppBean'>psdi.plusp.webclient.beans.common.PlusPTicketAppBean</bean>
+		<bean presentation='problem' controlid='problem' extends= 'psdi.webclient.beans.servicedesk.TicketAppBean'>psdi.plusp.webclient.beans.common.PlusPTicketAppBean</bean>
+		<bean presentation='sr' controlid='sr' extends= 'psdi.webclient.beans.servicedesk.TicketAppBean'>psdi.plusp.webclient.beans.common.PlusPTicketAppBean</bean>
+		<bean presentation='bboard' controlid='searchmore' extends= 'psdi.webclient.system.beans.QbeBean'>psdi.plusp.webclient.beans.pluspbbrd.PlusPSearchBBoardBean</bean>
+		<bean presentation='assetcat' controlid='assetcat' extends= 'psdi.webclient.beans.assetcat.AssetCatAppBean'>psdi.plusp.webclient.beans.pluspclas.PlusPAssetCatAppBean</bean>
+		<bean presentation='escalation' controlid='escalation' extends= 'psdi.webclient.beans.escalation.EscalationAppBean'>psdi.plusp.webclient.beans.pluspesc.PlusPEscalationAppBean</bean>
+		<bean presentation='item' controlid='searchmore' extends= 'psdi.webclient.beans.common.ClassificationBean'>psdi.plusp.webclient.beans.pluspitem.PlusPSearchItemBean</bean>
+		<bean presentation='location' controlid='location' extends= 'psdi.webclient.beans.location.LocationAppBean'>psdi.plusp.webclient.beans.plusploc.PlusPLocationAppBean</bean>
+		<bean presentation='multisite' controlid='sla' extends= 'psdi.webclient.beans.multisite.MaxVarBean'>psdi.plusp.webclient.beans.plusporg.PlusPMaxVarBean</bean>
+		<bean presentation='person' controlid='person' extends= 'psdi.webclient.beans.common.StatefulAppBean'>psdi.plusp.webclient.beans.pluspper.PlusPPersonAppBean</bean>
+		<bean presentation='library' controlid='lookup_phone' extends= 'psdi.webclient.beans.person.PhoneEmailBean'>psdi.plusp.webclient.beans.pluspper.PlusPPhoneEmailBean</bean>
+		<bean presentation='library' controlid='lookup_email' extends= 'psdi.webclient.beans.person.PhoneEmailBean'>psdi.plusp.webclient.beans.pluspper.PlusPPhoneEmailBean</bean>
+		<bean presentation='recontask' controlid='addlinkrule' extends= 'psdi.webclient.beans.recontask.MultiselectRuleDataBean'>psdi.plusp.webclient.beans.plusprtask.PlusPMultiselectRuleDataBean</bean>
+		<bean presentation='recontask' controlid='addcomprule' extends= 'psdi.webclient.beans.recontask.MultiselectRuleDataBean'>psdi.plusp.webclient.beans.plusprtask.PlusPMultiselectRuleDataBean</bean>
+		<bean presentation='recontask' controlid='comprule_showlist' extends= 'psdi.webclient.beans.recontask.RuleTableDataBean'>psdi.plusp.webclient.beans.plusprtask.PlusPRuleTableDataBean</bean>
+		<bean presentation='recontask' controlid='linkrule_showlist' extends= 'psdi.webclient.beans.recontask.RuleTableDataBean'>psdi.plusp.webclient.beans.plusprtask.PlusPRuleTableDataBean</bean>
+		<bean presentation='solution' controlid='searchmore' extends= 'psdi.webclient.beans.common.ClassificationBean'>psdi.plusp.webclient.beans.pluspsolut.PlusPSearchSolutBean</bean>
+		<bean presentation='activity' controlid='activity' extends= 'psdi.webclient.beans.workorder.ActivityAppBean'>psdi.plusp.webclient.beans.pluspwo.PlusPActivityAppBean</bean>
+		<bean presentation='change' controlid='change' extends= 'psdi.webclient.beans.workorder.ChangeAppBean'>psdi.plusp.webclient.beans.pluspwo.PlusPChangeAppBean</bean>
+		<bean presentation='release' controlid='release' extends= 'psdi.webclient.beans.workorder.ReleaseAppBean'>psdi.plusp.webclient.beans.pluspwo.PlusPReleaseAppBean</bean>
+		<bean presentation='wotrack' controlid='wotrack' extends= 'psdi.webclient.beans.workorder.WorkorderAppBean'>psdi.plusp.webclient.beans.pluspwo.PlusPWorkorderAppBean</bean>
+		<bean presentation='sla' controlid='sla' extends= 'psdi.webclient.beans.sla.SLAAppBean'>psdi.plusp.webclient.beans.sla.PlusPSLAAppBean</bean>
+
+		<!-- the lines bellow always need to be added mannually to the XML !!!!!! -->
+		<field objectname='SLA' attributename='STATUS' >psdi.plusp.app.pluspserviceagree.PlusPFldStatus</field>
+		<field objectname='SLA' attributename='ORGID' >psdi.app.site.FldOrganizationID</field>
+	</extensions>
+</product>

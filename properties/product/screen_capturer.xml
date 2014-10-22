@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+	<name>Screen Capturer for IBM SmartCloud Control Desk</name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+		<modlevel>1</modlevel>
+		<patch>0</patch>
+		<build>201301301410M</build>
+	</version>
+	<dbmaxvarname>SCREEN_CAPTURER</dbmaxvarname>
+	<dbscripts>screen_capturer</dbscripts>
+    <dbversion>V7510-00</dbversion>
+    <lastdbversion>V7200-02*V7210-01</lastdbversion>
+</product>

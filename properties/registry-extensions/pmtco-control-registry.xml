@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<control-registry>
+
+	<control-descriptor name="pmtcochatenduser" instance-class="com.ibm.ism.pmtco.webclient.chat.controls.EndUserChatWindowControl">
+		<property-list> 
+			<property name="id">
+				<flag name="final"/>
+			</property> 
+		</property-list>
+		<component-list>
+			<components id="${name}_components_v" layout="vertical">
+				<components id="${name}_components_h" layout="horizontal" valign="middle">
+					<pmtcochatenduser id="${name}"/>
+				</components>
+			</components>
+		</component-list>
+	</control-descriptor>
+	
+	<control-descriptor name="pmtcochatagent" instance-class="com.ibm.ism.pmtco.webclient.chat.controls.AgentChatWindowControl">
+		<property-list> 
+			<property name="id">
+				<flag name="final"/>
+			</property> 
+		</property-list>
+		<component-list>
+			<components id="${name}_components_v" layout="vertical">
+				<components id="${name}_components_h" layout="horizontal" valign="middle">
+					<pmtcochatagent id="${name}"/>
+				</components>
+			</components>
+		</component-list>
+	</control-descriptor>
+	
+	<control-descriptor name="pmtcochatcontrol" instance-class="com.ibm.ism.pmtco.webclient.chat.controls.AgentChatQueueControl">
+		<property-list> 
+			<property name="id">
+				<flag name="final"/>
+			</property> 
+			<property name="chatwinheight"> 
+				<default-value>500</default-value>
+			</property>
+            <property name="chatwinwidth"> 
+				<default-value>500</default-value>
+			</property>
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+		</property-list>
+		<component-list>
+			<pmtcochatcontrol id="${name}" label="@{label}"/>
+		</component-list>
+	</control-descriptor>
+	
+	<control-descriptor name="pmtcochatbutton" instance-class="com.ibm.ism.pmtco.webclient.chat.controls.EndUserChatButtonControl">
+		<property-list>
+			<property name="advancedlongop" />
+			<property name="align">
+				<default-value>right</default-value>
+			</property>
+			<property name="asyncerrorcheck">
+				<flag name="nonconditional" />
+			</property>
+			<property name="buttonsenabled" type="xsd:boolean">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+			<property name="clickmessage" />
+			<property name="datasrc">
+				<flag name="nonconditional" />
+				<flag name="global" />
+			</property>
+			<property name="default" type="xsd:boolean">
+				<default-value>false</default-value>
+			</property>
+			<property name="dictionarysupport" type="xsd:boolean">
+				<default-value>true</default-value>
+			</property>
+			<property name="disabled" type="xsd:boolean" />
+			<property name="display" type="xsd:boolean">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+			<property name="hidewhen" />
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="image" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss" />
+			<property name="launchexternal" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="linkedfocusid">
+				<flag name="global" />
+			</property>
+			<property name="longopmessage" />
+			<property name="menutype">
+				<default-value>NONE</default-value>
+			</property>
+			<property name="mxeventjshandler">
+				<default-value>com.ibm.ism.pmtco.livechat.launchEndUserChat</default-value>
+			</property>
+			<property name="mxevent" />
+			<property name="rownum" type="xsd:integer">
+				<flag name="system" />
+				<flag name="global" />
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="targetid" />
+			<property name="textcss">
+				<flag name="global" />
+				<flag name="final" />
+				<default-value>text</default-value>
+			</property>
+			<property name="value" />
+			<property name="width" />
+			<property name="chatwinheight"> 
+				<default-value>500</default-value>
+			</property>
+            <property name="chatwinwidth"> 
+				<default-value>500</default-value>
+			</property>
+		</property-list>
+		<component-list>
+			<pushbutton id="${name}_pushbutton" linkedfocusid="@{linkedfocusid}" default="@{default}" disabled="@{disabled}" hidewhen="@{hidewhen} or @{dictionarysupport}==false" menutype="@{menutype}" label="@{label}" mxevent="@{mxevent}" image="@{image}" cssclass="@{cssclass}" href="@{href}" targetid="@{targetid}" eventvalue="@{value}" width="@{width}" advancedlongop="@{advancedlongop}" longopmessage="@{longopmessage}" textcss="@{textcss}" mxeventjshandler="@{mxeventjshandler}"/>
+		</component-list>
+		<containers>
+			<container name="buttongroup" />
+			<container name="section" />
+			<container name="sectioncol" />
+		</containers>
+	</control-descriptor>
+</control-registry>

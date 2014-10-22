@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+  
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+  
+  Licensed Materials - Property of IBM
+  
+  Restricted Materials of IBM
+  
+  5724-M18
+  
+  (C) COPYRIGHT IBM CORP. 2008.  All Rights Reserved.
+  
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+  
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  
+  End Change History
+-->
+
+<ism:simulationRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:ism="http://www.ibm.com/xmlns/prod/ism"
+	            xsi:schemaLocation="http://www.ibm.com/xmlns/prod/ism pmrel_swdist_simulationschema.xsd" >
+		<deployment defaultDeploymentId="43340" defaultDeploymentStatus="INPROGRESS">
+			<!-- Enter a list of source ACTCINUM value and the simulated deployment id that needs to be returned -->
+			<sourceci ciname="WAS 6.0" deploymentId="43045"/>
+			<sourceci ciname="DB2 8.2E" deploymentId="43047" />
+			<sourceci ciname="WINXP124" deploymentId="430467" />
+			<sourceci ciname="LINUX156" deploymentId="8927387" />
+			<sourceci ciname="WINXP126" deploymentId="4304987" />
+			<sourceci ciname="WMB 6.0" deploymentId="43045111" />
+			<sourceci ciname="WINXP125" deploymentId="43903247" />
+			<sourceci ciname="RAD 7.0" deploymentId="4125098" />
+			<sourceci ciname="NOTES 7.0" deploymentId="8745098" />
+			<sourceci ciname="WCOM ENT" deploymentId="455098" />
+			<sourceci ciname="GDDM" deploymentId="94398" />
+			<sourceci ciname="IBMWFM" deploymentId="438" />
+			<sourceci ciname="AIX5.3" deploymentId="4864324" />
+			<sourceci ciname="TIM 5.3" deploymentId="430438" />
+			<sourceci ciname="MSPROJ 2000" deploymentId="487098" />
+			<sourceci ciname="FOXPRO 9" deploymentId="45645698" />
+			<sourceci ciname="VISUAL 2005" deploymentId="4300998" />
+		</deployment>
+
+		<deploymentStatus defaultTargetStatus="FAIL">
+			<!-- Enter a list of target CINUM value, deployment id and the simulated deployment status that needs to be returned
+				valid values for status are FAIL,SUCCESS,RUNNING,ERROR -->
+			<targetci ciname="AD34FG" deploymentId="43045" statusId="SUCCESS"/>
+			<targetci ciname="DCMJ21" deploymentId="43045" statusId="RUNNING"/>
+			<targetci ciname="UY67ED" deploymentId="43045" statusId="SUCCESS"/>
+			<targetci ciname="GDDM" deploymentId="43045" statusId="SUCCESS"/>
+			<targetci ciname="VBHJ43" deploymentId="43045" statusId="SUCCESS"/>
+			
+			<targetci ciname="PLAS56" deploymentId="43046" statusId="RUNNING"/>
+			<targetci ciname="DCMJ21" deploymentId="43046" statusId="SUCCESS"/>
+			<targetci ciname="GDDM" deploymentId="43046" statusId="RUNNING"/>
+			<targetci ciname="PLAS56" deploymentId="43046" statusId="RUNNING"/>
+			<targetci ciname="AD34FG" deploymentId="43046" statusId="RUNNING"/>
+			<targetci ciname="UY67ED" deploymentId="43046" statusId="RUNNING"/>
+			<targetci ciname="VBHJ43" deploymentId="43046" statusId="ERROR"/>
+			
+			<targetci ciname="GDDM" deploymentId="43047" statusId="ERROR"/>
+			<targetci ciname="PLAS56" deploymentId="43047" statusId="ERROR"/>
+			<targetci ciname="AD34FG" deploymentId="43047" statusId="ERROR"/>
+			<targetci ciname="UY67ED" deploymentId="43047" statusId="ERROR"/>
+			<targetci ciname="VBHJ43" deploymentId="43047" statusId="RUNNING"/>
+		</deploymentStatus>
+		
+</ism:simulationRoot>

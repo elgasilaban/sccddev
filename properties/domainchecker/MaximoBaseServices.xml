@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<skipcheck>
+	<object name="ACTION" >
+		<attribute name="VALUE2" accept="BMXAA6181I"/>
+	</object>
+	<object name="WFTRANSACTION" >
+		<attribute name="WFTASKTYPE" accept="BMXAA6181I"/>
+	</object>
+	<object name="RELATEDRECORD" >
+		<attribute name="RELATEDRECCLASS" accept="BMXAA6184W"/>
+	</object>
+	<object name="MAXLOGAPPENDER" >
+		<attribute name="APPENDERIMPL" accept="BMXAA6204E"/>
+	</object>
+	<object name="MAXSYSINDEXES" >
+		<attribute name="STORAGEPARTITION" accept="BMXAA6204E"/>
+	</object>
+</skipcheck>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+   43763   kabirahmed  10/20/11  Create a simple Service Request
+   43884   kabirahmed  10/25/11  Create a simple Service Request - Apply templates 
+   44168   mhartel     11/15/11  <16364> Add ability to re-assign WF task 
+   45966    scottsd    02/07/12  Product rename to IBM SmartCloud Control Desk
+   20680   cdoan	   06/18/12  17912: SR Usability - Adding new dialog launch toolbar
+   21133   cdoan       07/19/12  21133: SR Usabiltiy - Move Remote Diagnostic too toolbar
+   End Change History
+-->
+
+<product>
+    <name>Service Request Management for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+		<modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410M</build>
+    </version>
+    <dbmaxvarname>DBSRVREQ_PMP</dbmaxvarname>
+    <dbscripts>srvreq_pmp</dbscripts>
+    <dbversion>V7510-10</dbversion>
+    <lastdbversion>V710-60*V7101-02*V7102-02*V7104-03*V7120-12*V7201-01*V7210-07*V7500-16</lastdbversion>
+    <depends>tsd_common</depends>
+    <extensions>
+        <mbo objectname="SR" extends="psdi.plusp.app.ticket.PlusPSR">com.ibm.tsd.pmsrv.app.PmSrvReq</mbo>
+        <class extends="psdi.app.ticket.SRRemote">com.ibm.tsd.pmsrv.app.PmSrvReqRemote</class>
+        <!--NOTUSED: Remove file com.ibm.tsd.pmsrv.app.PmSrvReqService.java and com.ibm.tsd.pmsrv.app.PmSrvReqServiceRemote.java from CMVC-->
+        <mboset objectname="SR" extends="psdi.plusp.app.ticket.PlusPSRSet">com.ibm.tsd.pmsrv.app.PmSrvReqSet</mboset>
+        <class extends="psdi.app.ticket.SRSetRemote">com.ibm.tsd.pmsrv.app.PmSrvReqSetRemote</class>
+     	<bean presentation='sr' controlid='sr' extends= 'psdi.plusp.webclient.beans.common.PlusPTicketAppBean'>com.ibm.tsd.pmsrv.webclient.beans.PmSrvReqAppBean</bean>
+		
+        <field attributename="solution" objectname="SR" extends='com.ibm.tsd.app.ticket.PmtcoFldTkSolution'>com.ibm.tsd.pmsrv.app.PmSrvFldTkSolution</field>
+        <field attributename="pmcosolstatus" objectname="SR" extends='com.ibm.tsd.app.ticket.PmtcoFldTKSolStatus'>com.ibm.tsd.pmsrv.app.PmSrvFldTkSolStatus</field>
+    </extensions>
+</product>

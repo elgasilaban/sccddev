@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+
+  Licensed Materials - Property of IBM
+
+  Restricted Materials of IBM
+
+  5724-M19
+
+  (C) COPYRIGHT IBM CORP. 2009.  All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  232049   rsemonis   04/28/09  Initial suppport for service provider enabled common pmp
+  236325   rsemonis   07/17/09  Move SP enablement to base common pmp
+  247353   scottsd    12/11/09  Rebaseline MXS in the dev stream and product xmls for 721
+  260656   scottsd    09/08/10  Need to rebaseline all of the PMP files and product.xml
+  262002   hec        10/13/10  change name to Common process components for Tivoli's process automation engine
+                                for Service Providers                   
+  End Change History
+-->
+
+<product>
+    <name>Common process components for IBM SmartCloud Control Desk for Service Providers</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410</build>
+    </version>
+    <dbmaxvarname>DBCOMMON_PMP_SP</dbmaxvarname>
+    <dbscripts>common_pmp_sp</dbscripts>
+    <dbversion>V7510-02</dbversion>
+    <lastdbversion>V7200-04*V7201-01*V7210-01*V7500-01</lastdbversion>
+    <depends>common_pmp,serviceprovider</depends>
+</product>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+    <name>Asset Management for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301525</build>
+    </version>
+    <dbmaxvarname>TLOAMUPG</dbmaxvarname>
+    <dbscripts>tloam</dbscripts>
+    <dbversion>V7510-25</dbversion>
+    <lastdbversion>V7110-01*V7200-467*V7201-09*V7210-96*V7220-15*V7500-98</lastdbversion>
+    <depends>serviceprovider</depends>
+    <extensions>
+        <mbo objectname='ASSET' extends='psdi.app.asset.Asset'>psdi.tamit.app.asset.TLOAMAsset</mbo>
+        <class extends='psdi.app.asset.AssetRemote'>psdi.tamit.app.asset.TLOAMAssetRemote</class>
+        <mboset objectname='ASSET' extends='psdi.app.asset.AssetSet'>psdi.tamit.app.asset.TLOAMAssetSet</mboset>
+        <class extends='psdi.app.asset.AssetSetRemote'>psdi.tamit.app.asset.TLOAMAssetSetRemote</class>
+		
+        <mbo objectname='ASSETSPEC' extends='psdi.app.asset.AssetSpec'>psdi.tamit.app.asset.TAMITAssetSpec</mbo>
+        <mboset objectname='ASSETSPEC' extends='psdi.app.asset.AssetSpecSet'>psdi.tamit.app.asset.TAMITAssetSpecSet</mboset>
+        <class extends='psdi.app.asset.AssetSpecRemote'>psdi.tamit.app.asset.TAMITAssetSpecRemote</class>
+        <class extends='psdi.app.asset.AssetSpecSetRemote'>psdi.tamit.app.asset.TAMITAssetSpecSetRemote</class>
+		
+		<field objectname='CISPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.tamit.app.assetcatalog.TAMITFldCommonSpecAssetAttrid</field>		
+        <field objectname='ASSETSPEC' attributename='ASSETATTRID' extends='psdi.app.assetcatalog.FldCommonSpecAssetAttrid'>psdi.tamit.app.assetcatalog.TAMITFldCommonSpecAssetAttrid</field>
+
+		<field objectname='ASSET' attributename='ASSETNUM' extends='psdi.app.asset.FldAssetChild'>psdi.tamit.app.asset.TAMITFldAssetChild</field>
+        <field objectname='ASSET' attributename='ITEMNUM' extends='psdi.app.asset.FldAssetItemnum'>psdi.tamit.app.asset.TLOAMFldAssetItemnum</field>
+		<field objectname='ASSET' attributename='CLASSSTRUCTUREID' extends='psdi.app.asset.FldAssetClassStructureid'>psdi.tamit.app.asset.TAMITFldAssetClassStructureid</field>	
+        <field objectname='VIEWCONTINPUT' attributename='CONTRACTNUM' extends='psdi.app.asset.virtual.FldViewContInputContractNum'>psdi.tamit.app.asset.virtual.TLOAMFldViewContInputContractNum</field>
+		
+        <mboset objectname='VIEWCONTINPUT' extends='psdi.app.asset.virtual.ViewContInputSet'>psdi.tamit.app.asset.virtual.TLOAMViewContInputSet</mboset>
+        <class extends='psdi.app.asset.virtual.ViewContInputSetRemote'>psdi.tamit.app.asset.virtual.TLOAMViewContInputSetRemote</class>
+
+        <mbo objectname='SFWVIEW' extends='psdi.app.contract.software.SFWView'>psdi.tamit.app.contract.software.TLOAMSFWView</mbo>
+        <mbo objectname='SFWVIEWLINE' extends='psdi.app.contract.software.SFWViewLine'>psdi.tamit.app.contract.software.TLOAMSFWViewLine</mbo>
+        <class extends='psdi.app.contract.ContractLineRemote'>psdi.tamit.app.contract.software.TLOAMSFWViewLineRemote</class>
+        <mboset objectname='SFWVIEWLINE' extends='psdi.app.contract.ContractLineSet'>psdi.tamit.app.contract.software.TLOAMSFWViewLineSet</mboset>
+        <class extends='psdi.app.contract.ContractLineSetRemote'>psdi.tamit.app.contract.software.TLOAMSFWViewLineSetRemote</class>
+        <class extends='psdi.app.contract.software.SFWViewRemote'>psdi.tamit.app.contract.software.TLOAMSFWViewRemote</class>
+        <mboset objectname='SFWVIEW' extends='psdi.app.contract.software.SFWViewSet'>psdi.tamit.app.contract.software.TLOAMSFWViewSet</mboset>
+        <class extends='psdi.app.contract.software.SFWViewSetRemote'>psdi.tamit.app.contract.software.TLOAMSFWViewSetRemote</class>
+
+
+        <mbo objectname='TLOAMPROMOTE' extends='psdi.app.dpldasset.virtual.PromoteNode'>psdi.tamit.app.dpldasset.virtual.TLOAMPromoteNode</mbo>
+        <mboset objectname='TLOAMPROMOTE' extends='psdi.app.dpldasset.virtual.PromoteNodeSet'>psdi.tamit.app.dpldasset.virtual.TLOAMPromoteNodeSet</mboset>
+        <mbo objectname='TLOAMPRMVALUE' extends='psdi.app.dpldasset.virtual.PromoteValues'>psdi.tamit.app.dpldasset.virtual.TLOAMPromoteValues</mbo>
+        <mboset objectname='TLOAMPRMVALUE' extends='psdi.app.dpldasset.virtual.PromoteValuesSet'>psdi.tamit.app.dpldasset.virtual.TLOAMPromoteValuesSet</mboset>
+		
+        <class extends='psdi.app.dpldasset.PromoteComputerAction'>psdi.tamit.app.dpldasset.TloamPromoteComputerAction</class>
+        <class extends='psdi.app.dpldasset.PromoteNetDeviceAction'>psdi.tamit.app.dpldasset.TloamPromoteNetDeviceAction</class>
+        <class extends='psdi.app.dpldasset.PromoteNetPrinterAction'>psdi.tamit.app.dpldasset.TloamPromoteNetPrinterAction</class>
+		
+        <bean presentation="DPLDASSET" controlid="tloampromote_table" extends='psdi.webclient.beans.dpldasset.PromoteNodeBean'>psdi.tamit.webclient.beans.dpldasset.TLOAMPromoteNodeBean</bean>
+        <bean presentation="NDASSET" controlid="tloampromote_table" extends='psdi.webclient.beans.dpldasset.PromoteNodeBean'>psdi.tamit.webclient.beans.dpldasset.TLOAMPromoteNodeBean</bean>
+        <bean presentation="NPASSET" controlid="tloampromote_table" extends='psdi.webclient.beans.dpldasset.PromoteNodeBean'>psdi.tamit.webclient.beans.dpldasset.TLOAMPromoteNodeBean</bean>
+
+        <field objectname='TLOAMPRMDFLT' attributename='CLASSSTRUCTUREID' extends='psdi.app.dpldasset.FldPromoteDefaultClassstructureID'>psdi.tamit.app.dpldasset.TLOAMFldPromoteDefaultClassstructureID</field>
+        <field objectname='TLOAMPRMVALUE' attributename='CLASSSTRUCTUREID' extends='psdi.app.dpldasset.FldPromoteDefaultClassstructureID'>psdi.tamit.app.dpldasset.TLOAMFldPromoteDefaultClassstructureID</field>
+        <field objectname='TLOAMPROMOTE' attributename='CLASSSTRUCTUREID' extends='psdi.app.dpldasset.FldPromoteDefaultClassstructureID'>psdi.tamit.app.dpldasset.TLOAMFldPromoteDefaultClassstructureID</field>
+		
+        <field objectname='TLOAMPRMDFLT' attributename='ITEMNUM' extends='psdi.app.dpldasset.FldPromoteDefaultItemnum'>psdi.tamit.app.dpldasset.TLOAMFldPromoteDefaultItemnum</field>
+        <field objectname='TLOAMPRMVALUE' attributename='ITEMNUM' extends='psdi.app.dpldasset.FldPromoteDefaultItemnum'>psdi.tamit.app.dpldasset.TLOAMFldPromoteDefaultItemnum</field>
+        <field objectname='TLOAMPROMOTE' attributename='ITEMNUM' extends='psdi.app.dpldasset.FldPromoteDefaultItemnum'>psdi.tamit.app.dpldasset.TLOAMFldPromoteDefaultItemnum</field>
+		
+        <field objectname='TLOAMPRMDFLT' attributename='LOCATION' extends='psdi.app.dpldasset.FldPromoteDefaultLocation'>psdi.tamit.app.dpldasset.TLOAMFldPromoteDefaultLocation</field>
+        <field objectname='TLOAMPRMVALUE' attributename='LOCATION' extends='psdi.app.dpldasset.FldPromoteDefaultLocation'>psdi.tamit.app.dpldasset.TLOAMFldPromoteDefaultLocation</field>
+        <field objectname='TLOAMPROMOTE' attributename='LOCATION' extends='psdi.app.dpldasset.FldPromoteDefaultLocation'>psdi.tamit.app.dpldasset.TLOAMFldPromoteDefaultLocation</field>
+		
+ 
+        <field objectname='ITEM' attributename='ITEMNUM' extends='psdi.app.item.FldItemItemStructItemnum'>psdi.tamit.app.item.TloamFldItemItemStructItemnum</field>
+        <field objectname='ITEM' attributename='ROTATING' extends='psdi.app.item.FldItemRotating'>psdi.tamit.app.item.TLOAMFldItemRotating</field>
+        <mbo objectname='ITEM' extends='psdi.app.item.Item'>psdi.tamit.app.item.TLOAMItem</mbo>
+        <class extends='psdi.app.item.ItemRemote'>psdi.tamit.app.item.TLOAMItemRemote</class>
+        <mboset objectname='ITEM' extends='psdi.app.item.ItemSet'>psdi.tamit.app.item.TLOAMItemSet</mboset>
+
+        <mbo objectname='PLUSPCUSTOMER' extends='psdi.plusp.app.pluspcust.PlusPCustomer'>psdi.tamit.app.pluspcust.TAMITCustomer</mbo>
+        <class extends='psdi.plusp.app.pluspcust.PlusPCustomerRemote'>psdi.tamit.app.pluspcust.TAMITCustomerRemote</class>
+        <mboset objectname='PLUSPCUSTOMER' extends='psdi.plusp.app.pluspcust.PlusPCustomerSet'>psdi.tamit.app.pluspcust.TAMITCustomerSet</mboset>
+        <class extends='psdi.plusp.app.pluspcust.PlusPCustomerSetRemote'>psdi.tamit.app.pluspcust.TAMITCustomerSetRemote</class>
+ 
+        <mbo objectname='CONDITION' extends='psdi.plusp.app.pluspsecgr.PlusPCondition'>psdi.tamit.app.system.TLOAMCondition</mbo>
+        <class extends='psdi.plusp.app.pluspsecgr.PlusPConditionRemote'>psdi.tamit.app.system.TLOAMConditionRemote</class>
+        <mboset objectname='CONDITION' extends='psdi.plusp.app.pluspsecgr.PlusPConditionSet'>psdi.tamit.app.system.TLOAMConditionSet</mboset>
+        <class extends='psdi.plusp.app.pluspsecgr.PlusPConditionSetRemote'>psdi.tamit.app.system.TLOAMConditionSetRemote</class>
+
+        <field objectname='POLINE' attributename='ITEMNUM' extends='psdi.app.common.purchasing.FldPurItemNum'>psdi.tloam.app.common.purchasing.FldPurItemNum</field>
+        <field objectname='PRLINE' attributename='ITEMNUM' extends='psdi.app.common.purchasing.FldPurItemNum'>psdi.tloam.app.common.purchasing.FldPurItemNum</field>
+
+        <mbo objectname='COMPANIES' extends='psdi.app.company.Company'>psdi.tloam.app.company.TloamCompany</mbo>
+        <class extends='psdi.app.company.CompanyRemote'>psdi.tloam.app.company.TloamCompanyRemote</class>
+        <mboset objectname='COMPANIES' extends='psdi.app.company.CompanySet'>psdi.tloam.app.company.TloamCompanySet</mboset>
+        <class extends='psdi.app.company.CompanySetRemote'>psdi.tloam.app.company.TloamCompanySetRemote</class>
+        <field objectname='TLOAMLICENSE' attributename='COMPANY' extends='psdi.app.company.FldCompany'>psdi.tloam.app.company.TloamFldCompany</field>
+
+        <mbo objectname='CURRENCY' extends='psdi.app.currency.Currency'>psdi.tloam.app.currency.TloamCurrency</mbo>
+        <class extends='psdi.app.currency.CurrencyRemote'>psdi.tloam.app.currency.TloamCurrencyRemote</class>
+        <mboset objectname='CURRENCY' extends='psdi.app.currency.CurrencySet'>psdi.tloam.app.currency.TloamCurrencySet</mboset>
+        <class extends='psdi.app.currency.CurrencySetRemote'>psdi.tloam.app.currency.TloamCurrencySetRemote</class>
+
+        <mbo objectname='DPAMMANUFACTURER' extends='psdi.app.dpammanu.DPAMManufacturer'>psdi.tloam.app.dpammanu.TloamDPAMManufacturer</mbo>
+        <class extends='psdi.app.dpamadpt.DPAMConversionTargetRemote'>psdi.tloam.app.dpammanu.TloamDPAMManufacturerRemote</class>
+        <mboset objectname='DPAMMANUFACTURER' extends='psdi.app.dpammanu.DPAMManufacturerSet'>psdi.tloam.app.dpammanu.TloamDPAMManufacturerSet</mboset>
+        <class extends='psdi.app.dpammanu.DPAMManufacturerSetRemote'>psdi.tloam.app.dpammanu.TloamDPAMManufacturerSetRemote</class>
+
+        <mbo objectname='CHARTOFACCOUNTS' extends='psdi.app.financial.Account'>psdi.tloam.app.financial.TloamAccount</mbo>
+        <class extends='psdi.app.financial.AccountRemote'>psdi.tloam.app.financial.TloamAccountRemote</class>
+        <mboset objectname='CHARTOFACCOUNTS' extends='psdi.app.financial.AccountSet'>psdi.tloam.app.financial.TloamAccountSet</mboset>
+        <class extends='psdi.app.financial.AccountSetRemote'>psdi.tloam.app.financial.TloamAccountSetRemote</class>
+        <mbo objectname='FINANCIALPERIODS' extends='psdi.app.financial.FinancialPeriods'>psdi.tloam.app.financial.TloamFinancialPeriods</mbo>
+        <class extends='psdi.app.financial.FinancialPeriodsRemote'>psdi.tloam.app.financial.TloamFinancialPeriodsRemote</class>
+        <mboset objectname='FINANCIALPERIODS' extends='psdi.app.financial.FinancialPeriodsSet'>psdi.tloam.app.financial.TloamFinancialPeriodsSet</mboset>
+        <class extends='psdi.app.financial.FinancialPeriodsSetRemote'>psdi.tloam.app.financial.TloamFinancialPeriodsSetRemote</class>
+        <mbo objectname='GLCOMPONENTS' extends='psdi.app.financial.GLComponents'>psdi.tloam.app.financial.TloamGLComponents</mbo>
+        <class extends='psdi.app.financial.GLComponentsRemote'>psdi.tloam.app.financial.TloamGLComponentsRemote</class>
+        <mboset objectname='GLCOMPONENTS' extends='psdi.app.financial.GLComponentsSet'>psdi.tloam.app.financial.TloamGLComponentsSet</mboset>
+        <class extends='psdi.app.financial.GLComponentsSetRemote'>psdi.tloam.app.financial.TloamGLComponentsSetRemote</class>
+
+        <field objectname='MATRECTRANS' attributename='POLINENUM' extends='psdi.app.inventory.FldMatRecTransPoLineNum'>psdi.tloam.app.inventory.FldMatRecTransPoLineNum</field>
+
+        <mbo objectname='MATRECTRANS' extends='psdi.app.inventory.MatRecTrans'>psdi.tloam.app.inventory.MatRecTrans</mbo>
+        <class extends='psdi.app.inventory.MatRecTransRemote'>psdi.tloam.app.inventory.MatRecTransRemote</class>
+        <mboset objectname='MATRECTRANS' extends='psdi.app.inventory.MatRecTransSet'>psdi.tloam.app.inventory.MatRecTransSet</mboset>
+        <class extends='psdi.app.inventory.MatRecTransSetRemote'>psdi.tloam.app.inventory.MatRecTransSetRemote</class>
+        
+        <field objectname='ITEM' attributename='CLASSSTRUCTUREID' extends='psdi.app.item.FldItemClassStructureid'>psdi.tloam.app.item.FldItemClassStructureid</field>
+
+        <mbo objectname='LOCATIONS' extends='psdi.app.location.Location'>psdi.tloam.app.location.TloamLocation</mbo>
+        <class extends='psdi.app.location.LocationRemote'>psdi.tloam.app.location.TloamLocationRemote</class>
+        <mboset objectname='LOCATIONS' extends='psdi.app.location.LocationSet'>psdi.tloam.app.location.TloamLocationSet</mboset>
+        <class extends='psdi.app.location.LocationSetRemote'>psdi.tloam.app.location.TloamLocationSetRemote</class>
+
+        <mbo objectname='PERSON' extends='psdi.app.person.Person'>psdi.tloam.app.person.TloamPerson</mbo>
+        <class extends='psdi.app.person.PersonRemote'>psdi.tloam.app.person.TloamPersonRemote</class>
+        <mboset objectname='PERSON' extends='psdi.app.person.PersonSet'>psdi.tloam.app.person.TloamPersonSet</mboset>
+        <class extends='psdi.app.person.PersonSetRemote'>psdi.tloam.app.person.TloamPersonSetRemote</class>
+       
+        <mbo objectname='PO' extends='psdi.app.po.PO'>psdi.tloam.app.po.PO</mbo>
+        <mbo objectname='POLINE' extends='psdi.app.po.POLine'>psdi.tloam.app.po.POLine</mbo>
+        <class extends='psdi.app.po.POLineRemote'>psdi.tloam.app.po.POLineRemote</class>
+        <mboset objectname='POLINE' extends='psdi.app.po.POLineSet'>psdi.tloam.app.po.POLineSet</mboset>
+        <class extends='psdi.app.po.POLineSetRemote'>psdi.tloam.app.po.POLineSetRemote</class>
+        <class extends='psdi.app.po.PORemote'>psdi.tloam.app.po.PORemote</class>
+        <mboset objectname='PO' extends='psdi.app.po.POSet'>psdi.tloam.app.po.POSet</mboset>
+        <class extends='psdi.app.po.POSetRemote'>psdi.tloam.app.po.POSetRemote</class>
+        <class extends='psdi.app.po.POStatusHandler'>psdi.tloam.app.po.POStatusHandler</class>
+
+        <mbo objectname='PR' extends='psdi.app.pr.PR'>psdi.tloam.app.pr.PR</mbo>
+        <mbo objectname='PRLINE' extends='psdi.app.pr.PRLine'>psdi.tloam.app.pr.PRLine</mbo>
+        <class extends='psdi.app.pr.PRLineRemote'>psdi.tloam.app.pr.PRLineRemote</class>
+        <mboset objectname='PRLINE' extends='psdi.app.pr.PRLineSet'>psdi.tloam.app.pr.PRLineSet</mboset>
+        <class extends='psdi.app.pr.PRLineSetRemote'>psdi.tloam.app.pr.PRLineSetRemote</class>
+        <class extends='psdi.app.pr.PRRemote'>psdi.tloam.app.pr.PRRemote</class>
+        <mboset objectname='PR' extends='psdi.app.pr.PRSet'>psdi.tloam.app.pr.PRSet</mboset>
+        <class extends='psdi.app.pr.PRSetRemote'>psdi.tloam.app.pr.PRSetRemote</class>
+        <class extends='psdi.app.pr.PRStatusHandler'>psdi.tloam.app.pr.PRStatusHandler</class>
+
+        <mbo objectname='ORGANIZATION' extends='psdi.app.site.Organization'>psdi.tloam.app.site.TloamOrganization</mbo>
+        <class extends='psdi.app.site.OrganizationRemote'>psdi.tloam.app.site.TloamOrganizationRemote</class>
+        <mboset objectname='ORGANIZATION' extends='psdi.app.site.OrganizationSet'>psdi.tloam.app.site.TloamOrganizationSet</mboset>
+        <class extends='psdi.app.site.OrganizationSetRemote'>psdi.tloam.app.site.TloamOrganizationSetRemote</class>
+
+        <field objectname='WORKORDER' attributename='ACTTOTALCOST' extends='psdi.app.workorder.FldWOActTotalCost'>psdi.tloam.app.workorder.FldTloamWOActTotalCost</field>
+        <field objectname='WOACTIVITY' attributename='ACTTOTALCOST' extends='psdi.app.workorder.FldWOActTotalCost'>psdi.tloam.app.workorder.FldTloamWOActTotalCost</field>
+        <field objectname='WORKORDER' attributename='ESTATAPPRTOTALCOST' extends='psdi.app.workorder.FldWOEstAtApprTotalCost'>psdi.tloam.app.workorder.FldTloamWOEstAtApprTotalCost</field>
+        <field objectname='WOACTIVITY' attributename='ESTATAPPRTOTALCOST' extends='psdi.app.workorder.FldWOEstAtApprTotalCost'>psdi.tloam.app.workorder.FldTloamWOEstAtApprTotalCost</field>
+        <field objectname='WORKORDER' attributename='ESTTOTALCOST' extends='psdi.app.workorder.FldWOEstTotalCost'>psdi.tloam.app.workorder.FldTloamWOEstTotalCost</field>
+        <field objectname='WOACTIVITY' attributename='ESTTOTALCOST' extends='psdi.app.workorder.FldWOEstTotalCost'>psdi.tloam.app.workorder.FldTloamWOEstTotalCost</field>
+        <field objectname='TLOAMWPLICENSE' attributename='PRLINENUM' extends='psdi.app.pr.FldPRLineNum'>psdi.tloam.app.workorder.FldWPLicensePRLineNum</field>
+        <field objectname='TLOAMWPLICENSE' attributename='PRNUM' extends='psdi.app.pr.FldPRNum'>psdi.tloam.app.workorder.FldWPLicensePRNum</field>
+        <mbo objectname='WORKORDER' extends='psdi.app.workorder.WO'>psdi.tloam.app.workorder.TloamWO</mbo>
+        <mbo objectname='WOACTIVITY' extends='psdi.app.workorder.WOActivity'>psdi.tloam.app.workorder.TloamWOActivity</mbo>
+        <class extends='psdi.app.workorder.WOActivityRemote'>psdi.tloam.app.workorder.TloamWOActivityRemote</class>
+        <mboset objectname='WOACTIVITY' extends='psdi.app.workorder.WOActivitySet'>psdi.tloam.app.workorder.TloamWOActivitySet</mboset>
+        <class extends='psdi.app.workorder.WOActivitySetRemote'>psdi.tloam.app.workorder.TloamWOActivitySetRemote</class>
+        <class extends='psdi.app.workorder.WORemote'>psdi.tloam.app.workorder.TloamWORemote</class>
+        <mboset objectname='WORKORDER' extends='psdi.app.workorder.WOSet'>psdi.tloam.app.workorder.TloamWOSet</mboset>
+        <class extends='psdi.app.workorder.WOSetRemote'>psdi.tloam.app.workorder.TloamWOSetRemote</class>
+	  <mbo objectname='WOCHANGE' extends='psdi.app.workorder.WOChange'>psdi.tloam.app.workorder.TloamWOChange</mbo>
+        <mbo objectname='WORELEASE' extends='psdi.app.workorder.WORelease'>psdi.tloam.app.workorder.TloamWORelease</mbo>
+        <class extends='psdi.app.workorder.WOChangeRemote'>psdi.tloam.app.workorder.TloamWOChangeRemote</class>
+        <mboset objectname='WOCHANGE' extends='psdi.app.workorder.WOChangeSet'>psdi.tloam.app.workorder.TloamWOChangeSet</mboset>
+        <class extends='psdi.app.workorder.WOChangeSetRemote'>psdi.tloam.app.workorder.TloamWOChangeSetRemote</class>
+        <class extends='psdi.app.workorder.WORelease'>psdi.tloam.app.workorder.TloamWORelease</class>
+        <mboset objectname='WORELEASE' extends='psdi.app.workorder.WOReleaseSet'>psdi.tloam.app.workorder.TloamWOReleaseSet</mboset>
+        <class extends='psdi.app.workorder.WOReleaseSetRemote'>psdi.tloam.app.workorder.TloamWOReleaseSetRemote</class>
+        <class extends='psdi.app.workorder.WOStatusHandler'>psdi.tloam.app.workorder.TloamWOStatusHandler</class>
+		<!-- The following three sets are faux sets that are not defined in maxobject - hence the class and not mbset definition -->
+        <class extends='psdi.plusp.app.workorder.virtual.PlusPShowActualFeeChargeSet'>psdi.tloam.app.workorder.virtual.TloamShowActualLicenseSet</class>
+        <class extends='psdi.plusp.app.workorder.virtual.PlusPShowAllPlanFeeChargeSet'>psdi.tloam.app.workorder.virtual.TloamShowAllPlanLicenseSet</class>
+        <class extends='psdi.plusp.app.workorder.virtual.PlusPShowPlanFeeChargeSet'>psdi.tloam.app.workorder.virtual.TloamShowPlanLicenseSet</class>
+        <mboset objectname='WOGRANDTOTAL' extends='psdi.app.workorder.virtual.WOGrandTotalSet'>psdi.tloam.app.workorder.virtual.TloamWOGrandTotalSet</mboset>
+        <mboset objectname='WOTOTAL' extends='psdi.app.workorder.virtual.WOTotalSet'>psdi.tloam.app.workorder.virtual.TloamWOTotalSet</mboset>
+        
+        <!-- possible that this whole group of field definitions is not needed -->
+        <field objectname='TLOAMVLICENSE' attributename='COMPANY' extends='psdi.app.company.FldCompany'>psdi.tlom.app.license.FldLicenseVendor</field>
+        <field objectname='TLOAMLICPURCH' attributename='VENDOR' extends='psdi.app.company.FldCompany'>psdi.tlom.app.license.FldLicenseVendor</field>
+        <field objectname='TLOAMLICINTDIST' attributename='GLACCOUNT' extends='psdi.app.financial.FldPartialGLAccount'>psdi.tlom.app.license.FldLicGLAccount</field>
+        <field objectname='TLOAMLICINTDIST' attributename='LOCATION' extends='psdi.app.location.FldCrossSiteLocation'>psdi.tlom.app.license.FldLicLocation</field>
+        <field objectname='TLOAMLICCOSTINPUT' attributename='WONUM' extends='psdi.app.workorder.FldInterfaceWonum'>psdi.tlom.app.license.virtual.FldLicCostWonum</field>
+        <field objectname='TLOAMLICTRANS' attributename='WONUM' extends='psdi.app.workorder.FldInterfaceWonum'>psdi.tlom.app.license.virtual.FldLicCostWonum</field>
+        <field objectname='TLOAMLICCHANGESTATUS' attributename='NEWSTATUS' extends='psdi.app.common.FldChangeStatus'>psdi.tlom.app.license.virtual.FldLicenseChangeStatus</field>
+        <field objectname='TLOAMLICPURCH' attributename='GLDEBITACCOUNT' extends='psdi.app.financial.FldPartialGLAccount'>psdi.tlom.app.license.virtual.FldTloamLicensePurchGLDebitAccount</field>
+        <field objectname='TLOAMLICPURCH' attributename='SITEID' extends='psdi.app.site.FldSiteID'>psdi.tlom.app.license.virtual.FldTloamLicensePurchSiteId</field>
+        <field objectname='TLOAMLICTRANSTO' attributename='TOCURRCODE' extends='psdi.app.currency.FldCurrencyCode'>psdi.tlom.app.license.virtual.FldTloamLicTransferCurrCode</field>
+        <field objectname='TLOAMLICTRANSFROM' attributename='FROMCURRCODE' extends='psdi.app.currency.FldCurrencyCode'>psdi.tlom.app.license.virtual.FldTloamLicTransferCurrCode</field>
+        <field objectname='TLOAMLICTRANSFROM' attributename='FROMGLCREDITACCT' extends='psdi.app.financial.FldFullGLAccount'>psdi.tlom.app.license.virtual.FldTloamLicTransferFullGLAccount</field>
+        <field objectname='TLOAMLICTRANSFROM' attributename='FROMGLDEBITACCT' extends='psdi.app.financial.FldFullGLAccount'>psdi.tlom.app.license.virtual.FldTloamLicTransferFullGLAccount</field>
+        <field objectname='TLOAMLICTRANSTO' attributename='TOGLCREDITACCT' extends='psdi.app.financial.FldFullGLAccount'>psdi.tlom.app.license.virtual.FldTloamLicTransferFullGLAccount</field>
+        <field objectname='TLOAMLICTRANSTO' attributename='TOGLDEBITACCT' extends='psdi.app.financial.FldFullGLAccount'>psdi.tlom.app.license.virtual.FldTloamLicTransferFullGLAccount</field>
+        <field objectname='TLOAMLICTRANSTO' attributename='ORGID' extends='psdi.app.site.FldOrganizationID'>psdi.tlom.app.license.virtual.FldTloamLicTransferToOrgID</field>
+        <bean presentation="USER" controlid="user" extends='psdi.webclient.beans.user.UserBean'>psdi.tlom.webclient.beans.license.TloamUserBean</bean>
+
+        <mbo objectname='DPAMPROCESSOR' extends='psdi.app.dpamproc.DPAMProcessor'>psdi.tamit.app.dpamproc.TAMITDPAMProcessor</mbo>
+        <mboset objectname='DPAMPROCESSOR' extends='psdi.app.dpamproc.DPAMProcessorSet'>psdi.tamit.app.dpamproc.TAMITDPAMProcessorSet</mboset>
+        <class extends='psdi.app.dpamproc.DPAMProcessorSetRemote'>psdi.tamit.app.dpamproc.TAMITDPAMProcessorSetRemote</class>
+
+        <mbo objectname='TLOAMSOFTWARE' extends='psdi.app.swcatalog.SoftwareCatalog'>psdi.tloam.app.swcatalog.TloamSoftwareCatalog</mbo>
+        <mboset objectname='TLOAMSOFTWARE' extends='psdi.app.swcatalog.SoftwareCatalogSet'>psdi.tloam.app.swcatalog.TloamSoftwareCatalogSet</mboset>
+        <field objectname='TLOAMSOFTWARE' attributename='SWNAME' extends='psdi.app.swcatalog.FldSWName'>psdi.tloam.app.swcatalog.TloamFldSWName</field>
+
+        <bean presentation="ASSET" controlid="swapasset" extends='psdi.webclient.beans.asset.SwapAssetBean'>psdi.tamit.webclient.beans.asset.TAMITSwapAssetBean</bean>
+        <field objectname='ASSET' attributename='REPLACEASSETNUM' extends='psdi.app.asset.FldAssetSwapReplaceAssetNum'>psdi.tamit.app.asset.TLOAMFldAssetSwapReplaceAssetNum</field>        
+        <field objectname='TLOAMLICINTDIST' attributename='PERSONID' extends='psdi.app.person.FldPersonID'>psdi.tlom.app.license.FldPersonID</field>
+
+        <mbo objectname='COMPUTERSYSTEM' extends='psdi.app.dpldasset.ComputerSystem'>psdi.tamit.app.dpldasset.TLOAMComputerSystem</mbo>
+        <class extends='psdi.app.dpldasset.ComputerSystemRemote'>psdi.tamit.app.dpldasset.TLOAMComputerSystemRemote</class>
+        <mboset objectname='COMPUTERSYSTEM' extends='psdi.app.dpldasset.ComputerSystemSet'>psdi.tamit.app.dpldasset.TLOAMComputerSystemSet</mboset>
+        <class extends='psdi.app.dpldasset.ComputerSystemSetRemote'>psdi.tamit.app.dpldasset.TLOAMComputerSystemSetRemote</class>
+		
+        <field objectname='COMPUTERSYSTEM' attributename='NODENAME' extends='psdi.app.dpldasset.FldComputerSystemNodeName'>psdi.tamit.app.dpldasset.FldComputerSystemNodeName</field>
+
+
+        <bean presentation="LIBRARY" controlid="qbeclassification" extends='psdi.webclient.beans.common.SearchSpecBean'>psdi.tamit.webclient.beans.common.TAMITSearchSpecBean</bean>
+        <bean presentation="LIBRARY" controlid="searchClassification_tree" extends='psdi.webclient.beans.common.SearchSpecBean'>psdi.tamit.webclient.beans.common.TAMITSearchSpecBean</bean>
+	  <bean presentation="LIBRARY" controlid="massmove" extends='psdi.webclient.beans.workorder.PlanMoveModifyAssetBean'>psdi.tamit.webclient.beans.workorder.TamitPlanMoveModifyAssetBean</bean>
+		
+        <field objectname='TAMITSWPRTNUM' attributename='PARTNUMBER' extends='psdi.app.swcatalog.FldSWPartNumber'>psdi.tlom.app.license.FldTamitSWPartNumber</field>
+        <field objectname='TLOAMLICSW' attributename='PARTNUMBER' extends='psdi.app.swcatalog.FldSWPartNumber'>psdi.tlom.app.license.FldTamitSWPartNumber</field>
+
+        <mbo objectname='JOBPLAN' extends='psdi.app.jobplan.JobPlan'>psdi.tloam.app.workorder.TAMITJobPlan</mbo>
+        <class extends='psdi.app.jobplan.JobPlanRemote'>psdi.tloam.app.workorder.TAMITJobPlanRemote</class>
+        <mboset objectname='JOBPLAN' extends='psdi.app.jobplan.JobPlanSet'>psdi.tloam.app.workorder.TAMITJobPlanSet</mboset>
+        <class extends='psdi.app.jobplan.JobPlanSetRemote'>psdi.tloam.app.workorder.TAMITJobPlanSetRemote</class>
+        <field objectname='JPTOTAL' attributename='SITEID' extends='psdi.app.jobplan.virtual.FldJPTotalSiteId'>psdi.tloam.app.workorder.TAMITFldJPTotalSiteId</field>
+        <class extends='psdi.app.jobplan.virtual.FldJPTotalSiteId'>psdi.tloam.app.workorder.TAMITFldJPTotalSiteId</class>
+		
+        <mbo objectname='TAMITDPAHWM' extends='psdi.mbo.Mbo'>psdi.tlom.app.license.TAMITDpaHwm</mbo>
+        <mboset objectname='TAMITDPAHWM' extends='psdi.mbo.MboSet'>psdi.tlom.app.license.TAMITDpaHwmSet</mboset>
+
+        <field objectname='ASSET' attributename='CINUM' extends='psdi.app.asset.FldAssetCINum'>psdi.tamit.app.asset.TAMITFldAssetCINum</field>
+
+		
+        <field objectname='SFWVIEWLINE' attributename='LINETYPE' extends='psdi.app.contract.FldContractLineLineType'>psdi.tamit.app.contract.software.TAMITFldContractLineLineType</field>
+        <field objectname='SFWVIEWLINE' attributename='MAINT' extends='psdi.mbo.MboValueAdapter'>psdi.tamit.app.contract.software.TAMITFldMaintenance</field>
+        <field objectname='SFWVIEWLINE' attributename='MAINTTERM' extends='psdi.mbo.MboValueAdapter'>psdi.tamit.app.contract.software.TAMITFldCalcRenewalDate</field>
+        <field objectname='SFWVIEWLINE' attributename='TERMUNIT' extends='psdi.mbo.MboValueAdapter'>psdi.tamit.app.contract.software.TAMITFldCalcRenewalDate</field>
+        <field objectname='SFWVIEWLINE' attributename='RENEWALDATE' extends='psdi.mbo.MboValueAdapter'>psdi.tamit.app.contract.software.TAMITFldRenewalDate</field>
+        <field objectname='SFWVIEWLINE' attributename='NEWORDERQTY' extends='psdi.app.contract.FldContractLineNewOrderQty'>psdi.tamit.app.contract.software.TLOAMFldContractLineNewOrderQty</field>
+		
+        <field objectname='ASSETTRANS' attributename='PONUM' extends='psdi.mbo.MAXTableDomain'>psdi.tamit.app.asset.TLOAMFldPoNum</field>
+        <field objectname='DPAMSWSUITECOMP' attributename='SOFTWARENAME' extends='psdi.mbo.MAXTableDomain'>psdi.tamit.app.dpamsws.TLOAMFldSoftwareName</field>
+
+        <field objectname='TAMITDPAHWM' attributename='STARTDATE' extends='psdi.mbo.MboValueAdapter'>psdi.tlom.app.license.FldDpaHwmStartDate</field>
+        <field objectname='TAMITDPAHWM' attributename='ENDDATE' extends='psdi.mbo.MboValueAdapter'>psdi.tlom.app.license.FldDpaHwmEndDate</field>
+
+    </extensions>
+</product>

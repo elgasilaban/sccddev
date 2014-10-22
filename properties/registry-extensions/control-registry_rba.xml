@@ -1,0 +1,58 @@
+<control-registry basedir="webclient\controls" package="psdi.webclient.controls">
+
+<control-descriptor name="ilogcanvas"
+	descriptor-class="psdi.webclient.system.runtime.DatasrcDescriptor"
+	instance-class="com.ibm.ism.rba.webclient.ilogcanvas.controls.ILOGCanvasControl">
+	<property-list>
+		<property name="id">
+			<flag name="final" />
+		</property>
+		<property name="datasrc">
+			<flag name="nonconditional" />
+			<flag name="global" />
+		</property>
+		<property name="archive" />
+		<property name="label">
+			<flag name="translatable" />
+		</property>
+		<property name="labelcss" />
+		<property name="licensekey">
+			<flag name="final" />
+		</property>
+		<property name="actiondatasrc" />
+        <property name="nodedatasrc" />
+		<property name="width" />
+		<property name="height" />
+		<property name="classid" />
+		<property name="codebase" />
+		<property name="cirelation" />
+		<property name="tabgroupid" />
+		<property name="tabid" />
+		<property name="nodepopuptarget" />
+		<property name="linkpopuptarget" />
+		<property name="code" />
+		<property name="dataattribute">
+			<flag name="final" />
+		</property>
+		<property name="display">
+			<default-value>true</default-value>
+			<flag name="global" />
+		</property>
+	</property-list>
+	<component-list>
+		<components id="${name}_components_v" layout="vertical">
+			<components id="${name}_components_h" layout="horizontal">
+				<ilogcanvas id="${name}_ilogcanvas" classid="@{classid}"
+					width="@{width}" height="@{height}"
+					nodepopuptarget="@{nodepopuptarget}"
+					linkpopuptarget="@{linkpopuptarget}" />
+			</components>
+		</components>
+	</component-list>
+	<containers>
+		<!-- Questionable -->
+		<container name="clientarea" />
+	</containers>
+</control-descriptor>
+
+</control-registry>

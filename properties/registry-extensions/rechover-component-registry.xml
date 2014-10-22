@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * IBM Confidential
+ *
+ * OCO Source Materials
+ *
+ * 5724-U18
+ *
+ * (C) COPYRIGHT IBM CORP. 2013
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *
+ -->
+<component-registry basedir="webclient\components"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation='../component-registry.xsd'>    
+	<component-descriptor name="break" descriptor-class="psdi.webclient.system.runtime.InRecHoverComponentDescriptor">
+		<property-list>
+			<property name="id"/>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[<br/>]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+	
+	<component-descriptor name="controlwrapper" descriptor-class="psdi.webclient.system.runtime.InRecHoverComponentDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="cssclass"/>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<div id="@{renderid}" class="control @{cssclass}" ctype="#{CONTROLTYPE}">
+						#{CHILDCOMPONENTS}
+					</div>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+	
+	<component-descriptor name="recordhover" descriptor-class="psdi.webclient.system.runtime.InRecHoverComponentDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="cssclass"/>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<div id="@{renderid}" class="recordHover @{cssclass}" ctype="#{CONTROLTYPE}" onclick="stopBubble(event)" onmousedown="stopBubble(event)">
+						#{CHILDCOMPONENTS}
+					</div>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+
+	<component-descriptor name="recordhoverchildren"  descriptor-class="psdi.webclient.system.runtime.RecordHoverChildrenComponentDescriptor">
+		<property-list>
+			<property name="id"/>	
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+		</property-list>
+	</component-descriptor>
+	
+	<component-descriptor name="recordhoverlabel" descriptor-class="psdi.webclient.system.runtime.InRecHoverComponentDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="cssclass"/>
+			<property name="dataattribute"/>
+			<property name="for">
+				<flag name="renderid" />
+			</property>
+			<property name="label"/>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<label id="@{renderid}" class="text @{cssclass}" for="@{for}">#{LABEL}</label>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+
+	<component-descriptor name="recordhovercheckbox" descriptor-class="psdi.webclient.system.runtime.InRecHoverCheckboxCompDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="cssclass"/>
+			<property name="checked">
+				<flag name="system" />
+			</property>
+			<property name="dataattribute"/>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<input type="checkbox" id="@{renderid}" class="@{cssclass}" disabled="disabled" aria-disabled="true" aria-readonly="true" @{checked} onclick="return false;"/>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+
+	<component-descriptor name="recordhovertextbox" descriptor-class="psdi.webclient.system.runtime.InRecHoverComponentDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="cssclass"/>
+			<property name="dataattribute"/>
+			<property name="nullvalue">
+				<default-value>--</default-value>
+			</property>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<input type="text" id="@{renderid}" class="text fld @{cssclass}" value="#{VALUE}" #{DATEFORMATTER} aria-readonly="true" readonly="readonly" size="#{SIZE}"/>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+
+	<component-descriptor name="recordhovertextarea" descriptor-class="psdi.webclient.system.runtime.InRecHoverComponentDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="cssclass"/>
+			<property name="dataattribute"/>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<textarea id="@{renderid}" class="text @{cssclass}" aria-readonly="true" readonly="readonly">#{VALUE}</textarea>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+
+	<component-descriptor name="recordhoverhelpgrid" descriptor-class="psdi.webclient.system.runtime.InRecHoverComponentDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="innerhtml"/>
+			<property name="cssclass"/>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<div id="@{renderid}" class="text recHovHelp @{cssclass}" aria-readonly="true" readonly="readonly"><img border="0" aria-hidden="true" src="#{IMAGEPATH}icon_details.gif"/>@{innerhtml}</div>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+
+	<component-descriptor name="recordhoverbutton" descriptor-class="psdi.webclient.system.runtime.InRecHoverComponentDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="cssclass"/>
+			<property name="event"/>
+			<property name="label"/>
+			<property name="targetid"/>
+			<property name="value"/>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<button id="@{renderid}" class="text rechoverbutton @{cssclass}" onclick="sendEvent('@{event}','@{targetid}','@{value}');">@{label}</button>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+
+	<component-descriptor name="recordhoverrichtext" descriptor-class="psdi.webclient.system.runtime.InRecHoverComponentDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="dataattribute"/>
+			<property name="cssclass"/>
+			<property name="height"/>
+			<property name="width"/>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<div id="@{renderid}" tabindex="0" style="height: @{height}; width: @{width}" class="richtext @{cssclass}">#{VALUE}</div>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+
+	<component-descriptor name="recordhoverapplinksection" descriptor-class="psdi.webclient.system.runtime.RecHoverApplinkSectionCompDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="cssclass"/>
+			<property name="label"/>
+			<property name="labelcss"/>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<table id="@{renderid}" class="section @{cssclass}" ctype="#{CONTROLTYPE}">
+						<tr>
+							<td>
+								<label id="@{renderid}" class="@{labelcss}">@{label}</label>
+							</td>
+							<td class="applinkButtons">
+								#{CHILDCOMPONENTS}
+							</td>
+						</tr>
+					</table>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+
+	<component-descriptor name="recordhoversection" descriptor-class="psdi.webclient.system.runtime.RecHoverSectionComponentDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="cssclass"/>
+			<property name="label"/>
+			<property name="labelcss"/>
+			<property name="sectioncss">
+				<default-value>section</default-value>
+			</property>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<div id="@{renderid}" class="@{sectioncss} @{cssclass}" ctype="#{CONTROLTYPE}" aria-labelledby="@{renderid}_label">
+						<div id="@{renderid}_label" class="sectionlabel @{labelcss}">@{label}</div>
+						#{CHILDCOMPONENTS}
+					</div>
+				]]>
+			</user-agent>
+			<user-agent type="ie">
+				<![CDATA[
+					<div id="@{renderid}" class="@{sectioncss} @{cssclass}" ctype="#{CONTROLTYPE}" aria-labelledby="@{renderid}_label">
+						<div id="@{renderid}_label" class="sectionlabel @{labelcss}">@{label}</div>
+						<table role="presentation">
+							#{CHILDCOMPONENTS}
+						</table>
+					</div>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+
+	<component-descriptor name="recordhoversectioncol" descriptor-class="psdi.webclient.system.runtime.InRecHoverComponentDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="cssclass"/>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<div id="@{renderid}" class="sectioncol @{cssclass}" ctype="#{CONTROLTYPE}">
+						#{CHILDCOMPONENTS}
+					</div>
+				]]>
+			</user-agent>
+			<user-agent type="ie">
+				<![CDATA[
+					<td id="@{renderid}" class="sectioncol @{cssclass}" ctype="#{CONTROLTYPE}">
+						#{CHILDCOMPONENTS}
+					</td>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+
+	<component-descriptor name="recordhoversectionrow" descriptor-class="psdi.webclient.system.runtime.InRecHoverComponentDescriptor">
+		<property-list>
+			<property name="id"/>
+			<property name="renderid">
+				<flag name="system" />
+			</property>
+			<property name="cssclass"/>
+		</property-list>
+		<render-block>
+			<user-agent type="default">
+				<![CDATA[
+					<div id="@{renderid}" class="sectionrow @{cssclass}" ctype="#{CONTROLTYPE}">
+						#{CHILDCOMPONENTS}
+					</div>
+				]]>
+			</user-agent>
+			<user-agent type="ie">
+				<![CDATA[
+					<tr id="@{renderid}" class="sectionrow @{cssclass}" ctype="#{CONTROLTYPE}">
+						#{CHILDCOMPONENTS}
+					</tr>
+				]]>
+			</user-agent>
+		</render-block>
+	</component-descriptor>
+	
+</component-registry>

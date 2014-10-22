@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<project name="UISchema" default="all" basedir=".">
+
+	<property name="verbose" value=""/>
+	<property name="fork" value="no"/>
+	<property name="classes" location="../maximouiweb/webmodule/WEB-INF/classes" />
+
+	<path id="webui">
+		<pathelement path="${classes}" />
+	</path>
+		
+	<target name="all" depends="components,presentation" />
+
+	<target name="validate" depends="all,validateComponentRegistry,validateControlRegistry" />
+
+	<target name="components">
+		<java classname="psdi.webclient.system.registry.ComponentsSchemaGenerator" classpathref="webui" fork="${fork}">
+			<arg line="'-i${basedir}/component-registry.xml' '-i${basedir}/registry-extensions' '-o${basedir}/components.xsd' ${verbose}"/>
+		</java>
+	</target>
+
+	<target name="presentation">
+		<java classname="psdi.webclient.system.registry.PresentationSchemaGenerator" classpathref="webui" fork="${fork}">
+			<arg line="'-i${basedir}/control-registry.xml' '-i${basedir}/registry-extensions' '-o${basedir}/presentation.xsd' ${verbose}"/>
+		</java>
+	</target>
+	
+	<!-- TODO this should fail on error (failonerror="true"), but we have to clean up the registry first -->
+	<target name="validateComponentRegistry">
+		<schemavalidate noNamespaceFile="${basedir}/component-registry.xsd" warn="true" failonerror="false">
+			<fileset dir="${basedir}">
+				<include name="component-registry.xml"/>
+			</fileset>
+		</schemavalidate>
+		<schemavalidate noNamespaceFile="${basedir}/component-registry.xsd" warn="true" failonerror="false">
+			<fileset dir="${basedir}/registry-extensions">
+				<and>
+					<contains text="&lt;component-registry"/>
+					<not>
+						<filename name="refapp-negative-*"/>
+					</not>
+				</and>
+			</fileset>
+		</schemavalidate>
+	</target>
+
+	<!-- TODO this should fail on error (failonerror="true"), but we have to clean up the registry first -->
+	<target name="validateControlRegistry" depends="components">
+		<schemavalidate noNamespaceFile="${basedir}/control-registry.xsd" warn="true" failonerror="false">
+			<fileset dir="${basedir}">
+				<include name="control-registry.xml"/> 
+			</fileset>
+		</schemavalidate>
+		<schemavalidate noNamespaceFile="${basedir}/control-registry.xsd" warn="true" failonerror="false">
+			<fileset dir="${basedir}/registry-extensions">
+				<and>
+					<contains text="&lt;control-registry"/>
+					<not>
+						<filename name="refapp-negative-*"/>
+					</not>
+				</and>
+			</fileset>
+		</schemavalidate>
+	</target>
+	
+</project>
