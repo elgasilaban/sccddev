@@ -1,0 +1,482 @@
+@charset "UTF-8";
+
+MetaInfo {
+   version : "" ;
+}
+Symbol {
+   LinkConnectionRectangle : "0" ;
+   class : "ilog.views.sdm.graphic.IlvSDMCompositeNode" ;
+   children[0] : "@+CoreShape" ;
+   constraints[0] : "@+CoreShapeAttachment" ;
+   children[1] : "@+SVG" ;
+   constraints[1] : "@+SVGAttachment" ;
+   children[2] : "@+StatusIcon" ;
+   constraints[2] : "@+StatusIconAttachment" ;
+   children[3] : "@+ScheduledTasksIcon" ;
+   constraints[3] : "@+ScheduledTasksIconAttachment" ;
+   children[4] : "@+IncidentIcon" ;
+   constraints[4] : "@+IncidentIconAttachment" ;
+   children[5] : "@+DisplayName" ;
+   constraints[5] : "@+DisplayNameAttachment" ;
+   children[6] : "@+AvailableHops" ;
+   constraints[6] : "@+AvailableHopsAttachment" ;
+   children[7] : "@+ImpactedIcon" ;
+   constraints[7] : "@+ImpactedIconAttachment" ;
+}
+Parameter#name {
+   class : "java.lang.String" ;
+   default : "" ;
+}
+Parameter#Changes {
+   class : "java.lang.Integer" ;
+   default : "0" ;
+}
+Parameter#Incidents {
+   class : "java.lang.Integer" ;
+   default : "0" ;
+}
+Parameter#Impacted {
+   class : "java.lang.Boolean" ;
+   default : "false" ;
+}
+Parameter#showInfo {
+   class : "java.lang.Boolean" ;
+   default : "true" ;
+}
+Parameter#searchmatch {
+   class : "java.lang.Boolean" ;
+   default : "false" ;
+}
+Parameter#toplevel {
+   class : "java.lang.Boolean" ;
+   default : "false" ;
+}
+Parameter#root {
+   class : "java.lang.Boolean" ;
+   default : "false" ;
+}
+Parameter#description {
+   class : "java.lang.String" ;
+   default : "" ;
+}
+Parameter#status {
+   class : "java.lang.String" ;
+   default : "" ;
+}
+Parameter#showlable {
+   class : "java.lang.Boolean" ;
+   default : "true" ;
+}
+Parameter#scheduledTasks {
+   class : "java.lang.Integer" ;
+   default : "" ;
+}
+Parameter#availableHops {
+   class : "java.lang.Integer" ;
+   default : "0" ;
+}
+Parameter#color {
+   class : "java.awt.Color" ;
+   default : "255,255,204" ;
+}
+Parameter#borderColor {
+   class : "java.awt.Color" ;
+   default : "black" ;
+}
+Parameter#classification {
+   class : "java.lang.String" ;
+   default : "" ;
+}
+Parameter#rootNodeColor {
+   class : "java.awt.Color" ;
+   default : "204,255,255" ;
+}
+Parameter#isSelectedTEMP {
+   class : "java.lang.Boolean" ;
+   default : "false" ;
+}
+Subobject#AvailableHops {
+   class : "ilog.views.graphic.IlvText" ;
+   anchorPoint : "50.0,100.0" ;
+   label : "@|\"<\" + @availableHops + \">\"" ;
+   fillPaint : "#e0dfe3" ;
+   autoWrappingSizeMode : "true" ;
+   name : "AvailableHops" ;
+   alignment : "16" ;
+   ToggleVisibility : "false" ;
+   visible : "false" ;
+   font : "Arial-plain-10" ;
+   foreground : "51,51,51" ;
+}
+Subobject#DisplayName {
+   class : "ilog.views.graphic.IlvText" ;
+   anchorPoint : "80.0,110.0" ;
+   label : "@description" ;
+   fillPaint : "#e0dfe3" ;
+   autoWrappingSizeMode : "true" ;
+   name : "DisplayName" ;
+   foreground : "98,98,98" ;
+   wrappingMode : "3" ;
+   wrappingHeight : "15.0" ;
+   ToggleVisibility : "false" ;
+   visible : "true" ;
+   wrappingWidth : "200.0" ;
+}
+Subobject#IncidentIcon {
+   class : "ilog.views.sdm.graphic.IlvURLGraphic" ;
+   URL : "url(../resources/st_sunset.svg)" ;
+   name : "IncidentIcon" ;
+   ToggleVisibility : "false" ;
+   visible : "false" ;
+}
+
+Subobject#ScheduledTasksIcon {
+   class : "ilog.views.sdm.graphic.IlvURLGraphic" ;
+   URL : "url(../resources/st_preproduction.svg)" ;
+   name : "ScheduledTasksIcon" ;
+   ToggleVisibility : "false" ;
+   visible : "false" ;
+   
+   /*xxxccc
+   popupMenuName: "ScheduledTasksNodePopupMenu";
+   xxxccc*/
+}
+
+Subobject#CoreShape {
+   class : "ilog.views.sdm.graphic.IlvURLGraphic" ;
+   URL : "url(../resources/rs_nodeNormal_bkg.svg)" ;
+   name : "CoreShape" ;
+   ToggleVisibility : "false" ;
+   visible : "true" ;
+}
+Subobject#StatusIcon {
+   class : "ilog.views.sdm.graphic.IlvURLGraphic" ;
+   URL : "url(../resources/st_notReady.svg)" ;
+   name : "StatusIcon" ;
+   ToggleVisibility : "false" ;
+   visible : "false" ;
+}
+Subobject#ImpactedIcon {
+   class : "ilog.views.sdm.graphic.IlvURLGraphic" ;
+   URL : "url(../resources/rs_impacted.svg)" ;
+   name : "ImpactedIcon" ;
+   ToggleVisibility : "false" ;
+   visible : "false" ;
+}
+Subobject#SVG {
+   class : "com.ibm.tivoli.maximo.asset.topology.renderer.GraphicRenderer" ;
+   image : "@image" ;
+   URL : "url(../resources/icon_computerSystem_default.svg)" ;
+   name : "SVG" ;
+   ToggleVisibility : "false" ;
+   visible : "true" ;
+   width : "200.0" ;
+   height : "85.0" ;
+}
+Subobject#SVGAttachment {
+   class : "ilog.views.graphic.composite.layout.IlvAttachmentConstraint" ;
+   offsetX : "39.0" ;
+   offsetY : "11.0" ;
+}
+Subobject#StatusIconAttachment {
+   class : "ilog.views.graphic.composite.layout.IlvAttachmentConstraint" ;
+   offsetX : "14.0" ;
+   offsetY : "14.0" ;
+   width : "24.0" ;
+   height : "24.0" ;
+}
+Subobject#CoreShapeAttachment {
+   class : "ilog.views.graphic.composite.layout.IlvAttachmentConstraint" ;
+}
+Subobject#ScheduledTasksIconAttachment {
+   class : "ilog.views.graphic.composite.layout.IlvAttachmentConstraint" ;
+   offsetX : "14.0" ;
+   offsetY : "40.0" ;
+   width : "24.0" ;
+   height : "24.0" ;
+}
+Subobject#IncidentIconAttachment {
+   class : "ilog.views.graphic.composite.layout.IlvAttachmentConstraint" ;
+   offsetX : "14.0" ;
+   offsetY : "67.0" ;
+   width : "24.0" ;
+   height : "24.0" ;
+}
+Subobject#DisplayNameAttachment {
+   class : "ilog.views.graphic.composite.layout.IlvAttachmentConstraint" ;
+   offsetX : "44.0" ;
+   offsetY : "94.0" ;
+}
+Subobject#AvailableHopsAttachment {
+   class : "ilog.views.graphic.composite.layout.IlvAttachmentConstraint" ;
+   offsetX : "-100.0" ;
+   offsetY : "-25.0" ;
+   hotSpot : "Center" ;
+   anchor : "BottomCenter" ;
+}
+Subobject#ImpactedIconAttachment {
+   class : "ilog.views.graphic.composite.layout.IlvAttachmentConstraint" ;
+   offsetY : "14.0" ;
+   offsetX : "220.0" ;
+   width : "0.0" ;
+   height : "0.0" ;
+}
+Subobject#ImpactedIcon[Impacted="true"] {
+   _rule_name : "Impacted is true" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+}
+Subobject#AvailableHops[availableHops>"0"] {
+   _rule_name : "availableHops is greater than 0" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+}
+
+Subobject#ScheduledTasksIcon[scheduledTasks="-1"] {
+   _rule_name : "scheduledTasks equals NULLTASK";
+   __KEEPEMPTYRULE : "true" ;
+   visible : "false" ;
+   URL : "url(../resources/wi_nulltask.svg)" ;
+}
+Subobject#ScheduledTasksIcon[scheduledTasks="39393"] {
+   _rule_name : "scheduledTasks equals NOSCHEDULEDTASKYET";
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/wi_noschedyet.svg)" ;
+}
+Subobject#ScheduledTasksIcon[scheduledTasks="0"] {
+   _rule_name : "scheduledTasks equals SCHEDULEDPASTDUE";
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/wi_pastdue.svg)" ;
+}
+Subobject#ScheduledTasksIcon[scheduledTasks="1"] {
+   _rule_name : "scheduledTasks equals SCHEDULED1STWEEKTASK";
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/wi_1stweek.svg)" ;
+}
+Subobject#ScheduledTasksIcon[scheduledTasks="2"] {
+   _rule_name : "scheduledTasks equals SCHEDULED2NDWEEKWOKR";
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/wi_2ndweek.svg)" ;
+}
+Subobject#ScheduledTasksIcon[scheduledTasks="3"] {
+   _rule_name : "scheduledTasks equals SCHEDULED3RDWEEKTASK";
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/wi_3rdweek.svg)" ;
+}
+Subobject#ScheduledTasksIcon[scheduledTasks="4"] {
+   _rule_name : "scheduledTasks equals SCHEDULED4WEEKSPLUSTASK";
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/wi_4weeksplus.svg)" ;
+}
+ 
+Subobject#IncidentIcon[Incidents>"0"] {
+   _rule_name : "Incidents is greater than 0" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/rs_incident.svg)" ;
+}
+Subobject#StatusIcon[status="BUILD"] {
+   _rule_name : "status equals BUILD" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_build.svg)" ;
+}
+Subobject#StatusIcon[status="DECOMMISSIONED"] {
+   _rule_name : "status equals DECOMMISSIONED" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_decommissioned.svg)" ;
+}
+Subobject#StatusIcon[status="DEVELOPMENT"] {
+   _rule_name : "status equals DEVELOPMENT" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_development.svg)" ;
+}
+Subobject#StatusIcon[status="DRAFT"] {
+   _rule_name : "status equals DRAFT" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_draft.svg)" ;
+}
+Subobject#StatusIcon[status="INVENTORY"] {
+   _rule_name : "status equals INVENTORY" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_inventory.svg)" ;
+}
+Subobject#StatusIcon[status="POSTPRODUCTION"] {
+   _rule_name : "status equals POSTPRODUCTION" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_postproduction.svg)" ;
+}
+Subobject#StatusIcon[status="PREPRODUCTION"] {
+   _rule_name : "status equals PREPRODUCTION" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_preproduction1.svg)" ;
+}
+Subobject#StatusIcon[status="SUNSET"] {
+   _rule_name : "status equals SUNSET" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_sunset1.svg)" ;
+}
+Subobject#StatusIcon[status="VALIDATE"] {
+   _rule_name : "status equals VALIDATE" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_validate.svg)" ;
+}
+Subobject#StatusIcon[status="ARCHIVED"] {
+   _rule_name : "status equals ARCHIVED" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_archived.svg)" ;
+}
+Subobject#StatusIcon[status="OPERATING"] {
+   _rule_name : "status equals OPERATING" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_operating.svg)" ;
+}
+Subobject#StatusIcon[status="PRODUCTION"] {
+   _rule_name : "status equals PRODUCTION" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_production.svg)" ;
+}
+Subobject#StatusIcon[status="UNINITIALIZED"] {
+   _rule_name : "status equals UNINITIALIZED" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/st_uninitialized.svg)" ;
+}
+Subobject#StatusIcon[status="NOTREADY"] {
+   _rule_name : "status equals NOTREADY" ;
+   __KEEPEMPTYRULE : "true" ;
+   URL : "url(../resources/st_notReady.svg)" ;
+   visible : "true" ;
+}
+Subobject#StatusIconAttachment[status="OPERATING"] {
+}
+Subobject#StatusIconAttachment[status="PRODUCTION"] {
+}
+Subobject#StatusIconAttachment[status="NOTREADY"] {
+}
+Subobject#StatusIconAttachment[status="UNINITIALIZED"] {
+}
+Subobject#StatusIconAttachment[status="ARCHIVED"] {
+}
+Subobject#StatusIconAttachment[status="BUILD"] {
+}
+Subobject#StatusIconAttachment[status="DECOMMISSIONED"] {
+}
+Subobject#StatusIconAttachment[status="DEVELOPMENT"] {
+}
+Subobject#StatusIconAttachment[status="DRAFT"] {
+}
+Subobject#StatusIconAttachment[status="INVENTORY"] {
+}
+Subobject#StatusIconAttachment[status="POSTPRODUCTION"] {
+}
+Subobject#StatusIconAttachment[status="PREPRODUCTION"] {
+}
+Subobject#StatusIconAttachment[status="SUNSET"] {
+}
+Subobject#StatusIconAttachment[status="VALIDATE"] {
+}
+Subobject#ScheduledTasksIconAttachment[scheduledTasks>"0"] {
+   offsetY : "42.0" ;
+}
+Subobject#IncidentIconAttachment[Incidents>"0"] {
+}
+Subobject#AvailableHopsAttachment[availableHops>"0"] {
+   offsetY : "-22.0" ;
+   offsetX : "-102.0" ;
+}
+Subobject#DisplayName[searchmatch="true"] {
+   _rule_name : "searchmatch is true" ;
+   __KEEPEMPTYRULE : "true" ;
+   foreground : "51,102,41" ;
+}
+Subobject#DisplayNameAttachment[searchmatch="true"] {
+}
+Subobject#ImpactedIconAttachment[Impacted="true"] {
+   width : "30.0" ;
+   height : "30.0" ;
+   offsetX : "212.0" ;
+}
+Subobject#CalculatedIconAttachment[calculated="true"] {
+   width : "30.0" ;
+   height : "30.0" ;
+   offsetX : "212.0" ;
+   offsetY : "45.0" ;
+}
+Subobject#HistoricalIconAttachment[historical="true"] {
+   offsetY : "75.0" ;
+   width : "30.0" ;
+   height : "30.0" ;
+   offsetX : "212.0" ;
+}
+Subobject#DisplayName:selected[searchmatch~"true"] {
+   _rule_name : "searchmatch is false and is selected" ;
+   __KEEPEMPTYRULE : "true" ;
+   foreground : "46,96,115" ;
+}
+Subobject#CoreShape[root~"true"][searchmatch~"true"] {
+   _rule_name : "root is false and searchmatch is false" ;
+   __KEEPEMPTYRULE : "true" ;
+   visible : "true" ;
+   URL : "url(../resources/rs_nodeNormal_bkg1.svg)" ;
+}
+Subobject#CoreShape[root="true"][searchmatch~"true"] {
+   _rule_name : "root is true and searchmatch is false" ;
+   __KEEPEMPTYRULE : "true" ;
+   URL : "url(../resources/rs_nodeNormalRoot_bkg.svg)" ;
+   visible : "true" ;
+}
+Subobject#CoreShape[root~"true"][searchmatch="true"] {
+   _rule_name : "root is false and searchmatch is true" ;
+   __KEEPEMPTYRULE : "true" ;
+   URL : "url(../resources/rs_nodeSearch_bkg.svg)" ;
+   visible : "true" ;
+}
+Subobject#CoreShape[root="true"][searchmatch="true"] {
+   _rule_name : "root is true and searchmatch is true" ;
+   __KEEPEMPTYRULE : "true" ;
+   URL : "url(../resources/rs_nodeSearchRoot_bkg.svg)" ;
+   visible : "true" ;
+}
+Subobject#DisplayNameAttachment:selected[searchmatch~"true"] {
+}
+Subobject#CoreShape:selected[root="true"][searchmatch~"true"] {
+   _rule_name : "root is true and searchmatch is false and is selected" ;
+   __KEEPEMPTYRULE : "true" ;
+   URL : "url(../resources/rs_nodeSelectedRoot_bkg.svg)" ;
+}
+Subobject#CoreShape:selected[root~"true"][searchmatch~"true"] {
+   _rule_name : "root is false and searchmatch is false and is selected" ;
+   __KEEPEMPTYRULE : "true" ;
+   URL : "url(../resources/rs_nodeSelected_bkg.svg)" ;
+}
+Subobject#CoreShape[root~"true"][Impacted="true"] {
+   _rule_name : "root is false and searchmatch is true" ;
+   __KEEPEMPTYRULE : "true" ;
+   URL : "url(../resources/rs_nodeImpacted_bkg.svg)" ;
+   visible : "true" ;
+}
+Subobject#CoreShape[root="true"][Impacted="true"] {
+   _rule_name : "root is true and searchmatch is true" ;
+   __KEEPEMPTYRULE : "true" ;
+   URL : "url(../resources/rs_nodeImpactedRoot_bkg.svg)" ;
+   visible : "true" ;
+}
+

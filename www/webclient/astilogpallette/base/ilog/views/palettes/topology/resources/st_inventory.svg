@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 11.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+	<!ENTITY ns_svg "http://www.w3.org/2000/svg">
+	<!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+<svg  xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 width="51" height="51" viewBox="-0.435547 -0.179688 51 51" xml:space="preserve">
+	<defs>
+	</defs>
+	<g>
+		<g>
+			
+			<g>
+				<path fill="#F03FFF" d="M47,43.865234c0,1.742188-1.427734,3.166016-3.171875,3.166016H6.166016
+					C4.421875,47.03125,3,45.607422,3,43.865234V6.201172C3,4.458008,4.421875,3.03125,6.166016,3.03125h37.662109
+					C45.572266,3.03125,47,4.458008,47,6.201172V43.865234z"/>
+			</g>
+		</g>
+		<rect y="0.026367" fill="none" width="50" height="50.000977"/> 
+		<linearGradient id="XMLID_2_" gradientUnits="userSpaceOnUse" x1="39.444336" y1="50.047363" x2="10.55322" y2="0.006489">
+			<stop  offset="0.003663" style="stop-color:#154A97"/>
+			<stop  offset="1" style="stop-color:#0078B1"/>
+			<a:midPointStop  offset="0.003663" style="stop-color:#154A97"/>
+			<a:midPointStop  offset="0.5" style="stop-color:#154A97"/>
+			<a:midPointStop  offset="1" style="stop-color:#0078B1"/>
+		</linearGradient>
+		<path fill="url(#XMLID_2_)" d="M47,43.859375c0,1.742188-1.427734,3.167969-3.171875,3.167969H6.166016
+			C4.421875,47.027344,3,45.601563,3,43.859375V6.195313c0-1.742188,1.421875-3.168945,3.166016-3.168945h37.662109
+			C45.572266,3.026367,47,4.453125,47,6.195313V43.859375z"/>
+		<linearGradient id="XMLID_3_" gradientUnits="userSpaceOnUse" x1="38.838867" y1="48.996582" x2="11.16113" y2="1.057341">
+			<stop  offset="0" style="stop-color:#6AE4FF"/>
+			<stop  offset="0.102417" style="stop-color:#55CFF6"/>
+			<stop  offset="0.241583" style="stop-color:#3FB9ED"/>
+			<stop  offset="0.37619" style="stop-color:#32ACE7"/>
+			<stop  offset="0.5" style="stop-color:#2EA8E5"/>
+			<stop  offset="0.638198" style="stop-color:#32ACE7"/>
+			<stop  offset="0.761477" style="stop-color:#3CB6EB"/>
+			<stop  offset="0.879071" style="stop-color:#4FC9F3"/>
+			<stop  offset="0.992525" style="stop-color:#68E2FE"/>
+			<stop  offset="1" style="stop-color:#6AE4FF"/>
+			<a:midPointStop  offset="0" style="stop-color:#6AE4FF"/>
+			<a:midPointStop  offset="0.31" style="stop-color:#6AE4FF"/>
+			<a:midPointStop  offset="0.5" style="stop-color:#2EA8E5"/>
+			<a:midPointStop  offset="0.73" style="stop-color:#2EA8E5"/>
+			<a:midPointStop  offset="1" style="stop-color:#6AE4FF"/>
+		</linearGradient>
+		<path fill="url(#XMLID_3_)" d="M45.899414,43.550781c0,1.308594-1.068359,2.375-2.375,2.375H6.475586
+			c-1.304688,0-2.375-1.066406-2.375-2.375V6.501953c0-1.305664,1.070313-2.375,2.375-2.375h37.048828
+			c1.306641,0,2.375,1.069336,2.375,2.375V43.550781z"/>
+		<rect id="_x3C_Slice_x3E__1_" fill="none" width="50" height="50"/> 
+		<path opacity="0.3" fill="#FFFFFF" d="M43.524414,4.126953H6.475586c-1.304688,0-2.375,1.069336-2.375,2.375v37.048828
+			c0,1.308594,1.070313,2.375,2.375,2.375h37.048828c1.306641,0,2.375-1.066406,2.375-2.375V6.501953
+			C45.899414,5.196289,44.831055,4.126953,43.524414,4.126953z M45.272461,42.996094
+			c0,1.267578-1.035156,2.302734-2.302734,2.302734H7.030273c-1.267578,0-2.302734-1.035156-2.302734-2.302734v-35.9375
+			c0-1.267578,1.035156-2.304688,2.302734-2.304688h35.939453c1.267578,0,2.302734,1.037109,2.302734,2.304688V42.996094z"/>
+		<path opacity="0.2" fill="#FFFFFF" d="M45.899414,12.851563c0,0-28.693359-4.994141-41.798828,25.300781
+			c0-9.488281,0-31.72168,0-31.72168c0-1.305664,1.070313-2.375977,2.375-2.375977h37.048828
+			c1.306641,0,2.375,1.070313,2.375,2.375977V12.851563z"/>
+		<g>
+			
+			<g>
+				<g>
+					<rect x="25.72168" y="27.308594" fill="#FFFFFF" width="16.624023" height="15.123535"/> 
+					<polygon fill="#FFFFFF" points="34.761719,26.156738 42.345703,26.156738 40.28125,24.466309 34.761719,24.466309 "/>
+					<rect x="7.654297" y="27.29541" fill="#FFFFFF" width="16.620117" height="15.123535"/> 
+					<polygon fill="#FFFFFF" points="15.285156,24.467773 9.71875,24.467773 7.654297,26.156738 15.285156,26.156738 "/>
+					<rect x="16.72168" y="11.033691" fill="#FFFFFF" width="16.620117" height="15.123047"/> 
+					<polygon fill="#FFFFFF" points="16.72168,10.008301 33.341797,10.008301 31.275391,8.316406 18.788086,8.316406 "/>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

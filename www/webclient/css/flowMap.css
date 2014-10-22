@@ -1,0 +1,87 @@
+@charset "UTF-8";
+SDM {
+   HalfZooming : "false" ;
+   Map : "false" ;
+   Composite : "true" ;
+   GraphLayout : "true";
+   LinkLayout : "true";
+   SubGraph : "true";
+}
+GraphLayout {
+   enabled : "true";
+   position : "300,200";
+   graphLayout : "Hierarchical";
+   flowDirection : "Right";
+   globalLinkStyle : "ORTHOGONAL_STYLE";
+   connectorStyle : "EVENLY_SPACED_PINS";
+   connectingLinksToShape : "true";
+}
+
+LinkLayout {
+   hierarchical: "true";
+}
+
+SubGraph {
+   expandCollapseEnabled : "true";
+   frameZoomable : "true";
+   subObjectsSelectionAllowed : "true";
+   updatingPositionsOnExpand : "true";
+}
+
+node {
+   class : "@|symbolResource(ilog/views/palettes/flowmap/symbols/map.css,Symbol,Symbols.map,ilog/views/palettes/flowmap/palette.xml,../ilogpallette/flowmap.jar)" ;
+   name : "@name" ;
+   activity : "@activity" ;
+   status : "@statusValue" ;
+   wonum : "@wonum" ;
+   owner : "@owner" ;
+   plannedStart : "@plannedStart" ;
+   plannedEnd : "@plannedEnd" ;
+   actualStart : "@actualStart" ;
+   actualEnd : "@actualEnd" ;
+   toolTipText : "@nodeToolTip" ;
+   late : "@late" ;
+   warning: "@warning";
+   mapwidth: "100";
+   mapheight: "100";
+   PlusGraphic : "@#plus";
+   MinusGraphic : "@#minus";
+   PlusGraphicPosition : "TopLeft";
+   MinusGraphicPosition : "TopLeft";
+   FrameGraphic : "default";
+   FrameMargin : "10,25,10,10";
+   InitiallyExpanded : "false";
+   popupMenuName: "NodePopupMenu";
+}
+link {
+   class : "ilog.views.sdm.graphic.IlvGeneralLink" ;
+   oriented : "true" ;
+   foreground : "black" ;
+   lineWidth : "2.0" ;
+   arrowRatio : "3" ;
+   maximumLineWidth : "2" ;
+   minimumLineWidth : "1" ;
+   arrowColor : "black" ;
+   decorationPositions[0] : "0.5" ;
+   lineJoin : "0" ;
+   curved : "0.0" ;
+   popupMenuName: "LinkPopupMenu";
+}
+ Subobject#plus {
+   class : "ilog.views.sdm.graphic.IlvURLGraphic";
+   IlvRect:0,0,11,11;
+   URL : "url(../images/topology/Maximize.svg)";
+ }
+ Subobject#minus {
+   class : "ilog.views.sdm.graphic.IlvURLGraphic";
+   IlvRect:0,0,11,11;
+   URL : "url(../images/topology/Minimize.svg)";
+ }
+node:expanded {
+	showingTitle : "true";
+	font : "Dialog-Bold-12";
+	titleJustification : "Center";
+	opaque : "false";
+	foreground : "lightblue";
+	title : "@name";
+}

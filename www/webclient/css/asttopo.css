@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+SDM {
+   HalfZooming : "false" ;
+   Map : "false" ;
+   Composite : "true" ;
+   GraphLayout : "Hierarchical" ;
+   LinkLayout : "true";
+}
+
+GraphLayout {
+   enabled : "true";
+   position : "300,200";
+   flowDirection : "Bottom";
+   globalLinkStyle : "ORTHOGONAL_STYLE";
+   connectorStyle : "EVENLY_SPACED_PINS";
+   connectingLinksToShape : "true";
+}
+
+LinkLayout {
+   hierarchical: "true";
+   layoutMode : "LONG_LINKS";
+}
+ 
+node[hidden=false] {
+   class : "@|symbolResource(ilog/views/palettes/topology/symbols/topology.css,Symbol,Symbols.topology,ilog/views/palettes/topology/palette.xml,../astilogpallette/asttopology.jar)" ;
+   name : "@assetnum" ;
+   Incidents : "@Incidents" ;
+   Impacted : "@Impacted" ;
+   historical : "false" ;
+   calculated : "false" ;
+   searchmatch : "@searchmatch";
+   toplevel : "@toplevel";
+   root: "@root";
+   description: "@description";
+   status: "@status";
+   scheduledTasks: "@scheduledTasks";
+   availableHops: "@availableHops";
+   classification: "@classification";
+   hidden: "@hidden";
+   image: "@image";
+   toolTipText : "@nodeToolTip" ;
+   active: "true";
+   strokeWidth : "1" ;
+   strokeColor : "black" ;
+   keepAspectRatio : "false" ;
+   fillColor1 : "cyan" ;
+   fillColor2 : "yellow" ;
+   fillStyle : "RADIAL_GRADIENT" ;
+   popupMenuName: "NodePopupMenu";
+}
+
+node[hidden=true] {
+   shapeType: "RoundRectangle" ;
+   label : "@assetnum" ;
+   shapeWidth: 80 ;
+   boarderWidth: 1 ;
+   strokeColor : "200,200,200" ;
+   labelColor : "200,200,200" ;
+   fillColor1 : "white" ;
+   class : "ilog.views.sdm.graphic.IlvGeneralNode" ;
+}
+
+link {
+   class : "ilog.views.sdm.graphic.IlvGeneralLink" ;
+   toolTipText : "@linkToolTip" ;
+   inferred : "@inferred" ;
+   oriented : "true" ;
+   lineWidth : "2.0" ;
+   arrowRatio : "3" ;
+   maximumLineWidth : "2" ;
+   minimumLineWidth : "1" ;
+   /*xxxccc  orig ccmdb decorationPositions[0] : "0.5" ; xxxccc */
+   lineJoin : "0" ;
+   curved : "0.0" ;
+   lineStyle : "Solid" ;
+   
+   /*xxxccc #11-11628
+   label: "@relation";
+   xxxccc*/
+    
+   /*xxxccc #11-11628
+   decorationOptions[0] : "DECORATION_ROTATE | DECORATION_ANCHOR_TOP"  ;
+   decorationPositions[0] : "0.75";
+   xxxccc*/    
+}
+
+
+link[hidden=false] {
+   foreground : "black" ;
+   arrowColor : "black" ;
+   popupMenuName: "LinkPopupMenu";
+}
+
+link[hidden=true] {
+   foreground : "200,200,200" ;
+   arrowColor : "200,200,200" ;
+}
+
+link:selected {
+   _rule_name : "is selected" ;
+   lineStyle : "Dot" ;
+}
+
+link[inferred=true] {
+   _rule_name : "is inferred" ;
+   oriented : "false" ;
+   foreground : "red" ;
+   arrowColor : "red" ;
+   mode : "MODE_GRADIENT" ;
+   borderStyle : "Alternate" ;
+   lineStyle : "Dot" ;
+   }
+
+Diagrammer {
+   styleApplicationComponents : "true";
+}
+
+node:DiagrammerPropertySheet:type {
+   editable : "false";
+}

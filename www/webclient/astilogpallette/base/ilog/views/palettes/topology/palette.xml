@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<palette>
+<category id="Symbols">
+<symbol classname="Symbol" css="ilog/views/palettes/topology/symbols/topology.css" icon="ilog/views/palettes/topology/images/auto_icon_topology.png" id="topology" version="">
+<parameter id="name" type="string" value="@|emptyString"/>
+<parameter id="Incidents" type="int" value="0"/>
+<parameter id="Impacted" type="boolean" value="false"/>
+<parameter id="searchmatch" type="boolean" value="false"/>
+<parameter id="toplevel" type="boolean" value="false"/>
+<parameter id="root" type="boolean" value="false"/>
+<parameter id="description" type="string" value="@|emptyString"/>
+<parameter id="status" type="string" value="@|emptyString"/>
+<parameter id="scheduledTasks" type="int" value="0"/>
+<parameter id="availableHops" type="int" value="0"/>
+<parameter id="classification" type="string" value="@|emptyString"/>
+<parameter id="calculated" type="boolean" value="false"/>
+<parameter id="historical" type="boolean" value="false"/>
+<resource>../resources/st_sunset.svg</resource>
+<resource>../resources/st_preproduction.svg</resource>
+<resource>../resources/rs_nodeNormal_bkg.svg</resource>
+<resource>../resources/st_notReady.svg</resource>
+<resource>../resources/rs_impacted.svg</resource>
+<resource>../resources/rs_change.svg</resource>
+<resource>../resources/rs_incident.svg</resource>
+<resource>../resources/st_build.svg</resource>
+<resource>../resources/st_decommissioned.svg</resource>
+<resource>../resources/st_development.svg</resource>
+<resource>../resources/st_draft.svg</resource>
+<resource>../resources/st_inventory.svg</resource>
+<resource>../resources/st_postproduction.svg</resource>
+<resource>../resources/st_preproduction1.svg</resource>
+<resource>../resources/st_sunset1.svg</resource>
+<resource>../resources/st_validate.svg</resource>
+<resource>../resources/st_archived.svg</resource>
+<resource>../resources/st_operating.svg</resource>
+<resource>../resources/st_production.svg</resource>
+<resource>../resources/st_uninitialized.svg</resource>
+<resource>../resources/rs_nodeNormal_bkg1.svg</resource>
+<resource>../resources/rs_nodeNormalRoot_bkg.svg</resource>
+<resource>../resources/rs_nodeSearch_bkg.svg</resource>
+<resource>../resources/rs_nodeSearchRoot_bkg.svg</resource>
+<resource>../resources/rs_nodeSelectedRoot_bkg.svg</resource>
+<resource>../resources/rs_nodeSelected_bkg.svg</resource>
+</symbol>
+</category>
+</palette>

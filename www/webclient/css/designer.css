@@ -1,0 +1,37 @@
+/*
+* Licensed Materials - Property of IBM
+* “Restricted Materials of IBM”
+* 5724-U18
+* (C) COPYRIGHT IBM CORP. 2006,2009 All Rights Reserved.
+* US Government Users Restricted Rights - Use, duplication or
+* disclosure restricted by GSA ADP Schedule Contract with
+* IBM Corp.
+*
+*/
+@import "../controls/designer_applications/control.css";
+@import "../controls/designer_canvas/control.css";
+@import "../controls/designer_toolbox/control.css";
+
+.designerbody {
+	margin:0px;
+	padding:0px;
+	background-color: #FFFFFF;
+	scrollbar-track-color:#C4C4C4; 
+	scrollbar-3dlight-color:#ACACAC; 
+	scrollbar-darkshadow-color:#999999; 
+	scrollbar-highlight-color:#E7E7E7; 
+	scrollbar-shadow-color:#E7E7E7; 
+	scrollbar-arrow-color:#5C5C5C; 
+	scrollbar-face-color:#E7E7E7;
+	}
+	
+.ad
+{
+	background-color:#F5E9B8;
+}
+
+.acceptdrop_tablecol
+{
+	background-image:url(../../webclient/images/designer/drop_left.gif);
+	background-repeat:no-repeat;
+}

@@ -1,0 +1,173 @@
+@charset "UTF-8";
+
+SDM {
+	HalfZooming: "false";
+	Map: "false";
+	Composite: "true";
+	GraphLayout: "true";
+	LinkLayout: "true";
+	SwimLanes: "true";
+}
+
+GraphLayout {
+	enabled: "true";
+	position: "300,200";
+	graphLayout: "Hierarchical";
+	flowDirection: "Left"; /* LEFT produces swimlanes from top to bottom, BOTTOM from left to right */
+	globalLinkStyle: "ORTHOGONAL_STYLE";
+/*	connectorStyle: "EVENLY_SPACED_PINS";
+	levelingStrategy: "LOWER_LEVELS"; */
+}
+
+LinkLayout {
+	hierarchical: "true";
+}
+
+SwimLanes {
+	adjustingToView: "false";
+	overlapsAllowed: "false";
+	draggingEnabled: "false";
+	alpha: "0.4";
+	hue: "0.3";
+	saturation: ".3";
+	brightness: "1"; 
+	scrollDelay: "200";
+}
+
+/* custom swimlane layout graphic to handle label position correctly. */
+Subobject#swimlane {
+	class: "com.ibm.ism.pmcom.webclient.topology.applet.MySwimLaneGraphic";
+	horizontal: "true";
+	labelPosition: "1"; /* Left == 1, TOP ==4  */
+	label: "@laneName";
+	toolTipText: "@laneDesc";
+	labelScaleFactor: "2";
+	labelSpacing: "5";
+	labelMode: "0"; /* <------- important: disable truncation */
+	maxLabelZoom: "400";
+	minLabelZoom: "0";
+}
+
+node[loading=true] {
+	shapeType: "RoundRectangle";
+	label: "@cinum";
+	shapeWidth: 80;
+	boarderWidth: 1;
+	strokeColor: "200,200,200";
+	labelColor: "200,200,200";
+	fillColor1: "white";
+	class: "ilog.views.sdm.graphic.IlvGeneralNode";
+	icon: "@image";
+}
+
+node[hidden=false] {
+	class:
+		"@|symbolResource(ilog/views/palettes/topology/symbols/topology.css,Symbol,Symbols.topology,ilog/views/palettes/topology/palette.xml,../ilogpallette/topology.jar)";
+	name: "@cinum";
+	ciname: "@ciname";
+	Incidents: "@Incidents";
+	Impacted: "@Impacted";
+	historical: "false";
+	calculated: "false";
+	searchmatch: "@searchmatch";
+	toplevel: "@toplevel";
+	root: "@root";
+	description: "@description";
+	status: "@status";
+	incidentToolTip: "@incidentToolTip";
+	tasksToolTip: "@tasksToolTip";
+	statusToolTip: "@statusToolTip";
+	scheduledTasks: "@scheduledTasks";
+	availableHops: "@availableHops";
+	classification: "@classification";
+	hidden: "@hidden";
+	virtual: "@virtual";
+	image: "@image";
+	toolTipText: "@nodeToolTip";
+	active: "true";
+	strokeWidth: "1";
+	strokeColor: "black";
+	keepAspectRatio: "false";
+	fillColor1: "cyan";
+	fillColor2: "yellow";
+	fillStyle: "RADIAL_GRADIENT";
+	popupMenuName: "NodePopupMenu";
+	SwimLaneConstraint: "@|concat(@laneName,\",0,\",@weight)";
+	SwimLaneGraphic: "@#swimlane";
+	SwimLaneColor: "@laneColor";
+}
+
+
+node[hidden=true] {
+	shapeType: "RoundRectangle";
+	label: "@cinum";
+	shapeWidth: 80;
+	boarderWidth: 1;
+	strokeColor: "200,200,200";
+	labelColor: "200,200,200";
+	fillColor1: "white";
+	class: "ilog.views.sdm.graphic.IlvGeneralNode";
+	labelMode: "TRUNCATE";
+	SwimLaneConstraint: "@|concat(@laneName,\",0,\",@weight)";
+	SwimLaneGraphic: "@#swimlane";
+	SwimLaneColor: "@laneColor";
+}
+
+link {
+	class: "ilog.views.sdm.graphic.IlvGeneralLink";
+	toolTipText: "@linkToolTip";
+	inferred: "@inferred";
+	isbusiness: "@isbusiness";
+	oriented: "true";
+	lineWidth: "2.0";
+	arrowRatio: "3";
+	maximumLineWidth: "2";
+	minimumLineWidth: "1"; decorationPositions [0] : "0.5";
+	lineJoin: "0";
+	curved: "0.0";
+	lineStyle: "Solid";
+}
+
+link[hidden=false] {
+	foreground: "black";
+	arrowColor: "black";
+	popupMenuName: "LinkPopupMenu";
+}
+
+link[hidden=true] {
+	foreground: "200,200,200";
+	arrowColor: "200,200,200";
+}
+
+link:selected {
+	_rule_name: "is selected";
+	lineStyle: "Dot";
+}
+
+link[inferred=true] {
+	_rule_name: "is inferred";
+	oriented: "false";
+	foreground: "red";
+	arrowColor: "red";
+	mode: "MODE_GRADIENT";
+	borderStyle: "Alternate";
+	lineStyle: "Dot";
+}
+
+link[isbusiness=true] {
+	_rule_name: "is Business View";
+	oriented: "false";
+	foreground: "black";
+	arrowColor: "black";
+	mode: "MODE_GRADIENT";
+	borderStyle: "Alternate";
+	lineStyle: "Solid";
+}
+
+Diagrammer {
+	styleApplicationComponents: "true";
+}
+
+node:DiagrammerPropertySheet:type {
+	editable: "false";
+}

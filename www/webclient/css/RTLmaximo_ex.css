@@ -1,0 +1,599 @@
+/*
+ * Licensed Materials - Property of IBM
+ * "Restricted Materials of IBM"
+ * 5724-U18
+ * (C) COPYRIGHT IBM CORP. 2013 All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with
+ * IBM Corp.
+ *
+ */
+/* Warning: code within this file will be rolled into other files in an upcoming release with no guarantee on content and functionality. 
+ * intended for use by the framework only 
+ */
+
+body.dragging { -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+
+
+/* BEGIN navMenus */
+
+.subNavMenus,	
+.navMenus {
+	list-style:none;
+    padding: 0px;
+    display: block; 
+	background-color: #efefef; 
+	margin: 0px;
+}
+
+.subNavMenus {
+    border: 1px solid #999;
+	background-color: #fbfbfb; 
+	background-image: url(../images/rtl/menus/menuback.png);
+	background-repeat: repeat-y;
+	background-position: right top;
+    -moz-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
+	-moz-box-shadow: 2px 2px 2px #888;
+	-webkit-box-shadow: 2px 2px 2px #888;
+	box-shadow: 2px 2px 2px #888;
+}
+	
+ 
+.navMenus LI {
+	border: 1px solid transparent;
+	border-right: 1px solid transparent; 
+	border-left: 1px solid transparent;
+	padding: 0px;
+	margin: 0px;
+	white-space: nowrap;
+}
+.subNavMenus LI {
+	border: 1px solid transparent;
+	border-right: 1px solid transparent; 
+	border-left: 1px solid transparent;
+	padding: 0px;
+	margin: 0px;
+}
+
+.subNavMenus LI {
+	white-space: nowrap;
+}
+
+.navMenus LI.menuborder,
+.subNavMenus LI.menuborder {
+		border-top: 1px solid #eee;
+	}
+
+.navMenus LI.current,
+.subNavMenus LI.current {
+	outline: none;
+	padding: 0px;
+	cursor: pointer;
+	border: 1px solid #b7c7e1;
+	border-right: 1px solid #b7c7e1; 
+	border-left: 1px solid #b7c7e1;
+	background: #d6e3ef;
+	border-radius: 4px;
+}
+
+.navMenus LI.scurrent,
+.subNavMenus LI.scurrent {
+	background-color: #d4dfe8;
+}
+	
+.navMenus LI A {
+	color: #616161;
+	text-decoration:none;
+	vertical-align:middle;
+	cursor: pointer;
+	padding: 1px 2px 1px 1px;
+	margin: 0px;
+	display: block;
+	font-family: arial; 
+	font-size:11px;	
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+	
+.navMenus LI.selectedQuery {
+	background-color: #FAFAFA;
+	border-radius: 4px;
+	border: 1px solid #87a3d0;
+}
+
+.navMenus.hide LI A SPAN {
+	visibility: hidden;
+}
+	
+.navMenus LI A SPAN {
+	
+}
+	
+.navMenus LI A SPAN.selectedQuery {
+	font-weight: bold;
+	color: #474747;
+	text-shadow: 0 1px #fff;
+}
+	
+.subNavMenus LI A {
+	color: #616161;
+	text-decoration:none;
+	white-space: nowrap;
+	vertical-align:middle;
+	cursor: pointer;
+	padding: 0px 0px 0px 10px;
+	margin: 0px;
+	display: block;
+	font-family: arial; 
+	font-size:11px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.subNavMenus LI A SPAN {
+	margin: 0px;
+}
+	
+.navSubmenu {
+	background: url(../images/rtl/menus/menusub.gif) no-repeat left center;
+}
+
+	
+.navMenus LI A.off,
+.subNavMenus LI A.off {
+	opacity: 0.3;
+}
+
+.navMenus .sub, 
+.subNavMenus .sub{
+	margin: 0px 0px 0px 8px;
+	width: 8px;
+	border: 0px;
+}
+
+.navMenus .menuimg,
+.subNavMenus .menuimg {
+	border: 0px;
+	margin: 0px 5px 0px 0px;
+	vertical-align: middle;
+}
+	
+	
+/* END navMenus */
+
+
+.navCollapseL {
+	width: 5px;
+	padding: 0px;
+	height: 52px;
+	background: url(../images/rtl/tasknav/col_expanded.png) #fff no-repeat center;
+    border: 0px;
+	cursor: default;
+}
+
+.navCollapseR {
+	width: 5px;
+	padding: 0px;
+	height: 52px;
+	background: url(../images/rtl/tasknav/col_expandedR.png) #fff no-repeat center;
+    border: 0px;
+	cursor: default;
+}
+
+.navSection {
+	margin: 0;
+    border: 0;
+	padding: 0;
+}
+.navContent {
+	width: 100%;
+}
+	
+.navSep {
+	background: url(../images/rtl/tasknav/handleback.png) repeat-y;
+	border:1px solid #999;
+	border-top: 0px;
+	border-bottom: 0px;
+	border-right: 1px solid #C0C0C0; 
+	padding: 0px;
+	vertical-align: middle;
+}
+
+.navHeadOuter {
+	border: 1px solid #999;
+	border-width: 0px 0px 1px 0px;
+}
+	
+.navHead {
+	background: url(../images/rtl/toolbar/toolbar_bkg.gif) repeat-x top right #D8D8D8;
+	padding: 4px;
+	white-space: nowrap;
+}
+
+.navHead INPUT {
+	vertical-align: middle;
+	width: 14px;
+	margin: 0px;
+}
+
+.navTitle {
+	font-size: 11px;
+	font-family: arial;
+	color: #333;
+	font-weight: bold;
+	white-space: nowrap;	
+}
+
+.greybuttondiv {
+    border: 1px solid #D0D0D0;
+    color: #444444;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    border-radius: 3px;
+    display: inline;
+    font-family: Helvetica,Arial,sans serif;
+    text-decoration: none !important;
+}
+
+.greybuttondiv_hover {
+	border: 1px solid #999;
+	box-shadow: 0 0 2px #ccc inset, 1px 1px 2px #999;
+	background-color: #f0f0f0;
+    background-image: -moz-linear-gradient(#EDEDED, #f0f0f0);
+}
+
+.greybutton {
+    font-size: 3px;
+	background: transparent; 
+	padding: 0px; 
+	border: 0px; 
+	cursor:default;
+	margin:0px;
+	vertical-align: middle;
+}
+
+.greybutton IMG {
+	margin: 0px;
+}
+	
+.qsField {
+	padding: 2px 5px; 
+	margin:2px 5px; 
+	border-radius: 8px;	
+}
+	
+.qsFieldOuter {
+	padding: 3px 3px 3px 20px; 
+	white-space: nowrap;
+}
+
+.promptvalue { 
+	color: #888;	
+}
+
+.fieldIcon {
+	vertical-align: middle;
+	border: 1px solid transparent;
+	display: inline-block;
+}
+        
+.fieldIcon_hover {
+	background-color: #ffffff;   
+	border: 1px solid #bebebe;
+	border-radius: 3px;           
+}
+
+/* begin applink styles */
+
+.bottomAppBack {
+	margin: 0px;
+}
+
+.linkedApp {
+	border-radius: 0px 5px 0px 0px;
+	border: 1px solid #000;
+	border-width: 1px 0px 0px 1px;
+	color: #000;
+	margin: 0px 3px 0px 0px;
+	background: #eee;
+	box-shadow: -4px -14px 55px rgba(0,0,0,.5);
+	background-image: url("../images/rtl/table_toolbar_bkg.gif");
+	background-repeat:repeat-x;
+}
+
+.linkedApp .alnb {
+	
+}
+
+.linkedApp .retButtons {
+	float: left;	
+	display: inline;
+	padding-bottom: 2px;
+}
+
+.linkedApp .powerwhite, .linkedApp .pwimg {
+	display:none !important;
+}
+
+.bottomApp {
+	background:#89aedd;
+}
+
+.bottomApp .linkedAppTitle {
+    height: 20px;
+    padding: 0px 0px 2px 4px;
+    line-height: 20px;
+	float:right;
+}
+
+.bottomApp .titlelogo {
+	height: 22px;	
+	float:left;
+}
+
+.bottomApp .linkedAppTitle a {
+	color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	margin: 0px 2px;
+	line-height: 20px;
+}
+
+.currentApp {
+	background: #fff;
+}
+
+.linkedApp .linkedAppTitle {
+	border-radius: 0px 5px 0px 0px;
+	padding: 2px 8px;
+	color: #000 ;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	margin: 0px 0px;
+	float:right;
+}
+
+.linkedApp .linkedAppTitle button {
+	font-size: 10px;	
+}
+
+.linkedApp .retButtons button {
+	font-size: 10px;	
+}
+
+.linkedApp .gotoButton, .linkedApp .homebutton, 
+.linkedApp .txtappname, .linkedApp .homebuttontxtappname,
+.stubmsg img {
+	display: none;
+}
+
+.linkedApp .titlelogo {
+	display: none;
+}
+
+.linkedApp .linkedAppTitle a {
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	margin: 0px 0px;
+}
+
+.txtappname_applink, .homeButtontxtappname_applink {
+	display:none;
+}
+
+.stubmsg {
+		background:#EEEEEE;
+}
+
+.stubmsg #titlebar_error {
+	position: relative !important;	
+}
+
+.stubmsg .umtable {
+	width: 100%;	
+}
+
+.stubmsg td {
+	text-align: center;
+}
+
+/* end applink styles */
+
+.bulletinCount { 
+	display: none !important;
+}
+
+/* BEGIN Record Hovers */
+
+.recHoverPopup {
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ffffff', endColorstr='#cadffa') !important;
+  	background-image: -moz-linear-gradient(#ffffff 0px, #cadffa 100%) !important;
+}
+
+.recordHover {
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px;
+}
+
+.recordHover .sectionb {
+	border: 0px !important;
+}
+
+.recordHover .section .sectionlabel {
+	display: none;	
+}
+
+.recordHover .sectionb .sectionlabel {
+    border-bottom: 1px solid #0D85B4;
+    color: #222222;
+    cursor: default;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 0;
+}
+
+.recordHover .sectionlabel img {
+	vertical-align: middle;
+}
+
+.recordHover .section {
+}
+
+.recordHover .sectionb {
+	padding: 7px;
+	border-bottom: 1px solid #008abf;
+	border-width: 0px 0px 1px 0px;
+}
+
+.recordHover .sectioncol {
+	display: inline-block;
+	vertical-align: top;
+	padding: 2px 7px 7px;
+}
+
+.recordHover .control {
+    margin: 3px 5px 0px 0px;
+}
+
+.recordHover .control label {
+    color: #A9A9A9;
+    display: inline-block;
+    margin: 7px 0px 0px 0px;
+    width: 145px;
+}
+
+/*     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+.recordHover .control label:hover {
+	position: absolute;
+	overflow: normal;
+	text-overflow: normal;
+	max-width: 345px;
+	background: #fff;
+	margin-bottom: 0px;
+	z-Index: 10000;
+	color: #222;
+}
+*/
+
+.recordHover .control input textarea {
+	margin-left: 2px;
+}
+
+
+.recordHover .control .fld {
+	border: 0px;
+	height: 15px;
+	background: transparent;
+	margin-left: 2px;	
+}
+
+.recordHover .control .richtext {
+	overflow: auto;
+	border: 0px;
+	height: 80px !important;
+}
+
+.recordHover .control textarea,.richtext {
+	width: 138px;
+	height: 40px;
+	margin: 0px 2px;
+	background: transparent;
+	border:1px solid #f2f2f2 !important;
+}
+
+.recordHover .control .desc {
+	border-bottom: 0px !important;
+}
+
+.recordHover .control .desc1 {
+}
+
+.recordHover .control input[type=image] {
+	vertical-align: bottom;
+	border: 1px solid #eee;
+	border-radius: 3px;
+	margin: 0px 2px;
+	height: 20px; 
+	width: 20px;
+}
+
+.recordHover .control input[type=image]:hover {
+	box-shadow: 2px 2px 2px #999;
+	border: 1px solid #bbb;
+}
+
+.recordHover .control input[type=checkbox] {
+	vertical-align: middle;
+	opacity: .7;
+	filter: alpha(opacity=70);
+	height: 20px;
+	margin: 0 2px;
+}
+
+.applinkButtons {
+	text-align: right;	
+}
+
+.recordHover .applinks {
+	border: 1px solid #ccc;
+	border-width: 1px 0px;
+	margin: 0px 0px 10px 0px;
+	background: #efefef;
+	border-collapse: separate !important;
+    border-spacing: 10px 0 !important;
+    margin: 0 0 10px;
+}
+
+.recordHover .applinks label {
+	color: #222;
+	font-size: 13px;
+}
+
+.recordHover .rechoverbutton {
+ 	background: url("../images/buttonEnabled_tiv.png") repeat-x scroll left top #E2E2E2;
+    border-color: #666666 #666666 #555555;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+}
+.recordHover .rechoverbutton:hover {
+    background: url("../images/buttonHover_tiv.png") repeat-x scroll center top #F8FBFE;
+    border: 1px solid #6B8FB3;
+    border-color: #6B8FB3 #6B8FB3 #4C7399;
+    color: #003366;
+}
+
+.recHovHelp {
+	border: 1px solid #ccc;
+	border-color: #EFEFEF #CCCCCC #CCCCCC #EFEFEF;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding: 0px 5px 0px 0px;
+}
+
+.recHovHelp img {
+	vertical-align: middle;
+}
+		
+/* END Record Hovers */
