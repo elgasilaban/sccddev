@@ -1,0 +1,19 @@
+@charset "utf-8";
+/*
+ * Licensed Materials - Property of IBM
+ * "Restricted Materials of IBM"
+ * 5724-U18
+ * (C) COPYRIGHT IBM CORP. 2013 All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with
+ * IBM Corp.
+ *
+ */
+/**********************************************************
+ * Notes:
+ * The style leverages CSS3 Border-radius which not all
+ * browsers support. Browser specific statments are 
+ * included, otherwise the design will degrade to square
+ * corners. As of Oct 10, 2009, IE currently does not 
+ * support border-radius or provide a browser shortcut.
+ **********************************************************/
