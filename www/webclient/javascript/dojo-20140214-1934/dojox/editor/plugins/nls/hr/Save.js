@@ -1,0 +1,6 @@
+//>>built
+define(
+({
+	"save": "Spremi"
+})
+);
