@@ -1,0 +1,64 @@
+<head>
+<head>
+
+		<script type="text/javascript" src="dataproxy.js"></script>
+</head>
+
+<select id="worktype">
+	<option value="1">Worktype 1</option>
+	<option value="2">Worktype 2</option>
+</select>
+
+<select id="asset">
+	<option value="1">asset 1</option>
+	<option value="2">asset 2</option>
+</select>
+
+	<script>
+		//dojo.addOnLoad(function() 
+		//{
+			var id = "worktype"
+			var db = new DataBundle(id);
+			var data = localStorage.getItem(id);
+			//db = eval(data);
+			db.contents = eval('(' + data + ')');
+			console.log("db: "+id);
+			console.log(db);
+
+			//var dsWorktype = new DataSource("worktype");
+			//var dsAsset = new DataSource("assetloc");
+		
+            clearSelect("worktype");
+            clearSelect("asset");
+
+			var row = 0;
+/*
+            while(dsWorktype.hasNextRow()){
+            	dsWorktype.getNextRow();
+				addSelectOption("worktype", dsWorktype.getAttribute('maxvalue'),dsWorktype.getAttribute('description'));
+            }
+			
+            while(dsAsset.hasNextRow()){
+            	dsAsset.getNextRow();
+				addSelectOption("asset", dsAsset.getAttribute('asset'),dsAsset.getAttribute('description'));
+            }
+*/
+			//});
+
+		function clearSelect(combobox)
+		{
+			select = document.getElementById(combobox);
+			select.innerHTML = "";
+		}
+
+		function addSelectOption(combobox, value, description)
+		{
+			select = document.getElementById(combobox);
+			select.innerHTML = select.innerHTML + "<option value="+ value +">"+ description +"</option>";
+		}
+		
+	</script>
+
+<body>
+</body>
+</head>

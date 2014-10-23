@@ -1,0 +1,96 @@
+dependencies = {
+
+	"layers": [
+
+	{
+		"name": "../layers/map/mxmap.js",
+		"resourceName": "layers.map.mxmap",
+		"dependencies": [ 
+                "dijit.Tooltip", 
+                "dijit.Dialog",
+                "dojox.timing._base", 
+                "dijit.Menu", 
+                "dijit._Widget",
+				"dijit._Templated",				
+				"dojo.io.script",
+				"dijit.PopupMenuItem",
+				"dijit.CheckedMenuItem",
+				"dijit.form.DropDownButton",
+				"dijit.form.ComboButton",
+				"dijit.form.ToggleButton",
+				"dijit.ToolbarSeparator",
+				
+				"ibm.tivoli.fwm.mxmap._Base",
+				"ibm.tivoli.fwm.mxmap.factory",				
+				"ibm.tivoli.fwm.mxmap.Map", 
+				"ibm.tivoli.fwm.mxmap.Geocoder",
+				"ibm.tivoli.fwm.i18n",
+				"ibm.tivoli.fwm.mxmap.MaximoIntegration",
+				"ibm.tivoli.fwm.mxmap.UserSessionManager",
+				"ibm.tivoli.fwm.mxmap.MXRecord",
+				"ibm.tivoli.fwm.mxmap.MapTipsManager",
+				"ibm.tivoli.fwm.mxmap.helpers.MapMarkersRefresher",
+				"ibm.tivoli.fwm.mxmap.InfoWindow",
+				"ibm.tivoli.fwm.mxmap.CurrentMXRecordSet",
+				"ibm.tivoli.fwm.mxmap.CurrentMXRecManager",
+				"ibm.tivoli.fwm.mxmap.ContextMenu",
+				"ibm.tivoli.fwm.mxmap.routing.Router",
+				"ibm.tivoli.fwm.mxmap.routing.MultipleRoutesManager",
+				"ibm.tivoli.fwm.mxmap.routing.RouterFactory",
+				"ibm.tivoli.fwm.mxmap.routing.impl.gmaps",
+				"ibm.tivoli.fwm.mxmap.routing.impl.bingmaps",
+				"ibm.tivoli.fwm.mxmap.routing.impl.spatial",
+				"ibm.tivoli.fwm.mxmap.routing.itinerary.Itinerary",
+				"ibm.tivoli.fwm.mxmap.routing.itinerary.ItineraryManager",
+				"ibm.tivoli.fwm.mxmap.routing.itinerary.Leg",
+				"ibm.tivoli.fwm.mxmap.routing.itinerary.Step",
+				"ibm.tivoli.fwm.mxmap.routing.itinerary.Itinerary",
+				"ibm.tivoli.fwm.mxmap.toolbar.ToolbarManager",
+				"ibm.tivoli.fwm.mxmap.toolbar.ToolbarSeparator",
+				"ibm.tivoli.fwm.mxmap.factories.gmaps",
+				"ibm.tivoli.fwm.mxmap.factories.bingmaps",
+				"ibm.tivoli.fwm.mxmap.factories.spatial",
+				"ibm.tivoli.fwm.mxmap.impl.BingMaps",
+				"ibm.tivoli.fwm.mxmap.impl.GMaps",
+				"ibm.tivoli.fwm.mxmap.impl.MaximoSpatial",
+				"ibm.tivoli.fwm.mxmap.impl.MaximoSpatialMover",
+				"ibm.tivoli.fwm.mxmap.impl.MaximoSpatialMxn",
+				"ibm.tivoli.fwm.mxmap.actions.Actions",
+				"ibm.tivoli.fwm.mxmap.actions.SetRecordLocation",				
+				"ibm.tivoli.fwm.mxmap.toolbar.ext._ToggleTool",
+				"ibm.tivoli.fwm.mxmap.toolbar.ext._ToolTemplate",
+				"ibm.tivoli.fwm.mxmap.toolbar.ext.FullScreen",
+				"ibm.tivoli.fwm.mxmap.toolbar.ext.ItineraryTool",
+				"ibm.tivoli.fwm.mxmap.toolbar.ext.LayersTool",
+				"ibm.tivoli.fwm.mxmap.toolbar.ext.MobileInfoPanel",
+				"ibm.tivoli.fwm.mxmap.toolbar.ext.MyLocationTool",
+				"ibm.tivoli.fwm.mxmap.toolbar.ext.QueryNearResources",
+				"ibm.tivoli.fwm.mxmap.toolbar.ext.QueryUnassignedWorkDispatcherTool",
+				"ibm.tivoli.fwm.mxmap.toolbar.ext.QueryUnassignedWorkTool",
+				"ibm.tivoli.fwm.mxmap.toolbar.ext.RefresherTool",				
+				"ibm.tivoli.fwm.mxmap.toolbar.ext.WorkOrderSymbologyTool",			
+				
+				"ibm.tivoli.fwm.mxmap.layers.Layer",
+				"ibm.tivoli.fwm.mxmap.layers.LayerPanelWidget",
+				"ibm.tivoli.fwm.mxmap.layers.LayerWidget",
+				"ibm.tivoli.fwm.mxmap.layers.LayersManager",
+				"ibm.tivoli.fwm.mxmap.layers.LegendLayer",
+				"ibm.tivoli.fwm.mxmap.layers.RouteLayer",
+				"ibm.tivoli.fwm.mxmap.layers.SymbologyLayer",
+				"ibm.tivoli.fwm.mxmap.layers.TrafficLayer",
+				"ibm.tivoli.fwm.mxmap.layers.VirtualLayer",				
+				"ibm.tivoli.fwm.mxmap.geolocation.LocationMonitor",
+				"ibm.tivoli.fwm.mxmap.geolocation.MyCurrentLocation",
+				"ibm.tivoli.fwm.mxmap.dispatcher.DispatcherManager"
+				
+
+		]
+	}
+
+	],
+
+	"prefixes": [
+			[ "dijit", "../dijit" ],
+			[ "layers", "../layers" ],
+			[ "ibm", "../../../webmodule/webclient/javascript/ibm",	"../../../../webmodule/webclient/javascript/dojo_profiles/emptycopyright.txt" ] ]
+}

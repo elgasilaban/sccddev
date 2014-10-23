@@ -1,0 +1,21 @@
+<div class="ListItem ${itemStyle}" tabindex="0">
+<!--
+ @HTML_LONG_COPYRIGHT_BEGIN@
+ @HTML_LONG_COPYRIGHT_END@
+-->
+<table><tr>
+	<td class='icon' style='width: ${iconWrapperSize}px;'>
+		<img  src="${icon}" alt="" class="${iconClass}" style='width: ${iconSize}px;'></img>
+	</td>
+	<td class='content'>
+		<p class='label'>${label}</p>
+		<div class='description'>${description}</div>
+		<img src="${icon2}" alt="" />
+	</td>
+	<td class='sprite'>
+		<div dojoattachpoint="iconNode" class='sprite' title="${iconTitle}" >
+			<span dojoattachpoint="iconTextNode" class='alternativeText' title="${iconTitle}">${iconText}</span>
+		</div>
+	</td>
+</tr></table>
+</div>

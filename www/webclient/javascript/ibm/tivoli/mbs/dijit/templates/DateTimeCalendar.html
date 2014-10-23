@@ -1,0 +1,18 @@
+<table cellspacing="0" cellpadding="0" class="dijitCalendarContainer dijitCalendarYearContainer" dojoAttachEvent="onkeypress: _onKeyPress,onclick: _onClick">
+    <tr align="center">
+        <td align="center" style="vertical-align: top;">
+            <span id="calendarNodeID" dojoattachpoint="calendarNode" class="dijitVisible"></span>
+        </td>
+        <td style="white-space: nowrap;vertical-align: top" rowspan="2">
+            <span id="timeNodeID" dojoattachpoint="timeNode" class="dijitVisible"></span>
+        </td>
+    </tr>
+    <tr align="center">
+        <td width="100%" style="vertical-align: bottom">
+            <button dojoattachpoint="okButtonNode" dojoattachevent="onclick: _onOkClick">
+            </button>
+            <button dojoattachpoint="cancelButtonNode" dojoattachevent="onclick: _close">
+            </button>
+        </td>
+    </tr>
+</table>

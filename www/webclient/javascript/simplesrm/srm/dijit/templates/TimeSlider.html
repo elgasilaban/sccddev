@@ -1,0 +1,27 @@
+<div class="dijit dateRange timeSlider" style="display:inline;">
+<!--
+ @HTML_LONG_COPYRIGHT_BEGIN@
+ @HTML_LONG_COPYRIGHT_END@
+-->
+	<table class="dijitCalendarContainer">
+	<tr class="dijitReset dijitCalendarTimeContainer">
+		<td class="dijitReset dijitCalendarControlContainer" ><span class="dijitInline dijitCalendarIncrementControl dijitCalendarDecrease" dojoattachpoint="decreaseTimeArrowNode" dojoAttachEvent="onmousedown:_onMouse,onmouseup:_onMouse,onmouseover:_onMouse,onmouseout:_onMouse"><span class="dijitA11ySideArrow dijitCalendarIncrementControl dijitCalendarDecreaseInner">-</span></span></td>
+		<td class="dijitCalendarTimeTemplate"> 
+			<input type="text"
+               id="${id}_${timeid}"
+               dojoType="dijit.form.TimeTextOnlyBox"
+               dojoAttachPoint="timeNode"
+               required="${required}"
+               class="timeSliderTimeInput"
+               disabled="true"
+               dojoAttachEvent="onKeyDown:_onTimeKeyDown, onKeyUp: _onTimeKeyUp, onBlur: _onTimeBlur">
+        </td>
+		<td class="dijitReset dijitCalendarControlContainer" ><span class="dijitInline dijitCalendarIncrementControl dijitCalendarIncrease" dojoattachpoint="increaseTimeArrowNode" dojoAttachEvent="onmousedown:_onMouse,onmouseup:_onMouse,onmouseover:_onMouse,onmouseout:_onMouse"><span class="dijitA11ySideArrow dijitCalendarIncrementControl dijitCalendarIncreaseInner" >+</span></span></td>
+	</tr>
+	<tr class="dijitReset dijitCalendarMonthContainer dijitCalendarDateContainer" valign="top" dojoAttachPoint="monthLabelRow" >
+		<td class="dijitReset dijitCalendarControlContainer" ><span class="dijitInline dijitCalendarIncrementControl dijitSelectionBelow" dojoattachpoint="selectionBelowNode" ><span class="dijitA11ySideArrow dijitCalendarIncrementControl dijitCalendarDecreaseInner">&lt;</span></span></td>
+		<th class="dijitReset dijitCalendarMonthTemplate" ><div dojoAttachPoint="dateDisplay" class="dijitCalendarMonth"></div></th>
+		<td class="dijitReset dijitCalendarControlContainer" ><span class="dijitInline dijitCalendarIncrementControl dijitSelectionAbove" dojoattachpoint="selectionAboveNode" ><span class="dijitA11ySideArrow dijitCalendarIncrementControl dijitCalendarIncreaseInner" >&gt;</span></span></td>
+	</tr>
+	</table>
+</div>

@@ -1,0 +1,10 @@
+.tundra .editorIcon{
+	background-image: url('images/spellcheck.png'); /* editor icons sprite image */
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	text-align: center;
+}
+
+.tundra .editorIconSpellCheck { background-position: 0px 0px; }
+.tundra .dijitDisabled .editorIconSpellCheck { background-position: -16px 0px; }

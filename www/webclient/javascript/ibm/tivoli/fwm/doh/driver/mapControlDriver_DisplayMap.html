@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>FWM Map Control Sand Box - Create Map  </title>
+
+
+<script src="../../../../../dojo_1-7-1_20120113/dojo/dojo.js"></script>
+<script type='text/javascript' djConfig='isDebug: false' src='../../../../../dojo_library.js'></script>
+<script type="text/javascript" language="javascript">
+	
+
+	dojo.registerModulePath('ibm.tivoli.fwm', '../../ibm/tivoli/fwm');
+	dojo.require('ibm.tivoli.fwm.mxmap.factory');
+	dojo.require('ibm.tivoli.fwm.i18n');
+	
+	// load the mapCtrl definition
+	dojo.require("ibm.tivoli.fwm.doh.driver.mapCtrl");
+	
+	
+	var divMapId = "mapDiv";
+
+	//create map when page is loaded.
+	dojo.addOnLoad(function(){ 
+
+
+	var initialMapConf = new mapCtrl({
+									divId: divMapId, 
+									width: '100%', 
+									height: '100%',
+									mapConf: {
+										provider: new mapProvider().GOOGLE,
+										initialLocation: {
+														lat: 0,
+														lng: 0,
+														level: 10
+														},
+										key: "AnTWFGEWAfcOu65V3sExt6Z3zuFe8EQm2NZAMWIbASt_QcvApGD6-o7DLCERsx5R",
+										https: false,
+										action: new fsmAction().NOACTION
+											},
+										testCtxRoot: "http://"+location.host+"/maximo" 
+									});
+									
+	
+/*	
+	dojo.xhrPost({
+			url: initialMapConf.testCtxRoot + "/ui/login?username=maxadmin&password=maxadmin&login=true"		
+			});
+*/	
+	
+	//Set the form with initial parameter values
+	dojo.byId("latY").value = initialMapConf.mapConf.initialLocation.lat;
+	dojo.byId("longX").value = initialMapConf.mapConf.initialLocation.lng;
+	dojo.byId("zoomLevel").value = initialMapConf.mapConf.initialLocation.level;
+	dojo.byId("mapWidth").value = initialMapConf.width;
+	dojo.byId("mapHeight").value = initialMapConf.height;
+	dojo.byId("licenseKey").value = initialMapConf.mapConf.key;
+	if (initialMapConf.mapConf.https)
+		dojo.byId("httpsCheckbox").checked = true;
+	if(initialMapConf.mapConf.provider)
+		dojo.byId("mapProvider").value = initialMapConf.mapConf.provider;
+	dojo.byId("testContextPath").value = initialMapConf.testCtxRoot;
+	
+		
+	});
+ 
+	
+	dojo.ready(function(){
+		var refreshMapBt = dojo.byId("refreshMap");
+		dojo.connect(refreshMapBt, "onclick", function(evt){
+		
+						//recreate mapDiv
+						dojo.destroy(divMapId);
+						dojo.create("div", {id: divMapId, style: "position:relative"}, dojo.body());
+						
+		
+		
+		
+						var refreshMapConf = new mapCtrl({
+														divId:divMapId, 
+														width: 'null', 
+														height: 'null',
+														mapConf: {
+															provider: null,
+															initialLocation: {
+																			lat: null,
+																			lng: null,
+																			level: null
+																			},
+															key: null,
+															https: null,
+															action: null
+																},
+															testCtxRoot: null 
+														});
+		
+
+	
+
+			
+						
+						// set Map Provider
+						refreshMapConf.setMapProvider(dojo.byId("mapProvider").value);
+						
+						// set new initial Location and Zoom Level
+						refreshMapConf.setInitialLocation(dojo.byId("latY").value, dojo.byId("longX").value, dojo.byId("zoomLevel").value);
+						
+						// set new license key
+						refreshMapConf.setKey(dojo.byId("licenseKey").value);
+						
+						// set initial Map Action
+						refreshMapConf.setAction(new fsmAction().NOACTION);
+						
+						// set https flag
+						refreshMapConf.setHttps(dojo.byId("httpsCheckbox").checked)
+						
+						// set test context root
+						refreshMapConf.setTestCtxRoot(dojo.byId("testContextPath").value);
+						
+						//set width/height
+						refreshMapConf.setWidthHeight(dojo.byId("mapWidth").value, dojo.byId("mapHeight").value);
+						
+						//update context Root
+						refreshMapConf.setTestCtxRoot(dojo.byId("testContextPath").value);
+						dojo.config.fwm={
+										ctxRoot: refreshMapConf.testCtxRoot
+										};
+	
+	/*
+	dojo.xhrPost({
+			url: refreshMapConf.testCtxRoot + "/ui/login?username=maxadmin&password=maxadmin&login=true&event=loadapp&value=asset"		
+			});
+			*/
+						
+						
+
+						
+						// recreate the map code from webclient.componenets.mxmap.map.jsp
+						var map  = 	ibm.tivoli.fwm.mxmap.factory.createMap({
+							"compId":refreshMapConf.compId,
+							"divId":refreshMapConf.divId,			
+							"mapConf": refreshMapConf.getMapConf(),			
+							"width":refreshMapConf.width,
+							"height":refreshMapConf.height
+						});
+						
+						
+						var mscDiv = dojo.query("MicrosoftMap MapTypeId_m"); 
+						console.log("mscDiv.length::"+mscDiv.length);
+						if(countRefresh>0)
+							dojo.destroy(dojo.query(".MicrosoftMap MapTypeId_m"));
+						countRefresh++;
+
+						
+				});
+		
+});
+
+
+//Set pre-defined Lat/Lng 
+function setAddress(address){
+		
+		/*set pre-defined address*/
+	switch (address) {
+		case "1":
+			dojo.byId("latY").value = 55.755786;
+			dojo.byId("longX").value = 37.617633;
+			break;
+		case "2":
+			dojo.byId("latY").value = -7.110724;
+			dojo.byId("longX").value = -34.823953;
+			break;
+		case "3":
+			dojo.byId("latY").value = 39.781721;
+			dojo.byId("longX").value = -89.650148;
+			break;
+		case "4":
+			dojo.byId("latY").value = 35.689506;
+			dojo.byId("longX").value = 139.691701;
+			break;
+		case "5":
+			dojo.byId("latY").value = 40.416691;
+			dojo.byId("longX").value = -3.700345;
+			break;
+		default:
+			dojo.byId("latY").value = 0;
+			dojo.byId("longX").value = 0;
+			break;
+	}
+
+}
+</script>
+</head>
+<body>
+
+
+<div id="mapControlSettings" >
+	<table >
+                <tbody>
+                <tr>
+                  <td width="100%">
+                    FWM Map Control SandBox - Create Map
+                  </td>
+				  <td></td>
+                  </tr>
+				<tr>
+                  <td width="100%" align="left" >
+                   Context Path:
+                  <input type="text" id="testContextPath" value="" size="100" autocomplete="off" >
+				  </td>
+                </tr>
+								<tr>
+                  <td width="100%" align="left" >
+                   Map Provider:
+                  <SELECT  ID="mapProvider">  
+					<OPTION VALUE="gmaps" >Google Maps</OPTION>  
+					<OPTION VALUE="bingmaps">Bing Maps</OPTION>  
+				  </SELECT> 
+				  </td>
+                </tr>
+				<tr>
+				<td width="90%" align="left" >
+                   License Key:
+                  <input type="text" id="licenseKey"  size="200" autocomplete="off" >
+				  
+				  </td>
+				</tr>
+				<tr>
+				<td width="100%" align="left" >
+                   HTTPS?:
+                  <input type="checkbox" id="httpsCheckbox" >
+				  </td>
+				</tr>
+				<tr>
+                  <td align="left" >
+                   Initial Zoom Level:
+                  <input type="text" id="zoomLevel"  size="5" autocomplete="off" >
+                  </td>
+                </tr>
+				<tr>
+				<tr>
+                 <td align="left" >
+                   Latitude(y):
+                  <input type="text" id="latY"  size="20" autocomplete="off" >
+                  </td>
+                </tr>
+				<tr>
+                  <td align="left" >
+                   Longitude(x):
+                  <input type="text" id="longX"  size="20" autocomplete="off" >
+                  </td>
+				<tr>
+                  <td align="left" >
+                   Address list: <a href="javascript:setAddress('1')">1</a>, <a href="javascript:setAddress('2')">2</a>, <a href="javascript:setAddress('3')">3</a>, <a href="javascript:setAddress('4')">4</a>, <a href="javascript:setAddress('5')">5</a>
+                  
+                  </td>
+                </tr>
+                <tr>
+                 <td align="left" >
+                   width:
+                  <input type="text" id="mapWidth" size="5" autocomplete="off" >
+                  </td>
+                </tr>
+				<tr>
+                  <td align="left" >
+                   height:
+                  <input type="text" id="mapHeight"  size="5" autocomplete="off" >
+                  </td>
+                </tr>
+				<tr>
+				<td  width="100%" align="left">
+                             <button id="refreshMap"  title="Refresh Map">Refresh Map</button>
+                </td>
+				<td></td>
+				</tr>
+				</tbody>
+	</table>
+</div>
+
+
+</body>
+
+</html>

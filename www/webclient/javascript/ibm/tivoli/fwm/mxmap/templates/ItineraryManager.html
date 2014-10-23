@@ -1,0 +1,22 @@
+<div style="width:100%;overflow: auto;">
+	<div data-dojo-attach-point="controls" style="background-color: #FFFFFF;border: 1px solid #E0E0E0;padding: 10px;margin-left: 4px; margin-right: 4px;">
+		<div style="float:left;width:50%;" data-dojo-attach-point="avoidersNode">
+			<div style="padding-top:0px;padding-bottom:10px">
+				<span data-dojo-attach-point="ahNode" style="padding-left:10px;padding-right:10px"></span> <div data-dojo-attach-point="avoidhighwaysdiv" data-dojo-attach-event="ondijitclick:_highClick" style="display:inline"><label data-dojo-attach-point="itineraryavoidhighways" for="avoidhighways">Avoid highways</label></div><br/>
+			</div>
+			<div style="padding-top: 10px; padding-bottom:0px">
+				<span data-dojo-attach-point="atNode" style="padding-left:10px;padding-right:10px"></span> <div data-dojo-attach-point="avoidtollsdiv" data-dojo-attach-event="ondijitclick:_tollsClick" style="display:inline"><label data-dojo-attach-point="itineraryavoidtolls" for="avoidtolls">Avoid tolls</label></div><br/>
+			</div>
+		</div>
+		<div data-dojo-attach-point="kmdiv" data-dojo-attach-event="ondijitclick:_kmClick" style="padding-top:0px;padding-bottom:10px">
+			<span data-dojo-attach-point="kmNode" style="padding-left:10px;padding-right:10px"></span><label data-dojo-attach-point="itinerarykm" for="km">Kilometers</label>
+		</div>
+		<div data-dojo-attach-point="milesdiv" data-dojo-attach-event="ondijitclick:_milesClick" style="padding-top:10px;padding-bottom:0px">
+			<span data-dojo-attach-point="miNode" style="padding-left:10px;padding-right:10px"></span><label data-dojo-attach-point="itinerarymiles" for="miles">Miles</label>
+		</div>
+	</div>
+	<div data-dojo-attach-point="markerNode" style="float:left;" data-dojo-attach-event="ondijitclick:_onInitialLocClick"></div>
+	<div data-dojo-attach-point="startLocation" style="margin: 1px;padding: 7px 2px;" ></div>
+	<div data-dojo-attach-point="routeInfo" style="padding: 2px;">
+	</div>
+</div>
