@@ -1,0 +1,101 @@
+/*
+ *
+ * IBM Confidential
+ *
+ * OCO Source Materials
+ *
+ * 5724-R46
+ *
+ * (C) COPYRIGHT IBM CORP. 2006,2007
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *
+ */
+/*	BEGIN survey.css */
+       
+	@import url("RTLmaximo.css");
+	@import url("extended.css");
+
+/*      BEGIN survey.css */
+
+	
+	
+/* Start Survey Request */
+	.header
+	{
+		font-family:Verdana; 
+		font-size:18px;
+		text-align:middle;
+		color: #000000;
+		width:100%;
+		font-weight: bold;
+	}
+
+	.subheader
+	{
+		font-family:Verdana; 
+		font-size:14px;
+		text-align:right;
+		color: #000000;
+		width:100%;
+	}
+
+
+
+
+
+	.question
+	{
+		font-family:Verdana; 
+		font-size:12px;
+		text-align:right;
+		color: #333333;
+		width:100%;
+	}
+
+	.answer
+	{
+		font-family:Verdana; 
+		font-size:12px;
+		text-align:right;
+		color: #333333;
+		width:100%;
+	}
+
+
+
+
+	.comments
+	{
+		font-family:Verdana; 
+		font-size:12px;
+		text-align:right;
+		color: #333333;
+		width:100%;
+	}
+
+	.footer
+	{
+		font-family:Verdana; 
+		font-size:14px;
+		text-align:middle;
+		color: #333333;
+		width:100%;
+	}
+	
+/* End Survey Request */
+
+
+
+
+
+/* Start Survey Results */
+
+
+
+/* End Survey Results */
+
+	
+	
