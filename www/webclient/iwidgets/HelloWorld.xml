@@ -1,0 +1,7 @@
+<iw:iwidget id="helloWorld" xmlns:iw="http://www.ibm.com/xmlns/prod/iWidget" supportedModes="view edit" mode="view" lang="en">
+<iw:content mode="view">
+			<![CDATA[
+			<div>Hello World</div>
+			]]>
+	    </iw:content>
+</iw:iwidget>
