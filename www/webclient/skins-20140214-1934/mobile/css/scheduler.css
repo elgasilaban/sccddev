@@ -1,0 +1,28 @@
+/*
+ *
+ * IBM Confidential
+ *
+ * OCO Source Materials
+ *
+ * 5724-R46
+ *
+ * (C) COPYRIGHT IBM CORP. 2006,2007
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *
+ */
+/*	BEGIN common */
+	@import url("maximo.css");
+
+	
+	/* basecomp */
+
+/* BEGIN range */ /* Define specialized range colors here */
+
+	/* scheduler */
+    .scheduler_commit_inprg_0 {color:RGB(226, 29, 64); font-style:italic;}
+
+/* END range */
+
