@@ -1,0 +1,593 @@
+/*
+ *
+ * IBM Confidential
+ *
+ * OCO Source Materials
+ *
+ * 5724-R46
+ *
+ * (C) COPYRIGHT IBM CORP. 2006,2007
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *
+ */
+/*	BEGIN common */
+@import url("maximo.css");
+@import url("extended.css");
+	
+/* pmscshopex */
+
+/*=====================================
+ * MAIN DOC TAGS
+ *====================================*/
+
+.pmscshopex_overall_section 
+{
+    width:100%;
+    background-color:#FFFFFF;
+}
+
+.pmscshopex_search_col
+{
+/*
+background-image: url(../images/bgArcs.jpg);
+*/
+    background-repeat: repeat-x;
+    background-position: left top;
+}
+
+.pmscshopex_offerings_col
+{
+    width:100%;
+}
+
+
+
+/*=====================================
+ * BANNER TAGS
+ *====================================*/
+
+.pmscshopex_banner_section 
+{
+    width: 100%;
+    background-color: #FFFFFF;
+    background-image: url(../images/bgBanner_BlueCatalog.jpg);
+    background-repeat: no-repeat;
+    background-position: left top;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    /*height: 55px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-top-color: #396799;
+    border-bottom-color: #396799;
+    */
+}
+
+.pmscshopex_banner_title
+{
+    font-family:verdana;
+    font-size:24px;
+    color:#035F81;
+    margin-left:10px;
+    vertical-align:top;
+}
+
+.pmscshopex_searchingin_label
+{
+    font-size:11px;
+    font-family:verdana;
+    color:#858585;
+    vertical-align:middle;
+}
+
+.pmscshopex_searchingin_text
+{
+    font-size:14px;
+    font-family:verdana;
+    font-weight:bold;
+    color:#000000;
+    vertical-align:middle;
+}
+
+.pmscshopex_searchingin_desc_text
+{
+    font-size:11px;
+    font-family:verdana;
+    color:#000000;
+    vertical-align:top;
+}
+
+
+
+/*=====================================
+ * SHOPPING CART TAGS
+ *====================================*/
+
+.pmscshopex_shcart_section 
+{       
+    width: 100%;
+    /*background-color: #FCF9F2;*/
+    background-color: #FFFFFF;
+    border-width: 1px;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: #A4A696;
+}
+
+.pmscshopex_shcart_title
+{
+    background: #6a7975;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: verdana;
+    font-size: 12px;
+}
+
+
+/*=====================================
+ * SEARCH TAGS
+ *====================================*/
+
+.pmscshopex_search_section
+{
+    background:#E7E9E2;
+    border-color:#A4A696;
+    border-width:1px;
+    border-style: solid;
+    /*
+    background-image: url(../images/bgArcs.jpg);
+    background-repeat: no-repeat;
+    background-position: left top;
+    */
+}
+
+.pmscshopex_keywordsearch_text
+{
+    background:#E7E6E2;
+    cursor:default;
+    color:#6A6B79;
+    font-size:16px;
+    font-family: verdana;
+    font-weight:bold;
+}
+
+.pmscshopex_categorysearch_text
+{
+    /*background:#DFEED9;*/
+    background:#E7E6E2;
+    padding:0px;
+    /*
+    padding-left:2px;
+    padding-right:2px;
+    padding-bottom:0px;
+    margin-bottom:0px;
+    */
+    padding-left:0px;
+    padding-right:0px;
+    padding-top:0px;
+    padding-bottom:0px;
+    margin-bottom:0px;
+    margin-top:0px;
+    border-style:none;
+    cursor:default;
+    color:#6A6B79;
+    font-size:16px;
+    font-family: verdana;
+    font-weight:bold;
+}
+
+.pmscshopex_findwhat_header
+{
+    background:#6a6879;
+    color:#ffffff;
+    padding:2px;
+    font-size:14px;
+    font-weight:bold;
+    font-family: verdana;
+    /*
+    padding-left:2px;
+    padding-right:2px;
+    */
+    cursor:default;
+    /*border-bottom:5px solid #ffffff;*/
+}
+
+
+.pmscshopex_search_textbox
+{
+    background:#FFFFFF;
+    border: 1px solid #6EB3B1;
+    /*
+    padding-left:2px;
+    padding-right:2px;
+    */
+    cursor:default;
+    color:#000000;
+    border-style:inset;
+    vertical-align:middle;
+    font-size:11px;
+}
+
+
+.pmscshopex_table_section 
+{       
+    width:100%;
+    height:100%;
+}
+
+
+.pmscshopex_searchbycategory_tree
+{
+    margin:0px;
+    /*background-color: #DFEED9;*/
+    background:#E7E6E2;
+    color:#003399
+    font-size:13px;
+    font-family: verdana;
+    overflow:auto;
+    scrollbar-track-color:#C4C4C4;
+    scrollbar-3dlight-color:#ACACAC;
+    scrollbar-darkshadow-color:#999999;
+    scrollbar-highlight-color:#E7E7E7;
+    scrollbar-shadow-color:#E7E7E7;
+    scrollbar-arrow-color:#5C5C5C;
+    scrollbar-face-color:#E7E7E7;
+    background-repeat: repeat;
+    background-position: left top;
+    border-style:none;
+    padding:0px;
+    /*
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-width: 0px;
+    border-bottom-width: 1px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-right-style: none;
+    border-left-style: none;
+    border-top-color: #9C9C9C;
+    border-bottom-color: #9C9C9C;
+    */
+}
+
+.pmscshopex_searchbycategory_tree_node
+{
+    font-family:verdana
+    font-size:13px;
+    text-decoration:none;
+    color:#003399;
+    vertical-align:baseline;
+}
+
+.pmscshopex_viewall_section
+{
+    /*background:#DFEED9;*/
+    background:#E7E6E2;
+    padding:0px;
+    /*
+    padding-left:2px;
+    padding-right:2px;
+    */
+    cursor:default;
+    color:#003399;
+    font-size:11px;
+    font-weight:bold;
+    font-family: verdana;
+    vertical-align:middle;
+}
+
+.pmscshopex_viewall_text
+{
+    /*background:#DFEED9;*/
+    background:#E7E6E2;
+    padding:0px;
+    /*
+    padding-left:2px;
+    padding-right:2px;
+    */
+    cursor:default;
+    color:#003399;
+    font-size:11px;
+    font-weight:bold;
+    font-family: verdana;
+    vertical-align:middle;
+}
+
+
+/*=====================================
+ * FAVORITE TAGS
+ *====================================*/
+
+.pmscshopex_favorite_section 
+{       
+    width:100%;
+    background-color:#FFFFFF;
+}
+
+.pmscshopex_favorite_header
+{
+    background:#6A9B9D;
+    padding:4px;
+    cursor:default;
+    /*border-top:3px solid #ffffff;*/
+    color:#FFFFFF;
+    font-size:14px;
+    font-weight:bold;
+    font-family: verdana;
+}
+
+.pmscshopex_favorite_table_title
+{
+    font-weight:bold;
+    font-style:normal;
+    font-size:11px;
+    font-family:arial;
+    text-decoration:none;
+    padding-left:5px;
+}
+
+.pmscshopex_table_title
+{
+    font-weight:bold;
+    font-style:normal;
+    font-size:11px;
+    font-family:arial;
+    text-decoration:none;
+    color:#000000;
+}
+
+.pmscshopex_table_text
+{
+    font-style:normal;
+    font-size:11px;
+    font-family:arial;
+    text-decoration:none;
+    color:#000000;
+}
+
+
+/*=====================================
+ * AVAILABLE OFFERINGS TAGS
+ *====================================*/
+
+.pmscshopex_available_header
+{
+    background:#6A9B9D;
+    padding:4px;
+    cursor:default;
+    border-top:3px solid #ffffff;
+    color:#FFFFFF;
+    font-size:18px;
+    font-weight:bold;
+    font-family: verdana;
+}
+
+.pmscshopex_available_table
+{
+    font-family:arial;
+    font-size:11px;
+
+}
+
+
+
+/*=====================================
+ * BREADCRUMB TAGS
+ *====================================*/
+
+.pmscshopex_headerbar_breadcrumbs
+{
+    background:#FFFFFF;
+    padding:0px;
+    padding-left:2px;
+    padding-right:2px;
+    cursor:default;
+    /*border-top:3px solid #ffffff;*/
+    color:#6A6B79;
+    font-size:11px;
+    font-weight:normal;
+    font-family:verdana;
+}
+
+a.pmscshopex_headerbar_breadcrumbs:link {color:#6A6B79;text-decoration: none}
+a.pmscshopex_headerbar_breadcrumbs:active {color:#003399;text-decoration: none}
+a.pmscshopex_headerbar_breadcrumbs:visited {color:#6A6B79;text-decoration: none}
+a.pmscshopex_headerbar_breadcrumbs:hover {color:#003399;text-decoration: none}	
+
+
+.pmscshopex_hyperlink 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-style: normal;
+    text-decoration:none;
+    color: #396799;
+}
+
+
+.pmsc_powergray
+{
+    background:#E7E6E2;
+    color:#ffffff;
+    font-size:20px;
+    font-weight: normal;
+    /*
+    margin-left:5px;
+    */
+    margin-right:0px;
+    vertical-align:middle;
+    text-decoration: none;
+}
+
+
+
+/*=====================================
+ * OVERRIDE TAGS
+ *=====================================*/
+
+
+.tableinputborder{ background:transparent; border:0px solid #FFFFFF; padding:0px; padding-left:1px; margin:20px;  }  
+
+.headerbar 
+{	
+    background:#FFFFFF;
+    padding:0px;
+    padding-left:2px;
+    padding-right:2px;
+    cursor:default;
+    border-top:3px solid #ffffff;
+}
+
+.tabletitlerow
+{
+    background:#dae5e6;
+    text-decoration:none;
+    font-style:normal;
+    font-size:11px;
+    font-family:arial;
+    text-decoration:none;
+    padding-left:5px;
+}
+
+.tabletext
+{
+    margin:10px;
+}
+
+.tablerow
+{
+    text-decoration:none;
+    font-family:arial;
+    font-size:15px;
+    color:#000000;
+    margin: 10px;
+}
+
+.header_col_name_sortable
+{
+    font-weight:bold;
+    font-style:normal;
+    font-size:11px;
+    font-family:arial;
+    text-decoration:none;
+    padding-left:5px;
+    padding:4px;
+}
+
+.app_breadcrumbs
+{
+    background: #FFFFFF;
+}
+	
+.app_breadcrumb_active
+{
+    color: #003399;
+    text-decoration:none;
+}
+
+.app_breadcrumb
+{
+    color: #6A6B79;
+}
+
+.breadcrumbsep
+{
+    color: #6A6B79;
+}
+
+.nodename
+{
+    font-family:verdana;
+    font-size:13px;
+    color:#003399;
+    vertical-align:baseline;
+    background:transparent;		
+}
+
+.nodeimage
+{
+    padding:0px; 
+    margin:0px; 
+    padding:0px; 
+    text-decoration:none;
+    color:#FFFFFF;
+    background:transparent;
+    text-align:left;
+    valign:absmiddle;		 
+}
+
+.nodechildren
+{
+    font-family: verdana;
+    font-size: 11px;
+}
+
+
+.node
+{
+    font-family:verdana;
+    margin-left:13px;
+    text-decoration:none;
+    background:transparent;
+    vertical-align:middle;
+    color:#003399;
+}
+
+a.node:link
+{
+    color:#287fdb;
+    text-decoration: none
+}
+
+a.node:active {color:#D9A008;text-decoration: none}
+a.node:visited {color:#D9A008; text-decoration: none}
+a.node:hover {text-decoration: none}
+
+.selectednode
+{
+    font-family:verdana;
+    font-size:11px;
+    font-weight:bold;
+    text-decoration:none;	
+    vertical-align:middle;		
+}
+
+/*a.selectednode:link {color:#D9A008;text-decoration: none}*/
+
+a.selectednode:visited
+{
+    color:#D9A008;
+    text-decoration: none
+    font-family: verdana;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+a.selectednode:active {color:#D9A008; text-decoration: none}
+
+.sccd
+{ 
+    background-color:#F5EFD5;
+}
+
+.scfvd
+{
+    background-color: #c0c0c0;
+    border:1px solid #D50303;
+}
+
+/* end overrides */
+/* END pmscshopex */
+

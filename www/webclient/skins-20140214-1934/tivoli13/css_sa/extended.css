@@ -1,0 +1,19 @@
+/*
+* Licensed Materials - Property of IBM
+* “Restricted Materials of IBM”
+* 5724-U18
+* (C) COPYRIGHT IBM CORP. 2006,2010 All Rights Reserved.
+* US Government Users Restricted Rights - Use, duplication or
+* disclosure restricted by GSA ADP Schedule Contract with
+* IBM Corp.
+*
+*/
+/* BEGIN TLSM This file is generated based on maximo.css 75010830. 
+ * tabon, label and goto have different color from what have been set in maximo.css
+ */
+.tabgroup A.on { color: #800000 !important; font-weight:bold !important; }
+.label {color:#0033cd; font-weight: bold;}
+.goto { color: #800000 !important; }
+
+/* END TLSM */
+

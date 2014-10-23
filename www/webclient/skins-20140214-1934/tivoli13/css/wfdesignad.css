@@ -1,0 +1,58 @@
+/*
+ *
+ * IBM Confidential
+ *
+ * OCO Source Materials
+ *
+ * 5724-R46
+ *
+ * (C) COPYRIGHT IBM CORP. 2009,2010
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *
+ */
+ 
+    @import url("maximo.css");
+    @import url("extended.css");
+	
+
+    .wfdesignad_overall_section 
+    {
+    width:100%;
+    background-color:#FFFFFF;	
+    }        	
+
+    .wfdesignad_classification_section 
+    {    
+	padding-right:3px;
+    } 
+
+    .wfdesignad_nodename
+    {
+    text-decoration:none;
+    color:black;
+    vertical-align:baseline;		
+    }
+  
+    .wfdesignad_searchbycategory_tree
+    {
+        margin:0px;
+        width:100%;
+        height:100%;
+        background-color:#FFFFFF;
+        overflow:auto;
+        scrollbar-track-color:#C4C4C4;
+        scrollbar-3dlight-color:#ACACAC;
+        scrollbar-darkshadow-color:#999999;
+        scrollbar-highlight-color:#E7E7E7;
+        scrollbar-shadow-color:#E7E7E7;
+        scrollbar-arrow-color:#5C5C5C;
+        scrollbar-face-color:#E7E7E7;
+        background-repeat: repeat;
+        background-position: left top;
+        border-style:none;
+    }
+        
+

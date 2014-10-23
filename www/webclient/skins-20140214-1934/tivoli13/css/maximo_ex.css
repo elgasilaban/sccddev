@@ -1,0 +1,697 @@
+/*
+ * Licensed Materials - Property of IBM
+ * "Restricted Materials of IBM"
+ * 5724-U18
+ * (C) COPYRIGHT IBM CORP. 2013 All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with
+ * IBM Corp.
+ *
+ */
+/* Warning: code within this file will be rolled into other files in an upcoming release with no guarantee on content and functionality. 
+ * intended for use by the framework only 
+ */
+
+body.dragging { -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+
+/* BEGIN navMenus */
+
+.subNavMenus,	
+.navMenus {
+	list-style:none;
+    padding: 0px;
+    display: block; 
+	margin: 0px;
+}
+
+.navMenus.ns_query img,
+.navMenus.ns_actions img {
+	display: none;	
+}
+
+.subNavMenus {
+    border: 1px solid #999;
+	background-color: #fbfbfb; 
+	background-repeat: repeat-y;
+	background-position: left top;
+    -moz-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
+	-moz-box-shadow: 2px 2px 2px #888;
+	-webkit-box-shadow: 2px 2px 2px #888;
+	box-shadow: 2px 2px 2px #888;
+	min-width: 125px;
+}
+	
+ 
+.navMenus LI {
+	border: 1px solid transparent;
+	border-left: 1px solid transparent; 
+	border-right: 1px solid transparent;
+	padding: 0px;
+	margin: 0px;
+	white-space: nowrap;
+}
+.subNavMenus LI {
+	border: 1px solid transparent;
+	border-left: 1px solid transparent; 
+	border-right: 1px solid transparent;
+	padding: 0px;
+	margin: 0px;
+}
+
+.subNavMenus LI {
+	white-space: nowrap;
+}
+
+.navMenus LI.menuborder,
+.subNavMenus LI.menuborder {
+		border-top: 0px solid #eee;
+	}
+
+.navMenus LI.current,
+.subNavMenus LI.current {
+	cursor: pointer;
+	background: #cce8f2;
+}
+
+.navMenus LI.scurrent,
+.subNavMenus LI.scurrent {
+	background-color: #cce8f2;
+}
+	
+.navMenus LI A {
+	color: #616161;
+	text-decoration:none;
+	vertical-align:middle;
+	cursor: pointer;
+	padding: 1px 2px 1px 1px;
+	margin: 0px;
+	display: block;
+	font-family: arial; 
+	font-size: 11px;	
+	line-height: 21px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+	
+.navMenus LI.selectedQuery {
+	background-color: #ddf2f9;
+}
+
+.navMenus.hide LI A SPAN {
+	visibility: hidden;
+}
+	
+.navMenus LI A SPAN {
+	margin: 0px 5px;
+}
+	
+.navMenus LI A SPAN.selectedQuery {
+	font-weight: bold;
+	color: #474747;
+	text-shadow: 0 1px #fff;
+}
+	
+.subNavMenus LI A {
+	color: #616161;
+	text-decoration:none;
+	white-space: nowrap;
+	vertical-align:middle;
+	cursor: pointer;
+	padding: 0px 10px 0 4px;
+	margin: 0px;
+	line-height: 22px;
+	display: block;
+	font-family: arial; 
+	font-size:11px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.subNavMenus LI A SPAN {
+	margin: 0px;
+}
+	
+.navSubmenu {
+	background: url(../images/menus/menusub.gif) no-repeat right center;
+}
+
+	
+.navMenus LI A.off,
+.subNavMenus LI A.off {
+	opacity: 0.3;
+}
+
+.navMenus .sub, 
+.subNavMenus .sub{
+	margin: 0px 0px 0px 8px;
+	width: 8px;
+	border: 0px;
+}
+
+.navMenus .menuimg,
+.subNavMenus .menuimg {
+	border: 0px;
+	margin: 0px 5px 0px 0px;
+	vertical-align: middle;
+}
+	
+	
+/* END navMenus */
+
+
+.navCollapseL {
+	width: 5px;
+	padding: 0px;
+	height: 52px;
+	background: url(../images/tasknav/col_expanded.png) #fff no-repeat center;
+    border: 0px;
+	cursor: default;
+}
+
+.navCollapseR {
+	width: 5px;
+	padding: 0px;
+	height: 52px;
+	background: url(../images/tasknav/col_expandedR.png) #fff no-repeat center;
+    border: 0px;
+	cursor: default;
+}
+
+.navSection {
+	margin: 0;
+    border: 0;
+	padding: 0;
+	background: #F0F0F0;
+}
+.navContent {
+	width: 100%;
+	border-bottom: 1px solid #999;
+	background: #f8f8f8;
+}
+	
+.navSep {
+	border:1px solid #999;
+	border-top: 0px;
+	border-bottom: 0px;
+	border-left: 1px solid #C0C0C0; 
+	padding: 0px;
+	vertical-align: middle;
+	background: #F0F0F0;
+}
+
+.navHeadOuter {
+    border-color: #999999;
+    border-style: solid;
+    border-width: 0px 0px 1px;
+}
+
+.navHead {
+	border: 0px;
+	background: transparent;
+	white-space: nowrap;
+}
+
+.navHead INPUT {
+	vertical-align: middle;
+	width: 14px;
+	margin: 0px;
+}
+
+.navTitle {
+	font-size: 11px;
+	font-family: arial;
+	color: #333;
+	font-weight: bold;
+	white-space: nowrap;
+	padding: 2px;	
+}
+
+.greybuttondiv {
+    border: 1px solid #D0D0D0;
+    color: #444444;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    border-radius: 3px;
+    display: inline;
+    font-family: Helvetica,Arial,sans serif;
+    text-decoration: none !important;
+    vertical-align: middle;
+    margin: 0px 3px;
+}
+
+.greybuttondiv_hover {
+	border: 1px solid #999;
+	box-shadow: 0 0 2px #ccc inset, 1px 1px 2px #999;
+	background-color: #f0f0f0;
+    background-image: -moz-linear-gradient(#EDEDED, #f0f0f0);
+}
+
+.greybutton {
+    font-size: 3px;
+	background: transparent; 
+	padding: 0px; 
+	border: 0px; 
+	cursor:default;
+	margin:0px;
+	vertical-align: middle;
+}
+
+.greybutton IMG {
+	margin: 0px;
+}
+	
+.qsField {
+	padding: 2px 5px; 
+	margin:2px 5px; 
+	border-radius: 8px;	
+}
+	
+.qsFieldOuter {
+	padding: 2px 20px 1px 3px; 
+	white-space: nowrap;
+}
+
+.promptvalue { 
+	color: #999;	
+}
+
+.tiv_btn {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("../images/buttonEnabled_tiv.png") repeat-x scroll left top #E2E2E2;
+    border-color: #666666 #666666 #555555;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 0.4em 0.6em;
+    text-align: center;
+}
+.tiv_btn:hover {
+    background: url("../images/buttonHover_tiv.png") repeat-x scroll center top #F8FBFE;
+    border-color: #6B8FB3 #6B8FB3 #4C7399;
+    color: #003366;
+}
+
+.selrec {
+	color: #777;
+	font-family: georgia;
+	font-style: italic;
+	
+}
+
+.tdbar {
+    display: none
+}
+
+.std {
+	border-left: 0px;
+	border-right: 0px;
+}
+
+.stdTop {
+	background-color: #B8CFE5;
+	padding: 5px;
+}
+
+
+.stdTop .tdhb, .stdTop .hbsh {
+	border-radius: 5px;	
+}
+
+.stdpad { 
+	padding: 10px 10px 0px !important;
+}
+
+.stdTopInner {
+	background: #fff;
+	border: 1px solid #999;
+	border-radius: 5px;
+	padding-bottom: 5px;
+	box-shadow: 1px 1px 1px #999;	
+}
+
+.tablebuttongroup {
+	
+}
+
+.hb_rounded {
+	border-radius: 5px 5px 0px 0px;
+}
+
+.dojoxGaugeContent {
+	margin: 2px;
+}
+
+
+
+.navHead img {
+	height: 20px;
+	margin: 0px;
+}
+
+/* begin applink styles */
+
+.bottomAppBack {
+	margin: 0px;
+}
+
+.linkedApp {
+	border-radius: 5px 0px 0px 0px;
+	margin: 20px 2px 0px 2px;
+	border: 1px solid #000;
+	border-width: 1px 0px 0px 1px;
+	color: #000;
+	margin: 1px 0px 0px 3px;
+	background: #eee;
+	background-image: url("../images/linkedapp_bkg.gif");	
+	background-repeat:repeat-x;
+}
+
+.linkedAppLast {
+	background-image: url("../images/linkedapp_last_bkg.gif");
+}
+
+.linkedApp .alnb {
+	
+}
+
+.linkedApp .retButtons {
+	float: right;	
+	display: inline;
+	padding: 2px 10px;
+}
+
+.linkedApp .powerwhite, .linkedApp .pwimg {
+	display:none !important;
+}
+
+.bottomApp {
+	background-color:#333333;
+}
+
+.bottomApp .linkedAppTitle {
+    height: 20px;
+    padding: 0px 0px 2px 4px;    
+    line-height: 20px;
+	float:left;
+}
+
+.bottomApp .titlelogo {
+	height: 22px;
+	float:right;
+}
+
+.bottomApp .linkedAppTitle a {
+	color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	margin: 0px 2px;
+	line-height: 20px;
+}
+
+
+
+.currentApp {
+	background: #fff;
+}
+
+.linkedApp .linkedAppTitle {
+	border-radius: 5px 0px 0px 0px;
+	padding: 2px 8px;
+	color: #000 ;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	margin: 0px 0px;
+	float:left;
+}
+
+.linkedApp .linkedAppTitle button {
+	font-size: 10px;	
+}
+
+.linkedApp .retButtons button {
+	font-size: 10px;
+		margin: 2px 5px;	
+}
+
+.linkedApp .titlelogo {
+	display:none;	
+}
+
+.linkedApp .linkedAppTitle a {
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	margin: 0px 0px;
+}
+
+.txtappname_applink, .homeButtontxtappname_applink {
+	display:none;
+}
+
+.stubmsg {
+	background:#e7e7e7;
+}
+/* end applink styles */
+
+
+.fieldIcon {
+	vertical-align: middle;
+	border: 1px solid transparent;
+	display: inline-block;
+}
+        
+.fieldIcon_hover {
+	background-color: #ffffff;   
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 1px #cccccc;
+	border-radius: 3px;           
+}
+
+.qSearch {
+	border: 1px solid #eee;
+}
+
+.userfullname {
+	padding: 5px 22px;
+	font-size: 12px;
+	display: inline !important;
+	color: #efefef;
+}
+
+.titlebarlinks {
+	vertical-align: middle;
+}
+
+.bulletinCount {
+    background: none repeat scroll 0 0 #107BBB;
+    border: 0 solid #000000;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    display: inline;
+    font-family: tahoma, verdana;
+    font-size: 9px;
+    left: -4px;
+    top: -5px;
+    padding: 1px 4px 2px;
+    position: relative;
+    margin: 0px 2px;
+}
+
+
+/* BEGIN Record Hovers */
+
+.recHoverPopup {
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ffffff', endColorstr='#cadffa') !important;
+  	background-image: -moz-linear-gradient(#ffffff 0px, #cadffa 100%) !important;
+}
+
+.recordHover {
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px;
+}
+
+.recordHover .sectionb {
+	border: 0px !important;
+}
+
+.recordHover .section .sectionlabel {
+	display: none;	
+}
+
+.recordHover .sectionb .sectionlabel {
+    border-bottom: 1px solid #0D85B4;
+    color: #222222;
+    cursor: default;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 0;
+}
+
+.recordHover .sectionlabel img {
+	vertical-align: middle;
+}
+
+.recordHover .section {
+}
+
+.recordHover .sectionb {
+	padding: 7px;
+	border-bottom: 1px solid #008abf;
+	border-width: 0px 0px 1px 0px;
+}
+
+.recordHover .sectioncol {
+	display: inline-block;
+	vertical-align: top;
+	padding: 2px 7px 7px;
+}
+
+.recordHover .control {
+    margin: 3px 5px 0px 0px;
+}
+
+.recordHover .control label {
+    color: #A9A9A9;
+    display: inline-block;
+    margin: 7px 0px 0px 0px;
+    width: 145px;
+}
+
+/*     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+.recordHover .control label:hover {
+	position: absolute;
+	overflow: normal;
+	text-overflow: normal;
+	max-width: 345px;
+	background: #fff;
+	margin-bottom: 0px;
+	z-Index: 10000;
+	color: #222;
+}
+*/
+
+.recordHover .control input textarea {
+	margin-left: 2px;
+}
+
+
+.recordHover .control .fld {
+	border: 0px;
+	height: 15px;
+	background: transparent;
+	margin-left: 2px;	
+}
+
+.recordHover .control .richtext {
+	overflow: auto;
+	border: 0px;
+	height: 80px !important;
+}
+
+.recordHover .control textarea,.richtext {
+	width: 138px;
+	height: 40px;
+	margin: 0px 2px;
+	background: transparent;
+	border:1px solid #f2f2f2 !important;
+}
+
+.recordHover .control .desc {
+	border-bottom: 0px !important;
+}
+
+.recordHover .control .desc1 {
+}
+
+.recordHover .control input[type=image] {
+	vertical-align: bottom;
+	border: 1px solid #eee;
+	border-radius: 3px;
+	margin: 0px 2px;
+	height: 20px; 
+	width: 20px;
+}
+
+.recordHover .control input[type=image]:hover {
+	box-shadow: 2px 2px 2px #999;
+	border: 1px solid #bbb;
+}
+
+.recordHover .control input[type=checkbox] {
+	vertical-align: middle;
+	opacity: .7;
+	filter: alpha(opacity=70);
+	height: 20px;
+	margin: 0 2px;
+}
+
+.applinkButtons {
+	text-align: right;	
+}
+
+.recordHover .applinks {
+	border: 1px solid #ccc;
+	border-width: 1px 0px;
+	margin: 0px 0px 10px 0px;
+	background: #efefef;
+	border-collapse: separate !important;
+    border-spacing: 10px 0 !important;
+    margin: 0 0 10px;
+}
+
+.recordHover .applinks label {
+	color: #222;
+	font-size: 13px;
+}
+
+.recordHover .rechoverbutton {
+ 	background: url("../images/buttonEnabled_tiv.png") repeat-x scroll left top #E2E2E2;
+    border-color: #666666 #666666 #555555;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+}
+.recordHover .rechoverbutton:hover {
+    background: url("../images/buttonHover_tiv.png") repeat-x scroll center top #F8FBFE;
+    border: 1px solid #6B8FB3;
+    border-color: #6B8FB3 #6B8FB3 #4C7399;
+    color: #003366;
+}
+
+.recHovHelp {
+	border: 1px solid #ccc;
+	border-color: #EFEFEF #CCCCCC #CCCCCC #EFEFEF;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding: 0px 5px 0px 0px;
+}
+
+.recHovHelp img {
+	vertical-align: middle;
+}
+		
+/* END Record Hovers */
