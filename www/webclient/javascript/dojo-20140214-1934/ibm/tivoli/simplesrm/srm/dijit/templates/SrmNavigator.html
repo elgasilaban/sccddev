@@ -1,0 +1,131 @@
+<div class='srmnavigator'>
+<!--
+ @HTML_LONG_COPYRIGHT_BEGIN@
+ @HTML_LONG_COPYRIGHT_END@
+-->
+	<div class="navigator_head" style="position:relative; padding: .625em;">
+		<table STYLE='width:100%'>	   
+		  		   		   
+		   <tr>
+			<td>
+	  	       <button dojoattachpoint="home_btn" dojotype="dijit.form.Button" baseClass="srm_button" showLabel="false" label="${_uiStringTable.Home}" iconClass="navigator_home" title="${_uiStringTable.Home}"> </button>			 
+			</td>
+			
+			<td>
+			   <img src="../webclient/images/img_divider_tablebtns.gif" alt="|" />
+			</td>	
+			
+			<td>
+               <DIV>
+			      <div>
+				    <button id="${id}_createSR_btn" dojoattachpoint="createSR_btn" dojotype="dijit.form.Button" baseClass="srm_button" showLabel="false" label="Create Request" baseClass="srm_button" iconClass="createSR_btn" ></button>                        
+				<!--    <span id="${id}_createSR_label" style='margin-left:-0px;'  dojoattachpoint="createSR_text_btn" dojoAttachEvent="onclick:_createSR,onmouseover:_createSROnRollover,onmouseout:_createSROnRollout"  class="srm_cart" >${_uiStringTable.CreateSR}  </span> -->				    
+			     </div>
+               </DIV>
+			</td>
+			
+			<td>			   			
+   			   <img src="../webclient/images/img_divider_tablebtns.gif" alt="|" />
+			</td>	
+			
+			<td >
+			   <button id="${id}_shoppingCart_btn" dojoattachpoint="shoppingCart_btn" dojotype="dijit.form.Button" baseClass="srm_button" showLabel="false" label="Shopping Cart" baseClass="srm_button" iconClass="shoppingCart_btn"></button>
+			   <sup id="${id}_cart_amount"  class="srm_cart_amount"  > </sup>			
+			   			   
+			</td>
+
+			<td>			    
+			    <button id="${id}_template_btn" dojoattachpoint="template_btn" dojotype="dijit.form.Button" baseClass="srm_button" showLabel="false" label="Cart Templates" baseClass="srm_button" iconClass="template_btn" ></button>				
+			</td>			
+						
+			<td>			     	
+   			    <img src="../webclient/images/img_divider_tablebtns.gif" alt="|" />
+			</td>	
+							
+			 
+			<td>
+			    <div style="display:none;"> <label id="${id}_search_label" for="${id}_list_search_term">${_uiStringTable.Search}</label></div>
+			    <input id='${id}_list_search_term' dojoattachpoint="list_search_term" type='text' name='ticket_search' style='width: 350px;' class="vm placeholder" value="${_uiStringTable.SearchFieldText}"   dojoAttachEvent="onblur:_placeholder, onfocus:_placeholder" >		        			      
+			    <button      id="${id}_list_search_btn"  dojoattachpoint="list_search_btn" dojotype="dijit.form.Button" showLabel="false" label="Search" baseClass="srm_button" iconClass="header_search_btn" ></button>                        
+			</td>
+
+			<td>			    		
+   			   <img src="../webclient/images/img_divider_tablebtns.gif" alt="|" />
+			</td>           
+			 
+			 
+			<td  class="maximize_nav_td">
+		        <img id = "${id}_maximize_nav" src="../webclient/javascript/simplesrm/srm/dijit/images/nav_icon_fullScreen.png" alt="m" class="maximize_nav"   title="${_uiStringTable.Maximize}"/>		        
+		    </td>
+
+		   </tr>
+		</table>	
+	</div>
+	
+	<!-- <div class="navigator_srmhead" style="position:relative; padding: .225em;">
+		<div style="position:absolute; left:.625em; top: 50%; height: 34px; width: 120px; margin-top: -17px;">
+		 <input id='${id}_list_createSR_btn'  dojoattachpoint="createSR_btn" type="Button" dojoType="ibm.tivoli.tip.dijit.TIPButton" label="${_uiStringTable.CreateSR}" title="${_uiStringTable.CreateSR}" value="${_uiStringTable.CreateSR}" > 
+		</div>
+	</div>
+	-->
+	
+
+	<div id='${id}_box' class='navigator_body' >
+		<div dojoAttachPoint="breadcrumbContainer">
+				<div id='${id}_crumbs' dojoType='ibm.tivoli.simplesrm.srm.dijit.Breadcrumb' ></div>
+		</div>
+		
+		<div class='tree_box' id='${id}_tree_box' style="height:100%;">
+		
+		 <div dojoType="dijit.layout.BorderContainer" class='borderContainer' design='sidebar' gutters='true' liveSplitters='true' id="${id}_borderContainer">
+
+               <div dojoType="dijit.layout.ContentPane" splitter='true' region='leading' class='borderContainerLeft' id='${id}_borderContainerLeft' style="padding: 0px;background-color: #FAFAFA">           
+                   
+               </div>
+                
+              <div dojoType="dijit.layout.ContentPane" splitter='true' region='center' id="${id}_borderContainerCenter" class='borderContainerCenter' style="background-color: #FAFAFA">
+            
+                 <div dojoAttachPoint="treeContainer">
+				    <div id="${id}_list" dojoType="ibm.tivoli.simplesrm.srm.dijit.ListTree" dojoAttachPoint="rootListNode" 
+					   fillOrder="${fillOrder}" label="${_uiStringTable.HomeBreadcrumb}" 
+					   keyField="${keyField}" labelField="${labelField}" descField="${descField}" iconField="${iconField}" iconSizeField="${iconSizeField}" iconClassField="${iconClassField}" 
+					   childField="${childField}" leafField="${leafField}" toolTip="${toolTip}" colCount="1">
+				   </div>
+			     </div>
+            
+              </div>
+				 
+	    </div>
+		
+		<div class='clear'></div>
+	</div>
+	<div class='clear'></div>
+	<div dojoType="dijit.DialogUnderlay" id="loading-dialog" bgColor="gray" bgOpacity="0.5" toggle="fade" toggleDuration="250" >
+	</div>
+	
+	<div dojoType="ibm.tivoli.simplesrm.srm.dijit.PopupDialog" id="search-dialog"  title="${_uiStringTable.HelpFixLabel}" >
+		<br>	
+	 	<table>
+			<tr>
+				<td>
+					&nbsp;&nbsp;&nbsp;&nbsp;<font size="3"><b>${_uiStringTable.SearchTextLabel}</b>
+				</td>
+				<td>	
+					&nbsp;&nbsp;<input id='${id}_dialog_search_term' dojoattachpoint="dialog_search_term" type='text' name='ticket_search' style='width: 400px;' placeholder='type your search terms...' title="Search" class="vmSearchDialog">&nbsp;&nbsp;&nbsp;&nbsp;
+				</td>
+				<td>	
+					<button  id="${id}_dialog_search_btn"  dojoattachpoint="dialog_search_btn" dojotype="dijit.form.Button" showLabel="false" label="Search" baseClass="dialog_srm_button" iconClass="dialog_search_btn" ></button>  
+				</td>				
+				 					
+			</tr>
+			
+			<tr><td colspan="2">&nbsp</td></tr>				
+			 
+		</table>		
+		<br>
+		<div id='${id}_dialog_search_holder'></div>	
+			
+	</div>
+</div>
+
+</div>

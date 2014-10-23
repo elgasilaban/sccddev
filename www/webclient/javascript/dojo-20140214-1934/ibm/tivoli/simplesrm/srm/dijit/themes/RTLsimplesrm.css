@@ -1,0 +1,94 @@
+
+div#ibm-banner {
+	width:100%;
+	min-width: 838px;
+	
+	overflow: visible;
+}
+div#ibm-banner table {
+	
+	width:100%;
+}
+td#ibm-banner-main {
+	
+	background-position: 220px 0;
+	padding-right:18px;
+	height:35px;
+	max-height:35px;
+	white-space:nowrap;
+}
+.tundra.simplesrm span.ibm-banner-product-name {
+	display:block;
+	float:right;
+	color:#fff;
+	font-family:Helvetica, Verdana, Tahoma, Arial, sans-serif;
+	font-size:0.95em;
+	font-weight:normal;
+	vertical-align: middle;
+	padding-top:2px;
+}
+.tundra.simplesrm.dijit_a11y span.ibm-banner-product-name {
+	color: black;
+	padding-right: 8px;
+}
+td#ibm-banner-main img {
+	float: right;
+	margin-left:5px;
+}
+div#ibm-banner-content{
+	float:left; 
+	margin-right:30px;
+	margin-left:20px;
+	margin-top:-1px;
+	padding-top:0px;
+	white-space:nowrap;
+}
+div#ibm-banner-content ul {
+	display: inline;
+	margin:0;
+	margin-right:60px;
+	padding:0;
+}
+div#ibm-banner-content ul li {
+	display: inline;
+	list-style-type: none;
+	padding-left:12px;
+	padding-right: 12px;
+	white-space:nowrap;
+	border-right:solid 1px #fff;
+	height:1%;
+}
+.tundra.simplesrm.dijit_a11y div#ibm-banner-content ul li {
+	border-right: solid 1px black;
+}
+div#ibm-banner-content ul li.first {
+	padding-right:0;
+	border-right:none;
+}
+.tundra.simplesrm.dijit_a11y div#ibm-banner-content ul li.first {
+	border-right: none;
+}
+div#ibm-banner-content ul li a {
+	color:#fff;
+	font-family:Verdana, Tahoma, Arial, sans-serif;
+	font-size:.75em;
+	text-decoration:none;
+}
+.tundra.simplesrm.dijit_a11y div#ibm-banner-content ul li a {
+	color: black;
+}
+div#ibm-banner-content ul li a:hover {
+	text-decoration:underline;
+}
+span#ibm-banner-welcome{
+	color:#fff;
+	font-family:Verdana, Tahoma, Arial, sans-serif;
+	font-size:.75em;
+	display:inline;
+}
+.tundra.simplesrm.dijit_a11y span#ibm-banner-welcome{
+	color: black;
+}
+td#ibm-banner-logo {
+	padding-left:8px;
+}

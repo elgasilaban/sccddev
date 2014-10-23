@@ -1,0 +1,25 @@
+<div class='srmnavigator'>
+<!--
+ @HTML_LONG_COPYRIGHT_BEGIN@
+ @HTML_LONG_COPYRIGHT_END@
+-->
+	<div class='createticket_box'>
+		<div class="navigator_head">
+			<div style='text-align: right;margin:0;padding:0'>
+				<input id='${id}_list_search_term' type='text' name='ticket_search' style='width: 200px;'>
+				<img id='${id}_list_search_btn' src='${imagesPath}/ac22_find.png' alt="Search" title="Search" style='cursor: pointer; vertical-align: middle;margin-right: 2px;'>
+			</div>
+			<div class="navigator_toolbar_bottom">
+				<div id='${id}_crumbs' dojoType='ibm.tivoli.simplesrm.srm.dijit.Breadcrumb' homeLabel='${_uiStringTable.HomeLabel}'></div>
+			</div>
+		</div>
+
+		<div id='${id}_box' class='create_box' >
+			<div class='tree_box' id='${id}_tree_box'>
+				<div id="${id}_list" dojoType="ibm.tivoli.simplesrm.srm.dijit.ListTree" fillOrder="NavFrontPage" label="${_uiStringTable.HomeLabel}" ></div>
+			</div>
+			<div class='clear'></div>
+		</div>
+		<div class='clear'></div>
+	</div>
+</div>

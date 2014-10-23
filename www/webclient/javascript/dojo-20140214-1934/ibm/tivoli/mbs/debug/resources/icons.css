@@ -1,0 +1,116 @@
+
+.tpaeDebugApp,
+.tpaeDebugPage,
+.tpaeDebugPageCurrent,
+.tpaeDebugControl,
+.tpaeDebugComponent,
+.tpaeDebugRefresh,
+.tpaeDebugFilter,
+.tpaeDebugTask,
+.tpaeDebugLoaded,
+.tpaeDebugNotLoaded,
+.tpaeDebugClear,
+.tpaeDebugForward,
+.tpaeDebugBackward,
+.tpaeDebugLog,
+.tpaeDebugError,
+.tpaeDebugWarning,
+.tpaeDebugInfo,
+.tpaeDebugOk,
+.tpaeDebugEvent,
+.tpaeDebugEventOk,
+.tpaeDebugEventError,
+.tpaeDebugClass,
+.tpaeDebugMboSet,
+.tpaeDebugImport,
+.tpaeDebugOpen,
+.tpaeDebugEvents,
+.tpaeDebugRequest,
+.tpaeDebugRequests,
+.tpaeDebugHeader,
+.tpaeDebugHeaders,
+.tpaeDebugParameter,
+.tpaeDebugParameters,
+.tpaeDebugAttribute,
+.tpaeDebugAttributes,
+.tpaeDebugRequestEvent
+{
+	background-image: url('../images/iconsEnabled.png');
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;
+	text-align: center;
+}
+.dijitDisabled .tpaeDebugApp,
+.dijitDisabled .tpaeDebugPage,
+.dijitDisabled .tpaeDebugPageCurrent,
+.dijitDisabled .tpaeDebugControl,
+.dijitDisabled .tpaeDebugComponent,
+.dijitDisabled .tpaeDebugRefresh,
+.dijitDisabled .tpaeDebugFilter,
+.dijitDisabled .tpaeDebugTask,
+.dijitDisabled .tpaeDebugLoaded,
+.dijitDisabled .tpaeDebugNotLoaded,
+.dijitDisabled .tpaeDebugClear,
+.dijitDisabled .tpaeDebugForward,
+.dijitDisabled .tpaeDebugBackward,
+.dijitDisabled .tpaeDebugLog,
+.dijitDisabled .tpaeDebugError,
+.dijitDisabled .tpaeDebugWarning,
+.dijitDisabled .tpaeDebugInfo,
+.dijitDisabled .tpaeDebugOk,
+.dijitDisabled .tpaeDebugEvent,
+.dijitDisabled .tpaeDebugEventOk,
+.dijitDisabled .tpaeDebugEventError,
+.dijitDisabled .tpaeDebugClass,
+.dijitDisabled .tpaeDebugMboSet,
+.dijitDisabled .tpaeDebugImport,
+.dijitDisabled .tpaeDebugOpen,
+.dijitDisabled .tpaeDebugEvents,
+.dijitDisabled .tpaeDebugRequest,
+.dijitDisabled .tpaeDebugRequests,
+.dijitDisabled .tpaeDebugHeader,
+.dijitDisabled .tpaeDebugHeaders,
+.dijitDisabled .tpaeDebugParameter,
+.dijitDisabled .tpaeDebugParameters,
+.dijitDisabled .tpaeDebugAttribute,
+.dijitDisabled .tpaeDebugAttributes,
+.dijitDisabled .tpaeDebugRequestEvent
+{
+	background-image: url('../images/iconsDisabled.png');
+}
+.tpaeDebugApp { background-position: 0px; }
+.tpaeDebugPage { background-position: -16px; }
+.tpaeDebugPageCurrent { background-position: -32px; }
+.tpaeDebugControl { background-position: -48px; }
+.tpaeDebugComponent { background-position: -64px; }
+.tpaeDebugClear { background-position: -80px; }
+.tpaeDebugRefresh { background-position: -96px; }
+.tpaeDebugFilter { background-position: -112px; }
+.tpaeDebugLoaded { background-position: -128px; }
+.tpaeDebugNotLoaded { background-position: -144px; }
+.tpaeDebugClear { background-position: -160px; }
+.tpaeDebugBackward { background-position: -176px; }
+.tpaeDebugForward { background-position: -192px; }
+.tpaeDebugLog { background-position: -208px; }
+.tpaeDebugError { background-position: -224px; }
+.tpaeDebugWarning { background-position: -240px; }
+.tpaeDebugInfo { background-position: -256px; }
+.tpaeDebugOk { background-position: -272px; }
+.tpaeDebugEvent { background-position: -288px; }
+.tpaeDebugEventOk { background-position: -304px; }
+.tpaeDebugEventError { background-position: -320px; }
+.tpaeDebugClass { background-position: -336px; }
+.tpaeDebugMboSet { background-position: -352px; }
+.tpaeDebugImport { background-position: -368px; }
+.tpaeDebugOpen { background-position: -384px; }
+.tpaeDebugEvents { background-position: -400px; }
+.tpaeDebugRequest { background-position: -416px; }
+.tpaeDebugRequests { background-position: -432px; }
+.tpaeDebugHeader { background-position: -448px; }
+.tpaeDebugHeaders { background-position: -464px; }
+.tpaeDebugParameter { background-position: -480px; }
+.tpaeDebugParameters { background-position: -496px; }
+.tpaeDebugAttribute { background-position: -512px; }
+.tpaeDebugAttributes { background-position: -528px; }
+.tpaeDebugRequestEvent { background-position: -544px; }
