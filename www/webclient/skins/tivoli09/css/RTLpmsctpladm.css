@@ -1,0 +1,35 @@
+/*
+ *
+ * IBM Confidential
+ *
+ * OCO Source Materials
+ *
+ * 5724-R46
+ *
+ * (C) COPYRIGHT IBM CORP. 2006,2007
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *
+ */
+ 
+/*	BEGIN common */
+        @import url("RTLmaximo.css");
+	@import url("extended.css");
+	@import url("RTLpmscoffcat.css");
+	
+/*      BEGIN pmstpladmr */
+
+        .tc
+	{
+	   padding:0px;
+	   border-right:0px solid #dedede;
+	   padding-left:3px;
+	   padding-top:3px;
+	   padding-bottom:3px;
+	}
+
+	 
+/* END pmsctpladm */
+

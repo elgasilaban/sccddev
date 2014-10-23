@@ -1,0 +1,97 @@
+.mapTbSep{
+	background: url(../../../skins/tivoli09/images/toolbar/toolbarsep.gif) no-repeat 2px 2px;
+	height:30px;
+	width:5px;
+	vertical-align:middle;
+}
+	
+.basicMapToolbarBtn{
+   background-repeat:no-repeat;
+   width: 29px;
+   height: 29px;
+   align:center;
+   background-position: 3px 3px;
+}
+
+.tundra .dijitToolbar .dijitButtonChecked, .tundra .dijitToolbar .dijitToggleButtonChecked {
+    background-color: #FAFAFA !important;
+    border: 1px solid #A1A1A1 !important;
+}
+
+.fullscreenMapToolbarBtn{
+   background-image: url("../../../javascript/ibm/tivoli/fwm/mxmap/resources/rtl/toolbar/tb_fullScreen.png");
+}
+
+.refreshMapToolbarBtn{
+   background-image: url("../../../javascript/ibm/tivoli/fwm/mxmap/resources/rtl/toolbar/tb_refresh.png");
+}
+
+.myLocationMapToolbarBtn{
+   background-image: url("../../../javascript/ibm/tivoli/fwm/mxmap/resources/rtl/toolbar/tb_MyLocation_recenter.png");
+}
+
+.itineraryMapToolbarBtn{
+   background-image: url("../../../javascript/ibm/tivoli/fwm/mxmap/resources/rtl/toolbar/tb_routeDirections.png");
+}
+
+.unassignedWorkOrderMapToolbarBtn{
+   background-image: url("../../../javascript/ibm/tivoli/fwm/mxmap/resources/rtl/toolbar/tb_unassignedWOs.png");
+}
+
+.nearbyResourcesMapToolbarBtn{
+   background-image: url("../../../javascript/ibm/tivoli/fwm/mxmap/resources/rtl/toolbar/tb_nearByResources.png");
+}
+
+.layersMapToolbarBtn{
+   background-image: url("../../../javascript/ibm/tivoli/fwm/mxmap/resources/rtl/toolbar/tb_layers.png");
+}
+
+.workOrderSymbologyMapToolbarBtn{
+   background-image: url("../../../javascript/ibm/tivoli/fwm/mxmap/resources/rtl/toolbar/tb_WO_Layers.png");
+}
+
+.ovwHighlight{
+	filter: alpha(opacity = 50);	
+	border: 1px solid blue !important;
+}
+
+.ovwcontainer{
+	padding-left: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+.infoPanelCloseBtn{
+		
+		margin-top: 10px;
+}
+
+.infoPanelCloseBtn .dijitButtonNode{
+		width: 65px;
+		height: 19px;
+		padding: 0px;
+		vertical-align: middle;
+}
+.infoPanelCloseBtn .dijitbuttoncontents{
+		width: 65px;
+		height: 19px;
+		vertical-align: middle;
+}
+
+.infoPanelCloseBtn .dijitButtonText{
+		margin-top: 2px;
+}
+
+.addresscandidateRowStyle{
+	background-color: #F1F1F1;
+}
+.addresscandidateRowStyle:hover{
+	background-color: #D7DEE5;
+}
+
+.addressCandidateTable{
+	border-top: 1px solid #CCCED0;
+	border-bottom: 1px solid #CCCED0;
+	border-left: 1px solid #CCCED0;
+	padding:0;
+	margin:0;
+}

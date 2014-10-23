@@ -1,0 +1,241 @@
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.8em;
+	font-style: normal;
+	font-weight: normal;
+	color: #333333;
+	background-color: #4b4b4b;
+	margin: 4px;
+	padding: 0px;
+}
+
+td {
+  white-space:normal !important;
+}
+
+.tabBodyTable {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.borderSpacer {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* START -- classes for header area of chat window */
+.pmtcochatwin_headerArea {
+	background-color: #FFF;
+	background-image: url(../images/pmtcochatwin_headerArea.png);
+	background-repeat: repeat-x;
+	background-position: right top;
+	padding-top: 16px;
+	padding-right: 12px;
+	padding-bottom: 12px;
+	padding-left: 12px;
+	border-top-left-radius: 4px;
+	moz-border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	moz-border-top-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	moz-border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	moz-border-bottom-right-radius: 4px;
+}
+.pmtcochatwin_welcomeText {
+	background-image: url(../images/pmtcochatwin_chatWithAgent.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding-left: 75px;
+}
+.pmtcochatwin_waitingText {
+	background-image: url(../images/progressbar.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding-left: 75px;
+}
+.pmtcochatwin_noAgentText {
+	background-image: url(../images/pmtcochatwin_noAgent.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	padding-left: 75px;
+}
+.pmtcochatwin_titleText {
+	font-size: 1.5em;
+	font-style: normal;
+	font-weight: bold;
+	color: #222;
+}
+.pmtcochatwin_contactDetails {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.pmtcochatwin_headerArea .pmtcochatwin_youName {
+	font-weight: bold;
+	color: #CF7010;
+}
+/* END -- classes for header area of chat window */
+
+
+/* START -- classes for chat area of window */
+.pmtcochatwin_chatArea {
+	overflow: auto;
+	background-color: #FFF;
+	padding-top: 17px;
+	padding-right: 12px;
+	padding-bottom: 16px;
+	padding-left: 12px;
+	margin-top: 4px;
+	margin-bottom: 2px;
+	height: 380px;
+	border-top-left-radius: 4px;
+	moz-border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	moz-border-top-right-radius: 4px;
+	/*border-bottom-left-radius: 4px;
+	moz-border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	moz-border-bottom-right-radius: 4px;*/
+}
+.pmtcochatwin_chatItem {
+  clear: both;
+  padding-top: 10px;
+  height: 0;
+}
+.pmtcochatwin_chatItemNoPad {
+  clear: both;
+  height: 0;
+}
+.pmtcochatwin_chatYouTitle {
+  font-size: 0.9em;
+  font-weight: bold;
+  float: right; 
+  color: #CF7010;
+  width: 80px; 
+  overflow: hidden; 
+  margin: 0 0 0 -81px;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.pmtcochatwin_chatYouComments {
+  color: #222222;
+  float: right; 
+  word-wrap: break-word;
+  padding: 0 90px 0 0;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+.pmtcochatwin_chatMeTitle {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #4a7bc7;
+  float: right; 
+  width: 80px; 
+  overflow: hidden; 
+  margin: 0 0 0 -81px;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.pmtcochatwin_chatMeComments {
+  color: #2C4D80;
+  float: right; 
+  word-wrap: break-word;
+  padding: 0 90px 0 0;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+.pmtcochatwin_chatSysMessage {
+  color: #2C4D80;
+  float: right; 
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+/* END -- classes for chat area of window */
+
+/* This selector fixes a bug with the textarea element on IE expanding beyond the bounds of its container div element 
+   when typed in by triggering the "has layout" mode, which then allows the textarea element to render properly. 
+   “Layout” is an IE/Win proprietary concept that determines how elements draw and bound their content, interact 
+   with and relate to other elements, and react on and transmit application/user events. Setting the height equal 
+   to 1% is mainly used to trigger "has layout" because it has the least detrimental effect on a layout in IE. 
+   IE treats height as though it were minimum height and will automatically increase the parent to compensate for 
+   its content height. Therefore a 1% height is never going to be in effect because the content will always be more 
+   than that. However, this selector should always be hidden on non-IE browsers. All IE browsers recognize an invisible 
+   and mysterious wrapper element around <html>. Therefore the use of the universal selector preceding html works in 
+   IE browsers and nowhere else. */
+* html .pmtcochatwin_textInputArea {
+	height: 1%;
+}
+
+.pmtcochatwin_textInputArea {
+	background-color: #F0EFEF;
+	padding-top: 17px;
+	padding-right: 12px;
+	padding-bottom: 0px;
+	padding-left: 12px;
+	/*border-top-left-radius: 4px;
+	moz-border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	moz-border-top-right-radius: 4px;*/
+}
+.pmtcochatwin_textInputPrompt {
+	position: absolute; 
+	font-style: italic; 
+	color: #aaa; 
+	padding-left: 30px;
+}
+.pmtcochatwin_textInputField {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	font-style: normal;
+	font-weight: normal;
+	color: #333333;
+	background-color: #F0EFEF;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 80px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	resize: none;
+	overflow: auto;
+}
+.pmtcochatwin_sendButton {
+	background-color: #F0EFEF;
+	padding-top: 8px;
+	padding-right: 12px;
+	padding-bottom: 10px;
+	padding-left: 12px;
+	text-align: left;
+	border-bottom-left-radius: 4px;
+	moz-border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	moz-border-bottom-right-radius: 4px;
+}
+.pmtcochatwin_link {
+	cursor:pointer;
+	text-decoration:underline;
+}	
+.pmtcochatwin_hide {
+	display: none;
+}
+.pmtcochatwin_chatButton{
+ 
+}
+
+

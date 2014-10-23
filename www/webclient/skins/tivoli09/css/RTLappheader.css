@@ -1,0 +1,113 @@
+/*
+* Licensed Materials - Property of IBM
+* “Restricted Materials of IBM”
+* 5724-U18
+* (C) COPYRIGHT IBM CORP. 2006,2010 All Rights Reserved.
+* US Government Users Restricted Rights - Use, duplication or
+* disclosure restricted by GSA ADP Schedule Contract with
+* IBM Corp.
+*
+*/
+
+ /*	This is the file in which we place all non-system css settings. Please section them by application/presentation
+  */
+
+@import url("RTLmaximo.css");
+@import url("RTLmaximo_ex.css");
+@import url("extended.css");
+
+.incidentheader {
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ffffff', endColorstr='#F3F6Fa') !important;  
+  	background-image: -moz-linear-gradient(#FFFFFF 1px, #F3F6Fa 100%); 
+	border-radius: 5px;
+}
+
+.incidentheader tr td {
+	padding: 0px 5px;	
+}
+
+.incidentheader .litelabel label{
+	color: #777777;
+}
+
+.incidentheader .nopadding td {
+	padding: 0px;
+}
+
+.incidentheader .desctext {
+	font-size: 18px;	
+	border-bottom: 1px solid #0d85b4;
+	padding-bottom: 5px;
+	font-weight: bold;
+}
+
+.incidentheader .ticketidtext {
+	font-size: 18px;	
+	border-bottom: 1px solid #0d85b4;
+	padding-bottom: 5px;
+	color: #777777;
+	font-weight: bold;
+}
+
+.incidentheader .longdesctext {
+	
+}
+
+
+/* position the priority image */
+.headerleft img {
+	position: relative;
+	 top: 15px; 
+	 left: 10px; 
+}
+
+.indicatorcolumn {
+	border-right: 1px solid #cccccc;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.imagecolumn {
+	border-right: 1px solid #cccccc;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.indicatorcolumn td {
+       padding-top: 5px !important;
+       padding-bottom: 5px !important;
+}
+
+/* summary text with blue bar */
+.incidentheader .class1 {
+	border-bottom: 1px solid #0d85b4;
+	padding-top: 20px;
+	padding-bottom: 5px;
+}
+
+/* image column with vertical separation bar */
+.incidentheader .class2 {
+	border-right: 1px solid #cccccc;
+	padding-left: 10px;
+}
+
+.incidentheader .fld {
+	vertical-align: middle;
+	margin-top: 2px;	
+}
+
+.incidentheader .ffro, .incidentheader .FFAS{
+	border: 1px solid transparent !important;	
+}
+
+
+.incidentheader label {
+	color: #222222;
+	align: left;
+}
+
+.incidentheader .fld_ro {
+	border: 0px;
+	color: #222;
+	background: transparent;
+}

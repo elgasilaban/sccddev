@@ -1,0 +1,524 @@
+/*
+ *
+ * IBM Confidential
+ *
+ * OCO Source Materials
+ *
+ * 5724-R46
+ *
+ * (C) COPYRIGHT IBM CORP. 2006,2007
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *
+ */
+ 
+/*	BEGIN common */
+        @import url("RTLmaximo.css");
+	@import url("extended.css");
+	
+/*      BEGIN pmscshopex */
+
+	.pmscshopex_overall_section 
+	{
+	width:100%;
+	background-color:#FFFFFF;
+	}
+        
+	.pmscshopex_overall_offerings_section 
+	{       
+	width:100%;
+	background-color:#FFFFFF;
+	}
+        
+	.pmscshopex_banner_section 
+	{
+	width:100%;
+	background-color:#FFFFFF;
+	background-image: url(../images/rtl/bgBanner_BlueCatalog.jpg);
+	background-repeat: no-repeat;
+	background-position: right;
+	height: 55px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-top-color: #396799;
+	border-bottom-color: #396799;
+	}
+        
+	.pmscshopex_table_section 
+	{       
+	width:100%;
+	height:100%;
+	}
+
+	.pmscshopex_cart_section 
+	{       
+	width:100%;
+	background-color:#F2F5F8;
+	}
+
+	.pmscshopex_favorites_section 
+	{       
+	width:100%;
+	background-color:#FFFFFF;
+	}
+
+	.pmscshopex_statictext
+	{
+	font-size:12px;
+	}
+
+	.pmscshopex_treecontainer
+	{
+	margin:1px;
+	background-color: #F1EEE8;
+	font-size:11px;
+	overflow:auto;
+	scrollbar-track-color:#C4C4C4;
+	scrollbar-3dlight-color:#ACACAC;
+	scrollbar-darkshadow-color:#999999;
+	scrollbar-highlight-color:#E7E7E7;
+	scrollbar-shadow-color:#E7E7E7;
+	scrollbar-arrow-color:#5C5C5C;
+	scrollbar-face-color:#E7E7E7;
+	background-repeat: repeat;
+	background-position: left top;
+	background-image: url(../images/bgtile_tree.gif);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-right-style: none;
+	border-left-style: none;
+	border-top-color: #9C9C9C;
+	border-bottom-color: #9C9C9C;
+	}
+
+	.pmscshopex_nodename
+	{
+	font-family:Arial,Helvetica,sans-serif; 
+	font-size:12px;
+	text-decoration:none;
+	color:black;
+	vertical-align:baseline;		
+	}
+	
+	.pmscshopex_hyperlink 
+	{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: bold;
+	color: #396799;
+	}
+        
+.pmscshopex_categorysearch_text
+{
+    /*background:#DFEED9;*/
+    background:#E7E6E2;
+    padding:0px;
+    /*
+    padding-left:2px;
+    padding-right:2px;
+    padding-bottom:0px;
+    margin-bottom:0px;
+    */
+    padding-left:0px;
+    padding-right:0px;
+    padding-top:0px;
+    padding-bottom:0px;
+    margin-bottom:0px;
+    margin-top:0px;
+    border-style:none;
+    cursor:default;
+    color:#6A6B79;
+    font-size:16px;
+    font-family: verdana;
+    font-weight:bold;
+}
+
+.pmscshopex_searchbycategory_tree
+{
+    margin:0px;
+    /*background-color: #DFEED9;*/
+    background-color: #E6E6FA;
+    /*background:#E7E6E2;*/
+    /*background: #C4ECFF;*/
+    color:#003399
+    font-size:13px;
+    /*font-family: verdana;*/
+    overflow:auto;
+    scrollbar-track-color:#C4C4C4;
+    scrollbar-3dlight-color:#ACACAC;
+    scrollbar-darkshadow-color:#999999;
+    scrollbar-highlight-color:#E7E7E7;
+    scrollbar-shadow-color:#E7E7E7;
+    scrollbar-arrow-color:#5C5C5C;
+    scrollbar-face-color:#E7E7E7;
+    background-repeat: repeat;
+    background-position: left top;
+    border-style:none;
+    /*
+    padding:5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 1px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-right-style: none;
+    border-left-style: none;
+    border-top-color: #9C9C9C;
+    border-bottom-color: #9C9C9C;
+    */
+}
+
+.pmscshopex_searchbycategory_tree_node
+{
+    font-family:verdana
+    font-size:13px;
+    text-decoration:none;
+    color:#003399;
+    vertical-align:baseline;
+    border-style:solid;
+    font-weight:bold;
+}
+
+/* new for wizards */
+.pmscoffcat_dialog_header, .pmscoffcat_dialog_headerl, .pmscoffcat_dialog_headerr
+{
+ padding:4px;
+    cursor:default;
+    /*border-top:3px solid #ffffff;*/
+    color:#FFFFFF;
+    font-size: 20px;
+    font-weight:bold;
+    font-family: Arial;;
+    background-image: url(../images/img_bgDialogBanner.png);
+    font-style: normal;
+	
+	/* background-color: #400000;;
+	  background-color: #0080ff;
+	color: white;
+	font-size: 12pt;
+	text-transform: capitalize;
+	font-weight: bold
+	*/ 	
+}
+
+.pmscoffcat_section_header_text
+{
+    font-size:12px;
+    font-family:verdana;
+    font-weight:bold;
+    color:#000000;
+    /* vertical-align: middle;;*/
+	text-decoration: underline
+}
+
+.pmscoffcat_text_node
+{
+    font-family:arial;
+    font-size:12px;
+    /* text-decoration:none; */
+    color: #444a5b;
+    vertical-align:baseline;;
+	padding: 2px
+}
+
+.pmscoffcat_text_node_left {
+    font-family:arial;
+    font-size:12px;
+    color: #444a5b;
+    vertical-align:baseline;;
+    
+    text-align: right;
+}
+
+/*.pmscoffcat_text_node_statictext {
+    font-family:arial;
+    font-size:12px;
+    color: #444a5b;
+    vertical-align:baseline;;
+    
+    / fix margin 
+    margin-top: 7px; 
+	 
+}*/
+
+label.pmscoffcat_text_node_label {	
+	font-family:arial;
+    font-size:12px;   
+    color: #444a5b;
+    vertical-align:baseline;
+    
+    /* bold label */
+    font-weight: bolder;
+}
+
+span.pmscoffcat_text_node_label {	
+	font-family:arial;
+    font-size:12px;   
+    color: #444a5b;
+    vertical-align:baseline;
+    
+    /* bold label */
+    font-weight: bolder;
+}
+
+
+input.pmscoffcat_text_node_noborder {
+    font-family:arial;
+    color: #444a5b;
+    vertical-align:baseline;
+    
+    font-size: 12px;
+    
+    /* bold value */
+    font-weight: bolder;
+    
+    /* remove border */
+	border: medium none;	
+	background: none;
+	
+	margin-top: 5px; 
+}
+
+input.pmscoffcat_text_node_noborder_right {
+	    font-family:arial;
+	    color: #444a5b;
+	    vertical-align:baseline;
+	    
+	    font-size: 12px;
+	    
+	    /* bold value */
+        font-weight: bolder;
+	    
+	    /* remove border */
+		border: medium none;	
+		background: none;
+		
+		/* align text right */
+		text-align: right;		 
+}
+	
+input.pmscoffcat_text_node_right {
+    font-family:arial;
+    color: #444a5b;
+    vertical-align:baseline;
+    
+    font-size: 12px;         
+	
+	/* hack to align input field right */
+	margin-right: 85px;	 
+}
+
+input.pmscoffcat_text_node_offering_itemnum {
+    font-family:arial;
+   	font-size:11px; 
+    color: #444a5b;
+    vertical-align:baseline;
+    
+     /* bold value */
+     font-weight: bolder;
+    
+    /* remove border */
+	border: medium none;
+	background: none;
+
+    /* increase width */
+	/* width: 100px !important; */
+	
+	margin-top: 2px;     	 
+}
+ 
+ 
+.pmscoffcat_text_node_leftborder {
+   border-right: 1px solid gray;
+ }
+ .pmscoffcat_text_node_bottomborder {
+   border-bottom: 1px solid gray;
+ }
+ 
+ .pmscoffcat_text_node_hyperlink_label {
+ font-family:arial;
+    font-size:12px;   
+    color: #444a5b;
+    vertical-align:baseline;
+    
+    /* adjust margin */
+    margin-top: 10px;
+ }
+ 
+ .pmscoffcat_text_node_hyperlink {
+   float: left;
+   margin: 0 235px 0 0 !important;
+ }
+ span.pmscoffcat_textarea_node > iframe {
+   border: 1px solid #EEEEEE;
+ }
+ .pmscoffcat_text_node_img {
+  margin-top: 8px !important;
+ }
+ 
+ button.pmscoffcat_offering_button > img {
+   padding-left: 10px;
+ } 
+ 
+ .section  div > button.pb {
+    margin-top: 10px;
+}
+
+/* used to set button vertical and right aligned in offering dialog */
+table.pmscoffcat_vert_buttons tr td.section div {
+    display: block;
+    text-align: left;
+}
+/* align buttons on bottom */ 
+table.pmscoffcat_text_node_leftborder tr td.section {
+    vertical-align: bottom;
+}
+
+
+button.pmscoffcat_offering_button {
+   /* padding: 0.2em 0.5em; */	   
+	/* font-weight: bold; */
+	
+	 height: 2.2em;	
+	font-family:arial;
+    font-size:12px;    
+    vertical-align:baseline;
+    margin-top: 10px;
+	
+   border: .1em solid #3a71c9;
+   -moz-border-radius: 0.2em;
+   -webkit-border-radius: 0.2em;
+   border-radius: 0.2em;
+   background: #3a71c9;
+  
+   /* Old browsers */
+   background: -moz-linear-gradient(top, #3a71c9 0%, #6598dc 100%);
+   /* FF3.6+ */
+   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3a71c9), color-stop(100%, #6598dc));
+   /* Chrome,Safari4+ */
+   background: -webkit-linear-gradient(top, #3a71c9 0%, #6598dc 100%);
+   /* Chrome10+,Safari5.1+ */
+   background: -o-linear-gradient(top, #3a71c9 0%, #6598dc 100%);
+   /* Opera11.10+ */
+   background: -ms-linear-gradient(top, #3a71c9 0%, #6598dc 100%);
+   /* IE10+ */
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3a71c9', endColorstr='#6598dc',GradientType=0 );
+   /* IE6-9 */
+   background: linear-gradient(top, #3a71c9 0%, #6598dc 100%);
+   /* W3C */ 
+   color: white;   
+  
+   background-color: rgb(58, 113, 201);
+} 
+
+.pmscoffcat_textarea_node
+{
+    font-family:arial;
+    font-size: 12px;
+    /* text-decoration:none; */
+    color: #444a5b;
+    vertical-align:baseline;;
+    background-repeat: repeat;
+	background-position: left top;		
+	background-image: none;	
+	padding: 2px;;
+	background-repeat: repeat;
+	background-color: white
+}
+
+.pmscoffcat_textarea_node p 
+ { 
+ margin-top: 0em;
+ margin-bottom: .5em;
+ /* line-height: 1em; */
+ line-height: normal;
+ }
+
+ .pmscoffcat_textarea_node ol li, .pmscoffcat_textarea_node ul li
+ {  
+ /* line-height: 1em; */
+ line-height: normal;
+ }	
+
+.pmscoffcat_table_text_node
+{
+    font-family:arial;
+    font-size:12px;
+    /* text-decoration:none; */
+    color: #444a5b;
+    vertical-align:baseline;;
+	padding: 5px
+}
+
+.pmscoffcat_section_color
+{
+	background-color: #D9E2EB;
+	background-position: left top;
+	background-repeat: repeat
+}
+  
+.pmscoffcat_tablabel
+{
+    font-family:verdana;
+    font-size:13px;
+    font-weight:bold;
+    text-decoration:none;	
+    vertical-align:middle;		    
+}
+
+.pmscoffcat_border
+{     
+    /* text-decoration:none; */    
+    border-style: solid;
+	border-width: thin;
+	padding: 5x;
+}
+
+.tooltipShadow
+{
+    /* background: url(../images/shadow.png);    translucent shadow */
+    z-index: 100011;
+}
+ 
+.tooltipContent
+{
+       left: -6px; top: -6px;        /* how much of the shadow shows */    
+       background-color: #f9fdd7;   /* #f5fcc9; #e1dea8; ff0; yellow background */
+       border: solid black 1px;      /* thin black border */
+       padding: 5px;                 /* spacing between text and border */
+       font: bold 10pt sans-serif;   /* small bold font */
+}
+        
+/*=====================================
+ * OVERRIDE TAGS
+ *=====================================*/
+	.sccd
+	{ 
+		background-color:#F5EFD5;
+	}
+
+	.scfvd
+	{
+		background-color: #c0c0c0;
+		border:1px solid #D50303;
+	}
+
+/* END overrides */
+/* END pmscshopex */
+
