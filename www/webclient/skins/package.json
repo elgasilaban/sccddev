@@ -1,0 +1,8 @@
+{
+	"name": "skins-build",
+	"version":"7.5.0.3",
+	"directories": {
+		"lib": "."
+	},
+	"description": "Tpae/Maximo Cascading Style Sheets",
+}
