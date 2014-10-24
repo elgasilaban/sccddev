@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="sccddev"
+  id="myeclipse.1394628622654"
+  context-root="/sccddev"
+  j2ee-spec="6.0"
+  archive="sccddev.war">
+  <attributes>
+    <attribute name="webrootdir" value="www" />
+  </attributes>
+</project-module>
+
