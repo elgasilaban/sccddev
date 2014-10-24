@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Common Logging Bundle
+Bundle-SymbolicName: org.eclipse.equinox.jakarta.commons.el
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+Fragment-Host: system.bundle; extension:=framework
+Export-Package: org.apache.commons.el,
+ org.apache.commons.el.parser

@@ -1,0 +1,588 @@
+<control-registry basedir="webclient\controls" package="psdi.webclient.controls">
+
+ <control-descriptor name="dojorichtext">
+     <property-list>
+         <property name="plugins">
+             <default-value>foreColor, hiliteColor,createLink,insertImage,toolbarlinebreak, fontName, fontSize, {name: 'formatBlock', plainText: true} </default-value>
+         </property>
+         <property name="dojo_require">
+             <default-value>dijit._editor.plugins.FontChoice, dijit._editor.plugins.TextColor, dijit._editor.plugins.LinkDialog, dijit._editor.plugins.ToggleDir,dojox.editor.plugins.ToolbarLineBreak</default-value>
+         </property>
+         <property name="load_css">
+             <default-value>dojox/editor/plugins/resources/editorPlugins.css, dojox/form/resources/FileInput.css</default-value>
+         </property>
+         <property name="dojo_type">
+             <default-value>dijit.Editor</default-value>
+         </property>
+         <property name="_longdescription" />
+         <property name="adjleft" />
+         <property name="align" />
+         <property name="applink" />
+         <property name="applinkkey" />
+         <property name="applinkquery" />
+         <property name="applinkreturn" />
+         <property name="boundcontrol" />
+         <property name="cssclass" />
+         <property name="dataattribute">
+             <flag name="final" />
+         </property>
+         <property name="datasrc">
+             <flag name="nonconditional" />
+             <flag name="global" />
+         </property>
+         <property name="datatype" />
+         <property name="defaultbutton">
+             <flag name="global" />
+         </property>
+         <property name="defaultfocus" />
+         <property name="descdataattribute" />
+         <property name="descinputmode" />
+         <property name="desclookup" />
+         <property name="detailimage" />
+         <property name="detailmessage" />
+         <property name="display">
+             <default-value>true</default-value>
+             <flag name="global" />
+         </property>
+         <property name="displaytype" />
+         <property name="dynamic" />
+         <property name="filterable" />
+         <property name="forceclear">
+             <default-value>false</default-value>
+             <flag name="final" />
+         </property>
+         <property name="hidelabel" />
+         <property name="hidewhen" />
+         <property name="id">
+             <flag name="final" />
+         </property>
+         <property name="in_column" />
+         <property name="inputmode">
+             <flag name="global" />
+         </property>
+         <property name="label">
+             <flag name="translatable" />
+         </property>
+         <property name="labelcss" />
+         <property name="licensekey">
+             <flag name="final" />
+         </property>
+         <property name="linkcontrolid" />
+         <property name="longdescreadonly" />
+         <property name="longdescription" />
+         <property name="lookup" />
+         <property name="maxdatalength" />
+         <property name="menutype" />
+         <property name="movetoattribute" />
+         <property name="movetoresultset" />
+         <property name="mxevent" />
+         <property name="numeric" />
+         <property name="ondatachange" />
+         <property name="onfilterrow" />
+         <property name="ontabledetails">
+             <flag name="global" />
+             <flag name="final" />
+         </property>
+         <property name="prepend" />
+         <property name="readonly" />
+         <property name="rownum">
+             <flag name="system" />
+             <flag name="global" />
+         </property>
+         <property name="showdetail" />
+         <property name="sigoption">
+             <flag name="nonconditional" />
+             <flag name="final" />
+         </property>
+         <property name="sigoptiondatasrc">
+             <flag name="nonconditional" />
+             <flag name="final" />
+         </property>
+         <property name="size" />
+         <property name="sizeintable" />
+         <property name="smartfilloff" />
+         <property name="sortable" />
+         <property name="tablereadonly">
+             <flag name="final" />
+             <flag name="global" />
+         </property>
+         <property name="textcss">
+             <flag name="global" />
+             <flag name="final" />
+             <default-value>text</default-value>
+         </property>
+         <property name="title" />
+         <property name="updateonchange" />
+         <property name="usefieldsizegroup" />
+         <property name="usereditable" />
+         <property name="width" />
+         <property name="height" />
+     </property-list>
+     <component-list>
+         <components id="${name}_comps1" layout="vertical">
+             <components id="${name}_comps2" layout="horizontal" valign="middle">
+                 <label id="${name}_label" labelcss="@{labelcss}" dataattribute="@{dataattribute}" inputmode="@{inputmode}" title="@{label}" align="right" hideontable="true" hidelabel="@{hidelabel}" ignoredatachange="true" ignorereadonlychange="false" ignorerequiredchange="false" textcss="@{textcss}" oninput="true" />
+                 <group id="${name}_group1">
+                     <required-indicator id="${name}_required_indicator" dataattribute="@{dataattribute}" inputmode="@{inputmode}" hideontable="true" ignoredatachange="true" ignorereadonlychange="true" />
+                     <dojorichtext id="${name}_richtext" dataattribute="@{dataattribute}" usereditable="@{usereditable}" lookup="@{lookup}" menutype="@{menutype}" applink="@{applink}" inputmode="@{inputmode}" defaultbutton="@{defaultbutton}" tablereadonly="@{tablereadonly}" onfilterrow="@{onfilterrow}" width="@{width}" height="@{height}" title="@{label}" usefieldsizegroup="@{usefieldsizegroup}" instance-class="psdi.webclient.components.LongDescriptionTextArea"/>
+                     <image id="${name}_button" menutype="@{menutype}" lookup="@{lookup}" inputmode="@{inputmode}" linkedcomponent="@{id}-${name}_textarea" dataattribute="@{dataattribute}" align="left" display="inline" ignoredatachange="true" ignorereadonlychange="true" ignorerequiredchange="true" cssclass="mltblu"/>
+                 </group>
+
+             </components>
+         </components>
+     </component-list>
+     <containers>
+         <container name="radiobutton" />
+         <container name="section" />
+         <container name="sectioncol" />
+         <container name="tablecell" />
+         <container name="tablecol" />
+     </containers>
+ </control-descriptor>
+
+    <control-descriptor name="rtmultilinetextbox">
+		<property-list>
+			<property name="applink" />
+			<property name="columns">
+				<default-value>30</default-value>
+			</property>
+			<property name="cssclass" />
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="nonconditional" />
+				<flag name="global" />
+			</property>
+			<property name="debug">
+				<flag name="global" />
+			</property>
+			<property name="detailimage" />
+			<property name="display">
+				<default-value>true</default-value>
+				<flag name="global" />
+			</property>
+			<property name="hidelabel">
+				<default-value>false</default-value>
+			</property>
+			<property name="hidetooltip" />
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="in_column" />
+			<property name="inputmode">
+				<flag name="global" />
+			</property>
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="longdescreadonly" />
+			<property name="lookup" />
+			<property name="maxdatalength" />
+			<property name="menutype" />
+			<property name="mxevent" />
+			<property name="numcols" />
+			<property name="numeric" />
+			<property name="numrows" />
+			<property name="ondatachange" />
+			<property name="resizeable" />
+			<property name="rownum">
+				<flag name="system" />
+				<flag name="global" />
+			</property>
+			<property name="rows">
+				<default-value>2</default-value>
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="textcss">
+				<flag name="global" />
+				<flag name="final" />
+				<default-value>text</default-value>
+			</property>
+			<property name="title" />
+			<property name="updateonchange" />
+			<property name="accepthtmltags">  
+   				<default-value>false</default-value>
+			</property>			
+		</property-list>
+		<component-list>
+			<components id="${name}_components_row" layout="vertical">
+				<components id="${name}_components_col" layout="horizontal" valign="top"  nowrap="false">
+					<label id="${name}_label" labelcss="@{labelcss}" dataattribute="@{dataattribute}" inputmode="@{inputmode}" title="@{label}" align="right" hidelabel="@{hidelabel}" hideontable="true" ignoredatachange="true" ignorereadonlychange="false" ignorerequiredchange="false" textcss="@{textcss}" oninput="true" />
+					<group id="${name}_group1">
+						<required-indicator id="${name}_required_indicator" dataattribute="@{dataattribute}" inputmode="@{inputmode}" hideontable="true" ignoredatachange="true" ignorereadonlychange="true" />
+						<rttextarea id="${name}_textarea" rows="@{rows}" columns="@{columns}" cssclass="multilinetextbox @{cssclass}" dataattribute="@{dataattribute}" inputmode="@{inputmode}" title="@{label}" textcss="@{textcss}" hidetooltip="@{hidetooltip}" accepthtmltags="@{accepthtmltags}" />						
+						<!-- <image id="${name}_button" menutype="@{menutype}" lookup="@{lookup}" inputmode="@{inputmode}" linkedcomponent="@{id}-${name}_textarea" dataattribute="@{dataattribute}" align="left" display="inline" ignoredatachange="true" ignorereadonlychange="true" ignorerequiredchange="true" cssclass="mltblu"/> -->
+					</group>
+				</components>
+			</components>
+		</component-list>
+		<containers>
+			<container name="section" />
+		</containers>
+	</control-descriptor>
+	
+	<control-descriptor name="schyperlink" descriptor-class="psdi.webclient.system.runtime.DatasrcDescriptor" instance-class="psdi.webclient.controls.HyperLink">
+		<property-list>
+			<property name="accesskey" />
+			<property name="accesskeytitle" />
+			<property name="additionalevent" />
+			<property name="additionaleventvalue" />
+			<property name="align" />
+			<property name="beanclass">
+				<flag name="nonconditional" />
+			</property>
+			<property name="classname" />
+			<property name="column" />
+			<property name="datasrc">
+				<flag name="nonconditional" />
+				<flag name="global" />
+			</property>
+			<property name="designermboname">
+				<flag name="nonconditional" />
+			</property>
+			<property name="display">
+				<default-value>true</default-value>
+				<flag name="global" />
+			</property>
+			<property name="displaystyle">
+				<default-value>block</default-value>
+			</property>
+			<property name="eventvalue" />
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="image" />
+			<property name="imagecss" />
+			<property name="imagealign" />
+			<property name="imagevalign" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss" />
+			<property name="launchexternal" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="link" />
+			<property name="mboname">
+				<flag name="nonconditional" />
+			</property>
+			<property name="mxevent" />
+			<property name="mxevent_desc">
+				<flag name="translatable" />
+			</property>
+			<property name="mxevent_icon" />
+			<property name="newwindow" />
+			<property name="relationship">
+				<flag name="nonconditional" />
+			</property>
+			<property name="rownum">
+				<flag name="system" />
+				<flag name="global" />
+			</property>
+			<property name="separator" />
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="targetid" />
+			<property name="textcss">
+				<flag name="global" />
+				<flag name="final" />
+				<default-value>text</default-value>
+			</property>
+			<property name="tooltip">
+				<flag name="translatable" />
+			</property>
+			<property name="underlinelink" />
+			<property name="url" />
+			<property name="tooltipmsgkey"/>
+			<property name="tooltipmsggroup"/>
+			<property name="tooltipfunction"/>
+			<property name="tooltipattr"/>
+		</property-list>
+		<component-list>
+			<components id="${name}_components_h" layout="horizontal">
+				<sclabel id="${name}_link" title="@{label}" additionalvalue="@{additionalvalue}" additionaleventvalue="@{additionaleventvalue}" href="@{link}" setsfocus="true" align="@{align}" image="@{image}" tooltip="@{tooltip}" imagealign="@{imagealign}" imagevalign="@{imagevalign}" accesskey="@{accesskey}" accesskeytitle="@{accesskeytitle}" cssclass="@{classname}" mxevent="@{mxevent}" mxevent_icon="@{mxevent_icon}" mxevent_desc="@{mxevent_desc}" eventvalue="@{eventvalue}" targetid="@{targetid}" underlinelink="@{underlinelink}" textcss="@{textcss}" imagecss="@{imagecss}" displaystyle="@{displaystyle}" tooltipmsgkey="@{tooltipmsgkey}" tooltipmsggroup="@{tooltipmsggroup}" tooltipfunction="@{tooltipfunction}" tooltipattr="@{tooltipattr}"/>
+			</components>
+		</component-list>
+		<containers>
+			<container name="controlcontainer" />
+			<container name="section" />
+			<container name="titlebar" />
+		</containers>
+	</control-descriptor>
+	
+ 	<control-descriptor name="sctabletext" instance-class="${package}.TableText">
+		<property-list>
+			<property name="eventvalue"/>
+			<property name="id">
+				<flag name="final"/>
+			</property>
+			<property name="targetid"/>
+			<property name="dataattribute">
+				<flag name="final"/>
+			</property>
+            
+			<property name="align"/>
+			<property name="label">
+				<flag name="translatable"/>
+			</property>
+			<property name="labelcss"/>
+			<property name="licensekey">
+				<flag name="final"/>
+			</property>
+			<property name="relationship">
+				<flag name="nonconditional"/>
+			</property>
+			<property name="datasrc">
+				<flag name="nonconditional"/>
+				<flag name="global"/>
+			</property>
+			<property name="link"/>
+			<property name="column"/>
+			<property name="url"/>
+			<property name="image"/>
+			<property name="mxevent"/>
+			<property name="mboname">
+				<flag name="nonconditional"/>
+			</property>
+			<property name="separator"/>
+			<property name="beanclass">
+				<flag name="nonconditional"/>
+			</property>
+			<property name="imagealign"/>
+			<property name="accesskey"/>
+			<property name="newwindow"/>
+			<property name="cssclass"/>
+			<property name="display">
+				<default-value>true</default-value>
+				<flag name="global"/>
+			</property>
+			<property name="msgkey"/>
+			<property name="msggroup"/>
+			<property name="rownum">
+				<flag name="system"/>
+				<flag name="global"/>
+			</property>
+			<property name="sigoption"/>
+			<property name="sigoptiondatasrc"/>
+			<!--  This maps to the the image attribute. If set to "PercentAvail", the image
+                  is constructed based onthe percentage available (tied to reservation api)			
+			  -->
+			<property name="urlattribute"/>
+            <property name="usefieldsizegroup"/>
+			<property name="type"/>
+			<property name="textcss">
+				<flag name="global"/>
+				<flag name="final"/>
+				<default-value>text</default-value>
+ 			</property>
+            <!-- fpb added -->
+			<property name="mxevent_icon"/>
+			<!--  icon used in tooltip -->
+			<property name="detailimage"/>
+			<property name="style"/>
+			<property name="hidetooltip" />
+			<property name="tooltip">
+				<flag name="translatable" />
+			</property>
+			<property name="accepthtmltags"> 
+   				<default-value>false</default-value>
+			</property>	
+			<property name="tooltipmsgkey"/>
+			<property name="tooltipmsggroup"/>
+			<property name="tooltipfunction"/>
+			<property name="tooltipattr"/>
+			<property name="wraptext"/>
+		</property-list>
+		<component-list>
+			<components id="${name}_innertablecellv" layout="vertical" >
+				<components id="${name}_innertablecell" layout="horizontal" cssclass="@{cssclass}" >					 
+                    <sclabel id="${name}_link" title="@{label}" dataattribute="@{dataattribute}"   additionalvalue="@{additionalvalue}" additionaleventvalue="@{additionaleventvalue}" href="@{link}" setsfocus="true" align="@{align}" image="@{image}" tooltip="@{tooltip}" imagealign="@{imagealign}" imagevalign="@{imagevalign}" accesskey="@{accesskey}" accesskeytitle="@{accesskeytitle}" cssclass="@{classname}" mxevent="@{mxevent}" mxevent_icon="@{mxevent_icon}" mxevent_desc="@{mxevent_desc}" eventvalue="@{eventvalue}" targetid="@{targetid}" underlinelink="@{underlinelink}" textcss="@{textcss}" imagecss="@{imagecss}" displaystyle="@{displaystyle}" tooltipmsgkey="@{tooltipmsgkey}" tooltipmsggroup="@{tooltipmsggroup}" tooltipfunction="@{tooltipfunction}" tooltipattr="@{tooltipattr}" accepthtmltags="@{accepthtmltags}" wraptext="true"/>                                       
+				</components>
+			</components>
+		</component-list>
+		<containers>
+			<!-- System generated -->
+		</containers>
+	</control-descriptor>
+ 	
+ 	
+ 	
+ 	<control-descriptor name="textboxlink">
+		<property-list>
+			<property name="_longdescription" />
+			<property name="accesskey" />
+			<property name="adjleft" />
+			<property name="align" />
+			<property name="applink" />
+			<property name="applinkkey" />
+			<property name="applinkquery" />
+			<property name="applinkreturn" />
+			<property name="boundcontrol" />
+			<property name="cssclass" />
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="nonconditional" />
+				<flag name="global" />
+			</property>
+			<property name="datatype" />
+			<property name="defaultbutton">
+				<flag name="global" />
+			</property>
+			<property name="defaultfocus" />
+			<property name="descdataattribute" />
+			<property name="descinputmode" />
+			<property name="desclookup" />
+			<property name="detailimage" />
+			<property name="detailmessage" />
+			<property name="display" type="xsd:boolean">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+			<property name="displaytype" />
+			<property name="dynamic" />
+			<property name="erroricon" />
+			<property name="eventvalue" />
+			<property name="extendedtooltip" />
+			<property name="filterable" />
+			<property name="forceclear" type="xsd:boolean">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="hidelabel" type="xsd:boolean" />
+			<property name="hidewhen" />
+			<property name="hidetooltip" type="xsd:boolean" />
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="image" />
+			<property name="imagealign" />
+			<property name="in_column" />
+			<property name="inputmode">
+				<flag name="global" />
+			</property>
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="link" />
+			<property name="linkcontrolid" />
+			<property name="longdescreadonly" />
+			<property name="longdescription" />
+			<property name="lookup" />
+			<property name="maxdatalength" />
+			<property name="menutype" />
+			<property name="moreinformation" />
+			<property name="movetoattribute" />
+			<property name="movetoresultset" />
+			<property name="mxevent" />
+			<property name="mxevent_desc">
+				<flag name="translatable" />
+			</property>
+			<property name="mxevent_icon" />
+			<property name="notifyportlets" />
+			<property name="numeric" />
+			<property name="ondatachange" />
+			<property name="onfilterrow" />
+			<property name="ontabledetails">
+				<flag name="global" />
+				<flag name="final" />
+			</property>
+			<property name="prepend" />
+			<property name="readonly" type="xsd:boolean" />
+			<property name="rownum" type="xsd:integer">
+				<flag name="system" />
+				<flag name="global" />
+			</property>
+			<property name="showdetail" type="xsd:boolean" />
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="size" />
+			<property name="sizeintable" />
+			<property name="smartfilloff" type="xsd:boolean" />
+			<property name="sortable" />
+			<property name="synchronous" type="xsd:boolean">
+				<default-value>false</default-value>
+			</property>
+			<property name="tablereadonly" type="xsd:boolean">
+				<flag name="final" />
+				<flag name="global" />
+			</property>
+			<property name="textcss">
+				<flag name="global" />
+				<flag name="final" />
+				<default-value>text</default-value>
+			</property>
+			<property name="targetid" />
+			<property name="title" />
+			<property name="tooltip">
+				<flag name="translatable" />
+			</property>
+			<property name="updateonchange" type="xsd:boolean" />
+			<property name="usefieldsizegroup" type="xsd:boolean" />
+			<property name="usereditable" type="xsd:boolean" />
+			<property name="width" />
+		</property-list>
+		<component-list>
+			<components id="${name}_comps1" layout="vertical">
+				<components id="${name}_comps2" layout="horizontal" valign="middle" makevertical="true">
+					<label id="${name}_label" labelcss="@{labelcss}" dataattribute="@{dataattribute}" inputmode="@{inputmode}" title="@{label}" align="right" hideontable="true" hidelabel="@{hidelabel}" ignoredatachange="true" ignorereadonlychange="false" ignorerequiredchange="false" oninput="true" labelfor="${name}_textbox"/>
+					<group id="${name}_group1">
+						<required-indicator id="${name}_required_indicator" dataattribute="@{dataattribute}" inputmode="@{inputmode}" hideontable="true" ignoredatachange="true" ignorereadonlychange="true" />
+						<textbox id="${name}_textbox" dataattribute="@{dataattribute}" usereditable="@{usereditable}" lookup="@{lookup}" menutype="@{menutype}" applink="@{applink}" inputmode="@{inputmode}" defaultbutton="@{defaultbutton}" tablereadonly="@{tablereadonly}" onfilterrow="@{onfilterrow}" cssclass="@{cssclass}" forceclear="@{forceclear}" prepend="@{prepend}" width="@{width}" title="@{label}" usefieldsizegroup="@{usefieldsizegroup}" textcss="@{textcss}" hidetooltip="@{hidetooltip}" notifyportlets="@{notifyportlets}" synchronous="@{synchronous}" extendedtooltip="@{extendedtooltip}"/>
+						<image id="${name}_detailbutton" dataattribute="@{dataattribute}" inputmode="@{inputmode}" show="@{showdetail}" menutype="@{menutype}" lookup="@{lookup}" applink="@{applink}" linkedcomponent="@{id}-${name}_textbox" align="left" display="inline" ignoredatachange="true" ignorereadonlychange="true" ignorerequiredchange="true" detailimage="@{detailimage}" tooltip="@{detailmessage}" />
+						<label id="${name}_link" href="@{link}" setsfocus="true" align="@{align}" image="@{image}" tooltip="@{tooltip}" imagealign="@{imagealign}" displaystyle="inline" accesskey="@{accesskey}" cssclass="@{classname}" mxevent="@{mxevent}" mxevent_icon="@{mxevent_icon}" mxevent_desc="@{mxevent_desc}" eventvalue="@{eventvalue}" targetid="@{targetid}"  textcss="@{textcss}" hidewhen="@{hidewhen}" />
+					</group>
+					
+				</components>
+			</components>
+		</component-list>
+		<containers>
+			<container name="dialog" />
+			<container name="radiobutton" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="tab" />
+			<container name="tablecell" />
+			<container name="tablecol" />
+			<container name="tabledetails" />
+		</containers>
+		<bindlist>
+			<attribute property="dataattribute">
+				<label property="label" />
+				<inputmode property="inputmode" />
+			</attribute>
+		</bindlist>
+	</control-descriptor>
+ 	
+
+</control-registry>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+	<name>Instant Messaging for IBM SmartCloud Control Desk</name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+		<modlevel>1</modlevel>
+		<patch>0</patch> 
+		<build>201301301410M</build>
+	</version>
+	<dbmaxvarname>IMBOT</dbmaxvarname>
+	<dbscripts>imbot</dbscripts>
+	<lastdbversion>V7200-00</lastdbversion>
+	<dbversion>V7200-03</dbversion>
+	
+</product>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+    <name>Advanced Workflow Components for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410</build>
+    </version>
+    <dbmaxvarname>DBRBA</dbmaxvarname>
+    <dbscripts>rba</dbscripts>
+    <dbversion>V7510-02</dbversion>
+    <lastdbversion>V7210-04*V7500-23</lastdbversion>
+    <depends>serviceprovider</depends>
+    <extensions>
+        <mbo
+            objectname = "ACTION"
+            extends = "psdi.plusp.common.action.PlusPAction">com.ibm.ism.rba.app.action.RBAAction</mbo>
+        <class extends = "psdi.common.action.ActionRemote">com.ibm.ism.rba.app.action.RBAActionRemote</class>
+        <mboset
+            objectname = "ACTION"
+            extends = "psdi.plusp.common.action.PlusPActionSet">com.ibm.ism.rba.app.action.RBAActionSet</mboset>
+        <class extends = "psdi.common.action.ActionSetRemote">com.ibm.ism.rba.app.action.RBAActionSetRemote</class>
+
+        <mbo objectname='WFPROCESS' extends='psdi.workflow.WFProcess'>com.ibm.ism.rba.app.wfprocess.RBAWFProcess</mbo>
+        <class extends='psdi.workflow.WFProcessRemote'>com.ibm.ism.rba.app.wfprocess.RBAWFProcessRemote</class>
+        <mboset objectname='WFPROCESS' extends='psdi.workflow.WFProcessSet'>com.ibm.ism.rba.app.wfprocess.RBAWFProcessSet</mboset>
+        <class extends='psdi.workflow.WFProcessSetRemote'>com.ibm.ism.rba.app.wfprocess.RBAWFProcessSetRemote</class>
+        <field objectname='WFPROCESS' attributename='OBJECTNAME' extends='psdi.app.configure.FldMainObjectName'>com.ibm.ism.rba.app.wfprocess.FldWorkflowObjectName</field>
+        
+        <mbo objectname='WFINSTANCE' extends='psdi.workflow.WFInstance'>com.ibm.ism.rba.app.wfadmin.RBAWFInstance</mbo>
+        <class extends='psdi.workflow.WFInstanceRemote'>com.ibm.ism.rba.app.wfadmin.RBAWFInstanceRemote</class>
+        <mboset objectname='WFINSTANCE' extends='psdi.workflow.WFInstanceSet'>com.ibm.ism.rba.app.wfadmin.RBAWFInstanceSet</mboset>
+        <class extends='psdi.workflow.WFInstanceSetRemote'>com.ibm.ism.rba.app.wfadmin.RBAWFInstanceSetRemote</class>
+        <field objectname='WFINSTANCE' attributename='ORIGINATOR'>com.ibm.ism.rba.app.wfadmin.FldOriginator</field>
+        <field objectname='WFINSTANCE' attributename='OWNERID'>com.ibm.ism.rba.app.wfadmin.FldOwnerId</field>
+        <field objectname='WFINSTANCE' attributename='PROCESSNAME'>com.ibm.ism.rba.app.wfadmin.FldProcessName</field>
+        <field objectname='WFINSTANCE' attributename='PROCESSREV'>com.ibm.ism.rba.app.wfadmin.FldProcessRev</field>
+
+        <mbo objectname='APPSUPPORT' extends='psdi.workflow.virtual.AppSupport'>com.ibm.ism.rba.app.wfprocess.virtual.RBAAppSupport</mbo>
+        <mboset objectname='APPSUPPORT' extends='psdi.workflow.virtual.AppSupportSet'>com.ibm.ism.rba.app.wfprocess.virtual.RBAAppSupportSet</mboset>
+       
+        <bean
+            presentation = "ACTION"
+            controlid = "action"
+            extends = "psdi.webclient.beans.action.ActionAppBean">com.ibm.ism.rba.webclient.beans.action.RBAActionAppBean</bean>
+    </extensions>
+</product>

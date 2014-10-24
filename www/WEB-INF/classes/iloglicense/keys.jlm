@@ -1,0 +1,13 @@
+LICENSE ibm-durham, nc
+NODE JTGO 8.500 NEVER D2FP91ZS4ZNR 51d20fb2 , application: IBM Tivoli , options: MaintenanceEnd=20100331 , license: 1399502
+RUNTIME JTGO 8.500 NEVER UHUCC2S28KSA N , application: IBM Tivoli , license: 1399502
+NODE JViews-Charts 8.500 NEVER VPJSM0CJ039G 51d20fb2 , application: IBM Tivoli , options: MaintenanceEnd=20100331 , license: 1399512
+RUNTIME JViews-Charts 8.500 NEVER 2K42R0T4GH65 N , application: IBM Tivoli , license: 1399512
+NODE JViews-Diagrammer 8.500 NEVER 9RAM52T28KBU 51d20fb2 , application: IBM Tivoli , options: MaintenanceEnd=20100331 , license: 1399522
+RUNTIME JViews-Diagrammer 8.500 NEVER E7XEC2UG87YF N , application: IBM Tivoli , license: 1399522
+NODE JViews-Charts 8.500 NEVER FZGSF27ASF50 51d20fb2 , application: IBM Tivoli , options: MaintenanceEnd=20100331 , license: 1399532
+RUNTIME JViews-Charts 8.500 NEVER 4P62R2TM8JGN N , application: IBM Tivoli , license: 1399532
+NODE JViews-Gantt 8.500 NEVER EKXEJ306CK8R 51d20fb2 , application: IBM Tivoli , options: MaintenanceEnd=20100331 , license: 1399532
+RUNTIME JViews-Gantt 8.500 NEVER JPRAU244S8P5 N , application: IBM Tivoli , license: 1399532
+NODE JViews-Maps 8.500 NEVER FG6JW2E6S89N 51d20fb2 , application: IBM Tivoli , options: MaintenanceEnd=20100331 , license: 1399542
+RUNTIME JViews-Maps 8.500 NEVER J6VCR232S2GA N , application: IBM Tivoli , license: 1399542

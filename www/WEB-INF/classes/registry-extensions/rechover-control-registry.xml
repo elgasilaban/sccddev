@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * IBM Confidential
+ *
+ * OCO Source Materials
+ *
+ * 5724-U18
+ *
+ * (C) COPYRIGHT IBM CORP. 2013
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *
+-->
+<control-registry basedir="webclient/controls" package="psdi.webclient.controls" 
+		xsi:noNamespaceSchemaLocation='../control-registry.xsd'
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		
+	<control-descriptor name="recordhover" descriptor-class="psdi.webclient.system.runtime.DatasrcDescriptor" instance-class="psdi.webclient.controls.RecordHover">
+		<property-list>
+			<property name="apprestrictions" />
+			<property name="beanclass">
+				<flag name="nonconditional" />
+				<default-value>psdi.webclient.system.beans.RecordHoverDataBean</default-value>
+			</property>
+			<property name="controlcss"/>
+			<property name="datasrc">
+				<flag name="nonconditional" />
+				<flag name="global" />
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="mboname">
+				<flag name="nonconditional" />
+			</property>
+			<property name="orderby" />
+			<property name="parentdatasrc">
+				<flag name="final" />
+				<flag name="nonconditional" />
+			</property>
+			<property name="relationship">
+				<flag name="final" />
+				<flag name="nonconditional" />
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptionapp">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="whereclause">
+				<flag name="nonconditional" />
+			</property>
+		</property-list>
+		<component-list>
+			<recordhover id="${name}" cssclass="@{controlcss}">
+				<recordhoverchildren id="${name}_children"/>
+			</recordhover>
+		</component-list>
+	</control-descriptor>
+
+	<control-descriptor name="recordhoverbutton" descriptor-class="psdi.webclient.system.runtime.InRecHoverControlDescriptor">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="cssclass"/>
+			<property name="controlcss"/>
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="event"/>
+			<property name="labelcss" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptionapp">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="targetid"/>
+			<property name="value"/>
+		</property-list>
+		<component-list>
+			<controlwrapper id="${name}_control" cssclass="@{controlcss}" >	
+				<recordhoverbutton id="${name}_checkbox" cssclass="@{cssclass}" label="@{label}" event="@{event}" targetid="@{targetid}" value="@{value}"/>
+			</controlwrapper>
+		</component-list>
+	</control-descriptor>
+
+	<control-descriptor name="recordhovercheckbox" descriptor-class="psdi.webclient.system.runtime.InRecHoverControlDescriptor">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="controlcss"/>
+			<property name="inputcss" />
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptionapp">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+		</property-list>
+		<component-list>
+			<controlwrapper id="${name}_control" cssclass="@{controlcss}" >	
+				<recordhoverlabel id="${name}_label" for="${name}_checkbox" label="@{label}" cssclass="@{labelcss}" dataattribute="@{dataattribute}"/>
+				<break id="${name}_break"/>	
+				<recordhovercheckbox id="${name}_checkbox" cssclass="@{inputcss}" dataattribute="@{dataattribute}" />
+			</controlwrapper>
+		</component-list>
+	</control-descriptor>
+	
+	<control-descriptor name="recordhoverhelpgrid" descriptor-class="psdi.webclient.system.runtime.InRecHoverControlDescriptor">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="innerhtml">
+				<flag name="translatable" />
+			</property>
+			<property name="controlcss"/>
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptionapp">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+		</property-list>
+		<component-list>
+			<recordhoverhelpgrid cssclass="@{controlcss}" id="${name}_help" innerhtml="@{innerhtml}"/>
+		</component-list>
+	</control-descriptor>
+	
+	<control-descriptor name="recordhovermultilinetextbox" descriptor-class="psdi.webclient.system.runtime.InRecHoverControlDescriptor">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="columns" />
+			<property name="controlcss" />
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="inputcss" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="rows" />
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptionapp">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+		</property-list>
+		<component-list>
+			<controlwrapper id="${name}_control" cssclass="@{controlcss}" >
+				<recordhoverlabel id="${name}_label" label="@{label}" cssclass="@{labelcss}" for="${name}_textarea" dataattribute="@{dataattribute}"/>
+				<break id="${name}_break"/>
+				<recordhovertextarea id="${name}_textarea" cssclass="@{inputcss}" dataattribute="@{dataattribute}"/>
+			</controlwrapper>
+		</component-list>
+	</control-descriptor>
+	
+	<control-descriptor name="recordhovermultiparttextbox" descriptor-class="psdi.webclient.system.runtime.InRecHoverControlDescriptor">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="controlcss" />
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="descdataattribute">
+				<flag name="final" />
+			</property>
+			<property name="inputcss" />
+			<property name="inputcss1" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptionapp">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+		</property-list>
+		<component-list>
+			<controlwrapper id="${name}_control" cssclass="@{controlcss}" >
+				<recordhoverlabel id="${name}_label" label="@{label}" cssclass="@{labelcss}" for="${name}_textbox" dataattribute="@{dataattribute}"/>
+				<break id="${name}_break"/>
+				<recordhovertextbox id="${name}_textbox" dataattribute="@{dataattribute}" cssclass="desc @{inputcss}"/>
+				<break id="${name}_break1"/>
+				<recordhovertextarea id="${name}_textbox1" dataattribute="@{descdataattribute}" cssclass="desc1 @{inputcss1}"/>
+			</controlwrapper>
+		</component-list>
+	</control-descriptor>
+	
+	<control-descriptor name="recordhoverrichtextviewer" descriptor-class="psdi.webclient.system.runtime.InRecHoverControlDescriptor">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="controlcss" />
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="height">
+				<default-value>100px</default-value>
+			</property>
+			<property name="inputcss" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptionapp">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="width">
+				<default-value>160px</default-value>
+			</property>
+		</property-list>
+		<component-list>
+			<controlwrapper id="${name}_control" cssclass="@{controlcss}" >
+				<recordhoverlabel id="${name}_label" label="@{label}" cssclass="@{labelcss}" for="${name}_richtext" dataattribute="@{dataattribute}"/>
+				<break id="${name}_break"/>
+				<recordhoverrichtext id="${name}_richtext" dataattribute="@{dataattribute}" cssclass="@{inputcssclass}" height="@{height}" width="@{width}"/>
+			</controlwrapper>
+		</component-list>
+	</control-descriptor>
+	
+ 	<control-descriptor name="recordhoversection" descriptor-class="psdi.webclient.system.runtime.InRecHoverControlDescriptor">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="controlcss"/>
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss"/>
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptionapp">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+		</property-list>
+		<component-list>
+			<recordhoversection id="${name}_sec" cssclass="@{controlcss}" labelcss="@{labelcss}" label="@{label}" >
+				<recordhoverchildren id="${name}_children"/>
+			</recordhoversection>
+		</component-list>
+	</control-descriptor>
+	
+	<control-descriptor name="recordhoversectioncol" descriptor-class="psdi.webclient.system.runtime.InRecHoverControlDescriptor">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="controlcss"/>
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptionapp">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+		</property-list>
+		<component-list>
+			<recordhoversectioncol id="${name}_col" cssclass="@{controlcss}">
+				<recordhoverchildren id="${name}_children"/>
+			</recordhoversectioncol>
+		</component-list>
+	</control-descriptor>
+	
+	<control-descriptor name="recordhoversectionrow" descriptor-class="psdi.webclient.system.runtime.InRecHoverControlDescriptor">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="controlcss"/>
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptionapp">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+		</property-list>
+		<component-list>
+			<recordhoversectionrow id="${name}_row" cssclass="@{controlcss}">
+				<recordhoverchildren id="${name}_children"/>
+			</recordhoversectionrow>
+		</component-list>
+	</control-descriptor>
+	
+	<control-descriptor name="recordhovertextbox" descriptor-class="psdi.webclient.system.runtime.InRecHoverControlDescriptor">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="controlcss"/>
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="inputcss"/>
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss"/>
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="sigoption">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptionapp">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+			<property name="sigoptiondatasrc">
+				<flag name="nonconditional" />
+				<flag name="final" />
+			</property>
+		</property-list>
+		<component-list>
+			<controlwrapper id="${name}_control" cssclass="@{controlcss}" >
+				<recordhoverlabel id="${name}_label" label="@{label}" cssclass="@{labelcss}" for="${name}_textbox" dataattribute="@{dataattribute}"/>
+				<break id="${name}_break"/>
+				<recordhovertextbox id="${name}_textbox" dataattribute="@{dataattribute}" cssclass="@{inputcss}"/>
+			</controlwrapper>
+		</component-list>
+	</control-descriptor>
+</control-registry>

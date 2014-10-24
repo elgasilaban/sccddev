@@ -1,0 +1,29 @@
+<component-registry basedir="webclient\components" package="psdi.webclient.system">
+	<component-descriptor name="chart">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>chart</default-value>
+			</property>
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="global" />
+			</property>
+			<property name="display">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="textcss">
+				<flag name="global" />
+				<flag name="final" />
+				<default-value>text</default-value>
+			</property>
+			<property name="width" />
+			<property name="height" />
+		</property-list>
+	</component-descriptor>
+</component-registry>

@@ -1,0 +1,2315 @@
+/* Map Symbology configuration file
+This file is used to define all symbology related configuration, including images, colors, labels.
+
+After modifying this file you need to:
+1 Shut down the Maximo application server.
+2 rebuild maximo.ear by executing <MAXIMO>/deployment/buildmaximoear.cmd
+3 Re-deploy the new maximo.ear on your application server and restart the application server.
+
+
+
+----------- First level: Layers -----------  
+Each item in the "layers" array contains the following attributes:
+
+"id": A Maximo object name. (Required) 
+
+"label": Layer label. If set, it will show up for all users, overriding localization. (Optional)
+
+"labelGroup" and "labelKey": Properties used to retrieve the localized label. Ignored if "label" property is set. If neither "label" nor the "labelGroup"/"labelKey" pair are set, the "id" attribute will be used. (Optional)
+
+"symbologies": Array of symbologies. Explained below. (Required)
+
+"symbologyTitle": Label for dialog with this layer's symbologies. If set, it will show up for all users, overriding localization. (Optional)
+
+"symbologyTitleGroup" and "symbologyTitleKey": Properties used to retrieve the localized label. They are ignored if "symbologyTitle" is set. If neither "symbologyTitle" nor the "symbologyTitleGroup"/"symbologyTitleKey" pair are set, the layer's label is used. (Optional)
+
+
+	----------- Second level: Symbologies -----------  
+	Each item in the "symbologies" array contains the following attributes:
+	"id": Usually a Maximo attribute name that exists in the object defined by the parent layer. (Required)
+	
+	"label": The label to be displayed for this symbology. If set, it will show up for all users, overriding localization. (Optional)
+	"labelGroup" and "labelKey": Properties used to retrieve the localized label. Ignored if "label" is set. If neither "label" nor the "labelGroup"/"labelKey" pair are set, the title associated with this attribute (if it is a Maximo attribute) will be used. If the label cannot be retrieved by any of the previous methods, the "id" will be used as label for this symbology. (Optional)
+	
+	"legends": Array of legends. Explained below. (Required)
+
+	"type": The possible values for this property are: "domainvalue", "tablevalue", "numeric", "dynamic".
+		  Use "domainvalue" if this symbology's legends are Maximo synonym domains (for instance, work order status). 
+		  Use "tablevalue" if the legends are records from a Maximo table (for instance, work types). 
+		  Use "numeric" if the legends are numeric and need to support ranges (for example, priorities). The "dynamic" type is used only for some specific symbologies that are built dynamically and do not depend on this configuration file (for instance, Resources). (Optional)
+
+	"domainObject": Required if type is "tablevalue". Defines the Maximo object that contains the records to be associated with this symbology's legends. 
+	
+	"domainIdField": Required if type is "tablevalue". Defines a key field from "domainObject". Entries in this field will be matched with this symbology's legends. 
+	
+	"domainValueField": Required if type is "tablevalue". Defines a value field from "domainObject. Entries in this field will be used as labels for this symbology's legend whenever a "domainIdField" entry matches a legend defined in this configuration file. 
+
+	"legendTitle": Label displayed on symbology's legends dialog. If set, it will be the label that shows up for every user, overriding localization. (Optional)
+
+	"legendTitleGroup" and "legendTitleKey": Properties used to retrieve the localized label. Ignored if "legendTitle" is set. If neither "legendTitle" nor the "legendTitleGroup"/"legendTitleKey" pair are set, the dialog title for this symbology's legends will be the same as this symbology's label. (Optional)
+
+		----------- Third level: Legends -----------  
+		Each item in the "legends" array contains the following attributes:
+		"id" - If symbology type is "domainvalue", the "id" must match a MAXVALUE entry of a synonym domain. 
+			 If symbology type is "tablevalue", the "id" must match a "domainIdField" entry of "domainObject". 
+			 If symbology type is "numeric", values must be unique within a symbology.
+		
+		"label": The label to be displayed for this symbology. If this property is set, it will be the label that shows up for every user, overriding localization. (Optional)
+		"labelGroup" and "labelKey": Properties used to retrieve the localized label. Ignored if "label" is set. If neither "label" nor the "labelGroup"/"labelKey" pair are set, the label for this legend will be retrieved from a Maximo database if a synonym domain or table value match was found. If the label cannot be retrieved by any of the previous methods, the "id" will be used as label for this legend. (Optional)
+
+		"minValue" and "maxValue": Required if type is "numeric". Defines the range of numeric values that this legend represents. The range is inclusive, i.e. a if minValue is 1 and maxValue is 10, both 1 and 10 are included in this range.
+
+		"isDefault": The only value that can be defined for this property is "true". Omit this property when the legend is not the default legend. Records that do not match any of the existing legends from this configuration file will be drawn using the marker defined for the legend that has the "isDefault" property set. At least one legend in each symbology must have "isDefault" property set.
+		
+		"symbol": The "symbol" contains a set of properties that define the marker to be used for this legend. (Required)
+		
+		
+----------- Symbol properties -----------  
+"url": Marker URL image. (Required)
+"urlRTL": Marker URL image for "right-to-left" languages. (Optional)
+"color": Used as fill colors for markers with polygons. (Not implemented yet)
+"offsetx" and "offsety": Defines how much (in pixels) the marker must be moved from the record's reference position. (optional)
+"width" and "height": Defines the width and height of the marker image (in pixels). If not defined, the marker will be displayed with its default size. 
+
+----------- Keywords -----------  
+"fwm_default": Used as "id" for symbologies that have only one legend. Both the symbology and the legend have "fwm_default" as id.
+"fwm_others": Used as "id" for legends that have the "isDefault" property set, but it is not mandatory.
+
+*/
+
+{
+	"layers":
+	[
+		{
+			"id":"others",
+			"labelGroup": "map",
+			"labelKey": "otherslayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "otherssymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "othersdefaultlegendtitle",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/map_default_marker.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/map_default_marker.png",
+								"color": "",
+								"offsetx": 11,
+								"offsety": 36,
+								"width": 36,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				}
+			]
+		},
+				
+		{
+			"id":"workorder",
+			"labelGroup": "map",
+			"labelKey": "workorderlayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "workordersymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "workorderdefaultlegendtitle",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_default.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_default.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},
+				{
+					"id": "status",
+					"type": "domainvalue",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "workorderstatuslegendtitle",
+					"legends":
+					[
+						{
+							"id": "appr",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_statusApproved.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_statusApproved.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "can",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_statusCancelled.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_statusCancelled.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "close",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_statusClosed.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_statusClosed.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "comp",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_statusComplete.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_statusComplete.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "inprg",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_statusInProgress.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_statusInProgress.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "wappr",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_statusPending.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_statusPending.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_statusOther.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_statusOther.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},				
+				{
+					"id": "wopriority",
+					"type": "numeric",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "workorderprioritylegendtitle",
+					"legends":
+					[
+						{
+							"id": "1",
+							"minValue": "1",
+							"maxValue": "1",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_priorityHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_priorityHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "2-3",
+							"minValue": "2",
+							"maxValue": "3",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_priorityMediumHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_priorityMediumHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "4-7",
+							"minValue": "4",
+							"maxValue": "7",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_priorityMediumLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_priorityMediumLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "8-999",
+							"minValue": "8",
+							"maxValue": "999",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						},
+						{
+							"id": "null",
+							"labelGroup": "map",
+							"labelKey": "emptylegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_priorityBlank.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_priorityBlank.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						}
+					]
+				},
+				{
+					"id": "worktype",
+					"type": "tablevalue",
+					"domainObject": "worktype",
+					"domainIdField": "worktype",
+					"domainValueField": "wtypedesc",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "workorderworktypelegendtitle",
+					"legends":
+					[
+						{
+							"id": "null",
+							"labelGroup": "map",
+							"labelKey": "emptylegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_workType_blank.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_workType_blank.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},						
+						{
+							"id": "em",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_workType_emergencyMaint.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_workType_emergencyMaint.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "pm",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_workType_preventiveMaint.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_workType_preventiveMaint.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "cm",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_workType_correctiveMaint.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_workType_correctiveMaint.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/workorder/map_WO_workType_other.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/workorder/map_WO_workType_other.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"labor",
+			"labelGroup": "map",
+			"labelKey": "laborlayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "laborsymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "labordefaultlegendtitle",
+					"type": "domainvalue",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/labor/map_locationLabor.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/labor/map_locationLabor.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 41,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"amcrew",
+			"labelGroup": "map",
+			"labelKey": "crewlayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "crewsymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "crewdefaultlegendtitle",
+					"type": "domainvalue",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/crew/map_locationCrew.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/crew/map_locationCrew.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 41,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"serviceaddress",
+			"labelGroup": "map",
+			"labelKey": "serviceaddresslayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "serviceaddresssymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "serviceaddressdefaultlegendtitle",
+					"type": "domainvalue",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/serviceaddress/map_serviceAddress_default.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/serviceaddress/map_serviceAddress_default.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"sr",
+			"labelGroup": "map",
+			"labelKey": "servicerequestlayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "servicerequestsymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "servicerequestdefaultlegendtitle",
+					"type": "domainvalue",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_default.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_default.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},
+				{
+					"id": "status",
+					"type": "domainvalue",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "servicerequeststatuslegendtitle",
+					"legends":
+					[
+						{
+							"id": "inprog",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_statusInProgress.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_statusInProgress.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "new",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_statusNew.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_statusNew.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "pending",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_statusPending.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_statusPending.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "queued",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_statusQueued.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_statusQueued.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "resolved",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_statusResolved.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_statusResolved.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_statusOther.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_statusOther.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},
+				{
+					"id": "reportedpriority",
+					"type": "numeric",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "servicerequestrepprioritylegendtitle",
+					"legends":
+					[
+						{
+							"id": "1",
+							"minValue": "1",
+							"maxValue": "1",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_priorityHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_priorityHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "2",
+							"minValue": "2",
+							"maxValue": "2",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_priorityMediumHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_priorityMediumHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "3",
+							"minValue": "3",
+							"maxValue": "3",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_priorityMediumLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_priorityMediumLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "4",
+							"minValue": "4",
+							"maxValue": "4",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						},
+						{
+							"id": "null",
+							"labelGroup": "map",
+							"labelKey": "emptylegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_priorityBlank.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_priorityBlank.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						}
+					]
+				},
+				{
+					"id": "internalpriority",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "servicerequestintprioritylegendtitle",
+					"type": "numeric",
+					"legends":
+					[
+						{
+							"id": "1",
+							"minValue": "1",
+							"maxValue": "1",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_priorityHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_priorityHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "2",
+							"minValue": "2",
+							"maxValue": "2",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_priorityMediumHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_priorityMediumHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "3",
+							"minValue": "3",
+							"maxValue": "3",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_priorityMediumLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_priorityMediumLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "4",
+							"minValue": "4",
+							"maxValue": "4",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						},
+						{
+							"id": "null",
+							"labelGroup": "map",
+							"labelKey": "emptylegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/sr/map_SR_priorityBlank.png",
+								"urlRTl": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/sr/map_SR_priorityBlank.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"ci",
+			"labelGroup": "pmcommap",
+			"labelKey": "cilayerlabel",
+			"symbologyTitleGroup": "pmcommap",
+			"symbologyTitleKey": "cisymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "pmcommap",
+					"legendTitleKey": "cidefaultlegendtitle",
+					"type": "domainvalue",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/ci/map_CI_default.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/ci/map_CI_default.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},
+				{
+					"id": "status",
+					"type": "domainvalue",
+					"legendTitleGroup": "pmcommap",
+					"legendTitleKey": "cistatuslegendtitle",
+					"legends":
+					[
+						{
+							"id": "not ready",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/ci/map_CI_statusNotReady.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/ci/map_CI_statusNotReady.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "operating",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/ci/map_CI_statusOperating.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/ci/map_CI_statusOperating.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/ci/map_CI_statusOther.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/ci/map_CI_statusOther.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"asset",
+			"labelGroup": "map",
+			"labelKey": "assetlayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "assetsymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "assetdefaultlegendtitle",
+					"type": "domainvalue",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/asset/map_Asset_default.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/asset/map_Asset_default.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},
+				{
+					"id": "status",
+					"type": "domainvalue",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "assetstatuslegendtitle",
+					"legends":
+					[
+						{
+							"id": "not ready",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/asset/map_asset_statusNotReady.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/asset/map_asset_statusNotReady.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "operating",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/asset/map_asset_statusOperating.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/asset/map_asset_statusOperating.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/asset/map_asset_statusOther.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/asset/map_asset_statusOther.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"locations",
+			"labelGroup": "map",
+			"labelKey": "locationlayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "locationsymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "locationdefaultlegendtitle",
+					"type": "domainvalue",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/location/map_Location_default.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/location/map_Location_default.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},
+				{
+					"id": "status",
+					"type": "domainvalue",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "locationstatuslegendtitle",
+					"legends":
+					[
+						{
+							"id": "not ready",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/location/map_location_statusNotReady.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/location/map_location_statusNotReady.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "operating",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/location/map_location_statusOperating.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/location/map_location_statusOperating.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/location/map_location_statusOther.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/location/map_location_statusOther.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"wochange",
+			"labelGroup": "map",
+			"labelKey": "wochangelayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "wochangesymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "wochangedefaultlegendtitle",
+					"type": "domainvalue",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_default.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_default.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},
+				{
+					"id": "status",
+					"type": "domainvalue",
+					"legendTitleGroup": "pmcommap",
+					"legendTitleKey": "wochangestatuslegendtitle",
+					"legends":
+					[
+						{
+							"id": "appr",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_statusApproved.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_statusApproved.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "can",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_statusCancelled.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_statusCancelled.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "close",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_statusClosed.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_statusClosed.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "comp",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_statusComplete.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_statusComplete.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "inprg",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_statusInProgress.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_statusInProgress.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "wappr",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_statusPending.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_statusPending.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_statusOther.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_statusOther.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},				
+				{
+					"id": "wopriority",
+					"type": "numeric",
+					"legendTitleGroup": "pmcommap",
+					"legendTitleKey": "wochangeprioritylegendtitle",
+					"legends":
+					[
+						{
+							"id": "1",
+							"minValue": "1",
+							"maxValue": "1",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_priorityHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_priorityHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "2-3",
+							"minValue": "2",
+							"maxValue": "3",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_priorityMediumHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_priorityMediumHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "4-7",
+							"minValue": "4",
+							"maxValue": "7",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_priorityMediumLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_priorityMediumLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "8-999",
+							"minValue": "8",
+							"maxValue": "999",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						},
+						{
+							"id": "null",
+							"labelGroup": "map",
+							"labelKey": "emptylegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/wochange/map_WO_priorityBlank.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/wochange/map_WO_priorityBlank.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"woactivity",
+			"labelGroup": "map",
+			"labelKey": "woactivitylayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "woactivitysymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "woactivitydefaultlegendtitle",
+					"type": "domainvalue",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/woactivity/map_WO_default.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/woactivity/map_WO_default.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"worelease",
+			"labelGroup": "map",
+			"labelKey": "woreleaselayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "woreleasesymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "woreleasedefaultlegendtitle",
+					"type": "domainvalue",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_default.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_default.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},
+				{
+					"id": "status",
+					"type": "domainvalue",
+					"legendTitleGroup": "pmcommap",
+					"legendTitleKey": "woreleasestatuslegendtitle",
+					"legends":
+					[
+						{
+							"id": "appr",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_statusApproved.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_statusApproved.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "can",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_statusCancelled.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_statusCancelled.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "close",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_statusClosed.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_statusClosed.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "comp",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_statusComplete.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_statusComplete.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "inprg",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_statusInProgress.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_statusInProgress.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "wappr",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_statusPending.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_statusPending.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_statusOther.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_statusOther.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},				
+				{
+					"id": "wopriority",
+					"type": "numeric",
+					"legendTitleGroup": "pmcommap",
+					"legendTitleKey": "woreleaseprioritylegendtitle",
+					"legends":
+					[
+						{
+							"id": "1",
+							"minValue": "1",
+							"maxValue": "1",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_priorityHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_priorityHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "2-3",
+							"minValue": "2",
+							"maxValue": "3",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_priorityMediumHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_priorityMediumHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "4-7",
+							"minValue": "4",
+							"maxValue": "7",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_priorityMediumLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_priorityMediumLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "8-999",
+							"minValue": "8",
+							"maxValue": "999",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						},
+						{
+							"id": "null",
+							"labelGroup": "map",
+							"labelKey": "emptylegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/worelease/map_WO_priorityBlank.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/worelease/map_WO_priorityBlank.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"incident",
+			"labelGroup": "map",
+			"labelKey": "incidentlayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "incidentsymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "incidentdefaultlegendtitle",
+					"type": "domainvalue",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_Incident_default.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_Incident_default.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				}, 
+				{
+					"id": "status",
+					"type": "domainvalue",
+					"legendTitleGroup": "pmcommap",
+					"legendTitleKey": "incidentstatuslegendtitle",
+					"legends":
+					[
+						{
+							"id": "inprog",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_statusInProgress.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_statusInProgress.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "new",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_statusNew.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_statusNew.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "pending",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_statusPending.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_statusPending.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "queued",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_statusQueued.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_statusQueued.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "resolved",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_statusResolved.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_statusResolved.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_statusOther.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_statusOther.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},
+				{
+					"id": "reportedpriority",
+					"type": "numeric",
+					"legendTitleGroup": "pmcommap",
+					"legendTitleKey": "incidentrepprioritylegendtitle",
+					"legends":
+					[
+						{
+							"id": "1",
+							"minValue": "1",
+							"maxValue": "1",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_priorityHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_priorityHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "2",
+							"minValue": "2",
+							"maxValue": "2",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_priorityMediumHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_priorityMediumHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "3",
+							"minValue": "3",
+							"maxValue": "3",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_priorityMediumLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_priorityMediumLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "4",
+							"minValue": "4",
+							"maxValue": "4",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						},
+						{
+							"id": "null",
+							"labelGroup": "map",
+							"labelKey": "emptylegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_priorityBlank.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_priorityBlank.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						}
+					]
+				},
+				{
+					"id": "internalpriority",
+					"legendTitleGroup": "pmcommap",
+					"legendTitleKey": "incidentintprioritylegendtitle",
+					"type": "numeric",
+					"legends":
+					[
+						{
+							"id": "1",
+							"minValue": "1",
+							"maxValue": "1",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_priorityHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_priorityHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "2",
+							"minValue": "2",
+							"maxValue": "2",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_priorityMediumHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_priorityMediumHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "3",
+							"minValue": "3",
+							"maxValue": "3",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_priorityMediumLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_priorityMediumLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "4",
+							"minValue": "4",
+							"maxValue": "4",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						},
+						{
+							"id": "null",
+							"labelGroup": "map",
+							"labelKey": "emptylegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/incident/map_incident_priorityBlank.png",
+								"urlRTl": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/incident/map_incident_priorityBlank.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":"problem",
+			"labelGroup": "map",
+			"labelKey": "problemlayerlabel",
+			"symbologyTitleGroup": "map",
+			"symbologyTitleKey": "problemsymbologytitle",
+			"symbologies":
+			[
+				{
+					"id": "fwm_default",
+					"labelGroup": "map",
+					"labelKey": "defaultlayerlabel",
+					"legendTitleGroup": "map",
+					"legendTitleKey": "problemdefaultlegendtitle",
+					"type": "domainvalue",
+					"legends":
+					[
+						{
+							"id": "fwm_default",
+							"labelGroup": "map",
+							"labelKey": "defaultlayerlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_default.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_default.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				}, 
+				{
+					"id": "status",
+					"type": "domainvalue",
+					"legendTitleGroup": "pmcommap",
+					"legendTitleKey": "problemstatuslegendtitle",
+					"legends":
+					[
+						{
+							"id": "inprog",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_statusInProgress.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_statusInProgress.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "new",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_statusNew.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_statusNew.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "pending",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_statusPending.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_statusPending.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "queued",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_statusQueued.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_statusQueued.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "resolved",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_statusResolved.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_statusResolved.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_statusOther.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_statusOther.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						}
+					]
+				},
+				{
+					"id": "reportedpriority",
+					"type": "numeric",
+					"legendTitleGroup": "pmcommap",
+					"legendTitleKey": "problemrepprioritylegendtitle",
+					"legends":
+					[
+						{
+							"id": "1",
+							"minValue": "1",
+							"maxValue": "1",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_priorityHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_priorityHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "2",
+							"minValue": "2",
+							"maxValue": "2",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_priorityMediumHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_priorityMediumHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "3",
+							"minValue": "3",
+							"maxValue": "3",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_priorityMediumLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_priorityMediumLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "4",
+							"minValue": "4",
+							"maxValue": "4",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						},
+						{
+							"id": "null",
+							"labelGroup": "map",
+							"labelKey": "emptylegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_priorityBlank.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_priorityBlank.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						}
+					]
+				},
+				{
+					"id": "internalpriority",
+					"legendTitleGroup": "pmcommap",
+					"legendTitleKey": "problemintprioritylegendtitle",
+					"type": "numeric",
+					"legends":
+					[
+						{
+							"id": "1",
+							"minValue": "1",
+							"maxValue": "1",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_priorityHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_priorityHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "2",
+							"minValue": "2",
+							"maxValue": "2",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_priorityMediumHigh.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_priorityMediumHigh.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "3",
+							"minValue": "3",
+							"maxValue": "3",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_priorityMediumLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_priorityMediumLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "4",
+							"minValue": "4",
+							"maxValue": "4",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						},
+						{
+							"id": "fwm_other",
+							"labelGroup": "map",
+							"labelKey": "otherlegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_priorityLow.png",
+								"urlRTL": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_priorityLow.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							},
+							"isDefault": true
+						},
+						{
+							"id": "null",
+							"labelGroup": "map",
+							"labelKey": "emptylegendlabel",
+							"symbol":
+							{
+								"url": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/symbology/problem/map_problem_priorityBlank.png",
+								"urlRTl": "../webclient/javascript/ibm/tivoli/fwm/mxmap/resources/rtl/symbology/problem/map_problem_priorityBlank.png",
+								"color": "",
+								"offsetx": 24,
+								"offsety": 36,
+								"width": 47,
+								"height": 36
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

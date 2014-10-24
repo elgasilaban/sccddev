@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * IBM Confidential
+ *
+ * OCO Source Materials
+ *
+ * 5724-U18
+ *
+ * (C) COPYRIGHT IBM CORP. 2011
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *
+ -->
+<component-registry basedir="webclient\components"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation='../component-registry.xsd'>    
+	<component-descriptor name="mxmap" instance-class="com.ibm.tivoli.maximo.map.MapComponent">
+		<property-list>			
+			<property name="jsp-filename">
+				<default-value>mxmap/map</default-value>
+			</property>		
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="dataattribute" />
+
+			<property name="inputmode" />
+			
+			<property name="alwaysinclude">
+				<default-value>true</default-value>
+			</property>
+			<!-- Set defaultrender to false so we can update the component via 
+			     javascript instead of DOM element replacement -->
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			<property name="synchronous">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<!-- These two properties are need to get the component to stay synchronized with other components 
+			   that are bound to the same data attribute -->
+			<property name="inttype" />
+			<property name="takesvalue">
+				<default-value>true</default-value>
+			</property>
+			<property name="destroynotify">
+				<default-value>true</default-value>
+			</property>
+			
+		</property-list>
+	</component-descriptor>
+	<component-descriptor name="geocoderbutton">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>mxmap/geocoderbutton</default-value>
+			</property>
+			<property name="advancedlongop">
+				<default-value>false</default-value>
+			</property>
+			<property name="buttonsenabled" />
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			<property name="disabled">
+				<default-value>false</default-value>
+			</property>
+			<property name="image" />
+			<property name="label" >
+				<flag name="translatable" />
+			</property>
+			<property name="longopmessage" />
+			<property name="mxeventjshandler" />
+			<property name="addresstxtfld" />
+			<property name="mxevent" />
+			<property name="href" />
+			<property name="cssclass" />
+			<property name="textcss" />
+			<property name="prepend" />			
+			<property name="menutype" />
+			<property name="default" />
+			<property name="targetid" />
+			<property name="takesfocus">
+				<default-value>true</default-value>
+			</property>
+			<property name="clickablestate" />
+			<property name="eventvalue" />
+			<property name="linkedfocusid" />
+			<property name="doclinkuploadbutton">
+				<default-value>false</default-value>
+			</property>
+			<property name="hidewhen" />
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>true</default-value>
+			</property>
+			<property name="borderalways">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="usefieldsizegroup" />
+			<property name="width" />
+			<property name="mxejsgeocodeaction" />
+			<property name="mapControlId">
+				<default-value>mxmap_div</default-value>
+			</property>
+			<property name="alwaysinclude">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+	
+	<component-descriptor name="mxroute" instance-class="com.ibm.tivoli.maximo.map.RouteComponent">
+		<property-list>
+			
+			<property name="advancedlongop">
+				<default-value>false</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			<property name="disabled">
+				<default-value>false</default-value>
+			</property>
+			<property name="image" />
+			<property name="label" >
+				<flag name="translatable" />
+			</property>
+			<property name="mxevent" />
+			
+			<property name="cssclass" />
+			<property name="default" />
+			<property name="targetid" />
+			<property name="takesfocus">
+				<default-value>true</default-value>
+			</property>
+			<property name="eventvalue" />
+			<property name="linkedfocusid" />
+			<property name="doclinkuploadbutton">
+				<default-value>false</default-value>
+			</property>
+			<property name="hidewhen" />
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="width" />
+			<property name="textcss" />
+			<property name="alwaysinclude">
+				<default-value>false</default-value>
+			</property>
+			<property name="routecolor">
+				<default-value>#1c29a8</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>	
+	
+	<component-descriptor name="mxdispatcher" instance-class="com.ibm.tivoli.maximo.map.dispatcher.MapDispatcherComponent">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>mxmap/dispatcher</default-value>
+			</property>
+			<property name="advancedlongop">
+				<default-value>true</default-value>
+			</property>
+			<property name="codebase" />
+			<property name="classid" />
+			<property name="code" />
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			
+			<property name="alwaysinclude">
+				<default-value>true</default-value>
+			</property>
+			<property name="disabled">
+				<default-value>false</default-value>
+			</property>			
+			<property name="mxevent" />			
+			<property name="default" />
+			<property name="targetid" />
+			<property name="takesfocus">
+				<default-value>false</default-value>
+			</property>			
+			<property name="doclinkuploadbutton">
+				<default-value>false</default-value>
+			</property>			
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="width" />
+			<property name="textcss" />
+			<property name="inttype" />
+			<property name="mapControlId">
+				<default-value>mxmap_div</default-value>
+			</property>
+			<property name="takesvalue">
+				<default-value>true</default-value>
+			</property>
+			<property name="height">
+				<default-value>400px</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+	
+	
+	<component-descriptor name="lbsdatacollection" instance-class="com.ibm.tivoli.maximo.map.data.GpsDataCollectorComponent">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>mxmap/gpsdatacollector</default-value>
+			</property>
+			<property name="advancedlongop">
+				<default-value>true</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			
+			<property name="alwaysinclude">
+				<default-value>true</default-value>
+			</property>
+			<property name="disabled">
+				<default-value>false</default-value>
+			</property>			
+			<property name="mxevent" />			
+			<property name="default" />
+			<property name="targetid" />
+			<property name="takesfocus">
+				<default-value>false</default-value>
+			</property>			
+			<property name="doclinkuploadbutton">
+				<default-value>false</default-value>
+			</property>			
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="width" />
+			<property name="textcss" />
+			<property name="inttype" />
+			<property name="takesvalue">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+	
+</component-registry>

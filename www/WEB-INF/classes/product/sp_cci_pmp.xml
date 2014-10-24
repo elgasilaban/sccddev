@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+  
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+  
+  Licensed Materials - Property of IBM
+  
+  Restricted Materials of IBM
+  
+  5724-M19
+  
+  (C) COPYRIGHT IBM CORP. 2009,2010.  All Rights Reserved.
+  
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+  
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  233239   suew       5/21/09   Initial check-in of product XML for CCI SP PMP
+  246983              12/01/09  updates for 7201_01.mxs
+  249280   chowdhu    3/25/10   product.xml versioning inconsistent
+  249899   suew       3/25/10   Add 7210._01.mxs
+  260656   scottsd    09/08/10  Need to rebaseline all of the PMP files and product.xml
+  262002   hec	      10/14/10  RTC Story 11615: component rename
+  262152   hec        10/15/10  Remove IBM Tivoli from component name
+  End Change History
+-->
+
+<product>
+    <name>Configuration items for IBM SmartCloud Control Desk for Service Providers</name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+		<modlevel>1</modlevel>
+		<patch>0</patch>
+        <build>201301301410</build>
+	</version>
+	<dbmaxvarname>DBCCI_PMP_SP</dbmaxvarname>
+	<dbscripts>cci_pmp_sp</dbscripts>
+	<dbversion>V7510-01</dbversion>
+	<lastdbversion>V720-01*V720-04*V7210-01*V7500-04</lastdbversion>
+	<depends>serviceprovider,sp_common_pmp,cci_pmp</depends>
+
+	<extensions>
+	<mboset objectname='CONDITION' extends='psdi.plusp.app.pluspsecgr.PlusPConditionSet'>com.ibm.ism.cci.app.pluspsecgr.CCIConditionSet</mboset>
+	</extensions>
+</product>

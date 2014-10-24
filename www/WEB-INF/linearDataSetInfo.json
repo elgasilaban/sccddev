@@ -1,0 +1,137 @@
+{
+	"attributes":
+	{
+		"id": "assetnum",
+		"startM": "startmeasure",
+		"endM": "endmeasure"
+	},
+	"children":
+	[
+	{
+		"id": "specifications",
+		"labelControlId": "specifications",
+		"class": "psdi.webclient.beans.linear.GroupedNoOverlapChildrenDataSet",
+		"dataBeanId": "specifications_datasrc",
+		"deferLoading": "true",
+		"attributes":
+		{
+			"id": "assetattrid",
+			"description": "assetattribute.description",
+			"startM": "startmeasure",
+			"endM": "endmeasure"
+		},
+		"elementAttributes": ["alnvalue", "numvalue", "tablevalue"]
+	},
+	{
+		"id": "features",
+		"labelControlId": "features",
+		"class": "psdi.webclient.beans.linear.Features",
+		"dataBeanId": "features_datasrc",
+		"deferLoading": "true",
+		"attributes":
+		{
+			"id": "feature",
+			"description": "feature.description",
+			"startM": "startmeasure",
+			"endM": "endmeasure"
+		},
+		"elementAttributes": ["label"],
+		"children": 
+		[
+		{
+			"id": "specifications",
+			"labelControlId": "AssetFeature_specifications_table",
+			"labelControlProperty": "parentemptylabel",
+			"class": "psdi.webclient.beans.linear.FeatureSpecification",
+			"relationship": "ASSETFEATURESPECS",
+			"deferLoading": "true",
+			"attributes":
+			{
+				"id": "assetattrid",
+				"description": "assetattribute.description",
+				"startM": "startmeasure",
+				"endM": "endmeasure"
+			},
+			"elementAttributes": ["alnvalue", "numvalue", "tablevalue"]
+		}
+		]
+	},
+	{
+		"id": "relationships",
+		"labelControlId": "relationships",
+		"class": "psdi.webclient.beans.linear.Relationships",
+		"dataBeanId": "relationships_datasrc",
+		"deferLoading": "true",
+		"attributes":
+		{
+			"id": "assetrelationnum",
+			"description": "relation.description",
+			"startM": "sourcestartmeasure",
+			"endM": "sourceendmeasure"
+		},
+		"elementAttributes": ["sourceassetnum", "targetassetnum"],
+		"extraAttributeLabels": ["sourcestartmeasure", "sourceendmeasure", "targetstartmeasure", "targetendmeasure"]
+	},
+	{
+		"id": "work",
+		"labelControlId": "work",
+		"class": "psdi.webclient.beans.linear.DataSet",
+		"deferLoading": "false",
+		"children":
+		[
+		{
+			"id": "workorders",
+			"labelControlId": "work_tabs_wo",
+			"class": "psdi.webclient.beans.linear.WorkOrders",
+			"dataBeanId": "workorders_datasrc",
+			"deferLoading": "true",
+			"attributes":
+			{
+				"id": "multiid",
+				"labelAttr": "recordkey",
+				"description": "workorder.description",
+				"startM": "startmeasure",
+				"endM": "endmeasure"
+			},
+			"elementAttributes": ["recordclass", "workorder.status", "workorder.statusdate", "workorder.description"],
+			"elementLabelAttribute": "workorder.description",
+			"children":
+			[ 
+			{
+				"id": "progress",
+				"labelControlId": "work_multiassetloccipr_table",
+				"labelAppId": "wotrack",
+				"class": "psdi.webclient.beans.linear.ConsolidatingLeafDataSet",
+				"relationship": "MULTIASSETLOCCIPR",
+				"deferLoading": "false",
+				"attributes":
+				{
+					"id": "changedate",
+					"description": "targetdesc",
+					"startM": "startmeasure",
+					"endM": "endmeasure"
+				},
+				"elementAttributes": ["changeby", "changedate"],
+				"elementLabelAttribute": "changedate"
+			}]
+		},
+		{
+			"id": "tickets",
+			"labelControlId": "work_tabs_tickets",
+			"class": "psdi.webclient.beans.linear.GroupedNoOverlapChildrenDataSet",
+			"dataBeanId": "tickets_datasrc",
+			"deferLoading": "true",
+			"attributes":
+			{
+				"id": "recordkey",
+				"description": "ticket.description",
+				"startM": "startmeasure",
+				"endM": "endmeasure"
+			},
+			"elementAttributes": ["recordclass", "ticket.status", "ticket.statusdate", "ticket.description"],
+			"elementLabelAttribute": "ticket.description"
+		}		
+		]
+	}
+	]
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE weblogic-web-app PUBLIC "-//BEA Systems, Inc.//DTD Web Application 8.1//EN"
+                "http://www.oracle.com/technology/weblogic/servers/wls810/dtd/weblogic810-web-jar.dtd">
+
+<weblogic-web-app>
+	<container-descriptor>
+		<prefer-web-inf-classes>true</prefer-web-inf-classes>
+	</container-descriptor>
+
+	<security-role-assignment>
+		<role-name>maximouser</role-name>
+		<principal-name>maximousers</principal-name>
+	</security-role-assignment>
+
+	<reference-descriptor>
+		<ejb-reference-description>
+			<ejb-ref-name>ejb/maximo/remote/accesstokenprovider</ejb-ref-name>
+			<jndi-name>ejb/maximo/remote/accesstokenprovider</jndi-name>
+		</ejb-reference-description>
+		<ejb-reference-description>
+			<ejb-ref-name>ejb/maximo/local/accesstokenprovider</ejb-ref-name>
+			<jndi-name>ejb/maximo/local/accesstokenprovider</jndi-name>
+		</ejb-reference-description>
+	</reference-descriptor>
+	<session-descriptor>
+		<cookie-http-only>false</cookie-http-only>
+	</session-descriptor>
+
+</weblogic-web-app>

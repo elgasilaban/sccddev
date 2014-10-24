@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * IBM Confidential
+ *
+ * OCO Source Materials
+ *
+ * @CODETOBEDEFINED
+ *
+ * (C) COPYRIGHT IBM CORP. 2012
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *
+ -->
+<component-registry basedir="webclient/components"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation='../component-registry.xsd'>
+
+	<component-descriptor name="asnviewer">
+		<property-list>
+			<property name="archive" />
+			<property name="actiondatasrc" />
+			<property name="classid" />
+			<property name="code" />
+			<property name="codebase" />
+			<property name="dataattribute" />
+			<property name="datasrc">
+				<flag name="global" />
+			</property>
+			<property name="defaultrender">
+				<default-value>false</default-value>
+			</property>
+			<property name="display">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+			<property name="height" />
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="jsp-filename">
+				<default-value>asnviewer</default-value>
+			</property>
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="nodedatasrc" />
+			<property name="textcss" />
+			<property name="width" />
+		</property-list>
+	</component-descriptor>
+
+	<component-descriptor name="skdviewer">
+		<property-list>
+			<property name="archive" />
+			<property name="actiondatasrc" />
+			<property name="classid" />
+			<property name="code" />
+			<property name="codebase" />
+			<property name="dataattribute" />
+			<property name="datasrc">
+				<flag name="global" />
+			</property>
+			<property name="defaultrender">
+				<default-value>false</default-value>
+			</property>
+			<property name="display">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+			<property name="height" />
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="jsp-filename">
+				<default-value>skdviewer</default-value>
+			</property>
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="nodedatasrc" />
+			<property name="textcss" />
+			<property name="width" />
+		</property-list>
+	</component-descriptor>
+
+</component-registry>

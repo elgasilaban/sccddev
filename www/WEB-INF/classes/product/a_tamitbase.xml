@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+    <name>IBM Tivoli Asset Management for IT (Base)</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>0</modlevel>
+        <patch>2</patch>
+        <build>20130129-2023</build>
+    </version>
+	<checklicense>1</checklicense>
+    <dbmaxvarname>TAMITBASE_UPG</dbmaxvarname>
+    <dbscripts>tamitbase</dbscripts>
+    <dbversion>V7504-03</dbversion>
+    <lastdbversion>V7110-01*V7200-65*V7201-04*V7210-08*V7220-03*V7500-46*V7501-11*V7502-05*V7503-01</lastdbversion>
+    <depends>a_itic</depends>
+</product>

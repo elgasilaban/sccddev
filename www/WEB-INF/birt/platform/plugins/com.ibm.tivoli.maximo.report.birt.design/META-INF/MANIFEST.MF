@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Report Design Plug-in
+Bundle-SymbolicName: com.ibm.tivoli.maximo.report.birt.design
+Bundle-Version: 1.0.0
+Bundle-Vendor: IBM
+Bundle-Localization: plugin
+Bundle-ClassPath: .
+Fragment-Host: system.bundle; extension:=framework
+Export-Package: com.ibm.tivoli.maximo.report.birt.design

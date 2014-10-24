@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ ************* Begin Standard Header - Do not add comments here ***************
+ * 
+ * File:     %W%
+ * Version:  %I%
+ * Modified: %G% %U%
+ * Build:    %R% %L%
+ * 
+ * IBM Confidential
+ * 
+ * OCO Source Materials
+ * 
+ * 5725-E24
+ * 
+ * (C) COPYRIGHT IBM CORP. 2012
+ * 
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been 
+ * deposited with the U.S. Copyright Office.
+ * 
+ ***************************** End Standard Header ****************************
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  234592   rsemonis   06/17/09  Update version to 7.2.0
+  237869   rsemonis   08/20/09  SP addon security for pmcomsr app
+  239581   alopez     09/15/09  Integrity Checker fixes
+  239940   rsemonis   09/17/09  Modify lastdbversion to include 7115
+  241267   jguajard   10/20/09  added several class extensions
+  247353   scottsd    12/11/09  Rebaseline MXS in the dev stream and product xmls for 721
+  247391   rsemonis   12/15/09  Update dbversion for WSRR integration support
+  248129   scottsd    02/03/10  <story 5656> ITIL V3 rolled into 7.2.1
+  255419   jguajard   06/18/10  APAR fixes
+  257446   jguajard   07/08/10  correction to PMCOMUSERME condition
+  258187   jguajard   07/20/10  changed ownergroup field validation class
+  258417   scottsd    07/21/10  ACC: change: Process Requests tool bar icons does not have shortcuts
+  258471   jguajard   07/22/10  error in expression of PMCOMUSERME condition
+  260656   scottsd    09/08/10   Need to rebaseline all of the PMP files and product.xml
+  260697   chena      09/08/10  BigInt sequence revision
+  260304   hec        09/20/10  pmcomimpact domain doesn't match attribute length
+  261276   hec        09/16/10  change 'MAXADMIN' to property mxe.adminuserid
+  262002   hec        10/13/10  change name to Common process components for Tivoli's process automation engine
+  262480   chena      10/20/10  Add revised job plan to change BMXAA4082E (where clause)
+  262735   chena      10/20/10  Add ccmdb root logger and set its children
+  264799   scottsd    01/20/10  Fix integrity checker errors
+  265173   rsemonis   02/02/11  Fix GVT issues
+  266512   scottsd    03/08/11  TLSM: approval log shows entries from Changes with same wonum
+  41187    scottsd    07/09/11  ctrl-c on process request set statu to closed
+  41295    scottsd    07/15/11  CCI Updatedb failed - Script V720_16
+  41295    mhartel    08/02/11  <Story 13180> Display CI topology from Incident application
+  41970    tavora     08/11/11  RTC 13999: Move ccmdb loggers under parent logger ITUSC
+  41748    ppadovan   08/15/11  Fix upgrade issue where base removed pmcomsr
+  41699    scottsd    08/31/11  SVT_Upgrade_Cognos Reporting not in Select Action Menu
+  42975    scottsd    09/19/11  Entry Edition Select Action can create Process Request
+  43915    scottsd    10/26/11  enable client side validation and turn down queue size
+  44472    sjoaquim   11/28/11  Add PMCOMSR TICKETID prefix script
+  44647    jasonbrown 11/30/11  Enable properties to turn on navigation components 
+  44903    lthiruve  12/16/11  Enable navigation only on fresh install  End Change History
+  45857    jefferson  02/03/12  Typo in subject of PMPACCEPT comm template
+  17962    rhippler   04/27/12  Update Info Center plugin name
+-->
+
+<product>
+    <name>Common process components for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410</build>
+    </version>
+    <dbmaxvarname>DBCOMMON_PMP</dbmaxvarname>
+    <dbscripts>common_pmp</dbscripts>
+    <dbversion>V7510-17</dbversion>
+    <lastdbversion>V710-45*V7115-11*V7200-10*V7201-02*V7210-07*V7500-28</lastdbversion>
+        <depends>serviceprovider</depends>
+        <extensions>
+         <field objectname="RELATEDRECORD" attributename="RELATEDRECKEY" extends="psdi.app.ticket.FldRelatedRecKey">com.ibm.ism.pmcom.PmComFldRelatedRecKey</field>
+         <field objectname="RELATEDRECORD" attributename="RELATEDRECWONUM" extends="psdi.app.ticket.FldRelatedRecWonum">com.ibm.ism.pmcom.PmComFldRelatedRecWonum</field>
+         <field objectname="TICKETSPEC" attributename="ALNVALUE" extends="psdi.app.assetcatalog.FldSpecificationAlnValue">com.ibm.ism.pmcom.PmComFldSpecificationAlnValue</field>
+         <field objectname="TICKETSPEC" attributename="NUMVALUE" extends="psdi.app.assetcatalog.FldSpecificationNumValue">com.ibm.ism.pmcom.PmComFldSpecificationNumValue</field>
+         <field objectname="TICKETSPEC" attributename="TABLEVALUE" extends="psdi.app.assetcatalog.FldSpecificationTableValue">com.ibm.ism.pmcom.PmComFldSpecificationTableValue</field>
+         <field objectname="WFTRANSACTION" attributename="TASKCOMPMEMO" extends="psdi.mbo.MAXTableDomain">com.ibm.ism.pmcom.PmComFldTaskCompMemo</field>
+         <field objectname="WOACTIVITY" attributename="PARENTPROCESS" extends="psdi.mbo.MAXTableDomain">com.ibm.ism.pmcom.PmComFldWoactivityParentProcess</field>
+         <field objectname="WORKVIEW" attributename="APP" extends="psdi.mbo.MAXTableDomain">com.ibm.ism.pmcom.PmComFldWorkViewApp</field>
+         <field objectname="WORKVIEW" attributename="RECORDKEY" extends="psdi.app.ticket.FldWorkViewRecKey">com.ibm.ism.pmcom.PmComFldWorkViewRecKey</field>
+         <field objectname="WFTRANSACTION" attributename="NODEDESCRIPTION" extends="psdi.mbo.MboValueAdapter">com.ibm.ism.pmcom.util.FldXactNodeDescription</field>
+         <field objectname="WFTRANSACTION" attributename="WODESCRIPTION" extends="psdi.mbo.MboValueAdapter">com.ibm.ism.pmcom.util.FldXactWODescription</field>
+         <field objectname="WFTRANSACTION" attributename="WONUM" extends="psdi.mbo.MAXTableDomain">com.ibm.ism.pmcom.util.FldXactWONum</field>
+         <field objectname="PMCOMSR" attributename="OWNERGROUP" extends="psdi.app.ticket.FldTkOwnerGroup">com.ibm.ism.pmcom.PmComFldTkdOwnerGroup</field>
+         <field objectname="INCIDENT" attributename="OWNER" extends="psdi.app.ticket.FldTkOwner">com.ibm.ism.pmcom.ownerownergroup.FldTkOwner</field>
+         <field objectname="INCIDENT" attributename="OWNERGROUP" extends="psdi.app.ticket.FldTkOwnerGroup">com.ibm.ism.pmcom.ownerownergroup.FldTkOwnerGroup</field>
+         <field objectname="SR" attributename="OWNER" extends="psdi.app.ticket.FldTkOwner">com.ibm.ism.pmcom.ownerownergroup.FldTkOwner</field>
+         <field objectname="SR" attributename="OWNERGROUP" extends="psdi.app.ticket.FldTkOwnerGroup">com.ibm.ism.pmcom.ownerownergroup.FldTkOwnerGroup</field>
+         <field objectname="PROBLEM" attributename="OWNER" extends="psdi.app.ticket.FldTkOwner">com.ibm.ism.pmcom.ownerownergroup.FldTkOwner</field>
+         <field objectname="PROBLEM" attributename="OWNERGROUP" extends="psdi.app.ticket.FldTkOwnerGroup">com.ibm.ism.pmcom.ownerownergroup.FldTkOwnerGroup</field>
+         <field objectname="TKTEMPLATE" attributename="OWNER" extends="psdi.app.ticket.FldTkTemplateOwner">com.ibm.ism.pmcom.ownerownergroup.FldTkTemplateOwner</field>
+         <field objectname="TKTEMPLATE" attributename="OWNERGROUP" extends="psdi.app.ticket.FldTkTemplateOwnerGroup">com.ibm.ism.pmcom.ownerownergroup.FldTkTemplateOwnerGroup</field>
+         <service servicename='PMCOMSR' extends="psdi.app.ticket.TicketService" >com.ibm.ism.pmcom.PmComSrService</service>
+         <class extends='psdi.app.ticket.TicketServiceRemote'>com.ibm.ism.pmcom.PmComSrServiceRemote</class>
+           <mbo objectname='PMCOMSR' extends='psdi.plusp.app.ticket.PlusPSR'>com.ibm.ism.pmcom.PmComSR</mbo>
+           <class extends='psdi.plusp.app.ticket.PlusPTicketRemote'>com.ibm.ism.pmcom.PmComSRRemote</class>
+         <mboset objectname='PMCOMSR' extends='psdi.plusp.app.ticket.PlusPSRSet'>com.ibm.ism.pmcom.PmComSRSet</mboset>
+           <class extends='psdi.plusp.app.ticket.PlusPTicketSetRemote'>com.ibm.ism.pmcom.PmComSRSetRemote</class>
+           <mbo objectname="CONDITION" extends="psdi.plusp.app.pluspsecgr.PlusPCondition">com.ibm.ism.pmcom.app.security.PmComSPCondition</mbo>
+           <class extends="psdi.plusp.app.pluspsecgr.PlusPConditionRemote">com.ibm.ism.pmcom.app.security.PmComSPConditionRemote</class>
+           <mboset objectname="CONDITION" extends="psdi.plusp.app.pluspsecgr.PlusPConditionSet">com.ibm.ism.pmcom.app.security.PmComSPConditionSet</mboset>
+           <class extends="psdi.plusp.app.pluspsecgr.PlusPConditionSetRemote">com.ibm.ism.pmcom.app.security.PmComSPConditionSetRemote</class>
+         <bean presentation="ACTIVITY" controlid="activity" extends="psdi.plusp.webclient.beans.pluspwo.PlusPActivityAppBean">com.ibm.ism.pmcom.webclient.beans.pmcom.PmComActivityAppBean</bean>
+         <bean presentation="PERSONGR" controlid="persongr" extends="psdi.webclient.beans.persongroup.PersonGroupAppBean">com.ibm.ism.pmcom.webclient.beans.pmcom.PmComPersonGroupAppBean</bean>
+      </extensions>
+</product>
+

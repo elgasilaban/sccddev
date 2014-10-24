@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: 0 Plug-in
+Bundle-SymbolicName: org.apache.commons.logging
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+Fragment-Host: system.bundle; extension:=framework
+Export-Package: org.apache.commons.logging;version="1.0.4",
+ org.apache.commons.logging.impl;version="1.0.4"
+Implementation-Title: Apache Commons Logging
+Implementation-Version: 1.3 2244 October 5 2005
+Implementation-Vendor: Apache Commons Logging

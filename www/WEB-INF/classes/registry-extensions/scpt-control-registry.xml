@@ -1,0 +1,22 @@
+<control-registry basedir="webclient\controls" package="psdi.webclient.controls">
+
+   	<control-descriptor name="screen_capturer">
+		<property-list>
+			<property name="id">
+				<flag name="final"/>
+			</property>
+		</property-list>
+		<component-list>
+			<general_iframe id="${name}_general_iframe" scroll="no" width="160" height="24" src="/webclient/srm_screen_capturer/screen_capturer.jsp"/>
+		</component-list>
+		<containers>
+			<container name="buttongroup"/>
+			<container name="sectioncol"/>
+			<container name="tablecol"/>
+			<container name="tablecell"/>
+			<container name="section"/>
+			<container name="radiobutton"/>
+		</containers>
+	</control-descriptor>
+
+</control-registry>

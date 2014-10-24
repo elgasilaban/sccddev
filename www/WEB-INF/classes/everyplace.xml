@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+	<name>Maximo Everyplace</name>
+	<version>
+		<major>7</major>
+		<minor>1</minor>
+		<modlevel>0</modlevel>
+		<patch>0</patch>
+		<build>BUILD</build>
+	</version>
+	<dbmaxvarname>EVRYPLC</dbmaxvarname>
+	<dbscripts>everyplace</dbscripts>	
+	<dbversion>V7100-02</dbversion>	
+	<lastdbversion>V7100-00</lastdbversion>
+	
+</product>

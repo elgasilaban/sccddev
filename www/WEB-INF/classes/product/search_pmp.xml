@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+	<name>Search for IBM SmartCloud Control Desk</name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+		<modlevel>1</modlevel>
+		<patch>0</patch>
+		<build>201301301410M</build>
+	</version>
+	<dbmaxvarname>DBSEARCH_PMP</dbmaxvarname>
+	<dbscripts>search_pmp</dbscripts>
+	<dbversion>V7510-07</dbversion>
+	<lastdbversion>V710-10*V7101-02*V7103-03*V7120-14*V7201-02*V7210-05*V7500-07</lastdbversion>
+    <depends>serviceprovider</depends>
+    <extensions>
+    		<class extends="psdi.app.knowledgebase.KBServiceRemote">com.ibm.tsd.pmsearch.app.PmSearchServiceRemote</class>
+            <service servicename="KB">com.ibm.tsd.pmsearch.app.PmSearchService</service>
+            <bean presentation="LIBRARY" controlid="qbeclassification" extends='psdi.webclient.beans.common.SearchSpecBean'>com.ibm.tsd.pmsearch.webclient.beans.ObjectSearchSpecBean</bean>
+    </extensions>
+</product>

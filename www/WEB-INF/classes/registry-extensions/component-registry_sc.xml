@@ -1,0 +1,203 @@
+<component-registry basedir="webclient\components" package="psdi.webclient.system">
+
+    <!-- Note - Need to  include defaults in control invocation because of a bug in WebClientRunTime.cloneDeep whereby the component defaults are not processed  -->	 	 
+		<component-descriptor name="sclabel" instance-class="psdi.webclient.components.Label">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>sclabel</default-value>
+			</property>			
+			<property name="accepthtmltags">
+				<default-value>true</default-value>
+			</property>
+			<property name="accessiblelabelgroup" />
+			<property name="accessiblelabelkey" />
+			<property name="accessiblefocus">
+				<default-value>false</default-value>
+			</property>
+			<property name="additionalevent" />
+			<property name="additionaleventvalue" />
+			<property name="designerenabled">
+				<default-value>false</default-value>
+			</property>
+			<property name="erroricon">
+				<default-value>false</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			<property name="cssclass">
+				<default-value>text label</default-value>
+			</property>
+			<property name="labelcss" />
+			<property name="tooltip" />
+			<property name="href" />
+			<property name="align">
+				<default-value>middle</default-value>
+			</property>
+			<property name="image" />
+			<property name="imagecss" />
+			<property name="imagefalse" />
+			<property name="imagealign">
+				<default-value>left</default-value>
+			</property>
+			<property name="inputmode" />
+			<property name="oninput" />
+			<property name="accesskey" />
+			<property name="mxevent" />
+			<property name="mxevent_desc" />
+			<property name="mxevent_icon" />
+			<property name="additionalvalue" />
+			<property name="targetid" />
+			<property name="type" />
+			<property name="designonly" />
+			<property name="dataattribute" />
+			<property name="displaystyle">
+				<default-value>block</default-value>
+			</property>
+			<property name="remarks" />
+			<property name="title" />
+			<property name="length" />
+			<property name="scale" />
+			<property name="isnumeric" />
+			<property name="haslongdescription" />
+			<property name="size" />
+			<property name="inttype" />
+			<property name="ispersistent" />
+			<property name="entityname" />
+			<property name="objectname" />
+			<property name="attributename" />
+			<property name="hideontable">
+				<default-value>false</default-value>
+			</property>
+			<property name="hidewhenempty">
+				<default-value>false</default-value>
+			</property>
+			<property name="columnname" />
+			<property name="eventvalue" />
+			<property name="msggroup" />
+			<property name="msgkey" />
+			<property name="instance-class" />
+			<property name="clickablestate" />
+			<property name="makesafe">
+				<default-value>true</default-value>
+			</property>
+			<property name="hidewhen" />
+			<property name="tokennumber" />
+			<property name="tokenseperator" />
+			<property name="underlinelink">
+				<default-value>false</default-value>
+			</property>
+			<property name="alwaysinclude">
+				<default-value>false</default-value>
+			</property>
+			<property name="hidelabel" />
+			<property name="defaultrender">
+				<default-value>true</default-value>
+			</property>
+			<property name="setsfocus">
+				<default-value>false</default-value>
+			</property>
+			<property name="ignoredatachange">
+				<default-value>false</default-value>
+			</property>
+			<property name="ignorereadonlychange">
+				<default-value>false</default-value>
+			</property>
+			<property name="ignorerequiredchange">
+				<default-value>false</default-value>
+			</property>
+			<property name="requiredlabel"/>
+			<property name="showblank">
+				<default-value>false</default-value>
+			</property>
+			<property name="useheading">
+				<default-value>false</default-value>
+			</property>
+			<property name="usefieldsizegroup">
+				<default-value>true</default-value>
+			</property>
+			<property name="wraptext">
+				<default-value>false</default-value>
+			</property>
+			<property name="wraplength">
+				<default-value>40</default-value>
+			</property>
+			<property name="canbreakwords" />
+			<property name="addhyphentobreak" />
+			<property name="textcss" />
+			<property name="style"/>
+			<!--  Sc new -->
+			<property name="labelhelp">
+				<default-value>false</default-value>
+			</property>
+			<property name="tooltipmsggroup" />
+			<property name="tooltipmsgkey" />
+			<!--  new for 7501 -->
+			<property name="ariarole" />
+			<property name="labelfor" />
+			<property name="imagevalign" />
+			<property name="includeuistatus">
+				<default-value>true</default-value>
+			</property>
+			<property name="accesskeytitle" />
+			<property name="useforlabelledby" />
+		</property-list>
+	</component-descriptor>
+		 
+	<component-descriptor name="sccheckbox" instance-class="com.ibm.ism.pmsc.webclient.components.scCheckbox">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>sccheckbox</default-value>
+			</property>
+			<property name="asyncevents">
+				<default-value>toggle</default-value>
+			</property>
+			<property name="mxeventjshandler">
+				<default-value>cbHdlr</default-value>
+			</property>
+			<property name="cssclass" />
+			<property name="objectname" />
+			<property name="attributename" />
+			<property name="dataattribute" />
+			<property name="defaultrender">
+				<default-value>true</default-value>
+			</property>
+			<property name="haslongdescription" />
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="imagename" />
+			<property name="imagetype" />
+			<property name="inputmode" />
+			<property name="msgtrue" />
+			<property name="msgfalse" />
+			<property name="notifyportlets">
+				<default-value>false</default-value>
+			</property>
+			<property name="remarks" />
+			<property name="cbsize" />
+			<property name="synchronous">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="tablereadonly" />
+			<property name="takesfocus">
+				<default-value>true</default-value>
+			</property>
+            <property name="takesvalue">
+             <default-value>true</default-value>
+            </property>
+			<property name="title" />
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			<property name="textcss" />
+		</property-list>
+	</component-descriptor>
+	
+	
+	 
+</component-registry>

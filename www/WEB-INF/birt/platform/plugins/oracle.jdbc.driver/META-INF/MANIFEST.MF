@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Oracle Driver
+Bundle-SymbolicName: oracle.jdbc.driver
+Bundle-Version: 1.0.0
+Bundle-Vendor: ORACLE
+Bundle-Localization: plugin
+Bundle-ClassPath: .
+Fragment-Host: system.bundle; extension:=framework
+Export-Package: oracle.jdbc.driver,
+ oracle.jdbc
+

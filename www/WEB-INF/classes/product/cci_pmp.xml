@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+
+  Licensed Materials - Property of IBM
+
+  Restricted Materials of IBM
+
+  5724-M19
+
+  (C) COPYRIGHT IBM CORP. 2009, 2010, 2011.  All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  233239   suew       5/28/09   Add Service Provider pre-req
+  234788   amfred     6/17/09   Added Deleted Actual CI escalation and CCICIService
+  235065   amfred     6/23/09   Added CCIActualCIService
+  235144   jasonbro   6/23/09   Modified version dbversion and lastdbversion for 720 files
+  238931   amfred     8/31/09   Added script 18 to modify field classes for ACTCINAME, CINAME
+  240641   jguajard  10/09/09   Moved CI/ACTUALCI topology to CCI_PMP from CommonPMP
+  241048   suew      10/12/09   Extend FldCIActCINum
+  240641   jguajard  10/13/09   Added dependency to uiwidgets_pmp
+  239925   amfred    10/20/09   Added CCIFldActCINum
+  230909   mmcentee  10/26/09   Added CCIRelationRules classes
+  242182   mposner   10/29/09   Added V720_26 to remove ci_template report
+  246983             12/01/09   updated for V7201_01.mxs file
+  246980   mposner   12/04/09	  Updated for V7201_2.dbc to create new index on actcirelation
+  244608             01/07/10   add V7201_03 scripts for migration manager support
+  247624             01/14/10   remove extraneous MODELOBJECT_* attributes from specs
+  248103   scottsd   02/11/10   <story 4998> Standard Change workflow fields and UI work (CI Criticality)
+  248729   nedimyer  02/24/10   Added V7210_09 For Link from Actual CI to Deployed Asset - RTC 510
+  249280   chowdhu    3/25/10   product.xml versioning inconsistent
+  250165   scottsd   04/05/10   <story 525> Add interested groups to CI for use in notification
+  250207   nedimyer  04/08/10   <rtc 7712> Improved Reporting of Actual CI Relation Differences
+  250432             04/13/10   upgrade from V7201 fails during updatedb
+  250222   suew      04/20/10   Added V7210_21 to create baseline cleanup property and cron task
+  247947             04/21/10   CI Types relationship for advanced search by classification in V7210_22
+  245680             04/22/10   Actual CI/Asset Deleted not indicated on CI app
+  250173             04/28/10   Member CI not found when CI associated with location
+  241050             04/29/10   add relationships for actual ci selection dialogs
+  260007   suew	     08/02/10   Add relationship from CCIBLCOMPATTR to ASSETATTRIBUTE
+  260352   sayang    08/17/10   Change the dependence of itic_pmp to a_itic for maximo 75
+  260656   scottsd   09/08/10   Need to rebaseline all of the PMP files and product.xml
+  260699   chena     09/08/10   BigInt sequence revision
+  260979   hec       09/16/10   <story 4792> change 'MAXADMIN' to property to handle non-default user install
+  257378   scottsd   09/22/10   DSM - List tab field Created By needs a Selection dialog
+  261425   mposner   05/10/10   Added new ITIC data schema dbcs
+  261458   hec       10/06/10   RTC Story 10356: EVERYONE group renamed
+  262002   hec	     10/14/10   RTC Story 11615: component rename
+  260055   suew      10/15/10   Remove unsupported CCIBSLIN sigoptions
+  262152   hec       10/15/10   Remove IBM Tivoli from component name
+  260058   suew      10/26/10   DSM: Shows wrong help text when not auth for Actual CI
+  262726   cfjohnst  10/28/10   Added V7500_10 for changes to swapped column and indexes in ActCiRelation
+  263099   chena     10/20/10   Add component based cci pmp logger and set it to be a child of ccmdb root logger
+  263440   mposner   11/11/10   Added V7500_11 to load explicite relationships ccmdb schema with BigInt conversion
+  263750   jasonbro  01/09/10   Added V7500_24 to add new index to NmrAttr
+  264641   suew	     01/19/10   Added V7500_26 to add new property and extend fld validation for RelationRules
+  264799   scottsd   01/21/11   IC: Fix Integrity Checker Errors
+  265228   jasonbro  02/04/11   Added field tag for CITEMPLATE:CICLASSID,PROMOTECI field tags, and CCILINKCI(S) bean
+  265226   hec       02/10/11   Fix CCILINKCI sigoption access when eFeature installed
+  ****************** Defect numbers switched to centauri **********************
+  40920    cfjohnst  06/15/11   RTC Story 14187: Added V7500_32 and V7500_33 to add generic CIs and assets fields to classification app
+  41839    suew      08/08/11   RTC Story 14192  Add View naming rules to ActCI app
+  42418    jguajard  08/27/11   perforance improvements
+  42820    hec       09/07/11   RTC 15759: UPGRADE: CI app UI upgrade from TLSM 7.2.3
+  42911    sayang    09/09/11   RTC 14665  Support  upgrade from TLSM 7.2.3 to ITUSC
+  42919    cfjohnst  09/11/11   RTC Story 14683: OOTB Authorized CI classifications
+  43631    sjoaquim  09/11/11   RTC Story 16133: As a stakeholder I need see a prototype with Ci Topology with the swim lanes so I can early visualize the final version
+  43046    scottsd   10/21/11   Impact analysis is taking too long
+  44684    tavora    12/02/11   Promotion of multiple actual ci's fails with unknown exception
+  44733    cfjohnst  12/09/11   Required index for PLUSPCUSTOMER column in actci table
+  45183    jasonbrown01/11/12   Promotion won't copy all attributes
+  45241    suew      01/17/12   Continuous prompting when decom CI in baseline
+  End Change History
+-->
+
+<product>
+    <name>Configuration items for IBM SmartCloud Control Desk </name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+		<modlevel>1</modlevel>
+		<patch>0</patch>
+        <build>201301301410</build>
+	</version>
+	<dbmaxvarname>DBCCI_PMP</dbmaxvarname>
+	<dbscripts>cci_pmp</dbscripts>
+	<dbversion>V7510-18</dbversion>
+	<lastdbversion>V712-05*V720-26*V7201-05*V7210-31*V7500-66</lastdbversion>
+	<depends>serviceprovider,common_pmp,a_itic,uiwidgets_pmp</depends>
+	<extensions>
+		<mbo extends='psdi.plusp.app.ci.PlusPCI' objectname='CI'>com.ibm.ism.cci.app.ci.CCICI</mbo>
+		<class extends='psdi.plusp.app.ci.PlusPCIRemote' >com.ibm.ism.cci.app.ci.CCICIRemote</class>
+		<mboset extends='psdi.plusp.app.ci.PlusPCISet' objectname='CI'>com.ibm.ism.cci.app.ci.CCICISet</mboset>
+		<class extends='psdi.plusp.app.ci.PlusPCISetRemote' >com.ibm.ism.cci.app.ci.CCICISetRemote</class>
+		<mbo extends='psdi.app.ci.CIRelation' objectname='CIRELATION'>com.ibm.ism.cci.app.ci.CCICIRelation</mbo>
+		<class extends='psdi.app.ci.CIRelationRemote'>com.ibm.ism.cci.app.ci.CCICIRelationRemote</class>
+		<mboset extends='psdi.app.ci.CIRelationSet' objectname='CIRELATION'>com.ibm.ism.cci.app.ci.CCICIRelationSet</mboset>
+		<class extends='psdi.app.ci.CIRelationSetRemote'>com.ibm.ism.cci.app.ci.CCICIRelationSetRemote</class>
+		<mbo extends='psdi.app.actualci.ActCI' objectname='ACTCI'>com.ibm.ism.cci.app.actualci.CCIActCI</mbo>
+		<class extends='psdi.app.actualci.ActCIRemote'>com.ibm.ism.cci.app.actualci.CCIActCIRemote</class>
+		<mboset extends='psdi.app.actualci.ActCISet' objectname='ACTCI'>com.ibm.ism.cci.app.actualci.CCIActCISet</mboset>
+		<class extends='psdi.app.actualci.ActCISetRemote'>com.ibm.ism.cci.app.actualci.CCIActCISetRemote</class>
+		<mbo extends='psdi.app.ci.CISpec' objectname='CISPEC'>com.ibm.ism.cci.app.ci.CCICISpec</mbo>
+		<class extends='psdi.app.ci.CISpecRemote'>com.ibm.ism.cci.app.ci.CCICISpecRemote</class>
+		<mboset extends='psdi.app.ci.CISpecSet' objectname='CISPEC'>com.ibm.ism.cci.app.ci.CCICISpecSet</mboset>
+		<class extends='psdi.app.ci.CISpecSetRemote'>com.ibm.ism.cci.app.ci.CCICISpecSetRemote</class>
+        <mbo extends='psdi.plusp.app.assetcatalog.PlusPClassSpec' objectname='CLASSSPEC'>com.ibm.ism.cci.app.ciassetcatalog.CIClassSpec</mbo>
+		<class extends='psdi.plusp.app.assetcatalog.PlusPClassSpecRemote'>com.ibm.ism.cci.app.ciassetcatalog.CIClassSpecRemote</class>
+		<mboset extends='psdi.plusp.app.assetcatalog.PlusPClassSpecSet' objectname='CLASSSPEC'>com.ibm.ism.cci.app.ciassetcatalog.CIClassSpecSet</mboset>
+		<class extends='psdi.plusp.app.assetcatalog.PlusPClassSpecSetRemote'>com.ibm.ism.cci.app.ciassetcatalog.CIClassSpecSetRemote</class>
+		<mbo extends='psdi.app.relation.RelationRules' objectname='RELATIONRULES'>com.ibm.ism.cci.app.relation.CCIRelationRules</mbo>
+		<class extends='psdi.app.relation.RelationRulesRemote'>com.ibm.ism.cci.app.relation.CCIRelationRulesRemote</class>
+		<mboset extends='psdi.app.relation.RelationRulesSet' objectname='RELATIONRULES'>com.ibm.ism.cci.app.relation.CCIRelationRulesSet</mboset>
+		<class extends='psdi.app.relation.RelationRulesSetRemote'>com.ibm.ism.cci.app.relation.CCIRelationRulesSetRemote</class>
+        <mbo extends='psdi.plusp.app.assetcatalog.PlusPClassStructure' objectname='CLASSSTRUCTURE'>com.ibm.ism.cci.app.ciassetcatalog.CCIClassStructure</mbo>
+		<class extends='psdi.plusp.app.assetcatalog.PlusPClassStructureRemote'>com.ibm.ism.cci.app.ciassetcatalog.CCIClassStructureRemote</class>
+		<mboset extends='psdi.plusp.app.assetcatalog.PlusPClassStructureSet' objectname='CLASSSTRUCTURE'>com.ibm.ism.cci.app.ciassetcatalog.CCIClassStructureSet</mboset>
+		<class extends='psdi.plusp.app.assetcatalog.PlusPClassStructureSetRemote'>com.ibm.ism.cci.app.ciassetcatalog.CCIClassStructureSetRemote</class>
+        <mbo extends='psdi.app.citype.CdmCiType' objectname='CDMCITYPES'>com.ibm.ism.cci.app.citype.CCICdmCiType</mbo>
+		<class extends='psdi.app.citype.CdmCiTypeRemote'>com.ibm.ism.cci.app.citype.CCICdmCiTypeRemote</class>
+		<mboset extends='psdi.app.citype.CdmCiTypeSet' objectname='CDMCITYPES'>com.ibm.ism.cci.app.citype.CCICdmCiTypeSet</mboset>
+		<class extends='psdi.app.citype.CdmCiTypeSetRemote'>com.ibm.ism.cci.app.citype.CCICdmCiTypeSetRemote</class>
+        <class extends='psdi.app.citype.CdmCiTypeStatusHandler'>com.ibm.ism.cci.app.citype.CCICdmCiTypeStatusHandler</class>
+        <class extends='psdi.app.recontask.engine.dataset.ActualCIDataSet'>com.ibm.ism.cci.app.recontask.engine.dataset.CCIActualCIDataSet</class>
+
+        <bean presentation='CI' controlid='ci' extends='psdi.webclient.beans.ci.CIAppBean'>com.ibm.ism.cci.webclient.beans.ci.CCICIAppBean</bean>
+		<bean presentation='ACTUALCI' controlid='actualci' extends='psdi.webclient.beans.actci.ActualCIAppBean'>com.ibm.ism.cci.webclient.beans.actci.CCIActualCIAppBean</bean>
+		<bean presentation='ACTUALCI' controlid='CREATECI' extends='psdi.webclient.beans.actci.CreateAuthorizedCIBean'>com.ibm.ism.cci.webclient.beans.actci.CCICreateAuthorizedCIBean</bean>
+		<bean presentation='ACTUALCI' controlid='CREATECIS' extends='psdi.webclient.beans.actci.CreateAuthorizedCIsBean'>com.ibm.ism.cci.webclient.beans.actci.CCICreateAuthorizedCIsBean</bean>
+		<bean presentation='ACTUALCI' controlid='assingtemplate' extends='psdi.webclient.beans.actci.SelectCITemplateBean'>com.ibm.ism.cci.webclient.beans.actci.CCISelectCITemplateBean</bean>
+        <bean presentation='ASSETCAT' controlid='assetcat' extends='psdi.plusp.webclient.beans.pluspclas.PlusPAssetCatAppBean'>com.ibm.ism.cci.webclient.beans.ciassetcatalog.CCIAssetCatAppBean</bean>
+		<bean presentation='CITYPE' controlid='citype' extends='psdi.webclient.beans.citype.CiTypeAppBean'>com.ibm.ism.cci.webclient.beans.citype.CCICiTypeAppBean</bean>
+		<bean presentation='CI' controlid='CCISYNCCI' extends='psdi.webclient.system.beans.DataBean'>com.ibm.ism.cci.webclient.beans.ci.CCISyncAuthorizedCIBean</bean>
+		<bean presentation='CI' controlid='CCISYNCCIS' extends='psdi.webclient.system.beans.DataBean'>com.ibm.ism.cci.webclient.beans.ci.CCISyncAuthorizedCIsBean</bean>
+		<bean presentation='CI' controlid='RelatedCI_table' extends='psdi.webclient.system.beans.DataBean'>com.ibm.ism.cci.webclient.beans.shared.CCIDataBean</bean>
+		<bean presentation='ACTUALCI' controlid='relation_table' extends='psdi.webclient.system.beans.DataBean'>com.ibm.ism.cci.webclient.beans.shared.CCIDataBean</bean>
+		<bean presentation='CI' controlid='CCILINKCI' extends='psdi.webclient.system.beans.DataBean'>com.ibm.ism.cci.webclient.beans.ci.CCILinkCIBean</bean>
+		<bean presentation='CI' controlid='CCILINKCIS' extends='psdi.webclient.system.beans.DataBean'>com.ibm.ism.cci.webclient.beans.ci.CCILinkCIsBean</bean>
+		<bean presentation='MULTISITE' controlid='CCICUSTO' extends='psdi.plusp.webclient.beans.plusporg.PlusPSynchronizeCustomerBean'>com.ibm.ism.cci.webclient.beans.ci.CCISyncAssetCIBean</bean>
+		<bean presentation='MULTISITE' controlid='system' extends='psdi.webclient.beans.multisite.SystemSettingsBean'>com.ibm.ism.cci.webclient.beans.multisite.CCISystemSettingsBean</bean>
+	    <bean presentation="PLUSPORG" controlid="PLUSPCUSTO" extends='psdi.plusp.webclient.beans.plusporg.PlusPSynchronizeCustomerBean'>com.ibm.ism.cci.webclient.beans.ci.CCISyncAssetCIBean</bean>
+
+		<service servicename='CI' extends='psdi.app.ci.CIService'>com.ibm.ism.cci.app.ci.CCICIService</service>
+		<service servicename='ACTUALCI' extends='psdi.app.actualci.ActualCIService'>com.ibm.ism.cci.app.actualci.CCIActualCIService</service>
+
+		<field objectname='CLASSUSEWITH' attributename='OBJECTVALUE' extends='psdi.app.assetcatalog.FldClassUseWithObjectValue'>com.ibm.ism.cci.app.ciassetcatalog.CCIFldClassUseWithObjectValue</field>
+		<field objectname='CLASSSPECUSEWITH' attributename='OBJECTVALUE' extends='psdi.app.assetcatalog.FldClassUseWithObjectValue'>com.ibm.ism.cci.app.ciassetcatalog.CCIFldClassUseWithObjectValue</field>
+		<field objectname='CLASSSTRUCTURE' attributename='PLUSPISGLOBAL' extends='psdi.plusp.app.common.PlusPFldIsGlobal'>com.ibm.ism.cci.app.ciassetcatalog.CCIFldIsGlobal</field>
+		<field objectname='CLASSSPEC' attributename='PLUSPISGLOBAL' extends='psdi.plusp.app.common.PlusPFldIsGlobal'>com.ibm.ism.cci.app.ciassetcatalog.CCIFldIsGlobal</field>
+		<field objectname='RELATIONRULES' attributename='CONTAINMENT' extends='psdi.app.relation.FldRelationContainment'>com.ibm.ism.cci.app.relation.CCIFldRelationContainment</field>
+		<field objectname='RELATIONRULES' attributename='SOURCECLASS' extends='psdi.app.relation.FldRelationRulesSourceClass'>com.ibm.ism.cci.app.relation.CCIFldRelationRulesSourceClass</field>
+		<field objectname='RELATIONRULES' attributename='TARGETCLASS' extends='psdi.app.relation.FldRelationRulesTargetClass'>com.ibm.ism.cci.app.relation.CCIFldRelationRulesTargetClass</field>
+		<field objectname='CI' attributename='ACTCINUM' extends='psdi.app.ci.FldCIActCINum'>com.ibm.ism.cci.app.ci.CCIFldCIActCINum</field>
+		<field objectname='CI' attributename='PERSONID' extends='psdi.app.person.FldPersonID'>com.ibm.ism.cci.app.ci.CCIFldCIPersonID</field>
+		<field objectname='CI' attributename='CLASSSTRUCTUREID' extends='psdi.app.ci.FldCIClassStructureid'>com.ibm.ism.cci.app.ci.CCIFldCIClassStructureid</field>
+		<field objectname='ACTCI' attributename='ACTCINUM' extends='psdi.app.actualci.FldActCINum'>com.ibm.ism.cci.app.actualci.CCIFldActCINum</field>
+		<field objectname='CISPEC' attributename='ALNVALUE' extends='psdi.app.assetcatalog.FldSpecificationAlnValue'>com.ibm.ism.cci.app.ci.CCIFldSpecAlnValue</field>
+		<field objectname='CISPEC' attributename='TABLEVALUE' extends='psdi.app.assetcatalog.FldSpecificationTableValue'>com.ibm.ism.cci.app.ci.CCIFldSpecTableValue</field>
+		<field objectname='CISPEC' attributename='NUMVALUE' extends='psdi.app.assetcatalog.FldSpecificationNumValue'>com.ibm.ism.cci.app.ci.CCIFldSpecNumValue</field>
+		<field objectname='CI' attributename='Location' extends='psdi.app.ci.FldCILocation'>com.ibm.ism.cci.app.ci.CCIFldCILocation</field>
+		<field objectname='PROMOTEACTCI' attributename='COPYATTRIBUTES' extends='psdi.mbo.MboValueAdapter'>com.ibm.ism.cci.app.actualci.virtual.CCIFldCopyAttributes</field>
+		<field objectname='PROMOTEACTCI' attributename='ASYNC' extends='psdi.mbo.MboValueAdapter'>com.ibm.ism.cci.app.actualci.virtual.CCIFldAsync</field>
+		<field objectname='PROMOTEACTCI' attributename='TOEMAILADDR' extends='psdi.mbo.MboValueAdapter'>com.ibm.ism.cci.app.actualci.virtual.CCIFldToEmailAddr</field>
+	    <field objectname='CITEMPLATE' attributename='CICLASSID' extends='psdi.app.actualci.FldCIClassId'>com.ibm.ism.cci.app.actualci.CCIFldCIClassId</field>
+	    <field objectname='CI' attributename='ASSETNUM' extends='psdi.app.ci.FldCIAssetNum'>com.ibm.ism.cci.app.ci.CCIFldCIAssetNum</field>
+	    <field objectname='CI' attributename='CILOCATION' extends='psdi.app.ci.FldCICILocation'>com.ibm.ism.cci.app.ci.CCIFldCICILocation</field>
+	</extensions>
+</product>

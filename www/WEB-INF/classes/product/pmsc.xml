@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<product>	<name>Service Catalog for IBM SmartCloud Control Desk</name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+            <modlevel>1</modlevel>
+		<patch>0</patch>
+		<build>201301301410M</build>
+	</version>
+	<dbmaxvarname>DBPMSC_PMP</dbmaxvarname>
+	<dbscripts>pmsc</dbscripts>
+	<dbversion>V7510-32</dbversion>
+	<lastdbversion>V7200-11*V7201-05*V7210-13*V7500-50</lastdbversion>
+	<depends>tsd_common,serviceprovider,change_pmp</depends>
+	<extensions>
+		<mbo objectname="CONDITION" extends="psdi.plusp.app.pluspsecgr.PlusPCondition">com.ibm.ism.pmsc.scsp.security.SRMSPCondition</mbo>
+		<mboset objectname="CONDITION" extends="psdi.plusp.app.pluspsecgr.PlusPConditionSet">com.ibm.ism.pmsc.scsp.security.SRMSPConditionSet</mboset>
+		<class extends="psdi.plusp.app.pluspsecgr.PlusPConditionSetRemote">com.ibm.ism.pmsc.scsp.security.SRMSPConditionSetRemote</class>
+		<class extends="psdi.plusp.app.pluspsecgr.PlusPConditionRemote">com.ibm.ism.pmsc.scsp.security.SRMSPConditionRemote</class>
+		<bean presentation="VIEWAPPRSR" controlid="results_showlist" extends="psdi.webclient.beans.servicedesk.TableBean">com.ibm.ism.pmsc.webclient.beans.offering.VSRTableBean</bean>
+		<field attributename="CLASSSTRUCTUREID" objectname="SR" extends="com.ibm.tsd.app.ticket.PmtcoFldTKCommonClassStructureid">com.ibm.ism.pmsc.offering.PmscFldClassStructureid</field>
+		<bean presentation='wotrack' controlid='wotrack' extends='psdi.plusp.webclient.beans.pluspwo.PlusPWorkorderAppBean'>com.ibm.ism.pmsc.webclient.beans.workorder.PmScWorkorderAppBean</bean> 
+        <bean presentation='change' controlid='change' extends='com.ibm.ism.pmchg.webclient.beans.change.PmChgChangeAppBean'>com.ibm.ism.pmsc.webclient.beans.change.PmScChangeAppBean</bean>
+        <class extends="psdi.dm.procclass.DMMaxDomainProcess">com.ibm.ism.pmsc.migration.PMSC_MaxDomain_InProcess</class> 
+	</extensions>
+</product>

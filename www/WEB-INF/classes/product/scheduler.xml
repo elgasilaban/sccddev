@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+	<name>IBM Maximo Asset Management Scheduler</name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+		<modlevel>1</modlevel>
+		<patch>0</patch>
+		<build>20130129-2023</build>
+	</version>
+	<dbmaxvarname>SKDUPG</dbmaxvarname>
+	<dbscripts>scheduler</dbscripts>	
+	<dbversion>V7510-124</dbversion>	
+	<checklicense>1</checklicense>
+	<lastdbversion>V7100-68*V7110-33*V7500-19*V7501-03</lastdbversion>
+</product>

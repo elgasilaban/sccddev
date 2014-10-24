@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IBM DB2 Driver
+Bundle-SymbolicName: com.ibm.db2.jcc
+Bundle-Version: 1.0.0
+Bundle-Vendor: IBM
+Bundle-Localization: plugin
+Bundle-ClassPath: .
+Fragment-Host: system.bundle; extension:=framework
+Export-Package: com.ibm.db2.jcc,
+ com.ibm.db2
+
+

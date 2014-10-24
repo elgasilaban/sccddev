@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+
+  Licensed Materials - Property of IBM
+
+  Restricted Materials of IBM
+
+  5724-M19
+
+  (C) COPYRIGHT IBM CORP. 2007.  All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  234410   chena      06/08/09  Add service provider build changes
+  247353   scottsd    12/11/09  Rebaseline MXS in the dev stream and product xmls for 721
+  249267   chowdhu    3/25/10   product.xml versioning inconsistent
+  260656   scottsd    09/08/10  Need to rebaseline all of the PMP files and product.xml
+  262002   hec        10/14/10  RTC Story 11615: component rename
+  262152   hec        10/15/10  Remove IBM Tivoli from component name
+  264586   jguajard   01/14/11  give config groups access to SP functions
+  266129   chena      02/25/11  Use sigoption VIEWCOSTPR instead of PLUSPVCPRT
+  End Change History
+-->
+
+<product>
+    <name>Configuration management for IBM SmartCloud Control Desk for Service Providers</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410</build>
+    </version>
+    <dbmaxvarname>DBCONFIG_PMP_SP</dbmaxvarname>
+    <dbscripts>config_pmp_sp</dbscripts>
+    <dbversion>V7510-02</dbversion>
+    <lastdbversion>V7200-02*V7201-01*V7210-01*V7500-03</lastdbversion>
+    <depends>config_pmp,serviceprovider,sp_common_pmp</depends> 
+
+    <extensions>
+    <mboset objectname='CONDITION' extends='psdi.plusp.app.pluspsecgr.PlusPConditionSet'>psdi.pmcfg.app.pluspsecgr.PmcfgConditionSet</mboset>
+    </extensions>
+
+</product>

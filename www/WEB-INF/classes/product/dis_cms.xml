@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+  
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+  
+  Licensed Materials - Property of IBM
+  
+  Restricted Materials of IBM
+  
+  5724-M19
+  
+  (C) COPYRIGHT IBM CORP. 2010, 2011.  All Rights Reserved.
+  
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+  
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  
+  End Change History
+-->
+
+<product>
+	<name>Data Integration and Context Menu Service Configuration</name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+            <modlevel>0</modlevel>
+		<patch>0</patch>
+		<build>20090911D2</build>
+	</version>
+	<dbmaxvarname>DIS_CMS</dbmaxvarname>
+	<dbscripts>dis_cms</dbscripts>
+	<dbversion>V7117-07</dbversion>
+	<lastdbversion>V7117-00</lastdbversion>
+</product>

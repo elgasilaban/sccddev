@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+
+  Licensed Materials - Property of IBM
+
+  Restricted Materials of IBM
+
+  5724-M18
+
+  (C) COPYRIGHT IBM CORP. 2008,2012  All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  248237   rsemonis   02/08/10  Update version/change to pmchgwait escalation
+  248285   rsemonis   02/09/10  Update tp PMRELCHG Jobplan
+  249902   chowdhu    03/30/10  721 release creation
+  251297   mhartel    04/26/10  <Story 6596> Remove old Task Scheduler application from CCMDB
+  252299   rsemonis   05/12/10  Progressmap support
+  252110   alopez     05/17/10  Fix for RM712. Remove a change from a release query.
+  252690   rsemonis   05/21/10  Fix PMRELCAL relationship
+  255430   jguajard   06/18/10  APAR fixes
+  255938   scottsd    06/23/10  Impact Analysis and Conflict Detection on the Release side, confusing
+  256212   alopez     06/30/10  Related Record not showing for Add a Change to Release
+  260656   scottsd    09/08/10  Need to rebaseline all of the PMP files and product.xml
+  260700   chena      09/08/10  BigInt sequence revision
+  260976   mhartel    09/17/10  <Story 11073> Add clean-up items
+  261276   hec        09/29/10  change user from MAXADMIN to select mxe.adminuserid property
+  261458   hec        10/06/10  RTC Story 10356: EVERYONE group renamed
+  260332   alopez     10/13/10  dbc file for minor defect fixes
+  262002   hec        10/14/10  RTC Story 11615: component rename
+  262152   hec        10/15/10  Remove IBM Tivoli from component name
+  262735   chena      10/20/10  Add ccmdb root logger and set its children
+  263267   scottsd    11/08/10  areas affected needs to be deprecated
+  263504   jguajard   11/19/10  fix newchildclass defaultvalue
+  264325   jguajard   01/07/11  remove access to old Change Implementation Scheduler app
+  264249   jguajard   01/12/11  fix textbox validation
+  264799   scottsd    01/21/11  IC: Fix Integrity Checker Errors
+  264953   scottsd    01/27/11  invalid bindings in select->CI dialog
+  265826   scottsd    02/14/11  Release shows up in System help even if it's not licensed
+  266567   rsemonis   03/08/11  Back out  checklicence for now.
+  41260    nedimyer   07/21/11  RTC 13374: DIS Integration in DSL
+  41473    nedimyer   07/29/11  New DBC for PMRELDSLCIRLN Index Changes
+  41202    mhartel    09/14/11  Deployments Change Status dialog, first menu item is blank
+  43337    jguajard   09/28/11  IC
+  44404    jguajard   11/19/11  use correct admin name
+  45415    rsemonis   01/25/12  Updates to make release pmp menu options work.
+  RTC21098 jguajard   07/06/12  upgrade bug with SKDFldWOConstraintDate class
+  23046    sayang     10/01/12  Avoid valueid duplication
+  End Change History
+-->
+
+<product>
+    <name>Release management for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410</build>
+   </version>
+    <dbmaxvarname>DBRELEASE_PMP</dbmaxvarname>
+    <dbscripts>release_pmp</dbscripts>
+    <dbversion>V7510-05</dbversion>
+    <lastdbversion>V710-46*V7120-19*V7210-09*V7500-18</lastdbversion>
+    <depends>common_pmp,change_pmp,uiwidgets_pmp</depends>
+
+    <extensions>
+            
+           <service servicename='PMRELSERVICE' extends='com.ibm.ism.pmcom.PmComWOService'>com.ibm.ism.pmrel.app.PmRelService</service>
+           <mbo objectname='WORELEASE' extends='psdi.plusp.app.workorder.PlusPWORelease'>com.ibm.ism.pmrel.app.release.PmRelWORelease</mbo>
+           <mboset objectname='WORELEASE' extends='psdi.plusp.app.workorder.PlusPWOReleaseSet'>com.ibm.ism.pmrel.app.release.PmRelWOReleaseSet</mboset>
+           <class extends='psdi.plusp.app.workorder.PlusPWORemote'>com.ibm.ism.pmrel.app.release.PmRelWOReleaseRemote</class>
+           <class extends='psdi.plusp.app.workorder.PlusPWOSetRemote'>com.ibm.ism.pmrel.app.release.PmRelWOReleaseSetRemote</class>
+            
+           <mbo objectname='PMRELDSLSPEC' extends='psdi.app.assetcatalog.SpecificationMbo'>com.ibm.ism.pmrel.app.dsl.PmRelDslSpecMbo</mbo>
+           <mboset objectname='PMRELDSLSPEC' extends='psdi.app.assetcatalog.SpecificationMboSet'>com.ibm.ism.pmrel.app.dsl.PmRelDslSpecMboSet</mboset>
+           <class extends='psdi.app.assetcatalog.SpecificationMboRemote'>com.ibm.ism.pmrel.app.dsl.PmRelDslSpecMboRemote</class>
+           <class extends='psdi.app.assetcatalog.SpecificationMboSetRemote'>com.ibm.ism.pmrel.app.dsl.PmRelDslSpecMboSetRemote</class>
+    
+           <field objectname='PMRELDSL' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldCommonClassStructureid'>com.ibm.ism.pmrel.app.dsl.PmRelDslFldClassStructid</field>
+           <field objectname='PMRELDSLCIRLN' attributename='CINUM' extends='psdi.app.ci.FldCINum'>com.ibm.ism.pmrel.app.dsl.PmRelDslFldCINum</field>
+           <field objectname='PMRELSWDST' attributename='SOFTWARECI' extends='psdi.app.ci.FldCINum'>com.ibm.ism.pmrel.app.swdist.PmRelSwDistFldCINum</field>
+            
+           <bean presentation='release' controlid='plans_children_table'>com.ibm.ism.pmrel.webclient.beans.release.PmRelSelectWORecordsBean</bean>
+           <bean presentation='release' controlid='release' extends='psdi.plusp.webclient.beans.pluspwo.PlusPReleaseAppBean'>com.ibm.ism.pmrel.webclient.beans.release.PmRelReleaseAppBean</bean>
+           <bean presentation='release' controlid='actuals_children_table'>com.ibm.ism.pmrel.webclient.beans.release.PmRelSelectWORecordsBean</bean>
+           <bean presentation='release' controlid='common_task_table'>com.ibm.ism.pmchg.webclient.beans.fsc.PmChgITSWOTasksBean</bean>
+    
+    </extensions>
+
+</product>

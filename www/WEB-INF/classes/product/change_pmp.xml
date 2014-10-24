@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+
+  Licensed Materials - Property of IBM
+
+  Restricted Materials of IBM
+
+  5724-M19
+
+  (C) COPYRIGHT IBM CORP. 2011.  All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  213753   mhartel    11/26/07  CIS updates for asset mgt - part 1
+  213754   mhartel    11/28/07  CIS updates for asset mgt - part 2
+  214942   mhartel    01/16/08  Initial code drop of Implementation Task Scheduler application
+  217397   mhartel    04/01/08  Task Scheduler - Link Activity->Task Scheduler leads blank page
+  219539   mhartel    04/17/08  Launch Task Scheduler button appears in Activity for Change Use
+  220838   mhartel    05/20/08  Checkin 7.1.1 baseline pres files to change/release pmp CMVC
+  222254   rbones     07/15/08  Checkin 7.1.2 baseline pres files to change/release pmp CMVC
+  222502   rbones     07/22/08  Change modlevel from 1 to 2
+  222704   sdpillay   08/01/08  Autoimpact assessment
+  221235   rbones     09/05/08  Fix error loading Change Window from CI application.
+  224706   chena      09/24/08  Add "Preview Impacts" action selection menu
+  IZ31878  scottsd    10/13/08  Change duration of change windows to take minutes
+  226025   mhartel    10/22/08  Add new MBO that contains coalesced change windows
+  227366   chena      11/07/08  Move historical impacts parameters timelimit and tasklimit to properties
+  227734   mhartel    11/18/08  Deleted CW is not removed from List tab table
+  228952   scottsd    12/10/08  Change Template added to job plan
+  229200   chena      12/20/08  Add conditon filter.in impact rules app
+  228997   scottsd    01/22/09   Any other approver section is not duplicated
+  223798   mhartel    02/06/08  refresh change implementation schedule view after launch & edit
+  228859   mhartel    02/11/09  detect if Merged CW LA fixpack is already installed
+  230055   scottsd    02/20/09  remove old jobplans and ship new workflows
+  230268   scottsd    03/02/09  PMCHGAP throws error for Change with CI Owner
+  230227   alopez     03/02/08  Integrity Checker and Migration Manager fixes for 7115 fixpack
+  222630   mhartel    03/04/09  Improve failure msgs from Scheduler
+  229940   chowdhu    03/16/09  Fixing multiple defects: Adding a new vfile
+  229413   alopez     03/25/09  New V710-x vfile for 7115 and dev
+  230459   mhartel    03/11/09  Refactor CW app to NOT use CALENDAR/WORKPERIOD MBOs for storage
+  231150   Sam Yang   04/08/09  Add Sametime support
+  232159   scottsd    04/30/09  Checkin blackout period base stories
+  230440   mhartel    06/09/09  rename 'change window' app to be 'change window calendar'
+  234592   rsemonis   06/17/09  Update version to 7.2.0
+  233244   alopez     07/05/09  Integrity Checker warnings clean up
+  236166   mhartel    07/21/09  Conflict Detection: drop data structure and action code
+  xxxxxx   rsemonis   08/10/09  Update lastdbversion to prevent 7.1.1.5 to 7.2 upgrade failure
+  238236   jguajard   08/14/09  Add blackout support to CI app
+  236879   sdpillay   08/19/09  Objects to apply approvers when a blackout peroid is detected.
+  238818   sdpillay   09/01/09  Move response plan
+  241267   jguajard   10/20/09  Add extension for PmChgFldChgJobPlan
+  247353   scottsd    12/11/09  Rebaseline MXS in the dev stream and product xmls for 721
+  247010   mhartel    12/11/09  <Story 5087> UI widget PMP file system reorganization
+  247509   mhartel    01/06/10  <Story 1526> Drop RAV prototype code into Change PMP package
+  247867   jguajard   01/28/10  7116 support
+  248129   chowdhu    02/02/10  ITILV3 in 721
+  248237   rsemonis   02/02/10  PMCHGWFRTASK update for story 5782
+  248129   scottsd    02/08/10  <story 5656> ITIL v3 Rolled into 7.2.1
+  248286   chowdhu    02/09/10  <story 5113> Users want to launch maxmino Scheduler from change
+  248103   scottsd    02/11/10  <story 4998> Standard Change workflow fields and UI work
+  248958   scottsd    03/01/10  <story 524> Reuse existing risk field
+  249257   scottsd    03/08/10  <story 524> Preview Risk based on Change Criticality preview
+  249304   scottsd    03/11/10  <story 6008> Standard Changes short circuit the process
+  249527   chena      03/18/10  Workflow content separation for 721
+  249711   scottsd    03/24/10  <story 7748> Simplify the Impact calculation workflow make it more consumable for customers
+  249267   chowdhu    3/25/10   product.xml versioning inconsistent 
+  247405   scottsd    03/26/10  'reason for change' field too short
+  249880   scottsd    03/27/10  Certain jobplan will not migrate successfully using our MMCOM_
+  250201   mhartel    04/07/10  <Story 4847> Approve Schedule Conflicts in Change
+  250176   scottsd    04/13/10  Setting Schedule Approver manually doesn't clear appr group
+  250700   scottsd    04/21/10  Upg: Add key columns to content files for rules to prevent upgr
+  251131   jguajard   04/22/10  Add siteid to relationships
+  251297   mhartel    04/26/10  <Story 6596> Remove old Task Scheduler application from CCMDB
+  251575   scottsd    04/29/10  <story 8917> Support matching Type from Response Plan
+  251951   scottsd    05/10/10  <story 9062> Capture preauthorized authorization decision
+  251813   scottsd    05/10/10  usability: don't force uppercase in text fields
+  251811   scottsd    05/10/10  usability: use whole word for sig value in pmchgcat domain
+  250697   scottsd    05/10/10  AUTO: Remove deleted tasks from conflict detection tables
+  252293   scottsd    05/12/10   Deleting a target from the tasks of a Change doesn't automatica
+  252304   scottsd    05/13/10  CHG: invalid binding in Selecting Impacts for target CI dialog
+  252679   alopez     06/03/10  Insert Approval tasks relationship
+  256189   jguajard   06/25/10  fix localizable values
+  257868   mhartel    07/22/10  Upgrade: MAXADMIN missing GoTo Planning and Scheduling menu
+  260656   scottsd    09/08/10  Need to rebaseline all of the PMP files and product.xml
+  260688   chena      09/08/10  BigInt sequence revision
+  260710   jguajard   09/14/10  <Story 10656> make resource constraints pluggable
+  260753   mhartel    09/10/10  <Story 11073> Initial code drop
+  260964   sayang     09/17/10  <Story 11065> change report object structure
+  261276   hec        09/16/10  change 'MAXADMIN' to property mxe.adminuserid
+  261458   hec        10/06/10  RTC Story 10356: EVERYONE group renamed
+  261404   sayang     10/07/10  <Story 10862> support jobplan revision
+  261954   sayang     10/12/10  <Story 10862> modify for jobplan revision
+  262002   hec        10/14/10  RTC Story 11615: component rename
+  262152   hec        10/15/10  Remove IBM Tivoli from component name
+  261060   alopez     10/18/10  Add Change to Release Performace issue
+  262465   sayang     10/21/10  Sperate the fix for pmchgjobplan
+  262735   chena      10/20/10  Add ccmdb root logger and set its children
+  264078   hec	    12/07/10  crossover domain PMCHGJBTTAS change "Accept NULL value" to true
+  264044   mhartel    12/14/10  Task conflict negative-case search does not work as expected
+  264218   chena      12/20/10  CI field Asynchronous functionlity not working
+  264325   jguajard   01/06/11  Remove access to old change implementation scheduler app 
+  264799   scottsd    01/21/11  IC: Fix Integrity Checker errors
+  264953   scottsd    01/27/11  invalid bindings in select->CI dialog
+  264956   hec	    01/27/11  usability issues with outage field
+  265142   hec	    02/16/17  MM: PMCOMJOBPLAN excluding the NESTEDJOBPLANID
+  264956.1 hec        01/27/11  inconsistency of outage field on additional targets
+  29701    chena      03/28/11  Run configdb after index creation to improve performance
+  39601    jguajard   05/04/11  limit impact analysis for performance 
+  40438    tavora     05/10/11  main object not marked for PMCHGIARULE
+  40927    nedimyer   06/28/11  Add Index to MULTIASSETLOCCI for Historical IA Performance
+  41266    ridgill    07/21/11  Jobplan Longdescription not included in object structure
+  41218    jguajard   07/21/11  Confusing remark in PMCHGOUTAGE
+  41640    hec        08/02/11  Add sigoption to suppose standard Change app
+  41807    hec        08/05/11  Simple Change app UI delta
+  41422    hec        08/09/11   RTC: 13403-change: add default view to every content pmp
+  42413    hec        08/23/11   RTC 15264: Simple change UI upgrade
+  42722    hec        09/01/11  Upgrade: Change App missing fields, remove V7500_32.mxs
+  43253    scottsd    09/26/11  CVTg: Unable to perform impact analysis
+  43277    sayang     09/28/11  APAR IV03887:Support add RFC action 
+  43345    jguajard   09/28/11  invalid classspecid values in classifications
+  43280    JACINTA    09/28/11  Change UI in Entry edition need to match available application
+  43626    chena      10/13/11  Create a simple change record action
+  44168    mhratel    11/14/11  <16364> Add ability to re-assign WF task
+  44404    jguajard   11/19/11  use correct admin username
+  44696.1  jguajard   01/08/12  tabledomain update for process request
+  IV08421  jguajard   01/10/12  fix refetch error from scheduler to change integration
+  45879    mhartel    02/07/12  ITILS: Approvals listed for change of same wonum on other site
+  19008    scottsd    05/15/12  Scheduler gantt not rendering constraint view
+  End Change History
+-->
+
+<product>
+    <name>Change management for IBM SmartCloud Control Desk </name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410</build>
+    </version>
+    <dbmaxvarname>DBCHANGE_PMP</dbmaxvarname>
+    <dbscripts>change_pmp</dbscripts>
+    <dbversion>V7510-08</dbversion> 
+    <lastdbversion>V710-41*V7200-37*V7201-02*V7210-33*V7500-45</lastdbversion>
+    <depends>common_pmp,uiwidgets_pmp,serviceprovider,calibration,cci_pmp</depends> 
+    <extensions>
+        <mbo objectname='WOCHANGE' extends='psdi.plusp.app.workorder.PlusPWOChange'>com.ibm.ism.pmchg.app.change.PmChgWOChange</mbo>
+        <class extends='psdi.plusp.app.workorder.PlusPWORemote'>com.ibm.ism.pmchg.app.change.PmChgWOChangeRemote</class>
+        <field objectname='WOCHANGE' attributename='JPNUM' extends='psdi.app.workorder.FldWOJobPlan'>com.ibm.ism.pmchg.app.change.PmChgFldChgJobPlan</field>
+        <mboset objectname='WOCHANGE' extends='psdi.plusp.app.workorder.PlusPWOChangeSet'>com.ibm.ism.pmchg.app.change.PmChgWOChangeSet</mboset>
+        <class extends='psdi.plusp.app.workorder.PlusPWOSetRemote'>com.ibm.ism.pmchg.app.change.PmChgWOChangeSetRemote</class>  
+        <mbo objectname='MULTIASSETLOCCI' extends='psdi.app.workorder.MultiAssetLocCI'>com.ibm.ism.pmchg.app.change.PmChgMultiAssetLocCI</mbo>
+        <class extends='psdi.app.workorder.MultiAssetLocCIRemote'>com.ibm.ism.pmchg.app.change.PmChgMultiAssetLocCIRemote</class>
+        <mboset objectname='MULTIASSETLOCCI' extends='psdi.app.workorder.MultiAssetLocCISet'>com.ibm.ism.pmchg.app.change.PmChgMultiAssetLocCISet</mboset>
+        <class extends='psdi.app.workorder.MultiAssetLocCISetRemote'>com.ibm.ism.pmchg.app.change.PmChgMultiAssetLocCISetRemote</class>     
+        <mbo objectname='JOBPLAN' extends='psdi.app.jobplan.JobPlan'>com.ibm.ism.pmchg.app.jobplan.PmChgJobPlan</mbo>
+        <class extends='psdi.app.jobplan.JobPlanRemote'>com.ibm.ism.pmchg.app.jobplan.PmChgJobPlanRemote</class>
+        <mboset objectname='JOBPLAN' extends='psdi.app.jobplan.JobPlanSet'>com.ibm.ism.pmchg.app.jobplan.PmChgJobPlanSet</mboset>
+        <class extends='psdi.app.jobplan.JobPlanSetRemote'>com.ibm.ism.pmchg.app.jobplan.PmChgJobPlanSetRemote</class>
+        <mbo objectname='WOACTIVITY' extends='psdi.plusp.app.workorder.PlusPWOActivity'>com.ibm.ism.pmchg.app.activity.PmChgWOActivity</mbo>
+        <class extends='psdi.plusp.app.workorder.PlusPWORemote'>com.ibm.ism.pmchg.app.activity.PmChgWOActivityRemote</class>
+        <mboset objectname='WOACTIVITY' extends='psdi.plusp.app.workorder.PlusPWOActivitySet'>com.ibm.ism.pmchg.app.activity.PmChgWOActivitySet</mboset>
+        <class extends='psdi.plusp.app.workorder.PlusPWOSetRemote'>com.ibm.ism.pmchg.app.activity.PmChgWOActivitySetRemote</class>  
+        <bean presentation='CHANGE' controlid='change' extends='psdi.plusp.webclient.beans.pluspwo.PlusPChangeAppBean'>com.ibm.ism.pmchg.webclient.beans.change.PmChgChangeAppBean</bean>
+        <bean presentation='CHANGE' controlid='plans_children_table' extends='psdi.webclient.beans.workorder.SelectWORecordsBean'>com.ibm.ism.pmchg.webclient.beans.change.PmChgSelectWORecordsBean</bean>
+        <bean presentation='CHANGE' controlid='actuals_children_table' extends='psdi.webclient.beans.workorder.SelectWORecordsBean'>com.ibm.ism.pmchg.webclient.beans.change.PmChgSelectWORecordsBean</bean>
+        <bean presentation='CHANGE' controlid='common_task_table' extends='psdi.webclient.beans.workorder.WOTasksBean'>com.ibm.ism.pmchg.webclient.beans.fsc.PmChgITSWOTasksBean</bean>
+        <bean presentation='CHANGE' controlid='pmchg_task_targets' extends='psdi.webclient.beans.common.MultiAssetLocCIBean'>com.ibm.ism.pmchg.webclient.beans.change.PmChgImpTasksTargetsBean</bean>
+        <bean presentation='SCHEDULER' controlid='scheduler' extends='com.ibm.tivoli.maximo.skd.beans.SKDProjectAppBean'>com.ibm.ism.pmchg.webclient.beans.skd.PmChgSKDProjectAppBean</bean>
+        <bean presentation='ACTIVITY' controlid='common_task_table' extends='psdi.webclient.beans.workorder.WOTasksBean'>com.ibm.ism.pmchg.webclient.beans.fsc.PmChgITSWOTasksBean</bean>        
+        <field objectname='PMCHGSCHEDAPPROVERS' attributename='APPROVER' extends='psdi.app.person.FldPersonID'>com.ibm.ism.pmchg.app.change.PmChgFldOtherApproversApprover</field>
+        <mbo objectname='WOCHANGE' extends='psdi.plusp.app.workorder.PlusPWOChange'>com.ibm.ism.pmchg.app.change.PmChgWOChange</mbo>
+        <field objectname='WOCHANGE' attributename='CINUM' extends='psdi.plusp.app.workorder.PlusPFldWOCINum'>com.ibm.ism.pmchg.app.change.PmChgFldWOCINum</field>
+        <field objectname='WOACTIVITY' attributename='CINUM' extends='psdi.plusp.app.workorder.PlusPFldWOCINum'>com.ibm.ism.pmchg.app.change.PmChgFldWOCINum</field>
+        <field objectname='WOCHANGE' attributename='ASSETNUM' extends='psdi.plusp.app.workorder.PlusPFldWOUserCustAssetnum'>com.ibm.ism.pmchg.app.change.PmChgFldWOAssetNum</field>
+        <field objectname='WOACTIVITY' attributename='ASSETNUM' extends='psdi.plusp.app.workorder.PlusPFldWOUserCustAssetnum'>com.ibm.ism.pmchg.app.change.PmChgFldWOAssetNum</field>
+        <field objectname='WOCHANGE' attributename='LOCATION' extends='psdi.plusp.app.workorder.PlusPFldWOUserCustLoc'>com.ibm.ism.pmchg.app.change.PmChgFldWOLocation</field>
+        <field objectname='WOACTIVITY' attributename='LOCATION' extends='psdi.plusp.app.workorder.PlusPFldWOUserCustLoc'>com.ibm.ism.pmchg.app.change.PmChgFldWOLocation</field>
+        <field objectname='MULTIASSETLOCCI' attributename='CINUM' extends='psdi.app.workorder.FldMultiCINum'>com.ibm.ism.pmchg.app.change.PmChgFldMultiCINum</field>
+        <field objectname='MULTIASSETLOCCI' attributename='ASSETNUM' extends='psdi.app.workorder.FldMultiAssetNum'>com.ibm.ism.pmchg.app.change.PmChgFldMultiAssetNum</field>
+        <field objectname='MULTIASSETLOCCI' attributename='LOCATION' extends='psdi.app.workorder.FldMultiLocation'>com.ibm.ism.pmchg.app.change.PmChgFldMultiLocation</field>
+        <field objectname='WOCHANGE' attributename='WONUM' extends='psdi.app.workorder.FldWOWONum'>com.ibm.ism.pmchg.app.change.PmChgFldWOWONum</field>
+    </extensions>
+</product>

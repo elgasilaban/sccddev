@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: i-net MS SQLServer Driver
+Bundle-SymbolicName: com.inet.tds
+Bundle-Version: 1.0.0
+Bundle-Vendor: i-net
+Bundle-Localization: plugin
+Bundle-ClassPath: .
+Fragment-Host: system.bundle; extension:=framework
+Export-Package: com.inet.tds,
+ com.inet
+

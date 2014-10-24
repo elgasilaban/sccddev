@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+    xmlns:CDMMapping="http://www.ibm.com/namespaces/com/ibm/tivoli/sccd/CDMMapping" 
+    attributeFormDefault="unqualified" 
+    elementFormDefault="unqualified" 
+    targetNamespace="http://www.ibm.com/namespaces/com/ibm/tivoli/sccd/CDMMapping" version="1.3.0.0">
+
+    <element name="Mapping" type="CDMMapping:MappingType"/>
+    <complexType name="MappingType">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="1" name="CDMClass" type="CDMMapping:CDMClassType"/>
+        </sequence>
+        <attribute name="SchemaVersion" type="CDMMapping:CDMMappingVersionString" use="required"/>
+    </complexType>
+
+    <complexType name="CDMClassType">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="1" name="MBOObject" type="CDMMapping:MBOObjectType"/>           
+            <element maxOccurs="unbounded" minOccurs="1" name="CDMAttribute" type="CDMMapping:CDMAttributeType"/>           
+        </sequence>
+        <attribute name="class" type="normalizedString" use="required"/>
+    </complexType>
+
+    <complexType name="MBOObjectType">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="1" name="MBOClassification" type="CDMMapping:MBOClassificationType"/>           
+        </sequence>
+        <attribute name="object" type="CDMMapping:MBOObjectEnum" use="required"/>
+    </complexType>
+
+    <complexType name="MBOClassificationType">
+        <attribute name="id" type="normalizedString" use="required"/>
+        <attribute name="allUnder" type="boolean" use="optional"/>
+    </complexType>
+
+    <complexType name="CDMAttributeType">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="1" name="MBOAttribute" type="CDMMapping:MBOAttributeType"/>           
+        </sequence>
+        <attribute name="attribute" type="normalizedString" use="required"/>
+    </complexType>
+
+
+    <complexType name="MBOAttributeType">
+        <attribute name="object" type="normalizedString" use="required"/>
+        <attribute name="table" type="normalizedString" use="required"/>
+        <attribute name="attribute" type="normalizedString" use="required"/>
+        <attribute name="assetattrid" type="normalizedString" use="optional"/>
+    </complexType>
+
+    <simpleType name="CDMMappingVersionString">
+        <restriction base="string">
+            <enumeration value="7.5.1"/>
+        </restriction>
+    </simpleType>
+
+
+    <simpleType name="MBOObjectEnum">
+        <restriction base="string">
+            <enumeration value="ACTCI"/>
+            <enumeration value="ASSET"/>
+            <enumeration value="CI"/>
+            <enumeration value="DEPLOYEDASSET"/>
+        </restriction>
+    </simpleType>
+
+</schema>

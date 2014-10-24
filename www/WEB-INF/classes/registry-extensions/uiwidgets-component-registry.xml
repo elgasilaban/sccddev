@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-registry>
+	<component-descriptor name="flowmap">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>flowmap</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="global" />
+			</property>
+			<property name="archive" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="actiondatasrc" />
+			<property name="width" />
+			<property name="height" />
+			<property name="classid" />
+			<property name="codebase" />
+			<property name="taskrelation" />
+			<property name="activityrelation" />
+			<property name="tabgroupid" />
+			<property name="tabid" />
+			<property name="nodepopuptarget" />
+			<property name="code" />
+			<property name="dataattribute" />
+			<property name="display">
+				<default-value>true</default-value>
+				<flag name="global" />
+			</property>
+			<property name="defaultrender">
+				<default-value>false</default-value>
+			</property>
+			<property name="textcss" />
+		</property-list>
+	</component-descriptor>
+	<component-descriptor name="topology">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>topology</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="global" />
+			</property>
+			<property name="archive" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="actiondatasrc" />
+			<property name="width" />
+			<property name="height" />
+			<property name="classid" />
+			<property name="codebase" />
+			<property name="cirelation" />
+			<property name="tabgroupid" />
+			<property name="tabid" />
+			<property name="nodepopuptarget" />
+			<property name="linkpopuptarget" />
+			<property name="appname" />
+			<property name="code" />
+			<property name="dataattribute" />
+			<property name="display">
+				<default-value>true</default-value>
+				<flag name="global" />
+			</property>
+			<property name="defaultrender">
+				<default-value>false</default-value>
+			</property>
+			<property name="textcss" />
+		</property-list>
+	</component-descriptor>
+	<component-descriptor name="progressmap">
+		<property-list>
+	       <property name="jsp-filename">
+		  		<default-value>progressmap</default-value>
+     		</property>
+			<property name="id">
+		  		<flag name="final"/>
+		  	</property>
+			<property name="datasrc">
+				<flag name="global" />
+			</property>
+			<property name="alwaysinclude">
+				<default-value>true</default-value>
+		  	</property>
+			<property name="alwaysrefresh">
+				<default-value>true</default-value>
+		  	</property>
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			<property name="height"/> 
+		</property-list>
+	</component-descriptor>
+	<component-descriptor name="pmguiganttview">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>pmguiganttview</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="global" />
+			</property>
+			<property name="archive" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="charttype" />
+			<property name="width" />
+			<property name="height" />
+			<property name="classid" />
+			<property name="codebase" />
+			<property name="tabgroupid" />
+			<property name="tabid" />
+			<property name="code" />
+			<property name="dataattribute" />
+			<property name="display">
+				<default-value>true</default-value>
+				<flag name="global" />
+			</property>
+			<property name="defaultrender">
+				<default-value>false</default-value>
+			</property>
+			<property name="usebacking">
+				<default-value>true</default-value>
+			</property>
+			<property name="textcss" />
+		</property-list>
+	</component-descriptor>
+	<component-descriptor name="pmguiwfassign">
+		<property-list>
+	       <property name="jsp-filename">
+		  		<default-value>pmguiwfassign</default-value>
+     		</property>
+			<property name="id">
+		  		<flag name="final"/>
+		  	</property>
+			<property name="alwaysinclude">
+				<default-value>true</default-value>
+		  	</property>
+			<property name="alwaysrefresh">
+				<default-value>true</default-value>
+		  	</property>
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			<property name="height"/> 
+            <property name="width"/> 
+		</property-list>
+	</component-descriptor>
+	<component-descriptor name="pmguischeduleview">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>pmguischeduleview</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="global" />
+			</property>
+			<property name="archive" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="charttype" />
+			<property name="width" />
+			<property name="height" />
+			<property name="classid" />
+			<property name="codebase" />
+			<property name="tabgroupid" />
+			<property name="tabid" />
+			<property name="code" />
+			<property name="dataattribute" />
+			<property name="display">
+				<default-value>true</default-value>
+				<flag name="global" />
+			</property>
+			<property name="defaultrender">
+				<default-value>false</default-value>
+			</property>
+			<property name="usebacking">
+				<default-value>true</default-value>
+			</property>
+			<property name="textcss" />
+		</property-list>
+	</component-descriptor>
+	
+</component-registry>

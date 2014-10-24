@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-registry>
+
+	<component-descriptor name="pmtcochatenduser">
+		<property-list>
+	       <property name="jsp-filename">
+		  		<default-value>pmtcochatenduser</default-value>
+     		</property>
+			<property name="id">
+		  		<flag name="final"/>
+		  	</property>
+			<property name="alwaysinclude">
+				<default-value>true</default-value>
+		  	</property>
+			<property name="alwaysrefresh">
+				<default-value>true</default-value>
+		  	</property>
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+	
+	<component-descriptor name="pmtcochatagent">
+		<property-list>
+	       <property name="jsp-filename">
+		  		<default-value>pmtcochatagent</default-value>
+     		</property>
+			<property name="id">
+		  		<flag name="final"/>
+		  	</property>
+			<property name="alwaysinclude">
+				<default-value>true</default-value>
+		  	</property>
+			<property name="alwaysrefresh">
+				<default-value>true</default-value>
+		  	</property>
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+
+	<component-descriptor name="pmtcochatcontrol">
+		<property-list>
+	       <property name="jsp-filename">
+		  		<default-value>pmtcochatcontrol</default-value>
+     		</property>
+			<property name="id">
+		  		<flag name="final"/>
+		  	</property>
+			<property name="alwaysinclude">
+				<default-value>true</default-value>
+		  	</property>
+			<property name="alwaysrefresh">
+				<default-value>true</default-value>
+		  	</property>
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+            <property name="label"/> 
+		</property-list>
+	</component-descriptor>
+
+</component-registry>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+  
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+  
+  Licensed Materials - Property of IBM
+  
+  Restricted Materials of IBM
+  
+  5724-M18
+  
+  (C) COPYRIGHT IBM CORP. 2008.  All Rights Reserved.
+  
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+  
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  
+  End Change History
+-->
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:ism="http://www.ibm.com/xmlns/prod/ism" 
+        targetNamespace="http://www.ibm.com/xmlns/prod/ism">
+
+    <annotation>
+        <documentation>This schema defines the syntax of a XML file that is read to simulate a software distribution.</documentation>
+        <documentation>(C) Copyright IBM Corp. 2006, 2008</documentation>
+    </annotation>
+    
+    <element name="simulationRoot">
+        <annotation>
+            <documentation>The root tag of this document.</documentation>
+        </annotation>
+        <complexType>
+            <sequence>
+                <element name="deployment" type="ism:Deployment_Type" minOccurs="0" maxOccurs="1" >
+        			<annotation>
+            			<documentation>The section for defines the deployment targets.</documentation>
+        			</annotation>
+                </element>
+                <element name="deploymentStatus" type="ism:DeploymentStatus_Type" minOccurs="0" maxOccurs="1" >
+        			<annotation>
+            			<documentation>The section for defines the deployment targets.</documentation>
+        			</annotation>
+                </element>
+	        </sequence>
+        </complexType>
+    </element>
+	
+    <complexType name="Deployment_Type">
+        <annotation>
+            <documentation>The section for defines the deployment types.</documentation>
+        </annotation>
+        <sequence>
+            <element name="sourceci" type="ism:Source_Type" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+            		<documentation>Source CI info, Every source CI entry generates a different Deployment ID.</documentation>
+				</annotation>
+            </element>
+	    </sequence>
+		<attribute name="defaultDeploymentId" type="string" use="required" >
+			<annotation>
+				<documentation>The default deployment id to be used.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="defaultDeploymentStatus" type="string" use="required" >
+			<annotation>
+				<documentation>The default deployment status to be used.</documentation>
+			</annotation>
+		</attribute>
+
+	</complexType>
+
+    <complexType name="DeploymentStatus_Type">
+        <annotation>
+            <documentation>The section for defines the DeploymentStatus types.</documentation>
+        </annotation>
+        <sequence>
+            <element name="targetci" type="ism:Target_Type" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+            		<documentation>Target info, Every Target CI entry generates the deplyment status specified.</documentation>
+				</annotation>
+            </element>
+	    </sequence>
+		<attribute name="defaultTargetStatus" type="ism:ValidStatus_Type" use="required" >
+			<annotation>
+				<documentation>The default distribution status used for the target, must be a valid value from the validstaus list(FAIL,SUCCESS,INPROG).</documentation>
+			</annotation>
+		</attribute>
+    </complexType>
+	
+	
+	<complexType name="Source_Type">
+        <annotation>
+            <documentation>Source info.</documentation>
+        </annotation>
+        <attribute name="ciname" type="string" use="required">
+				<annotation>
+            		<documentation>The Source CI name value.</documentation>
+				</annotation>
+        </attribute>
+        <attribute name="deploymentId" type="string" use="required">
+				<annotation>
+            		<documentation>The Deployment Id to be returned for the source.</documentation>
+				</annotation>
+        </attribute>
+    </complexType>
+	
+	<complexType name="Target_Type">
+        <annotation>
+            <documentation>Target info.</documentation>
+        </annotation>
+            <attribute name="ciname" type="string" use="required">
+				<annotation>
+            		<documentation>The Target CI name value.</documentation>
+				</annotation>
+            </attribute>
+			<attribute name="deploymentId" type="string" use="required">
+					<annotation>
+						<documentation>The Deployment Id for the simulation.</documentation>
+					</annotation>
+			</attribute>
+            <attribute name="statusId" type="string" use="required">
+				<annotation>
+            		<documentation>The deployment status to be returned (valid values are FAIL,SUCCESS,RUNNING).</documentation>
+				</annotation>
+            </attribute>
+    </complexType>
+	
+	
+	<simpleType name="ValidStatus_Type">
+		<annotation>
+			<documentation>Valid status to use</documentation>
+		</annotation>
+		<restriction base="string">
+		  <enumeration value="FAIL">
+			<annotation>
+				<documentation>FAIL staus</documentation>
+			</annotation>
+		  </enumeration>
+		  <enumeration value="SUCCESS">
+			<annotation>
+				<documentation>SUCCESS staus</documentation>
+			</annotation>
+		  </enumeration>
+		  <enumeration value="RUNNING">
+			<annotation>
+				<documentation>RUNNING status</documentation>
+			</annotation>
+		  </enumeration>
+		  <enumeration value="ERROR">
+			<annotation>
+				<documentation>ERROR status</documentation>
+			</annotation>
+		  </enumeration>
+		</restriction>
+	</simpleType>
+</schema>

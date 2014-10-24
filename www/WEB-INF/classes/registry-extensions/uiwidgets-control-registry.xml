@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<control-registry>
+	<control-descriptor name="flowmap"
+		descriptor-class="psdi.webclient.system.runtime.DatasrcDescriptor"
+		instance-class="com.ibm.ism.pmcom.webclient.flowmap.controls.FlowMapControl">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="nonconditional" />
+				<flag name="global" />
+			</property>
+			<property name="archive" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="actiondatasrc" />
+			<property name="width" />
+			<property name="height" />
+			<property name="classid" />
+			<property name="codebase" />
+			<property name="taskrelation" />
+			<property name="activityrelation" />
+			<property name="tabgroupid" />
+			<property name="tabid" />
+			<property name="nodepopuptarget" />
+			<property name="code" />
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="display">
+				<default-value>true</default-value>
+				<flag name="global" />
+			</property>
+		</property-list>
+		<component-list>
+			<components id="${name}_components_v" layout="vertical">
+				<components id="${name}_components_h"
+					layout="horizontal">
+					<flowmap id="${name}_flowmap" classid="@{classid}" 
+						width="@{width}" height="@{height}"
+						nodepopuptarget="@{nodepopuptarget}" />
+				</components>
+			</components>
+		</component-list>
+		<containers>
+			<!-- Questionable -->
+			<container name="clientarea" />
+		</containers>
+	</control-descriptor>
+	<control-descriptor name="topology"
+		descriptor-class="psdi.webclient.system.runtime.DatasrcDescriptor"
+		instance-class="com.ibm.ism.pmcom.webclient.topology.controls.TopologyControl">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="nonconditional" />
+				<flag name="global" />
+			</property>
+			<property name="archive" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="actiondatasrc" />
+			<property name="width" />
+			<property name="height" />
+			<property name="classid" />
+			<property name="codebase" />
+			<property name="cirelation" />
+			<property name="tabgroupid" />
+			<property name="tabid" />
+			<property name="nodepopuptarget" />
+			<property name="linkpopuptarget" />
+			<property name="appname" />
+			<property name="code" />
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="display">
+				<default-value>true</default-value>
+				<flag name="global" />
+			</property>
+		</property-list>
+		<component-list>
+			<components id="${name}_components_v" layout="vertical">
+				<components id="${name}_components_h"
+					layout="horizontal">
+					<topology id="${name}_topology" classid="@{classid}" 
+						width="@{width}" height="@{height}"
+						nodepopuptarget="@{nodepopuptarget}"
+						linkpopuptarget="@{linkpopuptarget}" appname="@{appname}" />
+				</components>
+			</components>
+		</component-list>
+		<containers>
+			<!-- Questionable -->
+			<container name="clientarea" />
+		</containers>
+	</control-descriptor>
+	<control-descriptor name="progressmap" instance-class="com.ibm.ism.pmcom.webclient.flowmap.controls.ProgressMap">
+		<property-list> 
+			<property name="id">
+				<flag name="final"/>
+			</property> 
+            <property name="datasrc"/>
+			<property name="height"/>
+			<property name="flowseqattribute" />
+			<property name="flowseqmaxproperty" />
+			<property name="flowstatusattribute" />
+		</property-list>
+		<component-list>
+			<components id="${name}_components_v" layout="vertical">
+				<components id="${name}_components_h" layout="horizontal" valign="middle">
+					<progressmap id="${name}" height="@{height}" />
+				</components>
+			</components>
+		</component-list>
+	</control-descriptor>
+	<control-descriptor
+		descriptor-class="psdi.webclient.system.runtime.DatasrcDescriptor"
+		instance-class="com.ibm.ism.pmgui.webclient.ganttview.controls.GanttViewerControl"
+		name="pmguiganttview">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="nonconditional" />
+				<flag name="global" />
+			</property>
+			<property name="archive" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="charttype" />
+			<property name="width" />
+			<property name="height" />
+			<property name="classid" />
+			<property name="codebase" />
+			<property name="tabgroupid" />
+			<property name="tabid" />
+			<property name="code" />
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="display">
+				<default-value>true</default-value>
+				<flag name="global" />
+			</property>
+			<property name="usebacking">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+		<component-list>
+			<components id="${name}_components_v" layout="vertical">
+				<components id="${name}_components_h"
+					layout="horizontal">
+					<pmguiganttview classid="@{classid}" id="${name}"
+						width="@{width}" height="@{height}" charttype="@{charttype}" datasrc="@{datasrc}" />
+				</components>
+			</components>
+		</component-list>
+		<containers>
+			<!-- Questionable -->
+			<container name="clientarea" />
+		</containers>
+	</control-descriptor>
+	<control-descriptor name="pmguiwfassign" instance-class="com.ibm.ism.pmgui.webclient.wfassign.controls.WorkflowAssignmentControl">
+		<property-list> 
+			<property name="id">
+				<flag name="final"/>
+			</property> 
+			<property name="height"/>
+			<property name="width"/>
+			<property name="viewdatasrc"/>
+		</property-list>
+		<component-list>
+			<components id="${name}_components_v" layout="vertical">
+				<components id="${name}_components_h" layout="horizontal" valign="middle">
+					<pmguiwfassign id="${name}" height="@{height}" width="@{width}" />
+				</components>
+			</components>
+		</component-list>
+	</control-descriptor>
+	<control-descriptor
+		descriptor-class="psdi.webclient.system.runtime.DatasrcDescriptor"
+		instance-class="com.ibm.ism.pmgui.webclient.scheduleview.controls.ScheduleViewerControl"
+		name="pmguischeduleview">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="nonconditional" />
+				<flag name="global" />
+			</property>
+			<property name="archive" />
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="labelcss" />
+			<property name="licensekey">
+				<flag name="final" />
+			</property>
+			<property name="charttype" />
+			<property name="width" />
+			<property name="height" />
+			<property name="classid" />
+			<property name="codebase" />
+			<property name="tabgroupid" />
+			<property name="tabid" />
+			<property name="code" />
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="display">
+				<default-value>true</default-value>
+				<flag name="global" />
+			</property>
+			<property name="usebacking">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+		<component-list>
+			<components id="${name}_components_v" layout="vertical">
+				<components id="${name}_components_h"
+					layout="horizontal">
+					<pmguischeduleview classid="@{classid}" id="${name}"
+						width="@{width}" height="@{height}" charttype="@{charttype}" datasrc="@{datasrc}" />
+				</components>
+			</components>
+		</component-list>
+		<containers>
+			<!-- Questionable -->
+			<container name="clientarea" />
+		</containers>
+	</control-descriptor>
+
+</control-registry>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Begin Standard Header
+
+  File:     %W%
+  Version:  %I%
+  Modified: %G% %U%
+  Build:    %R% %L%
+
+  Licensed Materials - Property of IBM
+
+  Restricted Materials of IBM
+
+  5724-M19
+
+  (C) COPYRIGHT IBM CORP. 2009.  All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+
+  End Standard Header
+-->
+
+<!--
+  Defect   Name       Date      Description
+  =======  =========  ========  ===============================================
+  239590   jguajard   09/15/09  hide topology viewers through sigoption
+  241267   jguajard   10/21/09  added class extensions
+  247353   scottsd    12/11/09  Rebaseline MXS in the dev stream and product xmls for 721
+  260656   scottsd    09/08/10  Need to rebaseline all of the PMP files and product.xml
+  260694   chena      09/08/10  BigInt sequence revision
+  261276   hec        09/16/10  change 'MAXADMIN' to property mxe.adminuserid
+  262002   hec        10/14/10  RTC Story 11615: component rename
+  262145   scottsd    10/15/10  RTC 11053: Central help link and property should be installed
+  262152   hec        10/15/10  Remove IBM Tivoli from component name
+  261826   scottsd    10/26/10  Organization list has incorrect information..
+  262746   chena      10/20/10  Use pmcfg component based PmCfgLogHelper
+  264134   scottsd    12/09/10  FINDBUGS: priority 1 and 2 issues
+  264799   scottsd    01/20/11  IC: Fix Integrity Checker errors
+  265128   suew       02/02/11  Chg to default lifecycle doesn't change status of unclassified CIs
+  265920   scottsd    02/17/11  12733: Part two repair facility support in Config WO
+  40438    tavora     05/10/11  main object not marked for PMCFGLC
+  44404    jguajard   11/19/11  use correct admin user
+  45043    jasonbrown 01/08/12  remove show offering dialog sigoption from process config app
+  RTC21098 jguajard   07/06/12  upgrade bug with SKDFldWOConstraintDate class
+  End Change History
+-->
+
+<product>
+    <name>Configuration management for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410</build>
+    </version>
+    <dbmaxvarname>DBCONFIG_PMP</dbmaxvarname>
+    <dbscripts>config_pmp</dbscripts>
+    <dbversion>V7510-05</dbversion>
+    <lastdbversion>V710-31*V7200-17*V7201-01*V7210-04*V7500-14</lastdbversion>   
+    <depends>common_pmp,uiwidgets_pmp,serviceprovider</depends>
+    <extensions>
+            <mbo objectname='PMCFGWO' extends='psdi.plusp.app.workorder.PlusPWO'>psdi.pmcfg.app.workorder.PmCfgWO</mbo>
+            <class extends='psdi.plusp.app.workorder.PlusPWORemote'>psdi.pmcfg.app.workorder.PmCfgWORemote</class>
+        <mboset objectname='PMCFGWO' extends='psdi.plusp.app.workorder.PlusPWOSet'>psdi.pmcfg.app.workorder.PmCfgWOSet</mboset>
+        <class extends='psdi.plusp.app.workorder.PlusPWOSetRemote'>psdi.pmcfg.app.workorder.PmCfgWOSetRemote</class>
+          <mbo objectname='CI' extends='psdi.app.ci.CI'>psdi.pmcfg.app.cilifecycle.PmCfgCI</mbo>
+        <class extends='psdi.app.ci.CIRemote'>psdi.pmcfg.app.cilifecycle.PmCfgCIRemote </class>
+        <mboset objectname='CI' extends='psdi.app.ci.CISet'>psdi.pmcfg.app.cilifecycle.PmCfgCISet</mboset>
+        <class extends='psdi.app.ci.CISetRemote'>psdi.pmcfg.app.cilifecycle.PmCfgCISetRemote</class>
+          <mbo objectname='ReconCIResult' extends='psdi.app.rcnresult.ci.ReconCIResult'>psdi.pmcfg.app.rcnciresult.PmcfgReconCIResult</mbo>
+          <class extends='psdi.app.rcnresult.ci.ReconCIResultRemote'>psdi.pmcfg.app.rcnciresult.PmcfgReconCIResultRemote</class>
+          <mboset objectname='ReconCIResult' extends='psdi.app.rcnresult.ci.ReconCIResultSet'>psdi.pmcfg.app.rcnciresult.PmcfgReconCIResultSet</mboset>
+          <class extends='psdi.app.rcnresult.ci.ReconCIResultSetRemote'>psdi.pmcfg.app.rcnciresult.PmcfgReconCIResultSetRemote</class>
+        <class extends='psdi.app.recontask.engine.dataset.ActualCIDataSet'>psdi.pmcfg.app.recontask.engine.dataset.PmCfgActualCIDataSet</class>
+        <field objectname='PMCFGLCASGN' attributename='CLASSSTRUCTUREID' extends='psdi.app.assetcatalog.FldClassStructureId'>psdi.pmcfg.app.cilifecycle.PmCfgFldClassStructureId</field>
+        <bean extends="psdi.webclient.beans.rcncirslt.ReconCIResultBean" presentation="RCNCIRSLT" controlid="rcncirslt">com.ibm.ism.pmcfg.webclient.beans.rcncirslt.PmCfgReconCIResultBean</bean>
+        <bean extends="psdi.webclient.system.beans.DataBean" presentation="CI" controlid="status">psdi.pmcfg.webclient.beans.cilifecycle.PmCfgCIChangeStatusBean</bean>
+        <bean extends="psdi.webclient.system.beans.DataBean" presentation="CI" controlid="list_status">psdi.pmcfg.webclient.beans.cilifecycle.PmCfgCIChangeStatusBean</bean>
+    </extensions>   
+</product>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Task     Name       Date      Description
+  =======  =========  ========  ===============================================
+  19801    jchriste   5/17/12    Create live chat pmp
+-->
+
+<product>
+    <name>Live Chat for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+	 <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301410M</build>
+    </version>
+    <dbmaxvarname>DBLIVECHAT_PMP</dbmaxvarname>
+    <dbscripts>livechat</dbscripts>
+    <dbversion>V7510-12</dbversion>
+   	<lastdbversion>V7510-00</lastdbversion>
+    <depends>common_pmp,tsd_common</depends>
+    <extensions>
+    	<service servicename='SCCDCHATSERVICE' extends="psdi.server.AppService">com.ibm.ism.pmtco.chatservice.SccdChatService</service>
+		<class extends='psdi.server.AppService'>com.ibm.ism.pmtco.chatservice.SccdChatService</class>
+        <class extends='psdi.server.AppServiceRemote'>com.ibm.ism.pmtco.chatservice.SccdChatServiceRemote</class>
+        <field attributename="OWNERGROUP" objectname="TKTEMPLATE">com.ibm.ism.pmtco.chat.FldTkTemplateOwnerGroup</field>
+        <field attributename="TKTEMPUSESSCONLY" objectname="TKTEMPLATE" extends="psdi.app.ticket.FldSSCOnlyValidator">com.ibm.ism.pmtco.chat.FldIsChatTopic</field>
+        <field attributename="TICKETID" objectname="PMTCOCHATTOPICSR">com.ibm.ism.pmtco.chat.LiveChatFldSR</field>
+    </extensions>
+</product>

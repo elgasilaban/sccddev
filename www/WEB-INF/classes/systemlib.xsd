@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:include schemaLocation="presentation.xsd" />
+
+    <xsd:element name="systemlib">
+        <xsd:complexType>
+            <xsd:choice minOccurs="0">
+                <xsd:element ref="menu" maxOccurs="unbounded"/>
+                <xsd:element ref="table" maxOccurs="unbounded"/>
+                <xsd:any maxOccurs="unbounded"/>
+            </xsd:choice>
+            <xsd:attribute name="id" type="xsd:string" use="required"/>
+            <xsd:attribute name="version" type="xsd:string"/>
+        </xsd:complexType>
+        <xsd:key name="systemControlIdKey">
+            <xsd:selector xpath=".//*"/>
+            <xsd:field xpath="@id"/>
+        </xsd:key>
+    </xsd:element>
+
+    <xsd:element name="menu">
+        <xsd:complexType>
+            <xsd:choice minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="menuitem"/>
+            </xsd:choice>
+            <xsd:attribute name="id" type="xsd:string" use="required"/>
+            <xsd:attribute name="label" type="xsd:string"/>
+            <xsd:attribute name="image" type="xsd:string"/>
+            <xsd:attribute name="showsingle" type="xsd:boolean" default="false"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="menuitem">
+        <xsd:complexType>
+            <xsd:choice minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="menu"/>
+            </xsd:choice>
+            <xsd:attribute name="id" type="xsd:string" use="required"/>
+            <xsd:attribute name="label" type="xsd:string"/>
+            <xsd:attribute name="event" type="xsd:string"/>
+            <xsd:attribute name="image" type="xsd:string"/>
+            <xsd:attribute name="value" type="xsd:string"/>
+            <xsd:attribute name="link" type="xsd:string"/>
+            <xsd:attribute name="target" type="xsd:string"/>
+            <xsd:attribute name="hidewhen" type="xsd:string"/>
+            <xsd:attribute name="sigoption" type="xsd:string"/>
+            <xsd:attribute name="licensekey" type="xsd:string"/>
+            <xsd:attribute name="disablenull" type="xsd:boolean"/>
+            <xsd:attribute name="disablequery" type="xsd:boolean"/>
+            <xsd:attribute name="disablreadonly" type="xsd:boolean"/>
+            <xsd:attribute name="applinkid" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

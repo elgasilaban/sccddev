@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+	<name>Tivoli Remote Diagnostics for IBM SmartCloud Control Desk</name>
+	<version>
+		<major>7</major>
+		<minor>5</minor>
+		<modlevel>1</modlevel>
+		<patch>0</patch>
+		<build>201301301410M</build>
+	</version>
+	<dbmaxvarname>TRD</dbmaxvarname>
+	<dbscripts>trd</dbscripts>
+	<dbversion>V7500-01</dbversion>
+	<lastdbversion>V7500-00</lastdbversion>
+	<depends>search_pmp</depends>	
+</product>

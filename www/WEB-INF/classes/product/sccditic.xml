@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+    <name>IBM Tivoli Integration Composer for IBM SmartCloud Control Desk</name>
+    <version>
+        <major>7</major>
+        <minor>5</minor>
+        <modlevel>1</modlevel>
+        <patch>0</patch>
+        <build>201301301525</build>
+    </version>
+    <dbmaxvarname>SCCDITIC</dbmaxvarname>
+    <dbscripts>sccditic</dbscripts>
+    <dbversion>V7510-06</dbversion>
+    <lastdbversion>V7500-0</lastdbversion>
+    <depends>a_itic</depends>
+</product>
