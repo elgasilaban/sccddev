@@ -1,0 +1,182 @@
+
+
+td { padding:0px; margin:0px; font-size:11px;}
+
+A {color:black; text-decoration:underline;}
+
+a.red {color:red; text-decoration:none;}
+a:visited.white {color:white; text-decoration:none;}
+a:visited.red {color:red; text-decoration:none;}
+a:active.white {color:red; text-decoration:none;}
+a:active.red {color:orange; text-decoration:none;}
+a:hover.white {color:red; text-decoration:none;}
+a:hover.red {color:blue; text-decoration:underline;}
+
+
+ .applinknavbar
+ {
+ 	background-color: #616161; 
+ 	color: #C9E3F2; 
+ 	font-family: Arial, Helvetica, sans-serif; 
+ 	font-size: 11px; 
+ 	font-style: normal; 
+ 	font-weight: bold; 
+ 	background-image: url(../../images/bg_navbar_applink.jpg); 
+ 	background-repeat: no-repeat; background-position: right top; 
+ 	vertical-align:top; 
+}
+
+.headerbar 
+	{	
+		background:#9BB3CB;
+		padding:0px;
+		padding-left:2px;
+		padding-right:2px;
+		cursor:default;
+		border-top:3px solid #ffffff;
+	}
+
+
+.tabletitle 
+	{
+		color:#ffffff;
+		font-weight:bold; 
+		font-size:11px;
+		top:0px;
+		margin-right:5px;
+		padding-left:3px;
+	}
+
+
+	.userMessage
+	{	
+		color: #DFB4A2;
+		font-weight:bold;
+	}
+
+	.toggleselectrows
+	{
+		font-size:11px;
+		padding-left:2px;
+		padding-top:1px
+	}
+
+
+	.txtappname 
+	{
+		color: #FFFFFF; 
+		font-family: Arial, Helvetica, sans-serif; 
+		font-size: 12px; 
+		font-style: normal; 
+		font-weight: bold;
+		position:relative;
+	}
+
+
+<!-- Survey tabs related css(pes)-->
+
+
+.subtabs {
+	BORDER-RIGHT: #006699 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: medium none; PADDING-LEFT: 4px; BACKGROUND: #ffffff; PADDING-BOTTOM: 4px; BORDER-LEFT: #006699 1px solid; WIDTH: 99%; PADDING-TOP: 4px; BORDER-BOTTOM: #006699 1px solid; TEXT-DECORATION: none
+}
+
+TABLE {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-WEIGHT: normal; FONT-SIZE: 11px; BORDER-LEFT: 0px; COLOR: #000033; LINE-HEIGHT: 16px; BORDER-BOTTOM: 0px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif, "MS sans serif"
+}
+TR {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #000033; LINE-HEIGHT: 16px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif, "MS sans serif"
+}
+TD {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #000033; LINE-HEIGHT: 16px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif, "MS sans serif"
+}
+
+
+#foldertab1 {
+	PADDING-RIGHT: 0px; MARGIN-TOP: 8px; PADDING-LEFT: 0px; PADDING-BOTTOM: 3px; FONT: bold 11px Verdana, sans-serif; PADDING-TOP: 3px; BORDER-BOTTOM: #006699 1px solid
+}
+#foldertab1 LI {
+	DISPLAY: inline; MARGIN: 0px; LIST-STYLE-TYPE: none
+}
+#foldertab1 LI A {
+	BORDER-RIGHT: #006699 1px solid; PADDING-RIGHT: 0.5em; BORDER-TOP: #006699 1px solid; PADDING-LEFT: 0.5em; BACKGROUND: #f0f0f0; PADDING-BOTTOM: 3px; MARGIN-LEFT: 3px; BORDER-LEFT: #006699 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: medium none; TEXT-DECORATION: none
+}
+#foldertab1 LI A:link {
+	COLOR: #003366
+}
+#foldertab1 LI A:visited {
+	COLOR: #003366
+}
+#foldertab1 LI A:hover {
+	BORDER-LEFT-COLOR: #006699; BACKGROUND: #006699; BORDER-BOTTOM-COLOR: #006699; COLOR: #ffffff; BORDER-TOP-COLOR: #006699; BORDER-RIGHT-COLOR: #006699
+}
+#foldertab1 LI A#current {
+	BORDER-TOP: #006699 4px solid; BACKGROUND: white; COLOR: #003366; BORDER-BOTTOM: white 1px solid
+}
+#foldertab1 LI B#current {
+	BORDER-RIGHT: #006699 1px solid; PADDING-RIGHT: 0.5em; BORDER-TOP: #006699 4px solid; PADDING-LEFT: 0.5em; BACKGROUND: white; PADDING-BOTTOM: 3px; MARGIN-LEFT: 3px; BORDER-LEFT: #006699 1px solid; COLOR: #003366; PADDING-TOP: 3px; BORDER-BOTTOM: white 1px solid; TEXT-DECORATION: none
+}
+
+H3 {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-WEIGHT: normal; FONT-SIZE: 18px; PADDING-BOTTOM: 4px; MARGIN: 0px 0px 0px 3px; LINE-HEIGHT: normal; PADDING-TOP: 4px
+}
+
+A:link {
+	COLOR: #003366
+}
+A:visited {
+	COLOR: #003366
+}
+A:active {
+	COLOR: #003366
+}
+A:hover {
+	COLOR: #ff6600
+}
+.top {
+	FONT-SIZE: 11px; BACKGROUND-COLOR: #ffffff
+}
+.top A {
+	COLOR: #003366; TEXT-DECORATION: none
+}
+.top A:hover {
+	COLOR: #ff6600
+}
+
+.instance {
+	BORDER-RIGHT: #006699 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: medium none; PADDING-LEFT: 4px; BACKGROUND: #e6e9ee no-repeat right 50%; PADDING-BOTTOM: 4px; BORDER-LEFT: #006699 1px solid; WIDTH: 99%; PADDING-TOP: 4px; BORDER-BOTTOM: #006699 1px solid; TEXT-DECORATION: none
+}
+.subtabs {
+	BORDER-RIGHT: #006699 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: medium none; PADDING-LEFT: 4px; BACKGROUND: #ffffff; PADDING-BOTTOM: 4px; BORDER-LEFT: #006699 1px solid; WIDTH: 99%; PADDING-TOP: 4px; BORDER-BOTTOM: #006699 1px solid; TEXT-DECORATION: none
+}
+
+
+BUTTON {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, geneva, arial, sans-serif; HEIGHT: 21px
+}
+.button {
+	BORDER-RIGHT: #acacac 1px solid; BACKGROUND-POSITION: 50% 0%; BORDER-TOP: #acacac 1px solid; FONT-SIZE: 11px; BACKGROUND-IMAGE: url(../images/pane2.png); PADDING-BOTTOM: 1px; BORDER-LEFT: #acacac 1px solid; CURSOR: pointer; COLOR: #000000; BORDER-BOTTOM: #acacac 1px solid; BACKGROUND-REPEAT: repeat-x; FONT-FAMILY: verdana, helvetica, sans-serif; HEIGHT: 21px; BACKGROUND-COLOR: #dedede
+}
+INPUT {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: verdana, geneva, arial, sans-serif; HEIGHT: 21px
+}
+
+.unixOS {
+	VISIBILITY: hidden; POSITION: absolute
+}
+.windowsOS {
+	VISIBILITY: hidden; POSITION: absolute
+}
+
+
+
+
+body { padding:0px; margin: 0px; background:#FFFFFF; font-family: arial, sans serif, verdana; font-size: 11px; cursor:default; }
+	td { padding:0px; margin:0px; }
+	tr { padding:0px; margin:0px; }
+	table { margin:0px; padding:0px; }
+	img { margin:2px; }
+	.accessibleHeader { font-size: 11px; text-decoration:none; color:#999999; display:inline;  }
+	a	{ padding:0px; margin:0px; padding:0px; }
+	div	{ margin:0px; padding:0px; }
+	.text { font-family: arial, sans serif, verdana; font-size: 11px; }
+	

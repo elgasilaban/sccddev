@@ -1,0 +1,3 @@
+		<!--tr valign="bottom">
+			<td height="21" align="center">&nbsp;&nbsp;<a href="http://www.ibm.com/ibm/" target="new">About IBM</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.alphaworks.ibm.com/" target="new">alphaWorks</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.alphaworks.ibm.com/tech/fiera/evaluation" target="new">Evaluate Fiera</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www-106.ibm.com/developerworks/forums/dw_forum.jsp?cat=28&forum=458"  target="new">Fiera Discussion</a></td>
+		</tr-->

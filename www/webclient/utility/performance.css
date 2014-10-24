@@ -1,0 +1,107 @@
+/*
+* Licensed Materials - Property of IBM
+* “Restricted Materials of IBM”
+* 5724-U18
+* (C) COPYRIGHT IBM CORP. 2006,2009 All Rights Reserved.
+* US Government Users Restricted Rights - Use, duplication or
+* disclosure restricted by GSA ADP Schedule Contract with
+* IBM Corp.
+*
+*/
+table.bgnavbar {	
+	background-color: #305F90; 
+	color: #C9E3F2; 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-style: normal; 
+	font-weight: bold; 
+	background-repeat: no-repeat; background-position: right top; 
+	line-height: 27px; 
+	vertical-align:top; 
+}
+table.bgnavbar {	
+	background-color: #305F90; 
+	color: #C9E3F2; 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	font-style: normal; 
+	font-weight: bold; 
+	background-repeat: no-repeat; background-position: right top; 
+	line-height: 25px; 
+	vertical-align:top; 
+}
+.navbar { 	color: #FFFFFF; 
+	line-height: 15px; 
+	vertical-align:top; 
+	padding-top: 0px; 
+	padding-right: 30x; 
+	padding-bottom: 0px; 
+	padding-left: 30x; 
+}
+
+td.txtappname {	color: #FFFFFF; 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	font-style: normal; 
+	font-weight: bold; 
+}
+a.powerwhite {	color:#ffffff;
+		font-size:8pt;
+		font-weight:bold; 
+		text-decoration:none;
+		padding-left:11px;
+		padding-right:11px; 
+		vertical-align:top;
+	}
+a.powerwhite:hover{	color:#ffffff;
+			text-decoration:underline;
+		}
+
+.maintable{ display:inline;padding:2px;font-family:verdana;font-size:10pt;
+}
+.helptable{	border:1px solid #999999;background-color:#E7E7E7;font-size:8pt;
+}
+.preslink{	color:#FFFFFF;cursor:hand;border:1px solid #000000;background-color:#6699CC;padding-left:11px;padding-right:11px;font-size:8pt;font-family:verdana
+}
+.utillink{	color:#000000;cursor:hand;border:1px solid #E7E7E7;border-bottom:1px solid #000000;border-right:1px solid #000000;background-color:#C0C0C0;padding-left:11px;padding-right:11px;font-size:8pt;font-family:verdana
+}
+.utillinkdown{ color:#000000;cursor:hand;border:1px solid #E7E7E7;border-bottom:1px solid #000000;border-right:1px solid #000000;background-color:#C0C0C0;padding-left:11px;padding-right:11px;font-size:8pt;font-family:verdana
+}
+.rowwhite { 
+font-family: Verdana,Arial, Helvetica, sans-serif; 
+font-size: 11px; 
+font-style: normal; 
+font-weight: normal;		
+color:black;
+background-color: #FFFFFF
+}		
+.rowgray { 
+font-family: Verdana,Arial, Helvetica, sans-serif; 
+font-size: 12px; 
+font-style: normal; 
+font-weight: bold;		
+color:black;
+background-color: #cccccc
+}
+.rowsky { 
+font-family: Verdana,Arial, Helvetica, sans-serif; 
+font-size: 12px; 
+font-style: normal; 
+font-weight: bold;		
+color:red;
+background-color: #C9E3F2
+}	
+.fontbig { 
+font-family: Verdana,Arial, Helvetica, sans-serif; 
+font-size: 12px; 
+font-style: normal; 
+font-weight: bold;		
+color:white;				
+}
+.fontmaroon { 
+font-family: Verdana,Arial, Helvetica, sans-serif; 
+font-size: 12px; 
+font-style: normal; 
+font-weight: bold;		
+color:red;				
+}
