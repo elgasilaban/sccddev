@@ -1,0 +1,10 @@
+mxe.encrypted=false
+mxe.db.url=jdbc:sqlserver://PC-TAL768\\SQLEXPRESS;databaseName=maximo
+maximo.min.required.db.version=7100
+mxe.db.driver=oracle.jdbc.OracleDriver
+mxe.rmi.port=0
+mxe.db.schemaowner=dbo
+mxe.db.user=maximo
+mxe.registry.port=13411
+mxe.name=MAXSCCD
+mxe.db.password=maximo
