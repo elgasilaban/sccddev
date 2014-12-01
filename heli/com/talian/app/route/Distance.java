@@ -13,8 +13,8 @@ import java.rmi.RemoteException;
 
 import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
-import psdi.mbo.MboRemote;
-import psdi.util.MXException;
+import psdi.bo.MboRemote;
+import psdi.util.CocoException;
 
 import com.talian.app.scenario.FlightScenario;
 import com.talian.app.world.WorldPoint;
@@ -46,7 +46,7 @@ public class Distance {
 		return fromPort.port + "-" + toPort.port ;
 	}
 
-	public static Distance readfromMBO (FlightScenario scenario, MboRemote mbo) throws RemoteException, MXException {
+	public static Distance readfromMBO (FlightScenario scenario, MboRemote mbo) throws RemoteException, CocoException {
 		Distance dist = new Distance(scenario) ;
 		dist.fromPort = scenario.getPort(mbo.getString("fromport")) ;
 		dist.toPort = scenario.getPort(mbo.getString("toport")) ;
@@ -70,7 +70,7 @@ public class Distance {
 		return dist ;
 	}
 
-	public void save (MboRemote mbo) throws RemoteException, MXException {
+	public void save (MboRemote mbo) throws RemoteException, CocoException {
 		if (scenario != null) {
 			mbo.setValue("scenarioid", scenario.getScenarioId()) ;
 		}

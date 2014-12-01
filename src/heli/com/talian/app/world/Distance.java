@@ -10,10 +10,10 @@
  */
 package com.talian.app.world;
 
-import java.rmi.RemoteException ;
+import java.rmi.RemoteException;
 
-import psdi.mbo.Mbo ;
-import psdi.mbo.MboSet ;
+import psdi.mbo.Mbo;
+import psdi.mbo.MboSet;
 
 /**
  * @author Seno

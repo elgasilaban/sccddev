@@ -10,11 +10,11 @@
  */
 package com.talian.app.schedulling.data;
 
-import java.rmi.RemoteException ;
-import java.util.Hashtable ;
+import java.rmi.RemoteException;
+import java.util.Hashtable;
 
-import psdi.mbo.MboRemote ;
-import psdi.util.MXException ;
+import psdi.mbo.MboRemote;
+import psdi.util.MXException;
 
 /**
  * @author Seno

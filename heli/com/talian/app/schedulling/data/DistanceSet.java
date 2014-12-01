@@ -14,10 +14,10 @@ import java.rmi.RemoteException ;
 import java.util.Date ;
 import java.util.Hashtable ;
 
-import psdi.mbo.MboRemote ;
-import psdi.mbo.MboSetRemote ;
-import psdi.server.MXServer ;
-import psdi.util.MXException ;
+import psdi.bo.MboRemote ;
+import psdi.bo.MboSetRemote ;
+import psdi.server.CocoServer ;
+import psdi.util.CocoException ;
 
 /**
  * @author Seno
@@ -25,7 +25,7 @@ import psdi.util.MXException ;
  */
 public class DistanceSet {
 	static Hashtable<String, Distance> list = new Hashtable<String, Distance> ();
-	public static void load (MboSetRemote set) throws RemoteException, MXException {
+	public static void load (MboSetRemote set) throws RemoteException, CocoException {
 		MboRemote mbo = set.moveFirst() ;
 		while (mbo != null) {
 			Distance obj = Distance.getInstance(mbo) ;
@@ -34,9 +34,9 @@ public class DistanceSet {
 		}		
 	}
 	
-	public static void load () throws RemoteException, MXException {
+	public static void load () throws RemoteException, CocoException {
 		if (list.isEmpty()) {
-			MXServer server = MXServer.getMXServer() ;
+			CocoServer server = CocoServer.getCocoServer() ;
 			MboSetRemote set = server.getMboSet("DISTANCE", server.getSystemUserInfo()) ;
 			load (set) ;
 		}

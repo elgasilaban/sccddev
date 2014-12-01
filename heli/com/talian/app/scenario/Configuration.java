@@ -12,8 +12,8 @@ package com.talian.app.scenario;
 
 import java.rmi.RemoteException;
 
-import psdi.mbo.MboRemote;
-import psdi.util.MXException;
+import psdi.bo.MboRemote;
+import psdi.util.CocoException;
 import psdi.util.MXSession;
 
 /**
@@ -56,7 +56,7 @@ public class Configuration {
 		defaultOAT = oat ;
 	}
 
-	public void save (MboRemote mbo) throws RemoteException, MXException {
+	public void save (MboRemote mbo) throws RemoteException, CocoException {
 		mbo.setValue("startpos", defaultStartPos) ;
 		mbo.setValue("endpos", defaultEndPos) ;
 		mbo.setValue("oat", defaultOAT) ;
@@ -66,7 +66,7 @@ public class Configuration {
 //		mbo.getThisMboSet().save();
 	}
 
-	static public Configuration readfromMBO (MboRemote mbo) throws RemoteException, MXException {
+	static public Configuration readfromMBO (MboRemote mbo) throws RemoteException, CocoException {
 		Configuration cfg = new Configuration() ;
 		cfg.defaultStartPos = mbo.getString("startpos") ;
 		cfg.defaultEndPos = mbo.getString("endpos") ;

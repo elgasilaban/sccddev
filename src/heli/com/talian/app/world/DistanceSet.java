@@ -10,15 +10,14 @@
  */
 package com.talian.app.world;
 
-import java.rmi.RemoteException ;
-import java.util.ArrayList ;
+import java.rmi.RemoteException;
 
-import psdi.mbo.Mbo ;
-import psdi.mbo.MboRemote ;
-import psdi.mbo.MboServerInterface ;
-import psdi.mbo.MboSet ;
-import psdi.mbo.MboSetRemote ;
-import psdi.util.MXException ;
+import psdi.mbo.Mbo;
+import psdi.mbo.MboRemote;
+import psdi.mbo.MboServerInterface;
+import psdi.mbo.MboSet;
+import psdi.mbo.MboSetRemote;
+import psdi.util.MXException;
 
 /**
  * @author Seno
@@ -49,6 +48,8 @@ public class DistanceSet extends MboSet implements DistanceSetRemote {
 
 		MboServerInterface server = getMboServer() ;
 		MboSetRemote ports = server.getMboSet("heliport", this.getUserInfo()) ;
+		ports.setWhere("portstatus = 'ACTIVE'");
+		ports.moveFirst();
 		int cnt = ports.count() ;
 
 		for (int i=0; i<cnt; i++)

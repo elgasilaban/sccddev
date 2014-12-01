@@ -12,8 +12,8 @@ package com.talian.app.schedulling.data;
 
 import java.rmi.RemoteException ;
 
-import psdi.mbo.MboRemote ;
-import psdi.util.MXException ;
+import psdi.bo.MboRemote ;
+import psdi.util.CocoException ;
 
 /**
  * @author Seno
@@ -33,7 +33,7 @@ public class Distance {
 		return org + "-" + dest ;
 	}
 	
-	static Distance getInstance (MboRemote mbo) throws RemoteException, MXException {
+	static Distance getInstance (MboRemote mbo) throws RemoteException, CocoException {
 		Distance dist = new Distance () ;
 		dist.org = mbo.getString("fromport") ;
 		dist.dest = mbo.getString("toport") ;

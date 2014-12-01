@@ -12,13 +12,13 @@ package com.talian.app.world;
 
 import java.rmi.RemoteException ;
 
-import psdi.mbo.MboSetRemote ;
-import psdi.util.MXException ;
+import psdi.bo.MboSetRemote ;
+import psdi.util.CocoException ;
 
 /**
  * @author Seno
  *
  */
 public interface DistanceSetRemote extends MboSetRemote {
-	public void rebuildDistanceTable () throws MXException, RemoteException ;
+	public void rebuildDistanceTable () throws CocoException, RemoteException ;
 }

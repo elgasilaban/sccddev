@@ -12,8 +12,8 @@ package com.talian.app.scenresv;
 
 import java.rmi.RemoteException;
 
-import psdi.mbo.Mbo;
-import psdi.mbo.MboSet;
+import psdi.bo.Mbo;
+import psdi.bo.MboSet;
 
 /**
  * @author Elga

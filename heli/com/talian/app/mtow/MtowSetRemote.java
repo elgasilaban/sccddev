@@ -10,7 +10,7 @@
  */
 package com.talian.app.mtow;
 
-import psdi.mbo.MboSetRemote;
+import psdi.bo.MboSetRemote;
 
 /**
  * @author Seno

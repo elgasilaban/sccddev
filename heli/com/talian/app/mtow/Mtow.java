@@ -12,10 +12,10 @@ package com.talian.app.mtow;
 
 import java.rmi.RemoteException;
 
-import psdi.mbo.Mbo;
-import psdi.mbo.MboRemote;
-import psdi.mbo.MboSet;
-import psdi.util.MXException;
+import psdi.bo.Mbo;
+import psdi.bo.MboRemote;
+import psdi.bo.MboSet;
+import psdi.util.CocoException;
 
 import com.talian.app.actype.ActypeRemote;
 
@@ -30,7 +30,7 @@ public class Mtow extends Mbo implements MtowRemote {
 	}
 
 	@Override
-	public void add() throws MXException, RemoteException {
+	public void add() throws CocoException, RemoteException {
 		super.add();
 
 		MboRemote owner = this.getOwner();

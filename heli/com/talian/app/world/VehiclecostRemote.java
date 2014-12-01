@@ -3,7 +3,7 @@
  */
 package com.talian.app.world;
 
-import psdi.mbo.MboRemote;
+import psdi.bo.MboRemote;
 
 /**
  * @author THINKPAD

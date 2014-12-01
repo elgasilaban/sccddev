@@ -5,8 +5,8 @@ package com.talian.app.world;
 
 import java.rmi.RemoteException;
 
-import psdi.mbo.Mbo;
-import psdi.mbo.MboSet;
+import psdi.bo.Mbo;
+import psdi.bo.MboSet;
 
 /**
  * @author THINKPAD

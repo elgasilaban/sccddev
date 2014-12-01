@@ -14,11 +14,11 @@ import java.rmi.RemoteException ;
 import java.util.Date ;
 import java.util.Hashtable ;
 
-import psdi.mbo.MboRemote ;
-import psdi.mbo.MboSetRemote ;
-import psdi.server.MXServer ;
-import psdi.server.MXServerRemote ;
-import psdi.util.MXException ;
+import psdi.bo.MboRemote ;
+import psdi.bo.MboSetRemote ;
+import psdi.server.CocoServer ;
+import psdi.server.CocoServerRemote ;
+import psdi.util.CocoException ;
 
 /**
  * @author Seno
@@ -48,8 +48,8 @@ public class ReservationSummary {
 	Hashtable<String, ReservationInfo> legs ;
 	Hashtable<String, Hashtable<String, ReservationInfo>> departing ;
 	
-	void initData (Date transdate, String session) throws RemoteException, MXException {
-		MXServer server = MXServer.getMXServer() ;
+	void initData (Date transdate, String session) throws RemoteException, CocoException {
+		CocoServerRemote server = CocoServer.getCocoServer() ;
 		MboSetRemote reservations = server.getMboSet("reservation", server.getSystemUserInfo()) ;
 		reservations.setWhere("flightsession = '" + session + "'") ;
 		reservations.reset() ;

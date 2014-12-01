@@ -19,7 +19,7 @@ import java.util.Stack;
 import java.util.Vector;
 
 import psdi.common.parse.IsNullNode;
-import psdi.util.MXException;
+import psdi.util.CocoException;
 
 import com.talian.app.fuel.IFuelBurnedJourney;
 import com.talian.app.fuel.IFuelConsumer;
@@ -545,23 +545,18 @@ public class Route implements IFuelBurnedJourney {
 			changed = true ;
 		}
 		else {
-			System.err.println("%%%%%%%%%%%%% else 1");
 			int portpair[] = findPortPair (resv) ;
-			if (portpair[0]>=0 && portpair[1]>=0) {    // found a pair for the new reservation
+			if (portpair[0]>=0 && portpair[1]>=0) {    // found
 				// route is not changed
 				// adjust pax on board
-				System.err.println("%%%%%%%%%%%%% else 2");
 				VisitedPort vpon = visitedports.get(portpair[0]) ;
 				VisitedPort vpoff = visitedports.get(portpair[1]) ;
 
 				if (vpon.legafter.getPaxOnBoard()+1 <= thefleet.paxcapacity) {
-					System.err.println("%%%%%%%%%%%%% else 3");
 					vpon.paxOn(resv, vpoff) ;
 					if (resv.isDummyRefueling())
-						System.err.println("%%%%%%%%%%%%% else 3a");
 						vpoff.setRefueling(true) ;
 				} else {
-					System.err.println("%%%%%%%%%%%%% else 4");
 					VisitedPort vpon1 = null, vpoff1 = null;
 					VisitedPort vppref = null, vpnext = null ;
 					int offset = 0 ;
@@ -628,8 +623,7 @@ public class Route implements IFuelBurnedJourney {
 					if (resv.isDummyRefueling())
 						vpoff1.setRefueling(true) ;
 				}
-			} else if ((portpair[0]<0) && (portpair[1]>=0))  { //found just the destination of the reservation
-				System.err.println("%%%%%%%%%%%%% else 5");
+			} else if ((portpair[0]<0) && (portpair[1]>=0))  {
 				VisitedPort vppref = null;
 				VisitedPort	vpnext = null;
 				VisitedPort vpon = null;
@@ -659,17 +653,13 @@ public class Route implements IFuelBurnedJourney {
 				changed = true ;
 			}
 			else {  									// if not found
-				System.err.println("%%%%%%%%%%%%% else 6");
 				VisitedPort vpon = null, vpoff = null;
 				VisitedPort vppref = null, vpnext = null ;
 				int offset = 0 ;
 
-				//found only the origin of the reservation 
-				if (portpair[0]>=0){
-					System.err.println("%%%%%%%%%%%%% else 7");
+				if (portpair[0]>=0)
 					vpon = visitedports.get(portpair[0]) ;
-				} else {
-					System.err.println("%%%%%%%%%%%%% else 8");
+				else {
 					int insertion = visitedports.size() - 2 ;
 					assert(insertion>0) ;
 					assert(insertion<visitedports.size()) ;
@@ -701,11 +691,9 @@ public class Route implements IFuelBurnedJourney {
 				}
 
 				if (portpair[1]>=0) {
-					System.err.println("%%%%%%%%%%%%% else 9");
 					vpoff = visitedports.get(offset + portpair[1]) ;
 				}
 				else {
-					System.err.println("%%%%%%%%%%%%% else 10");
 					int insertion = visitedports.size() - 2 ;
 					assert(insertion>0) ;
 					assert(insertion<visitedports.size()) ;
@@ -764,7 +752,7 @@ public class Route implements IFuelBurnedJourney {
 	}
 
 	// Use 2opt heuristic algorithm
-	public Route advanceOptimize () throws RemoteException, MXException {
+	public Route advanceOptimize () throws RemoteException, CocoException {
 		boolean retval = false ;
 		int count = visitedports.size() ;
 		if (count < 4)
@@ -832,7 +820,7 @@ public class Route implements IFuelBurnedJourney {
 	}
 
 	// added by efs
-	public Route advanceOptimize1 () throws RemoteException, MXException {
+	public Route advanceOptimize1 () throws RemoteException, CocoException {
 		boolean retval = false ;
 		Stack<Route> partialSolution = new Stack<Route>();
 		int count = visitedports.size() ;

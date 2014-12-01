@@ -18,7 +18,7 @@ import java.util.Hashtable ;
 
 import org.apache.commons.lang.math.RandomUtils ;
 
-import psdi.util.MXException ;
+import psdi.util.CocoException ;
 import psdi.util.MXApplicationException ;
 
 import com.talian.app.heli.HeliService ;
@@ -49,7 +49,7 @@ public class Scheduller implements Runnable {
 		svc = asvc ;
 	}
 	
-	public static Scheduller startInstance (HeliService asvc, Date tripdate, String sid) throws RemoteException, MXException {
+	public static Scheduller startInstance (HeliService asvc, Date tripdate, String sid) throws RemoteException, CocoException {
 		if (isStarted (tripdate, sid)) 
 			throw new MXApplicationException("schedulling", "hasRun", new String[] {tripdate.toString(), sid} ) ;
 		Scheduller sched = new Scheduller (asvc, tripdate, sid) ;
@@ -71,7 +71,7 @@ public class Scheduller implements Runnable {
 		return getKey(currentdate, flightsession) ;
 	}
 	
-	public void init () throws RemoteException, MXException {
+	public void init () throws RemoteException, CocoException {
 		SimpleDateFormat dtf = new SimpleDateFormat() ;
 		
 		svc.putLog("Loading data... for " + dtf.format(currentdate) + ", flight session" + flightsession) ;
@@ -307,7 +307,7 @@ public class Scheduller implements Runnable {
 		}
 	}
 	
-	public void stop () throws RemoteException, MXException {
+	public void stop () throws RemoteException, CocoException {
 		svc.putLog("DONE") ;
 		schedullers.remove(getKey()) ;
 	}

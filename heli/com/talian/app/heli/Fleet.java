@@ -14,9 +14,9 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import psdi.mbo.MboRemote;
-import psdi.mbo.MboSetRemote;
-import psdi.util.MXException;
+import psdi.bo.MboRemote;
+import psdi.bo.MboSetRemote;
+import psdi.util.CocoException;
 import psdi.util.MXSession;
 
 import com.talian.app.fuel.IFuelConsumer;
@@ -55,18 +55,6 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		return acreg ;
 	}
 
-	public int getCapacity(){
-		return this.paxcapacity;
-	}
-	
-	public String getStartPosition(){
-		return this.startpos;
-	}
-	
-	public String getEndPosition(){
-		return this.endpos;
-	}
-	
 	public FlightScenario getScenario () {
 		return scenario ;
 	}
@@ -75,14 +63,14 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		this.scenario = scenario ;
 	}
 
-	public Route clearAssignment () throws MXException, RemoteException {
+	public Route clearAssignment () throws CocoException, RemoteException {
 		if (route != null) {
 			route.clear() ;
 		}
 		return route ;
 	}
 
-	public Route unassignReservation (Integer resvId) throws MXException, RemoteException {
+	public Route unassignReservation (Integer resvId) throws CocoException, RemoteException {
 		if (route != null) {
 			route.removeReservation(resvId) ;
 			route.revalidate();
@@ -107,7 +95,7 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		return false ;
 	}
 
-	public void changeStatus(MboRemote mbo) throws RemoteException, MXException{
+	public void changeStatus(MboRemote mbo) throws RemoteException, CocoException{
 		String fleetstatus = mbo.getString("status");
 		if (fleetstatus.equals("ACTIVE")) {
 			mbo.setValue("status", "INACTIVE");
@@ -116,15 +104,15 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		}
 	}
 
-	public Route getRoute () throws MXException, RemoteException {
+	public Route getRoute () throws CocoException, RemoteException {
 		return route ;
 	}
 
-	public void replaceRoute (Route newRoute) throws MXException, RemoteException {
+	public void replaceRoute (Route newRoute) throws CocoException, RemoteException {
 		route = newRoute ;
 	}
 
-	public Route assignAtEnd (MboRemote resv) throws MXException, RemoteException {
+	public Route assignAtEnd (MboRemote resv) throws CocoException, RemoteException {
 		ReservationRemote r = Reservation.readfromMBO(resv) ;
 		route.addPortAtEnd(r) ;
 
@@ -133,7 +121,7 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		return route ;
 	}
 
-	public Route assignAtEnd (Integer reservation) throws MXException, RemoteException {
+	public Route assignAtEnd (Integer reservation) throws CocoException, RemoteException {
 		MboSetRemote mboset = null ;
 		if (this.scenario != null) {
 			MXSession mxsession = this.scenario.getMXSession() ;
@@ -157,7 +145,7 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		return route ;
 	}
 
-	public Route rearrageRoute (String [] proposedports) throws MXException, RemoteException  {
+	public Route rearrageRoute (String [] proposedports) throws CocoException, RemoteException  {
 		if (route != null) {
 			Route newroute = route.rearrange(proposedports) ;
 			int newLength = newroute.toPortNameArray().length;
@@ -171,7 +159,7 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		return route ;
 	}
 
-	public void save (MboRemote mbo) throws RemoteException, MXException {
+	public void save (MboRemote mbo) throws RemoteException, CocoException {
 		mbo.setValue ("acreg", acreg) ;
 		mbo.setValue ("eew", eew) ;
 		mbo.setValue ("maxspeed", maxspeed) ;
@@ -190,6 +178,7 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		mbo.setValue ("groundtime", groundtime) ;
 		mbo.setValue ("taxitime", taxitime) ;
 		mbo.setValue("status", status);
+		mbo.setValue("moda", moda);
 //		mbo.getThisMboSet().save();
 	}
 
@@ -210,6 +199,8 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		flt.taxitime = this.taxitime ;
 		flt.mtow = this.mtow ;
 
+		flt.moda = this.moda ;
+		
 		flt.startpos = startpos ;
 		flt.endpos = endpos ;
 		flt.refuelport = refuelport ;
@@ -217,7 +208,7 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		return flt ;
 	}
 
-	public static Fleet readfromMBO (FlightScenario scenario, MboRemote mbo) throws RemoteException, MXException {
+	public static Fleet readfromMBO (FlightScenario scenario, MboRemote mbo) throws RemoteException, CocoException {
 		Fleet flt = new Fleet(scenario) ;
 		flt.acreg = mbo.getString ("acreg") ;
 		flt.eew = mbo.getDouble ("eew") ;
@@ -234,6 +225,8 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		flt.taxitime = mbo.getDouble ("taxitime") ;
 		flt.mtow = mbo.getDouble ("mtow") ;
 		flt.status = mbo.getString("status");
+		
+		flt.moda = mbo.getString("moda");
 
 		flt.startpos = mbo.getString ("startpos") ;
 		flt.endpos = mbo.getString ("endpos") ;

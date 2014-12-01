@@ -12,8 +12,6 @@ package com.talian.app.acreg;
 
 import java.rmi.RemoteException;
 
-import com.talian.app.actype.Actype;
-
 import psdi.mbo.Mbo;
 import psdi.mbo.MboSet;
 import psdi.util.MXException;

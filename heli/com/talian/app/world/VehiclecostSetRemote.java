@@ -5,13 +5,13 @@ package com.talian.app.world;
 
 import java.rmi.RemoteException;
 
-import psdi.mbo.MboSetRemote;
-import psdi.util.MXException;
+import psdi.bo.MboSetRemote;
+import psdi.util.CocoException;
 
 /**
  * @author THINKPAD
  *
  */
 public interface VehiclecostSetRemote extends MboSetRemote {
-	public void calculateVehicleCostTable () throws MXException, RemoteException ;
+	public void calculateVehicleCostTable () throws CocoException, RemoteException ;
 }

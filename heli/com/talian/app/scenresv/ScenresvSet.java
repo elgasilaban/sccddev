@@ -12,10 +12,10 @@ package com.talian.app.scenresv;
 
 import java.rmi.RemoteException;
 
-import psdi.mbo.Mbo;
-import psdi.mbo.MboServerInterface;
-import psdi.mbo.MboSet;
-import psdi.util.MXException;
+import psdi.bo.Mbo;
+import psdi.bo.MboServerInterface;
+import psdi.bo.MboSet;
+import psdi.util.CocoException;
 
 /**
  * @author Elga
@@ -36,7 +36,7 @@ public class ScenresvSet extends MboSet implements ScenresvSetRemote {
 	 * @see psdi.bo.MboSet#getMboInstance(psdi.bo.MboSet)
 	 */
 	@Override
-	protected Mbo getMboInstance(MboSet ms) throws MXException,
+	protected Mbo getMboInstance(MboSet ms) throws CocoException,
 			RemoteException {
 		// TODO Auto-generated method stub
 		return new Scenresv(ms);

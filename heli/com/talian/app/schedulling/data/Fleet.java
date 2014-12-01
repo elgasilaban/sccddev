@@ -13,10 +13,10 @@ package com.talian.app.schedulling.data;
 import java.rmi.RemoteException ;
 import java.util.Date ;
 
-import psdi.mbo.MboRemote ;
-import psdi.mbo.MboSetRemote ;
-import psdi.mbo.SqlFormat ;
-import psdi.util.MXException ;
+import psdi.bo.MboRemote ;
+import psdi.bo.MboSetRemote ;
+import psdi.bo.SqlFormat ;
+import psdi.util.CocoException ;
 
 /**
  * @author Seno
@@ -54,7 +54,7 @@ public class Fleet {
 		return fleet ;
 	}
 
-	public void adjustPosition (Date dt, String flightsession) throws RemoteException, MXException {
+	public void adjustPosition (Date dt, String flightsession) throws RemoteException, CocoException {
 		SqlFormat sqf = new SqlFormat("fleet=:0 and tripdate=:1 and flightsession=:2") ;
 		sqf.setObject(0, "FLEETPOS", "FLEET", fleet) ;
 		sqf.setDate(1, dt) ;
@@ -67,7 +67,7 @@ public class Fleet {
 			startPosition = "" ;
 	}
 
-	static Fleet getInstance (MboRemote mbo) throws RemoteException, MXException {
+	static Fleet getInstance (MboRemote mbo) throws RemoteException, CocoException {
 		Fleet fl = new Fleet (mbo) ;
 		fl.fleet = mbo.getString("fleet") ;
 		fl.fleettype = mbo.getString("fleettype") ;

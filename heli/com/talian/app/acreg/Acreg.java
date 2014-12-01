@@ -14,9 +14,9 @@ import java.rmi.RemoteException;
 
 import com.talian.app.actype.Actype;
 
-import psdi.mbo.Mbo;
-import psdi.mbo.MboSet;
-import psdi.util.MXException;
+import psdi.bo.Mbo;
+import psdi.bo.MboSet;
+import psdi.util.CocoException;
 
 /**
  * @author Elga
@@ -29,7 +29,7 @@ public class Acreg extends Mbo implements AcregRemote {
 	}
 
 	@Override
-	public void backToDefaultSetting() throws RemoteException, MXException {
+	public void backToDefaultSetting() throws RemoteException, CocoException {
 		this.setValue("startpos", this.getString("defstartpos"), NOACCESSCHECK);
 		this.setValue("endpos", this.getString("defendpos"), NOACCESSCHECK);
 		this.setValue("status", this.getString("status"), NOACCESSCHECK);

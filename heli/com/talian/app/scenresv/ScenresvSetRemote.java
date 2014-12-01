@@ -10,7 +10,7 @@
  */
 package com.talian.app.scenresv;
 
-import psdi.mbo.MboSetRemote;
+import psdi.bo.MboSetRemote;
 
 /**
  * @author Elga

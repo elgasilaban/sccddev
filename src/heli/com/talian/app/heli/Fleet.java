@@ -55,18 +55,6 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		return acreg ;
 	}
 
-	public int getCapacity(){
-		return this.paxcapacity;
-	}
-	
-	public String getStartPosition(){
-		return this.startpos;
-	}
-	
-	public String getEndPosition(){
-		return this.endpos;
-	}
-	
 	public FlightScenario getScenario () {
 		return scenario ;
 	}
@@ -190,6 +178,7 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		mbo.setValue ("groundtime", groundtime) ;
 		mbo.setValue ("taxitime", taxitime) ;
 		mbo.setValue("status", status);
+		mbo.setValue("moda", moda);
 //		mbo.getThisMboSet().save();
 	}
 
@@ -210,6 +199,8 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		flt.taxitime = this.taxitime ;
 		flt.mtow = this.mtow ;
 
+		flt.moda = this.moda ;
+		
 		flt.startpos = startpos ;
 		flt.endpos = endpos ;
 		flt.refuelport = refuelport ;
@@ -234,6 +225,8 @@ public class Fleet extends BasicFleet implements IFuelConsumer {
 		flt.taxitime = mbo.getDouble ("taxitime") ;
 		flt.mtow = mbo.getDouble ("mtow") ;
 		flt.status = mbo.getString("status");
+		
+		flt.moda = mbo.getString("moda");
 
 		flt.startpos = mbo.getString ("startpos") ;
 		flt.endpos = mbo.getString ("endpos") ;

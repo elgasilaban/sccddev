@@ -16,19 +16,18 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
 
 import psdi.mbo.MboConstants;
 import psdi.mbo.MboRemote;
-import psdi.mbo.MboSet;
 import psdi.mbo.MboSetRemote;
-import psdi.security.UserInfo;
-import psdi.server.MXServer;
 import psdi.util.MXException;
 import psdi.util.MXSession;
 
 import com.talian.app.fuel.ITripFuelCalc;
 import com.talian.app.fuel.SimpleFuelCalc;
 import com.talian.app.heli.Fleet;
+import com.talian.app.modatrip.ModatripRemote;
 import com.talian.app.reservation.Reservation;
 import com.talian.app.reservation.ReservationRemote;
 import com.talian.app.route.Distance;
@@ -36,7 +35,6 @@ import com.talian.app.route.Leg;
 import com.talian.app.route.Port;
 import com.talian.app.route.Route;
 import com.talian.app.route.Route.VisitedPort;
-import com.talian.app.scenass.ScenassSet;
 import com.talian.app.scenass.ScenassSetRemote;
 import com.talian.app.scenresv.ScenresvSetRemote;
 
@@ -88,6 +86,31 @@ public class FlightScenario implements MboConstants {
 		}
 
 		return p ;
+	}
+	
+	public Fleet[] getFleetArrayByModal(ReservationRemote resv) throws RemoteException, MXException {
+		if (availableFleet.isEmpty())
+			return null;
+
+		Vector<Fleet> vFleet = new Vector<Fleet>();
+		Iterator<String> it =availableFleet.keySet().iterator();
+		
+		String tripgroup = resv.getString("tripgroup");
+		String org = resv.getString("org");
+		MboSetRemote modatrips = resv.getMboSet("MODATRIP");
+		modatrips.setWhere(" tripgroup = '"+ tripgroup + "' and port = '"+ org +"'");
+		ModatripRemote modatrip = (ModatripRemote)modatrips.moveFirst();
+		
+		while (it.hasNext()) {
+			Fleet fleet = availableFleet.get(it.next());
+			if (fleet.moda.equals(modatrip.getString("MODA")) ) {
+				vFleet.add(fleet);
+			}
+			
+		}
+
+		Fleet p[] = vFleet.toArray(new Fleet[0]);
+		return p;
 	}
 
 	public Port[] getPortArray () {
@@ -827,6 +850,7 @@ public class FlightScenario implements MboConstants {
 		}
 
 		MboSetRemote ports = session.getMboSet ("heliport") ;
+		ports.setWhere(" portstatus in ('ACTIVE', 'OPEN') and ishelipad = 1 ");
 		MboRemote prt = ports.moveFirst() ;
 		while (prt != null) {
 			Port heliport = Port.readfromMBO(fs,prt) ;
@@ -851,6 +875,7 @@ public class FlightScenario implements MboConstants {
 
 		return fs ;
 	}
+
 
 	public void setScenarioId(String scenarioId) {
 		this.scenarioId = scenarioId;

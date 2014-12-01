@@ -16,19 +16,23 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
 
-import psdi.mbo.MboConstants;
-import psdi.mbo.MboRemote;
-import psdi.mbo.MboSet;
-import psdi.mbo.MboSetRemote;
+import psdi.bo.MboConstants;
+import psdi.bo.MboRemote;
+import psdi.bo.MboSet;
+import psdi.bo.MboSetRemote;
 import psdi.security.UserInfo;
-import psdi.server.MXServer;
-import psdi.util.MXException;
+import psdi.server.CocoServer;
+import psdi.util.CocoException;
 import psdi.util.MXSession;
 
 import com.talian.app.fuel.ITripFuelCalc;
 import com.talian.app.fuel.SimpleFuelCalc;
 import com.talian.app.heli.Fleet;
+import com.talian.app.modatrip.Modatrip;
+import com.talian.app.modatrip.ModatripRemote;
+import com.talian.app.modatrip.ModatripSet;
 import com.talian.app.reservation.Reservation;
 import com.talian.app.reservation.ReservationRemote;
 import com.talian.app.route.Distance;
@@ -89,6 +93,31 @@ public class FlightScenario implements MboConstants {
 
 		return p ;
 	}
+	
+	public Fleet[] getFleetArrayByModal(ReservationRemote resv) throws RemoteException, CocoException {
+		if (availableFleet.isEmpty())
+			return null;
+
+		Vector<Fleet> vFleet = new Vector<Fleet>();
+		Iterator<String> it =availableFleet.keySet().iterator();
+		
+		String tripgroup = resv.getString("tripgroup");
+		String org = resv.getString("org");
+		MboSetRemote modatrips = resv.getMboSet("MODATRIP");
+		modatrips.setWhere(" tripgroup = '"+ tripgroup + "' and port = '"+ org +"'");
+		ModatripRemote modatrip = (ModatripRemote)modatrips.moveFirst();
+		
+		while (it.hasNext()) {
+			Fleet fleet = availableFleet.get(it.next());
+			if (fleet.moda.equals(modatrip.getString("MODA")) ) {
+				vFleet.add(fleet);
+			}
+			
+		}
+
+		Fleet p[] = vFleet.toArray(new Fleet[0]);
+		return p;
+	}
 
 	public Port[] getPortArray () {
 		if (availablePorts.isEmpty())
@@ -118,7 +147,7 @@ public class FlightScenario implements MboConstants {
 
 
 	// score is calculated based on distance in minutes
-	public Double getScore () throws RemoteException, MXException {
+	public Double getScore () throws RemoteException, CocoException {
 		Iterator<String> it = availableFleet.keySet().iterator() ;
 		Double score = 0.0 ;
 		while (it.hasNext()) {
@@ -206,7 +235,7 @@ public class FlightScenario implements MboConstants {
 		return config.calculationBase ;
 	}
 
-	public void cleanUp () throws RemoteException, MXException {
+	public void cleanUp () throws RemoteException, CocoException {
 		Iterator<String> it = availableFleet.keySet().iterator() ;
 		while (it.hasNext()) {
 			String acreg = it.next() ;
@@ -215,7 +244,7 @@ public class FlightScenario implements MboConstants {
 		}
 	}
 
-	public void adjustReservationTiming () throws RemoteException, MXException {
+	public void adjustReservationTiming () throws RemoteException, CocoException {
 		Iterator<String> it = availableFleet.keySet().iterator() ;
 		while (it.hasNext()) {
 			String acreg = it.next() ;
@@ -249,7 +278,7 @@ public class FlightScenario implements MboConstants {
 		config.defaultHeadwind = hw ;
 	}
 
-	void resetReservationTiming () throws RemoteException, MXException {
+	void resetReservationTiming () throws RemoteException, CocoException {
 		Iterator<String> it = availableFleet.keySet().iterator() ;
 		while (it.hasNext()) {
 			String acreg = it.next() ;
@@ -259,7 +288,7 @@ public class FlightScenario implements MboConstants {
 		}
 	}
 
-	public void updateFleet(String acreg) throws RemoteException, MXException{
+	public void updateFleet(String acreg) throws RemoteException, CocoException{
 		ScenassSetRemote oldscenassset = (ScenassSetRemote)mbo.getMboSet("scenass#1", "scenass",
 				"scenarioid="+getScenarioId() + " and acreg='"+acreg+"'") ;
 		oldscenassset.deleteAll();
@@ -368,7 +397,7 @@ public class FlightScenario implements MboConstants {
 		mbo.getThisMboSet().save();
 	}
 
-	public void save () throws RemoteException, MXException {
+	public void save () throws RemoteException, CocoException {
 		if (mbo == null)
 			return ;
 
@@ -707,7 +736,7 @@ public class FlightScenario implements MboConstants {
 		}
 	}
 
-	public HashMap<Integer, ReservationRemote> getAssignResv(String acreg) throws RemoteException, MXException {
+	public HashMap<Integer, ReservationRemote> getAssignResv(String acreg) throws RemoteException, CocoException {
 		Fleet usedFleet = getFleet(acreg);
 		if (usedFleet != null) {
 			Route usedRoute = usedFleet.getRoute();
@@ -718,7 +747,7 @@ public class FlightScenario implements MboConstants {
 		return null ;
 	}
 
-	static public FlightScenario readfromMBO (MboRemote mbo) throws RemoteException, MXException {
+	static public FlightScenario readfromMBO (MboRemote mbo) throws RemoteException, CocoException {
 		FlightScenario fs = new FlightScenario() ;
 		fs.setMbo(mbo) ;
 
@@ -761,7 +790,7 @@ public class FlightScenario implements MboConstants {
 		return fs ;
 	}
 
-	static public FlightScenario reuseScenario (FlightScenario scen, FlightScenario reusable) throws RemoteException, MXException {
+	static public FlightScenario reuseScenario (FlightScenario scen, FlightScenario reusable) throws RemoteException, CocoException {
 		MXSession session = scen.getMXSession() ;
 
 		FlightScenario fs = new FlightScenario() ;
@@ -797,12 +826,12 @@ public class FlightScenario implements MboConstants {
 		return fs ;
 	}
 
-	static public FlightScenario copyScenario (FlightScenario scen) throws RemoteException, MXException {
+	static public FlightScenario copyScenario (FlightScenario scen) throws RemoteException, CocoException {
 		return reuseScenario(scen, null) ;
 	}
 
 
-	static public FlightScenario newRecord (MXSession session, Date reserveDate, String flightsession) throws RemoteException, MXException {
+	static public FlightScenario newRecord (MXSession session, Date reserveDate, String flightsession) throws RemoteException, CocoException {
 		MboSetRemote mboset = session.getMboSet ("flightscenario") ;
 
 		FlightScenario fs = new FlightScenario() ;
@@ -827,6 +856,7 @@ public class FlightScenario implements MboConstants {
 		}
 
 		MboSetRemote ports = session.getMboSet ("heliport") ;
+		ports.setWhere(" portstatus in ('ACTIVE', 'OPEN') and ishelipad = 1 ");
 		MboRemote prt = ports.moveFirst() ;
 		while (prt != null) {
 			Port heliport = Port.readfromMBO(fs,prt) ;
@@ -851,6 +881,7 @@ public class FlightScenario implements MboConstants {
 
 		return fs ;
 	}
+
 
 	public void setScenarioId(String scenarioId) {
 		this.scenarioId = scenarioId;

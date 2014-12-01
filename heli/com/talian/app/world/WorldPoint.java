@@ -12,8 +12,8 @@ package com.talian.app.world;
 
 import java.rmi.RemoteException ;
 
-import psdi.mbo.MboRemote ;
-import psdi.util.MXException ;
+import psdi.bo.MboRemote ;
+import psdi.util.CocoException ;
 
 /**
  * @author Seno
@@ -58,13 +58,13 @@ public class WorldPoint {
 		return angle2 * 60.0 ;
 	}
 
-	public void save (MboRemote mbo)  throws MXException, RemoteException {
+	public void save (MboRemote mbo)  throws CocoException, RemoteException {
 		mbo.setValue("latDegree", latD);
 		mbo.setValue("lotDegree", longD);
 //		mbo.getThisMboSet().save();
 	}
 
-	static public WorldPoint getPoint (MboRemote mbo)  throws MXException, RemoteException {
+	static public WorldPoint getPoint (MboRemote mbo)  throws CocoException, RemoteException {
 		WorldPoint point = new WorldPoint () ;
 
 		point.latD = mbo.getDouble("latdegree") ;

@@ -12,13 +12,13 @@ package com.talian.app.acreg;
 
 import java.rmi.RemoteException;
 
-import psdi.mbo.MboRemote;
-import psdi.util.MXException;
+import psdi.bo.MboRemote;
+import psdi.util.CocoException;
 
 /**
  * @author Seno
  *
  */
 public interface AcregRemote extends MboRemote {
-	public void backToDefaultSetting () throws RemoteException, MXException ;
+	public void backToDefaultSetting () throws RemoteException, CocoException ;
 }

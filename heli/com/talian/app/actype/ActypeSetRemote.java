@@ -12,8 +12,8 @@ package com.talian.app.actype;
 
 import java.rmi.RemoteException ;
 
-import psdi.mbo.MboSetRemote ;
-import psdi.util.MXException ;
+import psdi.bo.MboSetRemote ;
+import psdi.util.CocoException ;
 
 /**
  * @author Seno

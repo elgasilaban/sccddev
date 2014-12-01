@@ -13,11 +13,9 @@ package com.talian.app.mtow;
 import java.rmi.RemoteException;
 
 import psdi.mbo.Mbo;
-import psdi.mbo.MboRemote;
 import psdi.mbo.MboServerInterface;
 import psdi.mbo.MboSet;
 import psdi.util.MXException;
-
 
 /**
  * @author Seno

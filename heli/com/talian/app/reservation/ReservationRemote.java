@@ -12,8 +12,8 @@ package com.talian.app.reservation;
 
 import java.rmi.RemoteException;
 
-import psdi.mbo.MboRemote;
-import psdi.util.MXException;
+import psdi.bo.MboRemote;
+import psdi.util.CocoException;
 
 import com.talian.app.heli.Fleet;
 import com.talian.app.route.Leg;
@@ -27,7 +27,7 @@ public interface ReservationRemote extends MboRemote {
 	static public int PRIORITY_VIP_02 = 2 ;
 	static public int PRIORITY_NORMAL = 0 ;
 
-	public void readfromMbo () throws RemoteException, MXException ;
+	public void readfromMbo () throws RemoteException, CocoException ;
 	public Integer getId() throws RemoteException ;
 	public Integer getPriority() throws RemoteException ;
 	public boolean isBlockingVIP() throws RemoteException ;
@@ -49,6 +49,6 @@ public interface ReservationRemote extends MboRemote {
 	public void setLastETA (Double eta) throws RemoteException ;
 	public Double getEtd() throws RemoteException ;
 	public Double getEta() throws RemoteException ;
-	public String getEtdAsString() throws RemoteException, MXException ;
-	public String getEtaAsString() throws RemoteException, MXException ;
+	public String getEtdAsString() throws RemoteException, CocoException ;
+	public String getEtaAsString() throws RemoteException, CocoException ;
 }

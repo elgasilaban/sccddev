@@ -10,10 +10,11 @@
  */
 package com.talian.app.reservation;
 
-import java.rmi.RemoteException ;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 
-import psdi.mbo.MboSetRemote ;
-import psdi.util.MXException ;
+import psdi.mbo.MboSetRemote;
+import psdi.util.MXException;
 
 /**
  * @author Seno
@@ -21,4 +22,5 @@ import psdi.util.MXException ;
  */
 public interface ReservationSetRemote extends MboSetRemote {
 	public void rebuildSummaryTable () throws MXException, RemoteException ;
+	public ArrayList<ReservationRemote> breakIntoSubReservations(ArrayList<ReservationRemote> reservations) throws MXException, RemoteException;
 }

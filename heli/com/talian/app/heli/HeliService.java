@@ -19,8 +19,8 @@ import java.util.Date;
 import java.util.List;
 
 import psdi.server.AppService;
-import psdi.server.MXServer;
-import psdi.util.MXException;
+import psdi.server.CocoServer;
+import psdi.util.CocoException;
 import psdi.util.MXSystemException;
 import psdi.util.logging.FixedLoggerNames;
 import psdi.util.logging.MXLogger;
@@ -52,7 +52,7 @@ public class HeliService extends AppService implements HeliServiceRemote
         test = 0;
     }
 
-    public HeliService(MXServer mxServer) throws RemoteException
+    public HeliService(CocoServer mxServer) throws RemoteException
 	{
     	super(mxServer);
     }
@@ -67,7 +67,7 @@ public class HeliService extends AppService implements HeliServiceRemote
     	isRunning = isRun ;
     }
 
-    public void runScheduller(Date tripDate, String flightsession) throws RemoteException, MXException
+    public void runScheduller(Date tripDate, String flightsession) throws RemoteException, CocoException
     {
     	Scheduller scheduller = null ;
     	try {
@@ -80,7 +80,7 @@ public class HeliService extends AppService implements HeliServiceRemote
     			scheduller.stop() ;
     		throw re ;
     	}
-    	catch (MXException ce) {
+    	catch (CocoException ce) {
     		if (scheduller != null)
     			scheduller.stop() ;
     		throw ce ;
@@ -105,7 +105,7 @@ public class HeliService extends AppService implements HeliServiceRemote
 		}
     }
 
-    public List<String> getServiceLog () throws RemoteException, MXException {
+    public List<String> getServiceLog () throws RemoteException, CocoException {
     	synchronized (this) {
     		List<String> result = new ArrayList<String>() ;
     		result.addAll(servicelog) ;
@@ -114,7 +114,7 @@ public class HeliService extends AppService implements HeliServiceRemote
 		}
     }
 
-    public boolean isRunning (Date tripDate, String flightsession) throws RemoteException, MXException {
+    public boolean isRunning (Date tripDate, String flightsession) throws RemoteException, CocoException {
     	return Scheduller.isStarted(tripDate, flightsession) ;
     }
 

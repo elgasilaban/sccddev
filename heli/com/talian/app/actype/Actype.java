@@ -12,9 +12,9 @@ package com.talian.app.actype;
 
 import java.rmi.RemoteException;
 
-import psdi.mbo.Mbo;
-import psdi.mbo.MboSet;
-import psdi.util.MXException;
+import psdi.bo.Mbo;
+import psdi.bo.MboSet;
+import psdi.util.CocoException;
 
 /**
  * @author Seno
@@ -27,7 +27,7 @@ public class Actype extends Mbo implements ActypeRemote {
 	}
 
 	@Override
-	public void add() throws MXException, RemoteException {
+	public void add() throws CocoException, RemoteException {
 		super.add();
 	}
 

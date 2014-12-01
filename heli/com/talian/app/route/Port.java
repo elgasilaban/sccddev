@@ -12,8 +12,8 @@ package com.talian.app.route;
 
 import java.rmi.RemoteException;
 
-import psdi.mbo.MboRemote;
-import psdi.util.MXException;
+import psdi.bo.MboRemote;
+import psdi.util.CocoException;
 
 import com.talian.app.heli.Fleet;
 import com.talian.app.scenario.FlightScenario;
@@ -58,7 +58,7 @@ public class Port {
 		return port.toString();
 	}
 
-	public static Port readfromMBO (FlightScenario scenario, MboRemote mbo) throws RemoteException, MXException {
+	public static Port readfromMBO (FlightScenario scenario, MboRemote mbo) throws RemoteException, CocoException {
 		Port port = new Port(scenario) ;
 		port.port = mbo.getString("heliport") ;
 		port.point = WorldPoint.getPoint(mbo) ;
@@ -77,7 +77,7 @@ public class Port {
 		return super.equals(obj);
 	}
 
-	public void save (MboRemote mbo) throws RemoteException, MXException {
+	public void save (MboRemote mbo) throws RemoteException, CocoException {
 		if (scenario != null) {
 			mbo.setValue("heliport", port);
 		}

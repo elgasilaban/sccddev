@@ -14,10 +14,10 @@ import java.rmi.RemoteException ;
 import java.util.Date ;
 import java.util.Hashtable ;
 
-import psdi.mbo.MboRemote ;
-import psdi.mbo.MboSetRemote ;
-import psdi.server.MXServer ;
-import psdi.util.MXException ;
+import psdi.bo.MboRemote ;
+import psdi.bo.MboSetRemote ;
+import psdi.server.CocoServer ;
+import psdi.util.CocoException ;
 
 /**
  * @author Seno
@@ -25,7 +25,7 @@ import psdi.util.MXException ;
  */
 public class FleetSet {
 	public static Hashtable<String, Fleet> list = new Hashtable<String, Fleet> ();
-	public static void load (MboSetRemote set, Date dt, String flightsession) throws RemoteException, MXException {
+	public static void load (MboSetRemote set, Date dt, String flightsession) throws RemoteException, CocoException {
 		MboRemote mbo = set.moveFirst() ;
 		while (mbo != null) {
 			Fleet fl = Fleet.getInstance(mbo) ;
@@ -35,8 +35,8 @@ public class FleetSet {
 		}		
 	}
 	
-	public static void load (Date dt, String flightsession) throws RemoteException, MXException {
-		MXServer server = MXServer.getMXServer() ;
+	public static void load (Date dt, String flightsession) throws RemoteException, CocoException {
+		CocoServer server = CocoServer.getCocoServer() ;
 		MboSetRemote fleet = server.getMboSet("FLEET", server.getSystemUserInfo()) ;
 		load (fleet, dt, flightsession) ;
 	}

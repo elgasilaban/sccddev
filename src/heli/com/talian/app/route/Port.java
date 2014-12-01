@@ -15,7 +15,6 @@ import java.rmi.RemoteException;
 import psdi.mbo.MboRemote;
 import psdi.util.MXException;
 
-import com.talian.app.heli.Fleet;
 import com.talian.app.scenario.FlightScenario;
 import com.talian.app.world.WorldPoint;
 

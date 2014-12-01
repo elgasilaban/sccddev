@@ -13,8 +13,8 @@ package com.talian.app.schedulling.data;
 import java.rmi.RemoteException ;
 import java.util.Hashtable ;
 
-import psdi.mbo.MboRemote ;
-import psdi.util.MXException ;
+import psdi.bo.MboRemote ;
+import psdi.util.CocoException ;
 
 /**
  * @author Seno
@@ -118,7 +118,7 @@ public class Demand {
 	}
 	
 		
-	static Demand getInstance (MboRemote mbo) throws RemoteException, MXException {
+	static Demand getInstance (MboRemote mbo) throws RemoteException, CocoException {
 		Demand fl = new Demand (mbo) ;
 		fl.org = mbo.getString("org") ;
 		fl.dest = mbo.getString("dest") ;

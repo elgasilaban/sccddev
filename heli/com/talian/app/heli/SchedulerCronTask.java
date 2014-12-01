@@ -7,9 +7,9 @@ import java.rmi.RemoteException;
 
 import psdi.app.system.CrontaskInstanceRemote;
 import psdi.app.system.CrontaskParamInfo;
-import psdi.server.MXServer;
+import psdi.server.CocoServer;
 import psdi.server.SimpleCronTask;
-import psdi.util.MXException;
+import psdi.util.CocoException;
 import psdi.util.logging.FixedLoggerNames;
 import psdi.util.logging.MXLogger;
 import psdi.util.logging.MXLoggerFactory;
@@ -24,7 +24,7 @@ public class SchedulerCronTask extends SimpleCronTask {
 	 *
 	 */
 	public SchedulerCronTask() {
-		logger = MXLoggerFactory.getLogger(FixedLoggerNames.LOGGERNAME_MAXIMO);
+		logger = MXLoggerFactory.getLogger(FixedLoggerNames.LOGGERNAME_COCO);
 	}
 
 	/* (non-Javadoc)
@@ -35,7 +35,7 @@ public class SchedulerCronTask extends SimpleCronTask {
 		try {
 			logger.info(getLogMessage("-- PING : url " + this.getParamAsString("server") )) ;
 
-			HeliServiceRemote svc = (HeliServiceRemote)MXServer.getMXServer().lookup("HELI");
+			HeliServiceRemote svc = (HeliServiceRemote)CocoServer.getCocoServer().lookup("HELI");
 			if(svc.runSched()) {
 				logger.info("successfully running scheduler");
 			} else {
@@ -71,7 +71,7 @@ public class SchedulerCronTask extends SimpleCronTask {
 		return instanceName ;
 	}
 
-	public CrontaskParamInfo[] getParameters() throws MXException, RemoteException
+	public CrontaskParamInfo[] getParameters() throws CocoException, RemoteException
 	{
 		try
 		{

@@ -10,10 +10,7 @@
  */
 package com.talian.app.scenresv;
 
-import java.rmi.RemoteException;
-
 import psdi.mbo.MboRemote;
-import psdi.util.MXException;
 
 /**
  * @author Elga

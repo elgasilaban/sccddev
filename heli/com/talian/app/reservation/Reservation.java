@@ -23,11 +23,11 @@ import jxl.Cell;
 import jxl.CellType;
 import jxl.Sheet;
 import jxl.Workbook;
-import psdi.mbo.Mbo;
-import psdi.mbo.MboRemote;
-import psdi.mbo.MboSet;
-import psdi.mbo.MboSetRemote;
-import psdi.util.MXException;
+import psdi.bo.Mbo;
+import psdi.bo.MboRemote;
+import psdi.bo.MboSet;
+import psdi.bo.MboSetRemote;
+import psdi.util.CocoException;
 
 import com.talian.app.heli.Fleet;
 import com.talian.app.route.Leg;
@@ -115,8 +115,8 @@ public class Reservation extends Mbo implements ReservationRemote {
 		dummyRefueling = dummy ;
 	}
 
-	public void readfromMbo () throws RemoteException, MXException {
-		reservationid = getInt ("areservationid") ;
+	public void readfromMbo () throws RemoteException, CocoException {
+		reservationid = getInt ("reservationid") ;
 		setOrg(getString ("org")) ;
 		setDest(getString ("dest")) ;
 		setPaxName(getString ("displayname")) ;
@@ -131,7 +131,7 @@ public class Reservation extends Mbo implements ReservationRemote {
 			priority = PRIORITY_NORMAL ;
 	}
 
-	static public ReservationRemote readfromMBO (MboRemote mbo) throws RemoteException, MXException {
+	static public ReservationRemote readfromMBO (MboRemote mbo) throws RemoteException, CocoException {
 		ReservationRemote resv = (ReservationRemote)mbo;
 		resv.readfromMbo() ;
 		return resv ;
@@ -202,11 +202,11 @@ public class Reservation extends Mbo implements ReservationRemote {
 		return eta;
 	}
 
-	public String getEtdAsString() throws RemoteException, MXException {
+	public String getEtdAsString() throws RemoteException, CocoException {
 		return toNormalTime(toStdTime(getString("flightsession")), etd);
 	}
 
-	public String getEtaAsString() throws RemoteException, MXException {
+	public String getEtaAsString() throws RemoteException, CocoException {
 		return toNormalTime(toStdTime(getString("flightsession")), eta);
 	}
 

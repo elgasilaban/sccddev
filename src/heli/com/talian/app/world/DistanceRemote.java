@@ -10,7 +10,7 @@
  */
 package com.talian.app.world;
 
-import psdi.mbo.MboRemote ;
+import psdi.mbo.MboRemote;
 
 /**
  * @author Seno

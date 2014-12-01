@@ -16,11 +16,11 @@ import java.util.HashSet ;
 import java.util.Hashtable ;
 import java.util.Set ;
 
-import psdi.mbo.MboRemote ;
-import psdi.mbo.MboSetRemote ;
-import psdi.mbo.SqlFormat ;
-import psdi.server.MXServer ;
-import psdi.util.MXException ;
+import psdi.bo.MboRemote ;
+import psdi.bo.MboSetRemote ;
+import psdi.bo.SqlFormat ;
+import psdi.server.CocoServer ;
+import psdi.util.CocoException ;
 
 /**
  * @author Seno
@@ -46,7 +46,7 @@ public class DemandSet {
 		return demandset ;
 	}
 	
-	public void load (MboSetRemote set, Date dt, String flightsession) throws RemoteException, MXException {
+	public void load (MboSetRemote set, Date dt, String flightsession) throws RemoteException, CocoException {
 		list.clear() ;
 		portlist.clear() ;
 		
@@ -91,8 +91,8 @@ public class DemandSet {
 		}		
 	}
 	
-	public static void load (Date dt, String flightsession) throws RemoteException, MXException {
-		MXServer server = MXServer.getMXServer() ;
+	public static void load (Date dt, String flightsession) throws RemoteException, CocoException {
+		CocoServer server = CocoServer.getCocoServer() ;
 		MboSetRemote reservation = server.getMboSet("RESERVSUM", server.getSystemUserInfo()) ;
 		SqlFormat sqf = new SqlFormat("tripdate=:0 and flightsession=:1") ;
 		sqf.setDate(0, dt) ;

@@ -16,18 +16,18 @@ import java.util.List ;
 
 import com.talian.app.scenario.FlightScenario;
 
-import psdi.mbo.MboRemote;
-import psdi.mbo.MboSetRemote;
+import psdi.bo.MboRemote;
+import psdi.bo.MboSetRemote;
 import psdi.server.AppServiceRemote;
-import psdi.util.MXException;
+import psdi.util.CocoException;
 
 /**
  * @author Seno
  *
  */
 public interface HeliServiceRemote extends AppServiceRemote {
-	public void runScheduller(Date tripDate, String flightsession) throws RemoteException, MXException ;
-	public boolean isRunning (Date tripDate, String flightsession) throws RemoteException, MXException ;
+	public void runScheduller(Date tripDate, String flightsession) throws RemoteException, CocoException ;
+	public boolean isRunning (Date tripDate, String flightsession) throws RemoteException, CocoException ;
 
     public boolean isSchedullerRunning ()  throws RemoteException ;
     public void setSchedullerRunning (boolean isRun)  throws RemoteException ;
@@ -37,6 +37,6 @@ public interface HeliServiceRemote extends AppServiceRemote {
     public List<FlightScenario> getScenarioList ()  throws RemoteException ;
 
     public void putLog (String s) throws RemoteException ;
-	public List<String> getServiceLog () throws RemoteException, MXException  ;
+	public List<String> getServiceLog () throws RemoteException, CocoException  ;
 	public boolean runSched() throws RemoteException ;
 }

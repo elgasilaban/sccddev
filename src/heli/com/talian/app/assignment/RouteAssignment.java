@@ -13,8 +13,10 @@ package com.talian.app.assignment;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 import psdi.mbo.MboRemote;
 import psdi.mbo.MboSetRemote;
@@ -26,6 +28,7 @@ import com.talian.app.heli.Fleet;
 import com.talian.app.heli.HeliServiceRemote;
 import com.talian.app.reservation.Reservation;
 import com.talian.app.reservation.ReservationRemote;
+import com.talian.app.reservation.ReservationSetRemote;
 import com.talian.app.route.Port;
 import com.talian.app.route.Route;
 import com.talian.app.scenario.FlightScenario;
@@ -37,8 +40,8 @@ import com.talian.app.scenario.FlightScenario;
 public class RouteAssignment {
 	FlightScenario scenref ;
 	ArrayList<ReservationRemote> reservations ;
+	ArrayList<ReservationRemote> reservations2;
 	HashMap<String, ReservationRemote> refuelings ;
-	HashMap<String, ReservationRemote> roundTrip ;
 	HeliServiceRemote svcHeli ;
 	Double minScore ;
 	Double maxScore;
@@ -51,8 +54,8 @@ public class RouteAssignment {
 	public RouteAssignment (FlightScenario scen, HeliServiceRemote svcHeli) {
 		scenref = scen ;
 		reservations = new ArrayList<ReservationRemote> ();
+		reservations2 = new ArrayList<ReservationRemote> ();
 		refuelings = new HashMap<String,ReservationRemote>() ;
-		roundTrip = new HashMap<String,ReservationRemote>() ;
 		minScore = Double.MAX_VALUE ;
 		maxScore = Double.MAX_VALUE;
 		this.svcHeli = svcHeli ;
@@ -62,7 +65,7 @@ public class RouteAssignment {
 		MXSession s = scenref.getMXSession() ;
 		if (s != null) {
 			String flightsession = scenref.getFlightSession() ;
-			MboSetRemote rset = s.getMboSet("ARESERVATION") ;
+			ReservationSetRemote rset = (ReservationSetRemote)s.getMboSet("RESERVATION") ;
 			if (flightsession != null) {
 				SqlFormat sqf = new SqlFormat("reservedate=:1 and flightsession='" +flightsession+ "' and paxstatus=1") ;
 				sqf.setDate(1, scenref.getDate()) ;
@@ -100,6 +103,7 @@ public class RouteAssignment {
 					}
 				}
 			}
+			reservations2 = rset.breakIntoSubReservations(reservations);
 		}
 	}
 
@@ -175,7 +179,61 @@ public class RouteAssignment {
 		}
 		return modifiedScore;
 	}
+	
+	public ArrayList<ReservationRemote> randomByTripGroup(ReservationSetRemote reservationSet) throws RemoteException, MXException {
+		ArrayList<ReservationRemote> subReservationList = new ArrayList<ReservationRemote> ();
+		ReservationRemote reservation = (ReservationRemote) reservationSet.moveFirst();
+		int processno = reservation.getInt("PROCESS"); 
+		int parent = reservation.getInt("parent");
+		HashSet<String> tripgroup = new HashSet<String>();
+		while (reservation != null) {
+			tripgroup.add(reservation.getString("TRIPGROUP"));
+			reservation = (ReservationRemote) reservationSet.moveNext();
+		}
+		Random random = new Random();
+		int idx = random.nextInt(tripgroup.size());
+		
+		MXSession s = scenref.getMXSession();
+		ReservationSetRemote reservationSet1 = (ReservationSetRemote) s.getMboSet("reservation");
+		
+		reservationSet1.setWhere("process ="+ processno +" and parent ='"+ parent +"' and tripgroup= '"+tripgroup.toArray()[idx]+"'");
+		
+		ReservationRemote reservation2 =  (ReservationRemote) reservationSet1.moveFirst();
+		while (reservation2 != null) {
+			reservation2.readfromMbo();
+			subReservationList.add(reservation2);
+			reservation2 = (ReservationRemote)reservationSet1.moveNext();
+		}
+		return subReservationList;
+	}
 
+	public ArrayList<ReservationRemote> randomSubReservations(ArrayList<ReservationRemote> reservations) throws RemoteException, MXException {
+		ArrayList<ReservationRemote> randomSubReservationList = new ArrayList<ReservationRemote>();
+		if (reservations.size() > 0) {
+			//get process number
+			ReservationRemote resv = reservations.get(0);
+			int processno = resv.getInt("PROCESS");
+			
+			//get list of "parent reservation"
+			Iterator<ReservationRemote> it2 = reservations.iterator();
+			HashSet<Integer> parentResv = new HashSet<Integer>();
+			while(it2.hasNext())
+			{
+			    ReservationRemote resv2 = it2.next();
+			    parentResv.add(resv2.getInt("PARENT"));
+			}
+					
+			//get sub reservation by process number and parent reservation
+			Iterator<Integer> it3 = parentResv.iterator();
+			while(it3.hasNext())
+			{
+				ReservationSetRemote reservationSet = (ReservationSetRemote)resv.getMboSet("#SUBRESV", "RESERVATION", " PROCESS="+processno + " and parent='"+it3.next()+"'");
+				randomSubReservationList.addAll(randomByTripGroup(reservationSet));
+			}
+		}
+		return randomSubReservationList;
+	}
+	
 	// maxtime in miliseconds
 	public List<FlightScenario> findNBest (int n, long maxtime, boolean isResume, List<FlightScenario> oldResult) throws RemoteException, MXException {
 		List<FlightScenario> result = null;
@@ -352,7 +410,7 @@ public class RouteAssignment {
 		ReservationRemote r = refuelings.get(fleet.acreg) ;
 		if (r==null) {
 			MXSession s = scenref.getMXSession() ;
-			MboSetRemote rset = s.getMboSet("ARESERVATION") ;
+			MboSetRemote rset = s.getMboSet("RESERVATION") ;
 			r = (ReservationRemote)rset.getZombie() ;
 			r.setDummyRefueling(true) ;
 			// r = new Reservation((MboSet)rset, 0, true) ;
@@ -392,30 +450,18 @@ public class RouteAssignment {
 				modifyRefueling(scenario) ;
 
 			resetReservationTiming() ;
-			resvVal.addAll(reservations) ;
+			
+//			resvVal.addAll(reservations2) ;
+			resvVal.addAll(randomSubReservations(reservations2));
+			
+			//random group
+			
 
 			int divergenCount = 0 ;
 			int previdx = -1 ;
 			boolean lastSuccess = false ;
 			ReservationRemote lastResv = null ;
 			Fleet lastFleet = null ;
-			
-			int totCap = 0;
-			int maxCap = 0;
-			
-			
-			
-			HashMap<String, Fleet> testAvail = scenario.getAvailableFleet() ;
-			Iterator<String> its = testAvail.keySet().iterator() ;
-			for (int i=0; its.hasNext(); i++) {
-				Fleet flt = testAvail.get(its.next()) ;
-
-				 maxCap += flt.getCapacity();				
-			}
-			
-			System.err.println("size: " + resvVal.size());
-			System.err.println("total capacity: " + maxCap);
-			
 			while (!resvVal.isEmpty() && divergenCount < MAX_ITTERATION) {
 				if (svcHeli.isStopping())
 					break ;
@@ -525,14 +571,7 @@ public class RouteAssignment {
 								}
 							}
 						}
-					} //else {
-						//call back the vehicle
-//						System.err.println("%%%%%%%%%%%%%% passed");
-//						Fleet fleet2 = scenario.getFleetArray()[0];
-//						Route route99 = fleet2.getRoute();
-//						route99.addPortAtEnd(resvVal.get(0));
-					//}
-					
+					}
 				}
 
 				if (testroute.isValid()) {
@@ -565,7 +604,6 @@ public class RouteAssignment {
 
 			if (! resvVal.isEmpty()) {
 				System.out.println("===== Number of reservation left = " + resvVal.size()) ;
-								
 				scenario = null ;
 			}
 		}
@@ -604,18 +642,37 @@ public class RouteAssignment {
 	}
 
 
-	private int getRandomReservation (ArrayList<ReservationRemote> resvs, int previdx, boolean lastSuccess) {
+	private int getRandomReservation (ArrayList<ReservationRemote> resvs, int previdx, boolean lastSuccess) throws RemoteException, MXException {
 		int size = resvs.size() ;
 		if ((previdx < 0) || (previdx >= size) || (lastSuccess==false)) {
-			return getRandomNumber(size) ;
+			// first check if the reservation is a subreservation (group is not null)
+			// then check the remaining min sequence. compare!
+			int tempridx = getRandomNumber(size);
+			ReservationRemote tempResv1 =  resvs.get(tempridx);
+			MboSetRemote tempResvSet = tempResv1.getMboSet("subreservation");
+			if (tempResvSet.getSize() > 0) {
+				tempResvSet.setOrderBy("reservationid asc");
+				MboRemote tempResv2 = tempResvSet.moveNext();
+				if (tempResv1.getInt("reservationid") > tempResv2.getInt("reservationid")) {
+					getRandomReservation (resvs, previdx, lastSuccess);
+				}
+				else {
+					return  tempridx;
+				}
+			}
+			
 		}
-
 		return previdx ;
 	}
 
 	private int getRandomNumber (int max) {
 		Double rNum = Math.floor(Math.random() * max) ;
 		return rNum.intValue() ;
+	}
+	
+	private int randomArray(){
+		
+		return 1;
 	}
 
 	private Port getRandomRefuelingPort (FlightScenario scen) throws RemoteException, MXException {
@@ -678,7 +735,8 @@ public class RouteAssignment {
 	}
 
 	private Fleet dogetRandomFleet (FlightScenario scen, ReservationRemote resv) throws RemoteException, MXException {
-		Fleet[] fleets = scen.getFleetArray() ;
+//		Fleet[] fleets = scen.getFleetArray();
+		Fleet[] fleets = scen.getFleetArrayByModal(resv);
 		Integer[]  sumweights = new Integer[fleets.length] ;
 
 		Integer ttlweight = 0 ;

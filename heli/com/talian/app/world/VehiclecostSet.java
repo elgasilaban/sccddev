@@ -5,12 +5,15 @@ package com.talian.app.world;
 
 import java.rmi.RemoteException;
 
-import psdi.mbo.Mbo;
-import psdi.mbo.MboRemote;
-import psdi.mbo.MboServerInterface;
-import psdi.mbo.MboSet;
-import psdi.mbo.MboSetRemote;
-import psdi.util.MXException;
+import com.talian.app.acreg.AcregSet;
+import com.talian.app.acreg.AcregSetRemote;
+
+import psdi.bo.Mbo;
+import psdi.bo.MboRemote;
+import psdi.bo.MboServerInterface;
+import psdi.bo.MboSet;
+import psdi.bo.MboSetRemote;
+import psdi.util.CocoException;
 
 /**
  * @author THINKPAD
@@ -27,12 +30,11 @@ public class VehiclecostSet extends MboSet implements VehiclecostSetRemote {
 	 * @see com.talian.app.world.VehiclecostSetRemote#calculateVehicleCostTable()
 	 */
 	@Override
-	public void calculateVehicleCostTable() throws MXException, RemoteException {
+	public void calculateVehicleCostTable() throws CocoException, RemoteException {
 		this.deleteAll();
 		MboServerInterface server = getMboServer();
 		
 		MboSetRemote distances = server.getMboSet("distance", this.getUserInfo());
-		distances.setWhere("fromport in (select heliport from heliport where portstatus = 'OPEN') and toport in (select heliport from heliport where portstatus = 'OPEN')");
 		int cnt1 = distances.count();
 		
 		MboSetRemote acregs = server.getMboSet("acreg", this.getUserInfo());
@@ -56,9 +58,9 @@ public class VehiclecostSet extends MboSet implements VehiclecostSetRemote {
 	 * @see psdi.mbo.MboSet#getMboInstance(psdi.mbo.MboSet)
 	 */
 	@Override
-	protected Mbo getMboInstance(MboSet ms) throws MXException,
+	protected Mbo getMboInstance(MboSet arg0) throws CocoException,
 			RemoteException {
-		return new Vehiclecost(ms);
+		return null;
 	}
 
 }

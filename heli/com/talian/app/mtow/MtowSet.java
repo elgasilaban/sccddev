@@ -12,17 +12,19 @@ package com.talian.app.mtow;
 
 import java.rmi.RemoteException;
 
-import psdi.mbo.Mbo;
-import psdi.mbo.MboRemote;
-import psdi.mbo.MboServerInterface;
-import psdi.mbo.MboSet;
-import psdi.util.MXException;
+import psdi.bo.Mbo;
+import psdi.bo.MboRemote;
+import psdi.bo.MboServerInterface;
+import psdi.bo.MboSet;
+import psdi.util.CocoException;
 
+import com.talian.web20.direct.annotation.SerializedBO;
 
 /**
  * @author Seno
  *
  */
+@SerializedBO
 public class MtowSet extends MboSet implements MtowSetRemote {
 
 	/**
@@ -37,7 +39,7 @@ public class MtowSet extends MboSet implements MtowSetRemote {
 	 * @see psdi.bo.MboSet#getMboInstance(psdi.bo.MboSet)
 	 */
 	@Override
-	protected Mbo getMboInstance(MboSet ms) throws MXException,
+	protected Mbo getMboInstance(MboSet ms) throws CocoException,
 			RemoteException {
 		return new Mtow(ms) ;
 	}

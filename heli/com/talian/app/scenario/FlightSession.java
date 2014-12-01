@@ -6,9 +6,9 @@ package com.talian.app.scenario;
 import java.rmi.RemoteException;
 import java.util.Date;
 
-import psdi.mbo.MboRemote;
-import psdi.mbo.MboSetRemote;
-import psdi.util.MXException;
+import psdi.bo.MboRemote;
+import psdi.bo.MboSetRemote;
+import psdi.util.CocoException;
 import psdi.util.MXSession;
 
 /**
@@ -29,7 +29,7 @@ public class FlightSession {
 	public FlightSession(){
 	}
 
-	static public FlightSession newRecord (MXSession session, String flightsession, Date reserveDate) throws RemoteException, MXException {
+	static public FlightSession newRecord (MXSession session, String flightsession, Date reserveDate) throws RemoteException, CocoException {
 		MboSetRemote mboset = session.getMboSet ("flightsession");
 
 		FlightSession fs = new FlightSession();
@@ -44,7 +44,7 @@ public class FlightSession {
 		return fs;
 	}
 
-	public void save() throws RemoteException , MXException {
+	public void save() throws RemoteException , CocoException {
 		if (mbo == null)
 			return;
 

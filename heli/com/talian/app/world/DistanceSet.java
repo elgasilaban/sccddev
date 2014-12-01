@@ -13,12 +13,12 @@ package com.talian.app.world;
 import java.rmi.RemoteException ;
 import java.util.ArrayList ;
 
-import psdi.mbo.Mbo ;
-import psdi.mbo.MboRemote ;
-import psdi.mbo.MboServerInterface ;
-import psdi.mbo.MboSet ;
-import psdi.mbo.MboSetRemote ;
-import psdi.util.MXException ;
+import psdi.bo.Mbo ;
+import psdi.bo.MboRemote ;
+import psdi.bo.MboServerInterface ;
+import psdi.bo.MboSet ;
+import psdi.bo.MboSetRemote ;
+import psdi.util.CocoException ;
 
 /**
  * @author Seno
@@ -39,16 +39,18 @@ public class DistanceSet extends MboSet implements DistanceSetRemote {
 	 * @see psdi.bo.MboSet#getMboInstance(psdi.bo.MboSet)
 	 */
 	@Override
-	protected Mbo getMboInstance(MboSet ms) throws MXException,
+	protected Mbo getMboInstance(MboSet ms) throws CocoException,
 			RemoteException {
 		return new Distance(ms) ;
 	}
 
-	public void rebuildDistanceTable () throws MXException, RemoteException {
+	public void rebuildDistanceTable () throws CocoException, RemoteException {
 		this.deleteAll() ;
 
 		MboServerInterface server = getMboServer() ;
 		MboSetRemote ports = server.getMboSet("heliport", this.getUserInfo()) ;
+		ports.setWhere("portstatus = 'ACTIVE'");
+		ports.moveFirst();
 		int cnt = ports.count() ;
 
 		for (int i=0; i<cnt; i++)

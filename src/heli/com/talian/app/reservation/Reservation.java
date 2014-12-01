@@ -29,7 +29,6 @@ import psdi.mbo.MboSet;
 import psdi.mbo.MboSetRemote;
 import psdi.util.MXException;
 
-import com.talian.app.heli.Fleet;
 import com.talian.app.route.Leg;
 
 /**
@@ -116,7 +115,7 @@ public class Reservation extends Mbo implements ReservationRemote {
 	}
 
 	public void readfromMbo () throws RemoteException, MXException {
-		reservationid = getInt ("areservationid") ;
+		reservationid = getInt ("reservationid") ;
 		setOrg(getString ("org")) ;
 		setDest(getString ("dest")) ;
 		setPaxName(getString ("displayname")) ;

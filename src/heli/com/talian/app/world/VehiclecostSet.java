@@ -32,7 +32,6 @@ public class VehiclecostSet extends MboSet implements VehiclecostSetRemote {
 		MboServerInterface server = getMboServer();
 		
 		MboSetRemote distances = server.getMboSet("distance", this.getUserInfo());
-		distances.setWhere("fromport in (select heliport from heliport where portstatus = 'OPEN') and toport in (select heliport from heliport where portstatus = 'OPEN')");
 		int cnt1 = distances.count();
 		
 		MboSetRemote acregs = server.getMboSet("acreg", this.getUserInfo());
@@ -56,9 +55,9 @@ public class VehiclecostSet extends MboSet implements VehiclecostSetRemote {
 	 * @see psdi.mbo.MboSet#getMboInstance(psdi.mbo.MboSet)
 	 */
 	@Override
-	protected Mbo getMboInstance(MboSet ms) throws MXException,
+	protected Mbo getMboInstance(MboSet arg0) throws MXException,
 			RemoteException {
-		return new Vehiclecost(ms);
+		return null;
 	}
 
 }

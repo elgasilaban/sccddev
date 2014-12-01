@@ -22,6 +22,7 @@ public class BasicFleet {
 	public Double refuelingtime ;
 	public Double oatbase ;
 	public String status;
+	public String moda;
 
 	public BasicFleet basicCopy(){
 		BasicFleet bi = new BasicFleet();
@@ -44,6 +45,7 @@ public class BasicFleet {
 		bi.refuelingtime = refuelingtime ;
 		bi.oatbase = oatbase ;
 		bi.status = status;
+		bi.moda = moda;
 
 		return bi;
 	}
@@ -87,5 +89,7 @@ public class BasicFleet {
 			oatbase = new Double(map.get("oatbase")) ;
 		if (map.containsKey("status"))
 			status = map.get("status");
+		if (map.containsKey("moda"))
+			status = map.get("moda");
 	}
 }
